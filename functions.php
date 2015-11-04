@@ -312,7 +312,6 @@ function startTraining($session){
 		returnHome();
 
 	header('Location: training_template.php?stat=0');
-	die();
 
 }
 
