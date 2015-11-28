@@ -1,18 +1,28 @@
 {
-	"nombre": "Magikarp",
+	"nombre": "Gulpin",
 	"stat_name": "hp",
-	"stat_value": 10,
+	"stat_value": 5,
 	"game": 0
 },
 {
-	"nombre": "Magikarp",
+	"nombre": "Whismur",
 	"stat_name": "hp",
-	"stat_value": 10,
+	"stat_value": 5,
 	"game": 0
 },
 {
-	"nombre": "Magikarp",
+	"nombre": "Slowpoke",
 	"stat_name": "hp",
-	"stat_value": 10,
+	"stat_value": 5,
 	"game": 0
-}
+},
+{
+	"nombre": "Foongus",
+	"stat_name": "hp",
+	"stat_value": 5,
+	"game": 0
+},
+
+
+
+
