@@ -5,6 +5,7 @@ database.php
 database.txt
 test.php
 test_pre.php
+*.codekit
 
 # Folder config file
 Desktop.ini
