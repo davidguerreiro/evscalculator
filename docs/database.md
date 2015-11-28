@@ -41,7 +41,3 @@ Field | Type | Description
 **name** | VARCHAR(50) NOT_NULL DEFAULT ''| The name of the user
 **email** | VARCHAR(255) NOT_NULL DEFAULT '' | The email address of the user
 **timestamp** | TIMESTAMP |
-
-Please check the new database diagram, make and comment any change that you consider relevant ASAP because **I'm going to install and test the DB in the server tomorrow in the morning**.
-
-Thanks.
