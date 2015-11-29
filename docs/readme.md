@@ -82,6 +82,7 @@ Every Pokémon can give us 1, 2 or 3 EVs depending of the specie. For example, e
 Every Pokémon has 6 stats which, along with the IVs and other stuff, define the final amount of HP, Attack, Defense, Special Attack, Special Defense and Speed that the Pokémon has in each level.
 
 ![stats](http://www.serebii.net/xy/alakastat.jpg)
+
 This image shows Alakazam stats
 
 Every Pokémon has six stats:
