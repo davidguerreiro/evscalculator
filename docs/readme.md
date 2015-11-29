@@ -15,14 +15,13 @@ There are many ways of gaining EVs. For now, we are only focusing on combats wit
 
 Effort Values can have a huge impact on your Pokémon and the battles they participate in. EVs will let Swampert survive Hidden Power Grass, or will let Skarmory outspeed Magneton, and many other things. Having a proper EV spread (distribution of EVs on a Pokémon) can mean the difference between a win and a loss.
 
-<<<<<<< HEAD
+
 A total of **252 EV points can be put onto any one stat**, and a total of **510 points total can be given to any Pokémon**. However, it is important to note that a stat will only increase after every four EV points. In other words, putting 12 EVs and putting 15 EVs both result in the same thing: a 3 point increase to the stat.
 
 ![Evs Graphic](http://www.serebii.net/xy/ct2.jpg)
 A graphic showing how the evs are distributed among the stats
-=======
 EVs are hidden values related with a PoKémon and its stats. Some details about EVs:
->>>>>>> origin/master
+
 
 * A PoKémon can have up to **510 EVs** assigned.
 * Each EV is related with a stat (HP, Attack, Defense, Sp. Attack, Sp. Defense, Speed).
