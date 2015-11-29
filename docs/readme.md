@@ -7,26 +7,39 @@ This contains all the details about EVs Calculator, including its behaviour and 
 - [Adding EVs](adding-evs.md): All about hordes, vitamins and manual inputs.
 
 
-#Some stuff we must know
+##Introduction
 
-##Evs
+This tools helps PoKémon trainers keep track of the Effort Values (or EVs for short) a specific PoKémon gains during its training period, achieving the desired EV spread.
 
-###Introduction
+There are many ways of gaining EVs. For now, we are only focusing on combats with hordes (with all the object combinations), vitamins and berrys.
 
-Effort Values, or EVs for short, can have a huge impact on your Pokémon and the battles they participate in. EVs will let Swampert survive Hidden Power Grass, or will let Skarmory outspeed Magneton, and many other things. Having a proper EV spread (distribution of EV points on a Pokémon) can mean the difference between a win and a loss.
+Effort Values can have a huge impact on your Pokémon and the battles they participate in. EVs will let Swampert survive Hidden Power Grass, or will let Skarmory outspeed Magneton, and many other things. Having a proper EV spread (distribution of EVs on a Pokémon) can mean the difference between a win and a loss.
 
+<<<<<<< HEAD
 A total of **252 EV points can be put onto any one stat**, and a total of **510 points total can be given to any Pokémon**. However, it is important to note that a stat will only increase after every four EV points. In other words, putting 12 EVs and putting 15 EVs both result in the same thing: a 3 point increase to the stat.
 
 ![Evs Graphic](http://www.serebii.net/xy/ct2.jpg)
 A graphic showing how the evs are distributed among the stats
+=======
+EVs are hidden values related with a PoKémon and its stats. Some details about EVs:
+>>>>>>> origin/master
 
-* Pokemon gain Evs whenever the gain experience; if you're not starting with a freshly hatched Pokémon, you will probably need to reset its EVs with a Reset Bag first.
-* Pokerus doubles the EVs gained per Pokémon defeated
-* Macho Brace doubles the EVs gained per Pokémon defeated
-* Power items add +4 in a specific stat to the Evs gained per Pokemon defeated
-* With Exp. Share ON, all Pokemon in the party gain EVs
+* A PoKémon can have up to **510 EVs** assigned.
+* Each EV is related with a stat (HP, Attack, Defense, Sp. Attack, Sp. Defense, Speed).
+* A stat can have up to **255 EVs** asigned.
+* Every four EVs on a stat, the PoKémon gains a point on it. This usually means that trainers never assign 255 EVs to a stat but **252 EVs**, because the 3 EVs don't make much difference.
 
-###Modifying Ev Gain
+Now trainers want to have a specific EV spread for specific PoKémon. They usually start the training with **0 EVs** on each stat. If you're not starting with a freshly hatched Pokémon, you will probably need to reset its EVs with a Reset Bag first. 
+
+Then, they focus on the stats they want to have highest EV count on. Given the 510 across limit, they usually limit it to 2 stats, so that'd be our default behaviour. So that means the most common EV spread is:
+
+* 2 stats with 252 EVs = 504
+* A third stat with remaining EVs (6), only worth ones = 4  
+TOTAL = 508 EVs / 510 limit
+
+The remaining 2 EVs are unused as they don't make a difference.
+
+###Modifying EV gain
 
 Basically, we can modify the way we gain EVs altering our Pokémon's status or attaching a boost item:
 
@@ -39,6 +52,7 @@ Basically, we can modify the way we gain EVs altering our Pokémon's status or a
 	* ![Power Lens](http://vignette4.wikia.nocookie.net/es.pokemon/images/9/91/Lente_recia.png/revision/latest?cb=20090702125257&format=webp) **Power Lens** : Adds +4 EVs in Special Attack
 	* ![Power Band](http://vignette2.wikia.nocookie.net/es.pokemon/images/7/76/Banda_recia.png/revision/latest?cb=20090701200836) **Power Band** : Adds +4 EVs in Special Defense
 	* ![Power Anklet](http://vignette1.wikia.nocookie.net/es.pokemon/images/1/1f/Franja_recia.png/revision/latest?cb=20091010154647&format=webp) **Power Anklet** : Adds +4 EVs in Speed
+
 
 ###Calculations for EVs per Pokemon
 
