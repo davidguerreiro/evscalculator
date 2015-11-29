@@ -111,7 +111,7 @@ Special Defense | ![Swablu](http://www.smogon.com/dex/media/sprites/xyicons/swab
 Speed | ![Zigzagoon](http://www.smogon.com/dex/media/sprites/xyicons/zigzagoon.png) | Zigzagoon | 1 Spe | 5 Spe
 
 
-#Vitamins
+##Vitamins
 
 Vitamins can also speed up the EV training process. There are **six different vitamins, one for each stat**, and **each vitamin adds 10 EVs** and increases your Pokémon's happiness. Unfortunately, **vitamins cannot be used on stats that already have 100 EVs on them**, which means you will still need to do some EV training. Regardless, they do save time. I recommend you save your money until a day where all vitamins are half-priced (it will be announced on TV), and splurge away. Here is what each vitamin does:
 
@@ -122,4 +122,14 @@ Vitamins can also speed up the EV training process. There are **six different vi
 * ![Zinc](http://vignette1.wikia.nocookie.net/es.pokemon/images/c/cb/Zinc.png/revision/latest?cb=20090701092944)Zinc raises Special Defense
 * ![Carbos](http://vignette3.wikia.nocookie.net/es.pokemon/images/b/b4/Carburante.png/revision/latest?cb=20090623102805)Carbos raises Speed
 
+##EV Reducing Berries
 
+The EV reducing berries are a set of berries introduced in Pokemon Emerald that reduce your Pokemon's EVs by 10 with every use.
+Unlike Vitamins, there are no restrictions or limitations with berries, so it means that the player can use them as many as he wants.
+
+* ![Pomeg Berry](http://vignette1.wikia.nocookie.net/es.pokemon/images/6/66/Grana.png/revision/latest?cb=20070313191019) **Pomeg Berry** : Removes 10 HP EVs
+* ![Kelpsy Berry](http://vignette4.wikia.nocookie.net/es.pokemon/images/5/59/Algama.png/revision/latest?cb=20070313194112) **Kelpsy Berry** : Removes 10 Attack EVs
+* ![Qualot Berry](http://vignette1.wikia.nocookie.net/es.pokemon/images/6/69/Ispero.png/revision/latest?cb=20070313195924) **Qualot Berry** : Removes 10 Defense EVs
+* ![Hondew Berry](http://vignette4.wikia.nocookie.net/es.pokemon/images/1/14/Meluce.png/revision/latest?cb=20070313201706) **Hondew Berry** : Removes 10 Special Attack EVs
+* ![Grepa Berry](http://vignette3.wikia.nocookie.net/es.pokemon/images/8/87/Uvav.png/revision/latest?cb=20070313203035) **Grepa Berry** : Removes 10 Special Defense EVs
+* ![Tamato Berry](http://vignette4.wikia.nocookie.net/es.pokemon/images/6/60/Tamate.png/revision/latest?cb=20070316164723) **Tamato Berry** : Removes 10 Speed EVs

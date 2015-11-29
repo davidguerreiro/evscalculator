@@ -15,7 +15,10 @@ This contains all the details about EVs Calculator, including its behaviour and 
 
 Effort Values, or EVs for short, can have a huge impact on your Pokémon and the battles they participate in. EVs will let Swampert survive Hidden Power Grass, or will let Skarmory outspeed Magneton, and many other things. Having a proper EV spread (distribution of EV points on a Pokémon) can mean the difference between a win and a loss.
 
-A total of **255 EV points can be put onto any one stat**, and a total of **510 points total can be given to any Pokémon**. However, it is important to note that a stat will only increase after every four EV points. In other words, putting 12 EVs and putting 15 EVs both result in the same thing: a 3 point increase to the stat.
+A total of **252 EV points can be put onto any one stat**, and a total of **510 points total can be given to any Pokémon**. However, it is important to note that a stat will only increase after every four EV points. In other words, putting 12 EVs and putting 15 EVs both result in the same thing: a 3 point increase to the stat.
+
+![Evs Graphic](http://www.serebii.net/xy/ct2.jpg)
+A graphic showing how the evs are distributed among the stats
 
 * Pokemon gain Evs whenever the gain experience; if you're not starting with a freshly hatched Pokémon, you will probably need to reset its EVs with a Reset Bag first.
 * Pokerus doubles the EVs gained per Pokémon defeated
@@ -32,7 +35,7 @@ Basically, we can modify the way we gain EVs altering our Pokémon's status or a
 * **Power Items** : give 4 additional EV points to the corresponding stat, halves holder's Speed, can be combined with Pokérus
 	* ![Power Weight](http://vignette4.wikia.nocookie.net/es.pokemon/images/5/50/Pesa_recia.png/revision/latest?cb=20091010155052&format=webp) **Power Weight** : Adds +4 EVs in HP
 	* ![Power Brace](http://vignette3.wikia.nocookie.net/es.pokemon/images/9/9d/Brazal_recio.png/revision/latest?cb=20090701200903&format=webp) **Power Brace** : Adds +4 Evs in Attack
-	* ![Power Belt](http://vignette3.wikia.nocookie.net/es.pokemon/images/d/d4/Cinto_recio.png/revision/latest?cb=20090701202447&format=webp) **Power Belt : Adds +4 EVs in Defense
+	* ![Power Belt](http://vignette3.wikia.nocookie.net/es.pokemon/images/d/d4/Cinto_recio.png/revision/latest?cb=20090701202447&format=webp) **Power Belt** : Adds +4 EVs in Defense
 	* ![Power Lens](http://vignette4.wikia.nocookie.net/es.pokemon/images/9/91/Lente_recia.png/revision/latest?cb=20090702125257&format=webp) **Power Lens** : Adds +4 EVs in Special Attack
 	* ![Power Band](http://vignette2.wikia.nocookie.net/es.pokemon/images/7/76/Banda_recia.png/revision/latest?cb=20090701200836) **Power Band** : Adds +4 EVs in Special Defense
 	* ![Power Anklet](http://vignette1.wikia.nocookie.net/es.pokemon/images/1/1f/Franja_recia.png/revision/latest?cb=20091010154647&format=webp) **Power Anklet** : Adds +4 EVs in Speed
@@ -60,3 +63,21 @@ Every Pokémon can give us 1, 2 or 3 EVs depending of the specie. For example, e
 * Pokérus + Power Item : 14 EVs
 
 **The final result has to be multiplyed by 5 for horde encounters**.
+
+##Stats
+
+Every Pokémon has 6 stats which, along with the IVs and other stuff, define the final amount of HP, Attack, Defense, Special Attack, Special Defense and Speed that the Pokémon has in each level.
+
+![stats](http://www.serebii.net/xy/alakastat.jpg)
+This image shows Alakazam stats
+
+Every Pokémon has six stats:
+
+Stat name | Definition | Abbreviation
+---- | ---- | ----
+HP | Defines the value of HP | HP
+Attack | Defines the value of Attack | Atk
+Defense | Defines the value of Defense | Def
+Special Attack | Defines the value of Special Attack | SpA
+Special Defense | Defines the value of Special Defense | SpD
+Speed | Defines the value of Speed | Spe
