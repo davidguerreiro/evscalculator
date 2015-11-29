@@ -17,11 +17,11 @@ Effort Values, or EVs for short, can have a huge impact on your Pokémon and the
 
 A total of **255 EV points can be put onto any one stat**, and a total of **510 points total can be given to any Pokémon**. However, it is important to note that a stat will only increase after every four EV points. In other words, putting 12 EVs and putting 15 EVs both result in the same thing: a 3 point increase to the stat.
 
-*Pokemon gain Evs whenever the gain experience; if you're not starting with a freshly hatched Pokémon, you will probably need to reset its EVs with a Reset Bag first.
-*Pokerus doubles the EVs gained per Pokémon defeated
-*Macho Brace doubles the EVs gained per Pokémon defeated
-*Power items add +4 in a specific stat to the Evs gained per Pokemon defeated
-*With Exp. Share ON, all Pokemon in the party gain EVs
+* Pokemon gain Evs whenever the gain experience; if you're not starting with a freshly hatched Pokémon, you will probably need to reset its EVs with a Reset Bag first.
+* Pokerus doubles the EVs gained per Pokémon defeated
+* Macho Brace doubles the EVs gained per Pokémon defeated
+* Power items add +4 in a specific stat to the Evs gained per Pokemon defeated
+* With Exp. Share ON, all Pokemon in the party gain EVs
 
 ###Modifying Ev Gain
 
@@ -43,20 +43,20 @@ Every Pokémon can give us 1, 2 or 3 EVs depending of the specie. For example, e
 
 ####Base 1 point: 
 
-*Pokérus / Macho Brace : 2 EVs
-*Pokérus + Macho Brace : 4 EVs
-*Pokérus + Power Item : 10 EVs
+* Pokérus / Macho Brace : 2 EVs
+* Pokérus + Macho Brace : 4 EVs
+* Pokérus + Power Item : 10 EVs
 
 ####Base 2 points:
 
-*Pokérus / Macho Brace : 4 EVs
-*Pokérus + Macho Brace : 8 EVs
-*Pokérus + Power Item : 12 EVs
+* Pokérus / Macho Brace : 4 EVs
+* Pokérus + Macho Brace : 8 EVs
+* Pokérus + Power Item : 12 EVs
 
 ####Base 3 points:
 
-*Pokérus / Macho Brace : 6 EVs
-*Pokérus + Macho Brace : 12 EVs
-*Pokérus + Power Item : 14 EVs
+* Pokérus / Macho Brace : 6 EVs
+* Pokérus + Macho Brace : 12 EVs
+* Pokérus + Power Item : 14 EVs
 
 **The final result has to be multiplyed by 5 for horde encounters**.
