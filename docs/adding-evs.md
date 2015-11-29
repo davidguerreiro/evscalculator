@@ -1,4 +1,4 @@
-#Some methods to get Evs in-game and how we deal with this in our calculator
+#How to get EVs
 
 ##Hordes
 
