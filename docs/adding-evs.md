@@ -115,18 +115,11 @@ Speed | ![Zigzagoon](http://www.smogon.com/dex/media/sprites/xyicons/zigzagoon.p
 
 Vitamins can also speed up the EV training process. There are **six different vitamins, one for each stat**, and **each vitamin adds 10 EVs** and increases your Pokémon's happiness. Unfortunately, **vitamins cannot be used on stats that already have 100 EVs on them**, which means you will still need to do some EV training. Regardless, they do save time. I recommend you save your money until a day where all vitamins are half-priced (it will be announced on TV), and splurge away. Here is what each vitamin does:
 
-<<<<<<< HEAD
 * ![HP Up](http://vignette2.wikia.nocookie.net/es.pokemon/images/3/37/M%C3%A1s_PS.png/revision/latest?cb=20090701092930) HP Up raises HP
 * ![Protein](http://vignette2.wikia.nocookie.net/es.pokemon/images/a/a6/Prote%C3%ADna.png/revision/latest?cb=20090701092821) Protein raises Attack
 * ![Iron](http://vignette1.wikia.nocookie.net/es.pokemon/images/a/a4/Hierro.png/revision/latest?cb=20090701092848)Iron raises defense
 * ![Calcium](http://vignette1.wikia.nocookie.net/es.pokemon/images/5/54/Calcio.png/revision/latest?cb=20090701092803)Calcium raises Special Attack
 * ![Zinc](http://vignette1.wikia.nocookie.net/es.pokemon/images/c/cb/Zinc.png/revision/latest?cb=20090701092944)Zinc raises Special Defense
 * ![Carbos](http://vignette3.wikia.nocookie.net/es.pokemon/images/b/b4/Carburante.png/revision/latest?cb=20090623102805)Carbos raises Speed
-=======
-*![HP Up](http://vignette2.wikia.nocookie.net/es.pokemon/images/3/37/M%C3%A1s_PS.png/revision/latest?cb=20090701092930) HP Up raises HP
-*![Protein](http://vignette2.wikia.nocookie.net/es.pokemon/images/a/a6/Prote%C3%ADna.png/revision/latest?cb=20090701092821) Protein raises Attack
-*![Iron](http://vignette1.wikia.nocookie.net/es.pokemon/images/a/a4/Hierro.png/revision/latest?cb=20090701092848)Iron raises defense
-*![Calcium](http://vignette1.wikia.nocookie.net/es.pokemon/images/5/54/Calcio.png/revision/latest?cb=20090701092803)Calcium raises Special Attack
-*![Zinc](http://vignette1.wikia.nocookie.net/es.pokemon/images/c/cb/Zinc.png/revision/latest?cb=20090701092944)Zinc raises Special Defense
-*![Carbos](http://vignette3.wikia.nocookie.net/es.pokemon/images/b/b4/Carburante.png/revision/latest?cb=20090623102805)Carbos raises Speed
+
 
