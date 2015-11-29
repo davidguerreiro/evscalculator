@@ -19,14 +19,14 @@ Effort Values can have a huge impact on your Pokémon and the battles they parti
 A total of **252 EV points can be put onto any one stat**, and a total of **510 points total can be given to any Pokémon**. However, it is important to note that a stat will only increase after every four EV points. In other words, putting 12 EVs and putting 15 EVs both result in the same thing: a 3 point increase to the stat.
 
 ![Evs Graphic](http://www.serebii.net/xy/ct2.jpg)
+
 A graphic showing how the evs are distributed among the stats
 EVs are hidden values related with a PoKémon and its stats. Some details about EVs:
 
 
 * A PoKémon can have up to **510 EVs** assigned.
 * Each EV is related with a stat (HP, Attack, Defense, Sp. Attack, Sp. Defense, Speed).
-* A stat can have up to **255 EVs** asigned.
-* Every four EVs on a stat, the PoKémon gains a point on it. This usually means that trainers never assign 255 EVs to a stat but **252 EVs**, because the 3 EVs don't make much difference.
+* Every four EVs on a stat, the PoKémon gains a point on it.
 
 Now trainers want to have a specific EV spread for specific PoKémon. They usually start the training with **0 EVs** on each stat. If you're not starting with a freshly hatched Pokémon, you will probably need to reset its EVs with a Reset Bag first. 
 
