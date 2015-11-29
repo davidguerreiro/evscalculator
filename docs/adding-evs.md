@@ -10,7 +10,7 @@ An Horde battle encounter in Pokemon XY
 
 ###An explanation of Horde EV Math
 
-*The total number of EVs gained from defeating an Horde depends of the Pokémon that we have defeated. For example, and horde of rattatas give us 5 speed EVs speed in total because every single rattata gives 1 EV speed.
+The total number of EVs gained from defeating an Horde depends of the Pokémon that we have defeated. For example, and horde of rattatas give us 5 speed EVs speed in total because every single rattata gives 1 EV speed.
 *Pokérus _doubles_ the total EV gain per Horda Battle.
 *Macho Brace _doubles_ the total EV gain per Horda Battle.
 *Power Items add _four_ EVs per Pokémon defeated.
