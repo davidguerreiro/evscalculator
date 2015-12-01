@@ -11,7 +11,7 @@ Field | Type | Description
 **spattack** | INT(3) NOT_NULL DEFAULT 0 | Sp Attack stat value
 **spdefense** | INT(3) NOT_NULL DEFAULT 0 | Sp Defense stat value
 **speed** | INT(3) NOT_NULL DEFAULT 0 | Speed stat value
-**version** | VARCHAR(50) NOT_NULL DEFAULT 'xy' | Pokemon 6th gen game version ('xy' -- XY Pokemon games, 'oras' -- Ruby Omega Alpha Sapphire Pokemon Games)
+**version** | INT(2) NOT_NULL DEFAULT 0 | Pokemon 6th gen game version (0 -- XY Pokemon games, 1 -- Ruby Omega Alpha Sapphire Pokemon Games)
 **pokerus** | TINYINT(1) NOT_NULL DEFAULT 0 | Pokerus (0 -- disabled, 1 -- enabled)
 **power_brace** | TINYINT(1) NOT_NULL DEFAULT 0 | Power brace (0 -- unequipped, 1 -- equipped)
 **sturdy_object** | TINYINT(1) NOT_NULL DEFAULT 0 | Sturdy object (0 -- unequipped, 1 -- equipped)
@@ -29,7 +29,7 @@ Field | Type | Description
 **stat_value** | INT(3) NOT_NULL DEFAULT 0 | Amont of evs that we are adding or subtracting
 **id_horde** | INT(11) NOT_NULL DEFAULT 0 | The ID of the horde when a horde has been used during the training session
 **id_vitamin** | INT(11) NOT_NULL DEFAULT 0 | The ID of the vitamin when a vitamin has been used during the training session
-**version** | VARCHAR(50) NOT_NULL DEFAULT 'xy' | Pokemon 6th gen game version ('xy' -- XY Pokemon games, 'oras' -- Ruby Omega Alpha Sapphire Pokemon Games)
+**version** | INT(3) NOT_NULL DEFAULT 0 | Pokemon 6th gen game version (0 -- XY Pokemon games, 0 -- Ruby Omega Alpha Sapphire Pokemon Games)
 **pokerus** | TINYINT(1) NOT_NULL DEFAULT 0 | Pokerus (0 -- disabled, 1 -- enabled)
 **timestamp** | TIMESTAMP |
 
