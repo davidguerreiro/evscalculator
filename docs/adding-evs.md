@@ -55,7 +55,7 @@ Sprite | Name | Single EVs provided | Horde Evs provided
 ![Geodude](http://www.smogon.com/dex/media/sprites/xyicons/geodude.png) | Geodude | 1 Def | 5 Def
 ![Graveler](http://www.smogon.com/dex/media/sprites/xyicons/graveler.png) | Graveler | 2 Def | 10 Def
 ![Durant](http://www.smogon.com/dex/media/sprites/xyicons/durant.png) | Durant | 2 Def | 10 Def
-![Aron](http://www.smogon.com/dex/media/sprites/xyicons/aron.png) | Aron | 1 Def | 10 Def
+![Aron](http://www.smogon.com/dex/media/sprites/xyicons/aron.png) | Aron | 1 Def | 5 Def
 ![Gligar](http://www.smogon.com/dex/media/sprites/xyicons/gligar.png) | Gligar | 1 Def | 5 Def
 
 ####Special Attack
