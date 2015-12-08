@@ -1,11 +1,14 @@
+# Files to ignore on this project
+database.php
+database.txt
+*.codekit
+scss
+.sass-cache/
+*.css.map
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
-database.php
-database.txt
-test.php
-test_pre.php
-*.codekit
 
 # Folder config file
 Desktop.ini
