@@ -1,0 +1,6 @@
+# htaccess configuration for API domain
+
+<IfModule mod_headers.c>
+   SetEnvIfNoCase Origin "http(s)?:\/\/(www\.)?(api\.)?(evscalculator\.com)(:\d+)?$" AccessControlAllowOrigin=$0
+   Header set Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+</IfModule>
