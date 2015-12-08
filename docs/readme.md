@@ -1,4 +1,4 @@
-#Specification
+#Documentation
 
 This contains all the details about EVs Calculator, including its behaviour and elements to account for.
 

@@ -2,7 +2,7 @@
 
 EVS Calculator is an online app for professional PóKemon players to help them train pokemon more accurately by tracking their pokemons's [EVs](http://bulbapedia.bulbagarden.net/wiki/Effort_values) (aka Effort Values) training.
 
-Check the [documentation](tree/master/docs) for more in-depth information.
+Check out the [documentation](https://github.com/davidguerreiro/evscalculator/tree/master/docs) for more in-depth information.
 
 
 ## Team
