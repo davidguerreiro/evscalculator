@@ -8,23 +8,33 @@ If you are working on a project that could use the API, please [open an issue](h
 Requests to the API should be made like:
 
 ```
-http://api.evscalculator.com/v1/request
+https://api.evscalculator.com/v1/request
 ```
 
 Where request is the action requested. GET represents requests with static results, that accept no parameters. POST represents requests that have parameters and dynamic results.
 Parameters should be passed via the URL.
 
 
-#### GET hordes
+### GET hordes
 Contains all information about hordes. This simply returns the file `hordes.json`.
 
+Example: `https://api.evscalculator.com/v1/hordes`
 
-#### GET vitamins
+
+
+### GET vitamins
 Contains all information about vitamins. This simply returns the file `vitamins.json`.
 
+Example: `https://api.evscalculator.com/v1/hordes`
 
-#### POST new-training
+
+
+### POST new-training
 Receives the data necessary for a new training, returns information and IDs about it if successful.
+
+Example: `https://api.evscalculator.com/v1/hordes`
+
+###Parameters
 
 Parameter		| Type	 					| Description
 ---- 			| ----	 					| ----
@@ -37,9 +47,13 @@ sturdy_object 	|  Boolean					| False by default.
 timestamp 		|  Integer, positive		| False by default.
 
 	
-#### POST record
+### POST record
 Receives the data for an action that changes the EVs count on a specific stat.
 Returns result of adding a record to the history.
+
+Example: `https://api.evscalculator.com/v1/hordes`
+
+###Parameters
 
 Parameter				| Type	 				| Description
 ---- 					| ----	 				| ----
