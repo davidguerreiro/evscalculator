@@ -2,39 +2,53 @@
 
 Available at api.evscalculator.com, for any AJAX requests and sync with offline usage.
 This API is limited to internal use at the moment, so CORS is enabled but limited to the site.
-If you have a project that could use the API, please [open an issue](https://github.com/davidguerreiro/evscalculator/issues/new) and we'll discuss it.
 
-## Static requests
-- /hordes.json: Contains all information about hordes.
-- /vitamins.json: Contains all information about vitamins.
+If you are working on a project that could use the API, please [open an issue](https://github.com/davidguerreiro/evscalculator/issues/new) and we'll discuss it.
+
+Requests to the API should be made like:
+
+```
+http://api.evscalculator.com/v1/request
+```
+
+Where request is the action requested. GET represents requests with static results, that accept no parameters. POST represents requests that have parameters and dynamic results.
+Parameters should be passed via the URL.
 
 
-## Dynamic requests
-You can send some parameters to these requests via GET and get different results. They represent the actions done on the site.
+#### GET hordes
+Contains all information about hordes. This simply returns the file `hordes.json`.
 
-#### new-training.json — Returns contents for a new training.
 
-Parameter		| Required	 | Type	 					| Description
----- 			| ----		 | ----	 					| ----
-id_user			| No		 | Integer, 0 or positive 	| If a user is logged in, then we send her ID.
-hp, attack, defense, spattack, spdefense, speed 			| One positive at least |  Integer, 1 to 252 | These values represent the stats which are to be trained. At least one must have been received to be a valid training session.
-game 			| No 		|  Numeric, positive 		| Numeric ID that represents the game used. If not specified, fallbacks to XY's ID
-pokerus 		| No 		|  Boolean 					| If not sent, it must be assumed the trainer doesn't have it.
-power_brace 	| No 		|  Boolean 					| If not sent, it must be assumed the trainer doesn't have it.
-sturdy_object 	| No 		|  Boolean					| If not sent, it must be assumed the trainer doesn't have it.
-timestamp 		| No 		|  Integer, positive		| If not sent, it must be assumed the trainer doesn't have it.
+#### GET vitamins
+Contains all information about vitamins. This simply returns the file `vitamins.json`.
 
+
+#### POST new-training
+Receives the data necessary for a new training, returns information and IDs about it if successful.
+
+Parameter		| Type	 					| Description
+---- 			| ----	 					| ----
+id_user			| Integer, 0 or positive 	| If a user is logged in, then we send her ID.
+hp, attack, defense, spattack, spdefense, speed _requires at least one positive_ |  Integer, 1 to 252 | These values represent the stats which are to be trained.
+game 			|  Numeric, positive 		| Numeric ID that represents the game used. 
+pokerus 		|  Boolean 					| False by default.
+power_brace 	|  Boolean 					| False by default.
+sturdy_object 	|  Boolean					| False by default.
+timestamp 		|  Integer, positive		| False by default.
 
 	
-#### record.json — Returns result of adding a record to the history.
+#### POST record
+Receives the data for an action that changes the EVs count on a specific stat.
+Returns result of adding a record to the history.
 
-Parameter		| Required	 | Type	 					| Description
----- 			| ----		 | ----	 					| ----
-id_training		| Yes		 | Integer, positive	 	| Refers to the training ID
-stat_value		| Yes		 | Integer				 	| Number of EVs gained
-stat_name		| Yes		 | String				 	| Must refer to a stat from training
-id_horde 		| No 		|  Numeric, positive 		| Numeric ID that represents the horde used to gain those EVs.
-id_vitamin 		| No 		|  Numeric, positive 		| Numeric ID that represents the vitamin used to gain those EVs.
-game 			| No 		|  Numeric, positive 		| Numeric ID that represents the game used. If not specified, fallbacks to XY's ID
-pokerus 		| No 		|  Boolean 					| If not sent, it must be assumed the trainer doesn't have it.
-timestamp 		| No 		|  Integer, positive		| If not sent, it must be assumed the trainer doesn't have it.
+Parameter				| Type	 				| Description
+---- 					| ----	 				| ----
+id_training _required_	| Integer, positive	 	| Refers to the training ID
+stat_value _required_	| Integer				| Number of EVs gained
+stat_name _required_	| String				| Must refer to a stat from training
+id_horde 				| Numeric, positive 	| Numeric ID that represents the horde used (if any).
+id_vitamin 				| Numeric, positive 	| Numeric ID that represents the vitamin used (if any).
+game 					| Numeric, positive 	| Numeric ID that represents the game used. 
+pokerus 				| Boolean 				| False by default.
+timestamp 				| Integer, positive		| False by default.
+
