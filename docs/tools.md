@@ -47,7 +47,6 @@ Parameter		| Required	 | Type	 					| Description
 id_training		| Yes		 | Integer, positive	 	| Refers to the training ID
 stat_value		| Yes		 | Integer				 	| Number of EVs gained
 stat_name		| Yes		 | String				 	| Must refer to a stat from training
-
 id_horde 		| No 		|  Numeric, positive 		| Numeric ID that represents the horde used to gain those EVs.
 id_vitamin 		| No 		|  Numeric, positive 		| Numeric ID that represents the vitamin used to gain those EVs.
 game 			| No 		|  Numeric, positive 		| Numeric ID that represents the game used. If not specified, fallbacks to XY's ID
