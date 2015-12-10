@@ -32,12 +32,7 @@ You can send some parameters to these requests via GET and get different results
 Parameter		| Required	 | Type	 					| Description
 ---- 			| ----		 | ----	 					| ----
 id_user			| No		 | Integer, 0 or positive 	| If a user is logged in, then we send her ID.
-hp, 
-attack, 
-defense, 
-spattack, 
-spdefense, 
-speed 			| One positive at least |  Integer, 1 to 252 | These values represent the stats which are to be trained. At least one must have been received to be a valid training session.
+hp, attack, defense, spattack, spdefense, speed 			| One positive at least |  Integer, 1 to 252 | These values represent the stats which are to be trained. At least one must have been received to be a valid training session.
 game 			| No 		|  Numeric, positive 		| Numeric ID that represents the game used. If not specified, fallbacks to XY's ID
 pokerus 		| No 		|  Boolean 					| If not sent, it must be assumed the trainer doesn't have it.
 power_brace 	| No 		|  Boolean 					| If not sent, it must be assumed the trainer doesn't have it.
