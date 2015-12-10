@@ -17,17 +17,16 @@ If you want to contribute, you'll need to use the tools we use and follow the sa
 
 Available at api.evscalculator.com, for any AJAX requests and sync with offline usage.
 
+
 ### Static requests
 - /hordes.json: Contains all information about hordes.
 - /vitamins.json: Contains all information about vitamins.
 
-### Dynamic requests
 
+### Dynamic requests
 You can send some parameters to these requests via GET and get different results. They represent the actions done on the site.
 
 #### new-training.json — Returns contents for a new training.
-
-* Parameters
 
 Parameter		| Required	 | Type	 					| Description
 ---- 			| ----		 | ----	 					| ----
@@ -43,7 +42,17 @@ timestamp 		| No 		|  Integer, positive		| If not sent, it must be assumed the t
 	
 #### record.json — Returns result of adding a record to the history.
 
+Parameter		| Required	 | Type	 					| Description
+---- 			| ----		 | ----	 					| ----
+id_training		| Yes		 | Integer, positive	 	| Refers to the training ID
+stat_value		| Yes		 | Integer				 	| Number of EVs gained
+stat_name		| Yes		 | String				 	| Must refer to a stat from training
 
+id_horde 		| No 		|  Numeric, positive 		| Numeric ID that represents the horde used to gain those EVs.
+id_vitamin 		| No 		|  Numeric, positive 		| Numeric ID that represents the vitamin used to gain those EVs.
+game 			| No 		|  Numeric, positive 		| Numeric ID that represents the game used. If not specified, fallbacks to XY's ID
+pokerus 		| No 		|  Boolean 					| If not sent, it must be assumed the trainer doesn't have it.
+timestamp 		| No 		|  Integer, positive		| If not sent, it must be assumed the trainer doesn't have it.
 
 
 ## Markdown and GitHub workflow
