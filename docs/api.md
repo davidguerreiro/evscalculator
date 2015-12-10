@@ -25,14 +25,14 @@ Example: `https://api.evscalculator.com/v1/hordes`
 ### GET vitamins
 Contains all information about vitamins. This simply returns the file `vitamins.json`.
 
-Example: `https://api.evscalculator.com/v1/hordes`
+Example: `https://api.evscalculator.com/v1/vitamins`
 
 
 
 ### POST new-training
 Receives the data necessary for a new training, returns information and IDs about it if successful.
 
-Example: `https://api.evscalculator.com/v1/hordes`
+Example: `https://api.evscalculator.com/v1/new-training?id_user=10&hp=252&defense=4&spattack=45`
 
 ###Parameters
 
@@ -51,7 +51,7 @@ timestamp 		|  Integer, positive		| False by default.
 Receives the data for an action that changes the EVs count on a specific stat.
 Returns result of adding a record to the history.
 
-Example: `https://api.evscalculator.com/v1/hordes`
+Example: `https://api.evscalculator.com/v1/record?id_training=13&stat_value=252&stat_name=hp`
 
 ###Parameters
 
