@@ -58,9 +58,27 @@ power_brace 	|  Boolean 					| False by default.
 sturdy_object 	|  Boolean					| False by default.
 timestamp 		|  Integer, positive		| False by default.
 
+	
+
+### GET trainings/:id/records
+Returns the listing with the record information about a specific training.
+
+Example: `https://api.evscalculator.com/v1/trainings/13/records/create.json`
+
+###Parameters
+
+Parameter				| Type	 				| Description
+---- 					| ----	 				| ----
+id _required_			| Integer, positive	 	| Refers to the training ID
+stat _required_			| String				| You can filter them by stat.
+horde 					| Boolean			 	| Whether it was from using an horde or not.
+vitamin 				| Boolean			 	| Whether it was from using a vitamin or not.
+pokerus 				| Boolean 				| Filter by pokerus used/not.
+
+
 
 	
-### POST trainings/:id_training/records/create
+### POST trainings/:id/records/create
 Receives the data for an action that changes the EVs count on a specific stat.
 Returns success/fail status.
 
@@ -70,7 +88,7 @@ Example: `https://api.evscalculator.com/v1/trainings/13/records/create.json`
 
 Parameter				| Type	 				| Description
 ---- 					| ----	 				| ----
-id_training _required_	| Integer, positive	 	| Refers to the training ID
+id _required_			| Integer, positive	 	| Refers to the training ID
 value _required_		| Integer				| Number of EVs gained
 stat _required_			| String				| Must refer to a stat from training
 id_horde 				| Numeric, positive 	| Numeric ID that represents the horde used (if any).
@@ -78,6 +96,7 @@ id_vitamin 				| Numeric, positive 	| Numeric ID that represents the vitamin use
 game 					| Numeric, positive 	| Numeric ID that represents the game used. 
 pokerus 				| Boolean 				| False by default.
 timestamp 				| Integer, positive		| False by default.
+
 
 
 ### POST users/create/:email
