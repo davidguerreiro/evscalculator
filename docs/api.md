@@ -16,15 +16,52 @@ Parameters should be passed via the URL. JSON format would be the only one suppo
 
 
 ### GET hordes
-Contains all information about hordes. This simply returns the file `hordes.json`.
+Contains all information about hordes.
 Can be filtered by stat or game.
 
-Example: `https://api.evscalculator.com/v1/hordes.json`
+###Parameters
 
 Parameter		| Type		| Description
 ---- 			| ----		| ----
-stat_name		| String 	| Filter by stat name.
+stat			| String 	| Filter by stat name.
 game			| Integer 	| Filter by game edition.
+
+Example: `https://api.evscalculator.com/v1/hordes.json?stat=hp`
+
+```javascript
+[
+	{
+		"name": "Gulpin",
+		"stat_name": "hp",
+		"stat_value": 5,
+		"game": 0
+	},
+	{
+		"name": "Whismur",
+		"stat_name": "hp",
+		"stat_value": 5,
+		"game": 0
+	},
+	{
+		"name": "Slowpoke",
+		"stat_name": "hp",
+		"stat_value": 5,
+		"game": 0
+	},
+	{
+		"name": "Foongus",
+		"stat_name": "hp",
+		"stat_value": 5,
+		"game": 0
+	},
+	{
+		"name": "Lickitung",
+		"stat_name": "hp",
+		"stat_value": 5,
+		"game": 0
+	}
+]
+```
 
 
 
@@ -32,19 +69,20 @@ game			| Integer 	| Filter by game edition.
 Contains all information about vitamins. This simply returns the file `vitamins.json`.
 Can be filtered by stat or game.
 
-Example: `https://api.evscalculator.com/v1/vitamins.json`
+###Parameters
 
 Parameter		| Type		| Description
 ---- 			| ----		| ----
-stat_name		| String 	| Filter by stat name.
+stat			| String 	| Filter by stat name.
 game			| Integer 	| Filter by game edition.
+
+Example: `https://api.evscalculator.com/v1/vitamins.json`
+
 
 
 
 ### POST trainings/create
 Receives the data necessary for a new training, returns information and IDs about it if successful.
-
-Example: `https://api.evscalculator.com/v1/trainings/create.json`
 
 ###Parameters
 
@@ -58,12 +96,13 @@ power_brace 	|  Boolean 					| False by default.
 sturdy_object 	|  Boolean					| False by default.
 timestamp 		|  Integer, positive		| False by default.
 
+Example: `https://api.evscalculator.com/v1/trainings/create.json`
+
 	
+
 
 ### GET trainings/:id/records
 Returns the listing with the record information about a specific training.
-
-Example: `https://api.evscalculator.com/v1/trainings/13/records/create.json`
 
 ###Parameters
 
@@ -75,14 +114,14 @@ horde 					| Boolean			 	| Whether it was from using an horde or not.
 vitamin 				| Boolean			 	| Whether it was from using a vitamin or not.
 pokerus 				| Boolean 				| Filter by pokerus used/not.
 
+Example: `https://api.evscalculator.com/v1/trainings/13/records/create.json`
+
 
 
 	
 ### POST trainings/:id/records/create
 Receives the data for an action that changes the EVs count on a specific stat.
 Returns success/fail status.
-
-Example: `https://api.evscalculator.com/v1/trainings/13/records/create.json`
 
 ###Parameters
 
@@ -97,12 +136,13 @@ game 					| Numeric, positive 	| Numeric ID that represents the game used.
 pokerus 				| Boolean 				| False by default.
 timestamp 				| Integer, positive		| False by default.
 
+Example: `https://api.evscalculator.com/v1/trainings/13/records/create.json`
+
+
 
 
 ### POST users/create/:email
 Creates an user.
-
-Example: `https://api.evscalculator.com/v1/users/create/test%40evscalculator.com.json`
 
 ###Parameters
 
@@ -112,18 +152,21 @@ email _required_	| String				| Email of the user.
 id_training			| Integer, positive	 	| Refers to the training ID (if any)
 timestamp 			| Integer, positive		| False by default.
 
+Example: `https://api.evscalculator.com/v1/users/create/test%40evscalculator.com.json`
+
+
 
 
 ### GET users/:id
 Returns a user profile with training info.
-
-Example: `https://api.evscalculator.com/v1/users/12.json`
 
 ###Parameters
 
 Parameter		| Type					| Description
 ---- 			| ----					| ----
 id _required_	| Integer, positive 	| Unique ID for user
+
+Example: `https://api.evscalculator.com/v1/users/12.json`
 
 
 
