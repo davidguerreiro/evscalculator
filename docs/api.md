@@ -44,7 +44,7 @@ game			| Integer 	| Filter by game edition.
 ### POST trainings/create
 Receives the data necessary for a new training, returns information and IDs about it if successful.
 
-Example: `https://api.evscalculator.com/v1/training.json`
+Example: `https://api.evscalculator.com/v1/trainings/create.json`
 
 ###Parameters
 
@@ -60,19 +60,19 @@ timestamp 		|  Integer, positive		| False by default.
 
 
 	
-### PUT records/create/:id_training/:stat/:value
+### POST trainings/:id_training/records/create
 Receives the data for an action that changes the EVs count on a specific stat.
 Returns success/fail status.
 
-Example: `https://api.evscalculator.com/v1/record/:id/:stat/:value.json`
+Example: `https://api.evscalculator.com/v1/trainings/13/records/create.json`
 
 ###Parameters
 
 Parameter				| Type	 				| Description
 ---- 					| ----	 				| ----
 id_training _required_	| Integer, positive	 	| Refers to the training ID
-value _required_	| Integer				| Number of EVs gained
-stat _required_	| String				| Must refer to a stat from training
+value _required_		| Integer				| Number of EVs gained
+stat _required_			| String				| Must refer to a stat from training
 id_horde 				| Numeric, positive 	| Numeric ID that represents the horde used (if any).
 id_vitamin 				| Numeric, positive 	| Numeric ID that represents the vitamin used (if any).
 game 					| Numeric, positive 	| Numeric ID that represents the game used. 
@@ -83,16 +83,24 @@ timestamp 				| Integer, positive		| False by default.
 ### POST users/create/:email
 Creates an user.
 
-Parameter				| Type	 				| Description
----- 					| ----	 				| ----
-email _required_		| String				| Email of the user.
-id_training				| Integer, positive	 	| Refers to the training ID (if any)
-timestamp 				| Integer, positive		| False by default.
+Example: `https://api.evscalculator.com/v1/users/create/test%40evscalculator.com.json`
+
+###Parameters
+
+Parameter			| Type	 				| Description
+---- 				| ----	 				| ----
+email _required_	| String				| Email of the user.
+id_training			| Integer, positive	 	| Refers to the training ID (if any)
+timestamp 			| Integer, positive		| False by default.
 
 
 
-### GET user/:id
+### GET users/:id
 Returns a user profile with training info.
+
+Example: `https://api.evscalculator.com/v1/users/12.json`
+
+###Parameters
 
 Parameter		| Type					| Description
 ---- 			| ----					| ----
