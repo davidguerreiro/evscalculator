@@ -8,31 +8,43 @@ If you are working on a project that could use the API, please [open an issue](h
 Requests to the API should be made like:
 
 ```
-https://api.evscalculator.com/v1/request
+https://api.evscalculator.com/v1/request.json
 ```
 
 Where request is the action requested. GET represents requests with static results, that accept no parameters. POST represents requests that have parameters and dynamic results.
-Parameters should be passed via the URL.
+Parameters should be passed via the URL. JSON format would be the only one supported for now but the code should be independent of the format.
 
 
 ### GET hordes
 Contains all information about hordes. This simply returns the file `hordes.json`.
+Can be filtered by stat or game.
 
-Example: `https://api.evscalculator.com/v1/hordes`
+Example: `https://api.evscalculator.com/v1/hordes.json`
+
+Parameter		| Type		| Description
+---- 			| ----		| ----
+stat_name		| String 	| Filter by stat name.
+game			| Integer 	| Filter by game edition.
 
 
 
 ### GET vitamins
 Contains all information about vitamins. This simply returns the file `vitamins.json`.
+Can be filtered by stat or game.
 
-Example: `https://api.evscalculator.com/v1/vitamins`
+Example: `https://api.evscalculator.com/v1/vitamins.json`
+
+Parameter		| Type		| Description
+---- 			| ----		| ----
+stat_name		| String 	| Filter by stat name.
+game			| Integer 	| Filter by game edition.
 
 
 
-### POST new-training
+### POST training
 Receives the data necessary for a new training, returns information and IDs about it if successful.
 
-Example: `https://api.evscalculator.com/v1/new-training?id_user=10&hp=252&defense=4&spattack=45`
+Example: `https://api.evscalculator.com/v1/training.json`
 
 ###Parameters
 
@@ -46,23 +58,37 @@ power_brace 	|  Boolean 					| False by default.
 sturdy_object 	|  Boolean					| False by default.
 timestamp 		|  Integer, positive		| False by default.
 
-	
-### POST record
-Receives the data for an action that changes the EVs count on a specific stat.
-Returns result of adding a record to the history.
 
-Example: `https://api.evscalculator.com/v1/record?id_training=13&stat_value=252&stat_name=hp`
+	
+### PUT record/:id/:stat/:value
+Receives the data for an action that changes the EVs count on a specific stat.
+Returns success/fail status.
+
+Example: `https://api.evscalculator.com/v1/record/:id/:stat/:value.json`
 
 ###Parameters
 
 Parameter				| Type	 				| Description
 ---- 					| ----	 				| ----
 id_training _required_	| Integer, positive	 	| Refers to the training ID
-stat_value _required_	| Integer				| Number of EVs gained
-stat_name _required_	| String				| Must refer to a stat from training
+value _required_	| Integer				| Number of EVs gained
+stat _required_	| String				| Must refer to a stat from training
 id_horde 				| Numeric, positive 	| Numeric ID that represents the horde used (if any).
 id_vitamin 				| Numeric, positive 	| Numeric ID that represents the vitamin used (if any).
 game 					| Numeric, positive 	| Numeric ID that represents the game used. 
 pokerus 				| Boolean 				| False by default.
 timestamp 				| Integer, positive		| False by default.
+
+
+
+### GET user/:id
+Returns a user profile with training info.
+
+Parameter		| Type					| Description
+---- 			| ----					| ----
+id _required_	| Integer, positive 	| Unique ID for user
+
+
+
+
 
