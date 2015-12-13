@@ -41,7 +41,7 @@ game			| Integer 	| Filter by game edition.
 
 
 
-### POST training
+### POST trainings/create
 Receives the data necessary for a new training, returns information and IDs about it if successful.
 
 Example: `https://api.evscalculator.com/v1/training.json`
@@ -60,7 +60,7 @@ timestamp 		|  Integer, positive		| False by default.
 
 
 	
-### PUT record/:id/:stat/:value
+### PUT records/create/:id_training/:stat/:value
 Receives the data for an action that changes the EVs count on a specific stat.
 Returns success/fail status.
 
@@ -77,6 +77,16 @@ id_horde 				| Numeric, positive 	| Numeric ID that represents the horde used (i
 id_vitamin 				| Numeric, positive 	| Numeric ID that represents the vitamin used (if any).
 game 					| Numeric, positive 	| Numeric ID that represents the game used. 
 pokerus 				| Boolean 				| False by default.
+timestamp 				| Integer, positive		| False by default.
+
+
+### POST users/create/:email
+Creates an user.
+
+Parameter				| Type	 				| Description
+---- 					| ----	 				| ----
+email _required_		| String				| Email of the user.
+id_training				| Integer, positive	 	| Refers to the training ID (if any)
 timestamp 				| Integer, positive		| False by default.
 
 
