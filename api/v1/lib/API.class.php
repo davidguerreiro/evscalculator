@@ -31,6 +31,11 @@ abstract class API
      */
     protected $file = Null;
 
+    protected $format = '';
+    
+
+
+
     public function processAPI() {
         if (method_exists($this, $this->endpoint)) {
             return $this->_response($this->{$this->endpoint}($this->args));
@@ -74,11 +79,22 @@ abstract class API
         header("Access-Control-Allow-Methods: *");
         header("Content-Type: application/json");
 
+        // Grab arguments and process it
         $this->args = explode('/', rtrim($request, '/'));
+
+        // Format
+        $last_arg = array_pop($this->args);
+        $this->format = substr(strrchr($last_arg,'.'),1);
+        $this->args[] = substr($last_arg,0,-(strlen($this->format)+1));
+
+        // Endpoint or main function requested
         $this->endpoint = array_shift($this->args);
+
+        // Verb or endpoint specifics
         if (array_key_exists(0, $this->args) && !is_numeric($this->args[0])) {
             $this->verb = array_shift($this->args);
         }
+
 
         $this->method = $_SERVER['REQUEST_METHOD'];
         if ($this->method == 'POST' && array_key_exists('HTTP_X_HTTP_METHOD', $_SERVER)) {

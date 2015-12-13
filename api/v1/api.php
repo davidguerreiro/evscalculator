@@ -5,14 +5,15 @@
 require_once 'lib/API.class.php';
 class MyAPI extends API
 {
-    protected $User;
 
     public function __construct($request, $origin) {
         parent::__construct($request);
+
+        // We need some authentication step here
     }
 
     /**
-     * Example of an Endpoint
+     * Example of an Endpoint for Hordes
      */
      protected function hordes() {
         if ($this->method == 'GET') {
