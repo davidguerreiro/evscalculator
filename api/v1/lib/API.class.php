@@ -80,6 +80,8 @@ abstract class API
             $this->verb = array_shift($this->args);
         }
 
+        var_dump($this->args);
+
         $this->method = $_SERVER['REQUEST_METHOD'];
         if ($this->method == 'POST' && array_key_exists('HTTP_X_HTTP_METHOD', $_SERVER)) {
             if ($_SERVER['HTTP_X_HTTP_METHOD'] == 'DELETE') {

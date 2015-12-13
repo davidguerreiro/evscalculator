@@ -2,7 +2,7 @@
 
 // This file handles all the API requests
 
-require_once 'API.class.php';
+require_once 'lib/API.class.php';
 
 
  // Requests from the same server don't have a HTTP_ORIGIN header
@@ -14,5 +14,5 @@ try {
     $API = new API($_REQUEST['request']);
     echo $API->processAPI();
 } catch (Exception $e) {
-    echo json_encode(Array('error' => $e->getMessage()));
+    echo json_encode(Array('error' => "WTF"));
 }
