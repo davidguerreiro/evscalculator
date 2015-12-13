@@ -18,6 +18,11 @@ class MyAPI extends API
      protected function hordes() {
         if ($this->method == 'GET') {
         	var_dump($this->request);
+        	echo "\nFunction called: ". $this->endpoint."\n";
+        	if($this->verb) echo "Option (optional): ". $this->verb."\n";
+        	if($this->args) {
+        		var_dump($this->args);
+        	}
             return "Return hordes here";
         } else {
             return "Only accepts GET requests";
