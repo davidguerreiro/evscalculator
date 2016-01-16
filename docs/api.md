@@ -81,7 +81,7 @@ Example: `https://api.evscalculator.com/v1/vitamins.json`
 
 
 
-### POST trainings/create
+### POST trainings
 Receives the data necessary for a new training, returns information and IDs about it if successful.
 
 ###Parameters
@@ -96,9 +96,9 @@ power_brace 	|  Boolean 					| False by default.
 sturdy_object 	|  Boolean					| False by default.
 timestamp 		|  Integer, positive		| False by default.
 
-Example: `https://api.evscalculator.com/v1/trainings/create.json`
+Example: `https://api.evscalculator.com/v1/trainings.json`
 
-	
+
 
 
 ### GET trainings/:id/records
@@ -114,12 +114,11 @@ horde 					| Boolean			 	| Whether it was from using an horde or not.
 vitamin 				| Boolean			 	| Whether it was from using a vitamin or not.
 pokerus 				| Boolean 				| Filter by pokerus used/not.
 
-Example: `https://api.evscalculator.com/v1/trainings/13/records/create.json`
+Example: `https://api.evscalculator.com/v1/trainings/13/records.json`
 
 
 
-	
-### POST trainings/:id/records/create
+### POST trainings/:id/records
 Receives the data for an action that changes the EVs count on a specific stat.
 Returns success/fail status.
 
@@ -136,12 +135,12 @@ game 					| Numeric, positive 	| Numeric ID that represents the game used.
 pokerus 				| Boolean 				| False by default.
 timestamp 				| Integer, positive		| False by default.
 
-Example: `https://api.evscalculator.com/v1/trainings/13/records/create.json`
+Example: `https://api.evscalculator.com/v1/trainings/13/records.json`
 
 
 
 
-### POST users/create/:email
+### POST users
 Creates an user.
 
 ###Parameters
@@ -152,7 +151,7 @@ email _required_	| String				| Email of the user.
 id_training			| Integer, positive	 	| Refers to the training ID (if any)
 timestamp 			| Integer, positive		| False by default.
 
-Example: `https://api.evscalculator.com/v1/users/create/test%40evscalculator.com.json`
+Example: `https://api.evscalculator.com/v1/users.json`
 
 
 
