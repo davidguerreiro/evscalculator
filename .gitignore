@@ -10,6 +10,7 @@ scss
 composer
 node_modules
 api/vendor
+key.php
 
 # Windows image file caches
 Thumbs.db
