@@ -31,259 +31,259 @@
 	},
 	{
 		"name": "Scraggy",
-		"stat_name": "Atk",
+		"stat_name": "attack",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Axew",
-		"stat_name": "Atk",
+		"stat_name": "attack",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Bellsprout",
-		"stat_name": "Atk",
+		"stat_name": "attack",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Ekans",
-		"stat_name": "Atk",
+		"stat_name": "attack",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Cubchoo",
-		"stat_name": "Atk",
+		"stat_name": "attack",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Larvitar",
-		"stat_name": "Atk",
+		"stat_name": "attack",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Weepinbell",
-		"stat_name": "Atk",
+		"stat_name": "attack",
 		"stat_value": 10,
 		"game": 0
 	},
 	{
 		"name": "Arbok",
-		"stat_name": "Atk",
+		"stat_name": "attack",
 		"stat_value": 10,
 		"game": 0
 	},
 	{
 		"name": "Trevenant",
-		"stat_name": "Atk",
+		"stat_name": "attack",
 		"stat_value": 10,
 		"game": 0
 	},
 	{
 		"name": "Scyther",
-		"stat_name": "Atk",
+		"stat_name": "attack",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Nosepass",
-		"stat_name": "Def",
+		"stat_name": "defense",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Roggenrola",
-		"stat_name": "Def",
+		"stat_name": "defense",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Exeggcute",
-		"stat_name": "Def",
+		"stat_name": "defense",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Skorupi",
-		"stat_name": "Def",
+		"stat_name": "defense",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Klefki",
-		"stat_name": "Def",
+		"stat_name": "defense",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Geodude",
-		"stat_name": "Def",
+		"stat_name": "defense",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Graveler",
-		"stat_name": "Def",
+		"stat_name": "defense",
 		"stat_value": 10,
 		"game": 0
 	},
 	{
 		"name": "Durant",
-		"stat_name": "Def",
+		"stat_name": "defense",
 		"stat_value": 10,
 		"game": 0
 	},
 	{
 		"name": "Aron",
-		"stat_name": "Def",
+		"stat_name": "defense",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Gligar",
-		"stat_name": "Def",
+		"stat_name": "defense",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Psyduck",
-		"stat_name": "SpA",
+		"stat_name": "spattack",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Roselia",
-		"stat_name": "SpA",
+		"stat_name": "spattack",
 		"stat_value": 10,
 		"game": 0
 	},
 	{
 		"name": "Hondour",
-		"stat_name": "SpA",
+		"stat_name": "spattack",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Mareep",
-		"stat_name": "SpA",
+		"stat_name": "spattack",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Vanillite",
-		"stat_name": "SpA",
+		"stat_name": "spattack",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Smoochum",
-		"stat_name": "SpA",
+		"stat_name": "spattack",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Spinda",
-		"stat_name": "SpA",
+		"stat_name": "spattack",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Hoppip",
-		"stat_name": "SpD",
+		"stat_name": "spdefense",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Mime Jr",
-		"stat_name": "SpD",
+		"stat_name": "spdefense",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Lombre",
-		"stat_name": "SpD",
+		"stat_name": "spdefense",
 		"stat_value": 10,
 		"game": 0
 	},
 	{
 		"name": "Swablu",
-		"stat_name": "SpD",
+		"stat_name": "spdefense",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Minum and Plusle",
-		"stat_name": "Spe",
+		"stat_name": "speed",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Plusle and Minun",
-		"stat_name": "Spe",
+		"stat_name": "speed",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Zubat",
-		"stat_name": "Spe",
+		"stat_name": "speed",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Wingull",
-		"stat_name": "Spe",
+		"stat_name": "speed",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Taillow",
-		"stat_name": "Spe",
+		"stat_name": "speed",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Yanma",
-		"stat_name": "Spe",
+		"stat_name": "speed",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Electrike",
-		"stat_name": "Spe",
+		"stat_name": "speed",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Stunky",
-		"stat_name": "Spe",
+		"stat_name": "speed",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Starly",
-		"stat_name": "Spe",
+		"stat_name": "speed",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Murkrow",
-		"stat_name": "Spe",
+		"stat_name": "speed",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Poliwag",
-		"stat_name": "Spe",
+		"stat_name": "speed",
 		"stat_value": 5,
 		"game": 0
 	},
 	{
 		"name": "Floatzel",
-		"stat_name": "Spe",
+		"stat_name": "speed",
 		"stat_value": 10,
 		"game": 0
 	},
@@ -295,37 +295,37 @@
 	},
 	{
 		"name": "Shuppet",
-		"stat_name": "Atk",
+		"stat_name": "attack",
 		"stat_value": 5,
 		"game": 1
 	},
 	{
 		"name": "Sandshrew",
-		"stat_name": "Def",
+		"stat_name": "defense",
 		"stat_value": 5,
 		"game": 1
 	},
 	{
 		"name": "Oddish",
-		"stat_name": "SpA",
+		"stat_name": "spattack",
 		"stat_value": 5,
 		"game": 1
 	},
 	{
 		"name": "Spinda",
-		"stat_name": "SpA",
+		"stat_name": "spattack",
 		"stat_value": 5,
 		"game": 1
 	},
 	{
 		"name": "Swablu",
-		"stat_name": "SpD",
+		"stat_name": "spdefense",
 		"stat_value": 5,
 		"game": 1
 	},
 	{
 		"name": "Zigzagoon",
-		"stat_name": "Spe",
+		"stat_name": "speed",
 		"stat_value": 5,
 		"game": 1
 	}
