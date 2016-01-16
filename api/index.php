@@ -1,4 +1,12 @@
 <?php
-// Don't allow requests to the root. Possible documentation in the future?
+use \Psr\Http\Message\ServerRequestInterface as Request;
+use \Psr\Http\Message\ResponseInterface as Response;
 
-header('Location: https://evscalculator.com');
+require 'vendor/autoload.php';
+
+$app = new \Slim\App;
+
+
+require 'v1/api.php';
+
+$app->run();

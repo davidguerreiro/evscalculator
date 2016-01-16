@@ -6,6 +6,11 @@ scss
 .sass-cache/
 *.css.map
 
+#Folders to ignore
+composer
+node_modules
+api/vendor
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
