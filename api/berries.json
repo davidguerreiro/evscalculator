@@ -1,0 +1,30 @@
+{
+	"name" : "Pomeg Berry",
+	"stat_name" : "hp",
+	"stat_value" : 10
+}
+{
+	"name" : "Kelpsy Berry",
+	"stat_name" : "Attack",
+	"stat_value" : 10
+}
+{
+	"name" : "Qualot Berry",
+	"stat_name" : "Defense",
+	"stat_value" : 10
+}
+{
+	"name" : "Hondew Berry",
+	"stat_name" : "SpA",
+	"stat_value" : 10
+}
+{
+	"name" : "Grepa Berry",
+	"stat_name" : "SpD",
+	"stat_value" : 10
+}
+{
+	"name" : "Tamato Berry",
+	"stat_name" : "Spe",
+	"stat_value" : 10
+}

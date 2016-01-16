@@ -1,0 +1,30 @@
+{
+	"name" : "HP Up",
+	"stat_name" : "hp",
+	"stat_value" : 10
+}
+{
+	"name" : "Protein",
+	"stat_name" : "Attack",
+	"stat_value" : 10
+}
+{
+	"name" : "Iron",
+	"stat_name" : "Defense",
+	"stat_value" : 10
+}
+{
+	"name" : "Calcium",
+	"stat_name" : "SpA",
+	"stat_value" : 10
+}
+{
+	"name" : "Zinc",
+	"stat_name" : "SpD",
+	"stat_value" : 10
+}
+{
+	"name" : "Carbos",
+	"stat_name" : "Spe",
+	"stat_value" : 10
+}
