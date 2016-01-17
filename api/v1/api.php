@@ -1,5 +1,7 @@
 <?php
+require 'lib/parser.php';
 require 'lib/functions.php';
+
 
 
 // Generic
@@ -9,30 +11,28 @@ $app->get('/', function($req, $res){
 
 
 // GET hordes
-$app->get('/v1/hordes', function($req, $res) {
+$app->get('/v1/hordes[.{format}]', function($req, $res) {
 
     $data = getHordes($req->getQueryParams()['stat'], $req->getQueryParams()['game']);
-
-    $res->getBody()->write(json_encode($data));
-    return $res->withHeader('Content-type', 'application/json');
+    
+    return parse($req, $res, $data);
 });
 
 
 // GET trainings
-$app->get('/v1/trainings', function($req, $res) {
+$app->get('/v1/trainings[.{format}]', function($req, $res) {
 
     include_once('lib/key.php');
 
     $data = $db->select('training', '*');
 
-    $res->getBody()->write(json_encode($data));
-    return $res->withHeader('Content-type', 'application/json');
+    return parse($req, $res, $data);
 });
 
 
 
 // POST trainings
-$app->post('/v1/trainings', function($req, $res) {
+$app->post('/v1/trainings[.{format}]', function($req, $res) {
     // Data received
     $vars = $req->getParsedBody();
     // Data to be inserted
@@ -61,7 +61,7 @@ $app->post('/v1/trainings', function($req, $res) {
     // Go through required
     foreach($required as $i) {
         // Required must be positive
-        if($vars[$i] > 0) {
+        if($vars[$i] > 0 && $vars[$i] < 252) {
             $insert[$i] = $vars[$i];
         }
     }
@@ -87,8 +87,7 @@ $app->post('/v1/trainings', function($req, $res) {
         ])
     );
 
-    $res->getBody()->write(json_encode($data));
-    return $res->withHeader('Content-type', 'application/json');
+    return parse($req, $res, $data);
 });
 
 
