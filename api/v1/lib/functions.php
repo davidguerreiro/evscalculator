@@ -43,7 +43,7 @@ function getHordes($stat = false, $game = false) {
     }
 
     // Filter by game
-    if(isGame($game)) {
+    if(is_numeric($game) && isGame($game)) {
         $ret = array_filter($ret, function($a) use($game) {
             return $a->game == $game;
         });
