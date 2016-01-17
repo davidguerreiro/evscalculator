@@ -19,16 +19,49 @@ $app->get('/v1/hordes[.{format}]', function($req, $res) {
 });
 
 
-// GET trainings
-$app->get('/v1/trainings[.{format}]', function($req, $res) {
+// Group: trainings
+$app->group('/v1/trainings', function() {
 
-    include_once('lib/key.php');
+    // GET trainings
+    $this->get('[.{format}]', function($req, $res) {
+        include_once('lib/key.php');
 
-    $data = $db->select('training', '*');
+        $data = $db->select('training', '*');
 
-    return parse($req, $res, $data);
+        return parse($req, $res, $data);
+    });
+
+    // Group: trainings/:id
+    $this->group('/{id}', function() {
+        
+        // GET trainings/:id
+        $this->get('[.{format}]', function($req, $res) {
+            include_once('lib/key.php');
+
+            $data = array(
+                'stat'      =>  'success',
+                'training'  =>  $db->get('training', '*', [
+                    'id' => $req->getAttribute('id')
+                ])
+            );
+
+            return parse($req, $res, $data);
+        });
+
+        // GET trainings/:id/records
+        $this->get('/records[.{format}]', function($req, $res) {
+            include_once('lib/key.php');
+
+            $data = $db->select('records', '*', [
+                'id_training' => $req->getAttribute('id')
+            ]);
+
+            return parse($req, $res, $data);
+        });
+
+    });
+
 });
-
 
 
 // POST trainings
@@ -87,7 +120,7 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
         ])
     );
 
-    return parse($req, $res, $data);
+    return parse($req, $res, $data)->withStatus(201)->withHeader('Location', '/v1/trainings/'.$training_id);
 });
 
 
