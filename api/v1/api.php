@@ -110,6 +110,8 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
         if(!empty($vars[$i])) $insert[$i] = $vars[$i];
     }
 
+    // TODO: CREATE URL HERE
+
     include_once('lib/key.php');
     $training_id = $db->insert('training', $insert);
 
