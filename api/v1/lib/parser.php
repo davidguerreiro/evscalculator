@@ -34,7 +34,7 @@ function parse($req, $res, $data) {
 
 function parseJson($input) {
     if (function_exists('json_encode')) {
-        $result = json_encode($input);
+        $result = json_encode($input, JSON_NUMERIC_CHECK);
         if ($result) {
             return $result;
         }
