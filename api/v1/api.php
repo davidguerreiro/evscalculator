@@ -13,7 +13,7 @@ $app->get('/', function($req, $res){
 // GET hordes
 $app->get('/v1/hordes[.{format}]', function($req, $res) {
 
-    $data = getHordes($req->getQueryParams()['stat'], $req->getQueryParams()['game']);
+    $data = getHordes($req->getQueryParams());
     
     return parse($req, $res, $data);
 });
