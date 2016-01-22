@@ -5,6 +5,8 @@
 function parse($req, $res, $data) {
     // Default to json
     $f = ($req->getAttribute('format')) ? $req->getAttribute('format') : 'json';
+    // Check for callback
+    $callback = ($req->getQueryParams('callback') && is_string($req->getQueryParams('callback'))) ? $req->getQueryParams('callback') : false;
 
     // Supported
     $contentTypes = array(
@@ -20,6 +22,10 @@ function parse($req, $res, $data) {
 
     if (isset($contentTypes[$f]) && is_callable($contentTypes[$f]['function'])) {
         $result = call_user_func($contentTypes[$f]['function'], $data);
+
+        if($f === 'json' && $callback) {
+            $result = $callback + "(" + $result + ")";
+        }
 
         if ($result) {
             $res->getBody()->write($result);
