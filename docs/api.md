@@ -12,8 +12,15 @@ https://api.evscalculator.com/v1/request.json
 ```
 
 Where request is the action requested. GET represents requests with static results, that accept no parameters. POST represents requests that have parameters and dynamic results.
-Parameters should be passed via the URL. JSON format would be the only one supported for now but the code should be independent of the format.
+Parameters should be passed via the URL. JSON format would be the only one supported for now but the code should be independent of the format. You can remove the `.json` extension and it will fallback to JSON.
 
+##Using JSONP
+The API supports JSONP for old browser support on every valid endpoint. To get the JSONP return you must:
+
+* Specify a **callback** parameter, which must be a string.
+* Use JSON format or no format at all (fallbacks to JSON).
+
+Example: `https://api.evscalculator.com/v1/hordes?callback=foo`
 
 ### GET hordes
 Contains all information about hordes.
