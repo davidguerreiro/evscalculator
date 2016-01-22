@@ -5,13 +5,13 @@ require 'lib/functions.php';
 
 
 // Generic
-$app->get('/', function($req, $res){
+$app->get('/', function(Request $req, Response $res){
     return $res->withStatus(301)->withHeader('Location', 'https://evscalculator.com');
 });
 
 
 // GET hordes
-$app->get('/v1/hordes[.{format}]', function($req, $res) {
+$app->get('/v1/hordes[.{format}]', function(Request $req, Response $res) {
 
     $data = getHordes($req->getQueryParams());
     
@@ -23,7 +23,7 @@ $app->get('/v1/hordes[.{format}]', function($req, $res) {
 $app->group('/v1/trainings', function() {
 
     // GET trainings
-    $this->get('[.{format}]', function($req, $res) {
+    $this->get('[.{format}]', function(Request $req, Response $res) {
         include_once('lib/key.php');
 
         $data = $db->select('training', '*');
@@ -35,7 +35,7 @@ $app->group('/v1/trainings', function() {
     $this->group('/{id}', function() {
         
         // GET trainings/:id
-        $this->get('[.{format}]', function($req, $res) {
+        $this->get('[.{format}]', function(Request $req, Response $res) {
             include_once('lib/key.php');
 
             $data = array(
@@ -49,7 +49,7 @@ $app->group('/v1/trainings', function() {
         });
 
         // GET trainings/:id/records
-        $this->get('/records[.{format}]', function($req, $res) {
+        $this->get('/records[.{format}]', function(Request $req, Response $res) {
             include_once('lib/key.php');
 
             $data = $db->select('records', '*', [
@@ -65,7 +65,7 @@ $app->group('/v1/trainings', function() {
 
 
 // POST trainings
-$app->post('/v1/trainings[.{format}]', function($req, $res) {
+$app->post('/v1/trainings[.{format}]', function(Request $req, Response $res) {
     // Data received
     $vars = $req->getParsedBody();
     // Data to be inserted
