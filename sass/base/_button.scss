@@ -1,0 +1,17 @@
+
+// BUTTONS
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button{
+	display: inline-block;
+	width: auto;
+	
+	transition: .25s all;
+	
+	border: none;
+
+	@include hover {
+		cursor: pointer;
+	}
+}

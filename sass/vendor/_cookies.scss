@@ -1,0 +1,173 @@
+/* long */
+
+#cc-tag *, 
+#cc-notification-permissions, 
+#cc-approve-button-allsites, 
+#cc-modal #cc-modal-closebutton a,
+#cc-settingsmodal 
+#cc-settingsmodal-closebutton a{ display: none!important; }
+
+
+#cc-notification { 
+	z-index:9999; 
+	position: fixed; 
+	width: 100%;  
+	bottom: 0; 
+	left: 0;  
+	padding: 20px; 
+	background: #000; 
+	background: rgba(13, 24, 33, 0.9); 
+	border-radius: .5em .5em 0 0 
+}
+
+#cc-notification-wrapper { 
+
+	h2,
+	div,
+	ul { 
+		height: 100%;  
+		color: #fff;   
+		font-size: 13px; 
+		line-height: 18px; 
+		border-bottom: none; 
+		font-weight: normal;
+	}
+
+	h2 { 
+		font-weight: normal;
+		max-width:90%; 
+		padding: 5px 60px 0; 
+		margin: 0; 
+		float: left; 
+		text-transform: none; 
+		background: none; 
+		color: #fff; 
+		font-size: 16px; 
+		display: block; 
+
+		span + a { 
+			display: block; 
+			line-height: 2  
+		} 
+	}
+
+
+	ul.cc-notification-buttons{ 
+		width:7.5%; 
+		text-align: right; 
+		margin: 8px 0 0 0;
+		float: right; 
+		padding:0 20px 0 0;
+		list-style: none;
+
+		li { 
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			&:before { 
+				background: none; 
+			}
+		}
+
+	
+	}
+
+}
+
+
+
+#cc-approve-button-thissite{
+	  font-weight: normal;
+	  text-indent: 0;
+	  position: relative;
+	  padding-right: 1em;
+	  display: inline-block;
+	  text-align: left;
+	  color: #fff;   
+
+
+	&:hover{
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+		opacity: 0.5;
+	}
+
+	&:before {
+		display: inline-block; 
+		content:'\00d7'; 
+		color: #fff;
+		min-width: 24px; 
+		min-height: 24px;
+		font-size: 1.9em;
+		position: relative;
+		top:-2px;
+		float: right;
+		margin-left: .313em
+	
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+
+  #cc-notification { 
+  	z-index:9999; 
+  	position: relative; 
+  	width: 100%;  
+  	min-width:320px; 
+  	top: 0;
+  	left: 0;  
+  	padding: 0.75em; 
+  	height: auto; 
+  	max-height: 200px; 
+  	overflow: hidden; 
+	border-radius: 0 0 0 0;
+  }
+
+  #cc-approve-button-thissite {
+	display: block;
+
+	&:before {
+		top: -4px;
+	}
+  }
+
+  #cc-notification-wrapper {
+  		width:auto;
+		max-width: 100%;
+  	 	
+
+  	 	h2 { 
+  	 		float: none; 
+  	 		position: relative; 
+  	 		z-index: -1;
+  	 		font-weight: 300; 
+  	 		font-size: 13px; 
+  	 		padding: 5px 10px 0; 
+  	 		display: block;
+
+  	 		span + a {
+  	 			display: inline; 
+  	 			line-height: 
+  	 			inherit;
+  	 		}
+  	 	}
+
+  	 	 ul.cc-notification-buttons {
+			margin-right: 1em
+  	 	 }
+  	}
+
+ }
+
+
+

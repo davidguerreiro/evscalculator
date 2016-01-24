@@ -1,0 +1,16 @@
+@charset 'utf-8';
+
+
+// Generic variables
+@import "utils/variables";
+
+
+// DEVELOPMENT SPECIFIC VALUES
+
+// Generic path for resources
+$cdn-path: '../';
+
+
+
+// Styles
+@import "style";
