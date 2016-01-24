@@ -10,7 +10,6 @@
 
 html{
     font:#{($mq-base-font-size/16px)*1em}/#{$line-height-ratio} $font;
-	background: $color-footer;
 	font-size: 1em;
 	line-height: 1.2;
 	margin: 0;
@@ -20,6 +19,7 @@ html{
 
 body{
 	position: relative;
+	background: $color-footer;
 }
 
 .main {
