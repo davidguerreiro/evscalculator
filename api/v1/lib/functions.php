@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 function isStat($stat) {
     if(!$stat) return false;
 
@@ -62,4 +59,12 @@ function getHordes($vars) {
 
     // Remove original indexes
     return array_values($ret);
+}
+
+
+
+function getBerries($vars){
+
+    $json_file = json_decode(file_get_contents(.'vi/data/berries.json'));
+    return $json_file;
 }
