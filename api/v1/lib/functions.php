@@ -61,10 +61,3 @@ function getHordes($vars) {
     return array_values($ret);
 }
 
-
-
-function getBerries($vars){
-
-    $json_file = json_decode(file_get_contents('./v1/data/berries.json'));
-    return $json_file;
-}
