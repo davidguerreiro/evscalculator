@@ -65,6 +65,6 @@ function getHordes($vars) {
 
 function getBerries($vars){
 
-    $json_file = json_decode(file_get_contents(.'vi/data/berries.json'));
+    $json_file = json_decode(file_get_contents(.'/vi/data/berries.json'));
     return $json_file;
 }
