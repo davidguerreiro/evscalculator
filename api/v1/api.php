@@ -1,6 +1,10 @@
 <?php
 require 'lib/parser.php';
 require 'lib/functions.php';
+require 'lib/middleware.php';
+
+
+$app->add(new HttpsMiddleware());
 
 
 
