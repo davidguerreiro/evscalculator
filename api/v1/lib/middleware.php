@@ -1,5 +1,6 @@
 <?php
 
+// Checks if protocol is HTTPS before making the request, if so delivers error
 class HttpsMiddleware
 {
     public function __invoke($req, $res, $next)
@@ -10,7 +11,7 @@ class HttpsMiddleware
 		        'stat'      =>  'error',
 		        'message'  =>  'Please use HTTPS protocol.'
 		    );
-		 	return parse($req, $res, $data);
+		 	return parse($req, $res, $data)->withStatus(403);
 		}
  
         $res = $next($req, $res);
