@@ -1,6 +1,6 @@
 <?php
 
-
+// TODO: Move this to Middleware
 
 function parse($req, $res, $data) {
     // Default to json
@@ -37,6 +37,7 @@ function parse($req, $res, $data) {
         }
     }
 
+    // TODO: Throw Error code 415 format not found
     return $data;
 }
 
