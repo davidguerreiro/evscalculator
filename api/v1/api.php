@@ -18,6 +18,14 @@ $app->get('/v1/hordes[.{format}]', function($req, $res) {
     return parse($req, $res, $data);
  });
 
+// GET berries
+$app->get('/v1/berries[.{format}]', function($req, $res){
+
+    $data = getBerries($req->getQueryParams());
+    var_dump($data);
+    die();
+});
+
 
 // Group: trainings
 $app->group('/v1/trainings', function() {

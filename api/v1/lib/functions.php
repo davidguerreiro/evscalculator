@@ -61,3 +61,16 @@ function getHordes($vars) {
     return array_values($ret);
 }
 
+function getBerries($vars){
+
+    // Grab JSON and make it an array of objects
+    $ret = json_decode(file_get_contents('./v1/data/berries.json'));
+
+    // Filter by stat
+    if(isStat($vars['stat'])) {
+        $ret = array_filter($ret, function($a) use($vars) {
+            return $a->stat_name == $vars['stat'];
+        });
+    }
+
+}
