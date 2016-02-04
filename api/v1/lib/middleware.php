@@ -112,7 +112,8 @@ class EvsMiddleware {
 	    }
 
 	    // Format not found, return error
-		$this->res->withStatus(415);
+	    $this->format = 'json';
+		$this->res = $this->res->withStatus(415);
 	    return $this->parse();
 	}
 
