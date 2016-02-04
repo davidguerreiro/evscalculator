@@ -59,12 +59,38 @@ class EvsMiddleware {
 	    return $res;
 	}
 
+	private function build($data) {
+		$ret = array();
+		
+	    $code = $this->res->getStatusCode();
+
+	    // Stat value, always present
+		$stat = "ok";
+	    if(($code<200 || $code>=300) && $code!=304) {
+	    	$stat = "error";
+	    }
+
+	    // Build the returned object
+	    $ret['stat'] = $stat;
+	    if($stat !== "ok") {
+	    	// If not ok, send errors
+	    	$ret['errors'] = $this->getErrorMessage();
+	    } else {
+	    	// If all good, send data
+	    	$ret['count'] = count($data);
+	    	$ret['data'] = $data;
+	    }
+
+		return $ret;
+	}
+
 	// Grabs the content from the response in JSON, unencodes it to data and returns right format
 	private function parse() {
 	    // Check for callback
 	    $callback = ($this->req->getQueryParams()['callback'] && is_string($this->req->getQueryParams()['callback'])) ? $this->req->getQueryParams()['callback'] : false;
 
 	    $data = json_decode($this->res->getBody());
+	   	$data = $this->build($data);
 
 	    if ($this->isValidFormat()) {
 
@@ -76,6 +102,7 @@ class EvsMiddleware {
 	            $result = " " . $callback . "(" . $result . ") ";
 	        }
 
+
 	        // Process and write in the body
 	        if ($result) {
 	        	$this->res->getBody()->rewind();
@@ -84,11 +111,13 @@ class EvsMiddleware {
 	        }
 	    }
 
-	    return $this->sendError(415);
+	    // Format not found, return error
+		$this->res->withStatus(415);
+	    return $this->parse();
 	}
 
 	// Default error messages for given codes
-	private function getErrorMessage($code) {
+	private function getErrorMessage() {
 		$error_list = array(
 			200 =>	"OK",
 			201 =>	"Created",
@@ -105,23 +134,8 @@ class EvsMiddleware {
 			429 =>	"Too Many Requests"
 		);
 
-		return isset($error_list[$code]) ? $error_list[$code] : 'Something odd happened. Please contact the administrator.';
+		return isset($error_list[$this->res->getStatusCode()]) ? $error_list[$this->res->getStatusCode()] : 'Something odd happened. Please contact the administrator.';
 	}
-
-	// Sends an error 
-	private function sendError($code, $message = null) {
-
-		//if(!$this->isValidFormat()) $this->req->getAttribute('format') = 'json';
-
-		$data = array(
-			'stat' 		=>	'error',
-			'message'	=>	($message ? $message : $this->getErrorMessage($code))
-		);
-
-		$this->res = $this->res->write(json_encode($data))->withStatus($code);
-
-		return $this->parse($new_res);
-	} 
 
 
     public function __invoke($req, $res, $next) {
@@ -144,7 +158,11 @@ class EvsMiddleware {
 
 
     	// Before processing the request
-    	if(!$this->isSecure()) return $this->sendError(403, "Please use HTTPS protocol");
+    	if(!$this->isSecure()) {
+    		$this->res->write(json_encode(["Please use HTTPS protocol"]));
+    		$this->res = $this->res->withStatus(403);
+    		return $this->parse();
+    	}
 
  
  		// Make the request
