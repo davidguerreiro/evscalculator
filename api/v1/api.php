@@ -4,7 +4,7 @@ require 'lib/functions.php';
 require 'lib/middleware.php';
 
 
-$app->add(new HttpsMiddleware());
+$app->add(new EvsMiddleware());
 
 
 
@@ -17,9 +17,9 @@ $app->get('/', function($req, $res){
 // GET hordes
 $app->get('/v1/hordes[.{format}]', function($req, $res) {
   
-    $data = getHordes($req->getQueryParams());
+    //$data = getHordes($req->getQueryParams());
       
-    return parse($req, $res, $data);
+    return getHordes($req->getQueryParams());
  });
 
 // GET berries
