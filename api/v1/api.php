@@ -1,5 +1,4 @@
 <?php
-require 'lib/parser.php';
 require 'lib/functions.php';
 require 'lib/middleware.php';
 
@@ -17,9 +16,9 @@ $app->get('/', function($req, $res){
 // GET hordes
 $app->get('/v1/hordes[.{format}]', function($req, $res) {
   
-    //$data = getHordes($req->getQueryParams());
-      
-    return getHordes($req->getQueryParams());
+    $data = getHordes($req->getQueryParams());
+
+    return $res->write(json_encode($data));
  });
 
 // GET berries
@@ -40,7 +39,7 @@ $app->group('/v1/trainings', function() {
 
         $data = $db->select('training', '*');
 
-        return parse($req, $res, $data);
+        return json_encode($data);
     });
 
     // Group: trainings/:id
@@ -57,7 +56,7 @@ $app->group('/v1/trainings', function() {
                 ])
             );
 
-            return parse($req, $res, $data);
+            return json_encode($data);
         });
 
         // GET trainings/:id/records
@@ -68,7 +67,7 @@ $app->group('/v1/trainings', function() {
                 'id_training' => $req->getAttribute('id')
             ]);
 
-            return parse($req, $res, $data);
+            return json_encode($data);
         });
 
     });

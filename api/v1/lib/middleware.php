@@ -2,60 +2,24 @@
 
 class EvsMiddleware {
 
-	private $req = null;
-	private $res = null;
+	private $req;
+	private $res;
+	private $format;
 
-	private $contentTypes = array(
-        'json'   =>  array(
-            'function'  =>  'parseJson',
-            'header'    =>  'application/json'
-        ),
-        'jsonp' =>  array(
-            'header'    =>  'application/javascript'
-        ),
-        'xml'   =>  array(
-            'function'  =>  'parseXml',
-            'header'    =>  'text/xml'
-        )
-    );
+	private $contentTypes;
 
+	// Returns true when in HTTPS
 	private function isSecure() {
 		return !empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO']==='https';
 	}
 
-	private function isValidFormat($req) {
-		// Default to json
-	    $f = ($req->getAttribute('format')) ? $req->getAttribute('format') : 'json';
+	// Returns true when format (aka extension) is valid
+	private function isValidFormat() {
 	    // If in array and has a callable function
-		return isset($this->contentTypes[$f]) && is_callable($this->contentTypes[$f]['function']);
+		return isset($this->contentTypes[$this->format]) && method_exists($this, $this->contentTypes[$this->format]['function']);
 	}
 
-	private function parse($data) {
-		// Default to json
-	    $f = ($this->req->getAttribute('format')) ? $this->req->getAttribute('format') : 'json';
-	    // Check for callback
-	    $callback = ($this->req->getQueryParams()['callback'] && is_string($this->req->getQueryParams()['callback'])) ? $this->req->getQueryParams()['callback'] : false;
-
-	    if ($this->isValidFormat($this->req)) {
-	        $result = call_user_func($this->contentTypes[$f]['function'], $data);
-
-	        // JSONP result
-	        if($callback && $f == 'json') {
-	            $f = 'jsonp';
-	            $result = " " . $callback . "(" . $result . ") ";
-	        }
-
-	        // Process and write in the body
-	        if ($result) {
-	            $this->res->getBody()->write($result);
-	            return $this->res->withHeader('Content-type', $this->contentTypes[$f]['header']);
-	        }
-	    }
-
-	    return sendError(415);
-	}
-
-
+	// JSON encode
 	private function parseJson($input) {
 	    if (function_exists('json_encode')) {
 	        $result = json_encode($input, JSON_NUMERIC_CHECK);
@@ -65,6 +29,7 @@ class EvsMiddleware {
 	    }
 	}
 
+	// Encode into XML
 	private function parseXml($input) {
 	    if (class_exists('SimpleXMLElement')) {
 	        try {
@@ -80,6 +45,7 @@ class EvsMiddleware {
 	    return $input;
 	}
 
+	// Encode into CSV
 	private function parseCsv($input) {
 	    $temp = fopen('php://memory', 'rw');
 	    fwrite($temp, $input);
@@ -93,6 +59,35 @@ class EvsMiddleware {
 	    return $res;
 	}
 
+	// Grabs the content from the response in JSON, unencodes it to data and returns right format
+	private function parse() {
+	    // Check for callback
+	    $callback = ($this->req->getQueryParams()['callback'] && is_string($this->req->getQueryParams()['callback'])) ? $this->req->getQueryParams()['callback'] : false;
+
+	    $data = json_decode($this->res->getBody());
+
+	    if ($this->isValidFormat()) {
+
+	        $result = call_user_func(array($this, $this->contentTypes[$this->format]['function']), $data);
+
+	        // JSONP result
+	        if($callback && $this->format == 'json') {
+	            $this->format = 'jsonp';
+	            $result = " " . $callback . "(" . $result . ") ";
+	        }
+
+	        // Process and write in the body
+	        if ($result) {
+	        	$this->res->getBody()->rewind();
+	        	$this->res->getBody()->write($result);
+	            return $this->res->withHeader('Content-type', $this->contentTypes[$this->format]['header']);
+	        }
+	    }
+
+	    return $this->sendError(415);
+	}
+
+	// Default error messages for given codes
 	private function getErrorMessage($code) {
 		$error_list = array(
 			200 =>	"OK",
@@ -113,32 +108,53 @@ class EvsMiddleware {
 		return isset($error_list[$code]) ? $error_list[$code] : 'Something odd happened. Please contact the administrator.';
 	}
 
+	// Sends an error 
 	private function sendError($code, $message = null) {
 
-		if(!$this->isValidFormat($this->req)) $this->req->getAttribute('format') = 'json';
-		$this->res = $this->res->withStatus($code);
+		//if(!$this->isValidFormat()) $this->req->getAttribute('format') = 'json';
 
 		$data = array(
 			'stat' 		=>	'error',
-			'message'	=>	($message ? $message : $this->getErrorMessage($code));
+			'message'	=>	($message ? $message : $this->getErrorMessage($code))
 		);
 
-		return $this->parse($data);
+		$this->res = $this->res->write(json_encode($data))->withStatus($code);
+
+		return $this->parse($new_res);
 	} 
 
 
     public function __invoke($req, $res, $next) {
     	$this->req = $req;
     	$this->res = $res;
+    	$this->format = $req->getAttribute('routeInfo')[2]['format'] ? $req->getAttribute('routeInfo')[2]['format'] : 'json';
+    	$this->contentTypes = array(
+	        'json'   =>  array(
+	            'function'  =>  'parseJson',
+	            'header'    =>  'application/json'
+	        ),
+	        'jsonp' =>  array(
+	            'header'    =>  'application/javascript'
+	        ),
+	        'xml'   =>  array(
+	            'function'  =>  'parseXml',
+	            'header'    =>  'text/xml'
+	        )
+	    );
+
 
     	// Before processing the request
     	if(!$this->isSecure()) return $this->sendError(403, "Please use HTTPS protocol");
+
  
  		// Make the request
-        $data = $next($req, $res);
+        $this->res = $next($this->req, $this->res);
+
 
         //After processing the request
-        return $this->parse($data);
+
+
+        return $this->parse();
     }
 }
 

@@ -7,7 +7,12 @@ require 'vendor/autoload.php';
 
 header("Access-Control-Allow-Origin: *");
 
-$app = new \Slim\App; 
+$app = new \Slim\App([
+    'settings'  => [
+        'determineRouteBeforeAppMiddleware' => true,
+        'displayErrorDetails' => true,
+    ]
+]);
 
 require 'v1/api.php';
 
