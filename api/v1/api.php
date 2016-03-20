@@ -18,7 +18,7 @@ $app->get('/v1/hordes[.{format}]', function($req, $res) {
   
     $data = getHordes($req->getQueryParams());
 
-    return $res->write(json_encode($data));
+    return json_encode($data);
  });
 
 // GET berries
