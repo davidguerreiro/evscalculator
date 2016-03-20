@@ -133,7 +133,8 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
         ])
     );
 
-    return parse($req, $res, $data)->withStatus(201)->withHeader('Location', '/v1/trainings/'.$training_id);
+    return json_encode($data);
+    //->withStatus(201)->withHeader('Location', '/v1/trainings/'.$training_id);
 });
 
 
