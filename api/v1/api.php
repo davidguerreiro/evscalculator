@@ -21,6 +21,16 @@ $c['notFoundHandler'] = function ($c) {
             ->withStatus(404);
     };
 };
+// 405 - Method not allowed for that endpoint, but others exist
+$c['notAllowedHandler'] = function ($c) {
+    return function ($request, $response, $methods) use ($c) {
+        return $c['response']
+            ->withStatus(405)
+            ->withHeader('Allow', implode(', ', $methods))
+            ->withHeader('Content-type', 'text/html')
+            ->write(parse(['Method must be one of: ' . implode(', ', $methods)]));
+    };
+};
 
 
 // GET hordes
@@ -169,7 +179,7 @@ $app->delete('/v1/trainings/{id}[.{format}]', function($req, $res) {
     include_once('lib/key.php');
     $deleted_items = $db->delete("training", [
         "AND" => [
-            "id" => $req->getAttribute('id')
+            "id_url" => $req->getAttribute('id')
         ]
     ]);
 
