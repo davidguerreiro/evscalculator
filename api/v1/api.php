@@ -17,7 +17,7 @@ $c = $app->getContainer();
 $c['notFoundHandler'] = function ($c) {
     return function ($request, $response) use ($c) {
         return $c['response']
-            ->write(json_encode(["Endpoint not found/available."]))
+            ->write(parse(["Endpoint not found/available."]))
             ->withStatus(404);
     };
 };
@@ -28,7 +28,7 @@ $app->get('/v1/hordes[.{format}]', function($req, $res) {
   
     $data = getHordes($req->getQueryParams());
 
-    return $res->write(json_encode($data));
+    return $res->write(parse($data));
  });
 
 // GET berries
@@ -49,7 +49,8 @@ $app->group('/v1/trainings', function() {
 
         $data = $db->select('training', '*');
 
-        return $res->write(json_encode($data));
+        return $res
+            ->write(parse($data));
     });
 
     // Group: trainings/:id
@@ -60,10 +61,11 @@ $app->group('/v1/trainings', function() {
             include_once('lib/key.php');
 
             $data = $db->get('training', '*', [
-                'id' => $req->getAttribute('id')
+                'id_url' => $req->getAttribute('id')
             ]);
 
-            return $res->write(json_encode($data));
+            return $res
+                ->write(parse($data));
         });
 
         // GET trainings/:id/records
@@ -74,7 +76,8 @@ $app->group('/v1/trainings', function() {
                 'id_training' => $req->getAttribute('id')
             ]);
 
-            return $res->write(json_encode($data));
+            return $res
+                ->write(parse($data));
         });
 
     });
@@ -122,7 +125,7 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
     // If required failed, error
     if(!count($insert)) {
         $errors[] = "Requires at least one stat to be positive";
-        // Return with validation error code
+        // TODO: Return with validation error code
     }
 
     // Go through optional
@@ -136,7 +139,7 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
     // Create training
     $training_id = $db->insert('training', $insert);
 
-    // If failed, add error and return with "server" error code
+    // TODO: If failed, add error and return with "server" error code
 
     $hash_url = $hashids->encode($training_id);
 
@@ -152,13 +155,26 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
         'id' => $training_id
     ]);
 
-    return $res->write(json_encode($data))->withStatus(201)->withHeader('Location', '/v1/trainings/'.$hash_url);
+    return $res
+        ->write(parse($data))
+        ->withStatus(201)
+        ->withHeader('Location', '/v1/trainings/'.$hash_url);
 });
+
 
 // DELETE /trainings/:id
 $app->delete('/v1/trainings/{id}[.{format}]', function($req, $res) {
     $data = array();
 
-    return $res->write(json_encode($data));
+    include_once('lib/key.php');
+    $deleted_items = $db->delete("training", [
+        "AND" => [
+            "id" => $req->getAttribute('id')
+        ]
+    ]);
+
+    return $res
+        ->write(parse($data))
+        ->withStatus(204);
 });
 

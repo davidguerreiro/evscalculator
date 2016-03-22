@@ -74,3 +74,7 @@ function getBerries($vars){
     }
 
 }
+
+function parse($data) {
+    return json_encode($data, JSON_NUMERIC_CHECK);
+}
