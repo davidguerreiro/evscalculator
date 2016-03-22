@@ -12,6 +12,12 @@ $app->get('/', function($req, $res){
     return $res->withStatus(301)->withHeader('Location', 'https://evscalculator.com');
 });
 
+// Fix OPTIONS on CORS
+// return HTTP 200 for HTTP OPTIONS requests
+$app->options('/(:x+)', function($req, $res) {
+    return $res;
+});
+
 // 404 error - Endpoint not found
 $c = $app->getContainer();
 $c['notFoundHandler'] = function ($c) {
