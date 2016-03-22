@@ -59,6 +59,7 @@ class EvsMiddleware {
 	    return $res;
 	}
 
+	// Builds the response in the standarised format (with stat, data, etc)
 	private function build($data) {
 		$ret = array();
 		
@@ -74,7 +75,7 @@ class EvsMiddleware {
 	    $ret['stat'] = $stat;
 	    if($stat !== "ok") {
 	    	// If not ok, send errors
-	    	$ret['errors'] = $this->getErrorMessage();
+	    	$ret['errors'] = $data;
 	    } else {
 	    	// If all good, send data
 	    	$ret['count'] = count($data);
@@ -101,7 +102,6 @@ class EvsMiddleware {
 	            $this->format = 'jsonp';
 	            $result = " " . $callback . "(" . $result . ") ";
 	        }
-
 
 	        // Process and write in the body
 	        if ($result) {

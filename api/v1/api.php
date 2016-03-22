@@ -12,13 +12,23 @@ $app->get('/', function($req, $res){
     return $res->withStatus(301)->withHeader('Location', 'https://evscalculator.com');
 });
 
+// 404 error - Endpoint not found
+$c = $app->getContainer();
+$c['notFoundHandler'] = function ($c) {
+    return function ($request, $response) use ($c) {
+        return $c['response']
+            ->write(json_encode(["Endpoint not found/available."]))
+            ->withStatus(404);
+    };
+};
+
 
 // GET hordes
 $app->get('/v1/hordes[.{format}]', function($req, $res) {
   
     $data = getHordes($req->getQueryParams());
 
-    return json_encode($data);
+    return $res->write(json_encode($data));
  });
 
 // GET berries
@@ -39,7 +49,7 @@ $app->group('/v1/trainings', function() {
 
         $data = $db->select('training', '*');
 
-        return json_encode($data);
+        return $res->write(json_encode($data));
     });
 
     // Group: trainings/:id
@@ -49,14 +59,11 @@ $app->group('/v1/trainings', function() {
         $this->get('[.{format}]', function($req, $res) {
             include_once('lib/key.php');
 
-            $data = array(
-                'stat'      =>  'success',
-                'training'  =>  $db->get('training', '*', [
-                    'id' => $req->getAttribute('id')
-                ])
-            );
+            $data = $db->get('training', '*', [
+                'id' => $req->getAttribute('id')
+            ]);
 
-            return json_encode($data);
+            return $res->write(json_encode($data));
         });
 
         // GET trainings/:id/records
@@ -67,7 +74,7 @@ $app->group('/v1/trainings', function() {
                 'id_training' => $req->getAttribute('id')
             ]);
 
-            return json_encode($data);
+            return $res->write(json_encode($data));
         });
 
     });
@@ -81,6 +88,8 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
     $vars = $req->getParsedBody();
     // Data to be inserted
     $insert = array();
+    // Errors
+    $errors = array();
 
    // Requires one of  this to be positive
     $required = array(
@@ -112,8 +121,8 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
 
     // If required failed, error
     if(!count($insert)) {
-        $res->getBody()->write(json_encode(array("Error" => "Requires at least one stat to be positive")));
-        return $res->withHeader('Content-type', 'application/json');
+        $errors[] = "Requires at least one stat to be positive";
+        // Return with validation error code
     }
 
     // Go through optional
@@ -121,20 +130,35 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
         if(!empty($vars[$i])) $insert[$i] = $vars[$i];
     }
 
-    // TODO: CREATE URL HERE
-
     include_once('lib/key.php');
+    include_once('lib/hash.php');
+
+    // Create training
     $training_id = $db->insert('training', $insert);
 
-    $data = array(
-        'stat'      =>  'success',
-        'training'  =>  $db->get('training', '*', [
-            'id' => $training_id
-        ])
-    );
+    // If failed, add error and return with "server" error code
 
-    return json_encode($data);
-    //->withStatus(201)->withHeader('Location', '/v1/trainings/'.$training_id);
+    $hash_url = $hashids->encode($training_id);
+
+    // Update with URL hash
+    $db->update('training', [
+        'id_url' => $hash_url
+    ], [
+        'id' => $training_id
+    ]);
+
+    // Get full result to return
+    $data = $db->get('training', '*', [
+        'id' => $training_id
+    ]);
+
+    return $res->write(json_encode($data))->withStatus(201)->withHeader('Location', '/v1/trainings/'.$hash_url);
 });
 
+// DELETE /trainings/:id
+$app->delete('/v1/trainings/{id}[.{format}]', function($req, $res) {
+    $data = array();
+
+    return $res->write(json_encode($data));
+});
 

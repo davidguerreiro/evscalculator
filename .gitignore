@@ -11,6 +11,7 @@ composer
 node_modules
 api/vendor
 key.php
+hash.php
 
 # Windows image file caches
 Thumbs.db
