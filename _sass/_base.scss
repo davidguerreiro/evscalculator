@@ -1,0 +1,92 @@
+$font : 'Cabin', Helvetica, sans-serif;
+$font-secondary : Montserrat, sans-serif;
+$mq-base-font-size: 20px;
+$line-height-ratio: 1.4;
+
+// Base border radius
+$base-radius: 0.5em;
+
+// Max width container
+$max-width: 72em;
+
+// Margins and spacing consistency
+$space: 1em;
+
+
+$color-header: #e56d68;
+$color-footer: #6e6d6b;
+
+$color-primary: #fcf9db;
+$color-primary-bg: #b1ad9c;
+$color-secondary: #86b2c3;
+
+$color-border: #333;
+$color-text: #333;
+
+$color-success: #b6d39b;
+$color-cancel: red;
+
+*{
+	&,
+	&:before,
+	&:after{
+		box-sizing: border-box;
+	}
+}
+
+html{
+    font:#{($mq-base-font-size/16px)*1em}/#{$line-height-ratio} $font;
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+	color: $color-text;
+}
+
+
+body{
+	position: relative;
+	background: #f9f9f9;
+	margin: 0;
+}
+
+.main {
+  background: #d9d9d9;
+  overflow: hidden;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+	line-height: 1;
+	margin-bottom: .25em;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-size: 1em;
+  font-family: monospace, monospace;
+}
+
+pre {
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  tab-size: 2;
+  line-height: 1.2;
+  font-size: .9em;
+  background: #fff;
+  padding: 1em;
+}
+
+table {
+	margin: 1em 0;
+}
+
+td {
+	padding: .25em;
+	border: 1px solid #eee;
+}
+

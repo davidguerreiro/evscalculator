@@ -1,0 +1,45 @@
+# Site data
+title: "EVs Calculator Docs"
+email: social@evscalculator.com
+description: "API documentation for EVs Calculator project."
+baseurl: ""
+url: "https://docs.evscalculator.com"
+enforce_ssl: "http://docs.evscalculator.com"
+username: "evscalculator"
+
+
+collections: 
+ - projects
+ - work
+
+ # Default front-matter
+defaults:
+  - 
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: default
+  -
+    scope:
+      path: ""
+    values: 
+      image: "/apple-touch-icon.png"
+
+
+
+# Build settings
+permalink: pretty
+exclude:
+  - README.md
+  - _src/
+  - node_modules/
+  - Gruntfile.js
+  - package.json
+  - api
+
+#Gems
+gems:
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-feed
