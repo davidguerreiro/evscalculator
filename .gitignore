@@ -1,3 +1,7 @@
+# Project ignores
+_site
+.sass-cache
+
 # Files to ignore on this project
 database.php
 database.txt
