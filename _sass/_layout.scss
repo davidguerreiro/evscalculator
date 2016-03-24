@@ -52,11 +52,22 @@
 	a {
 		text-decoration: none;
 		color: $color-text;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: $color-header;
+		}
+	}
+
+	.active a {
+		color: saturate(#73a3b7, 10%);
 	}
 
 	ul {
 		list-style: none;
 		padding: 0 0 0 .5em;
+		margin: 0;
 
 		ul li {
 			margin-top: .2em;
@@ -80,14 +91,15 @@
 @media all and (min-width: 40em) {
 	.content {
 		overflow: hidden;
+		margin-top: 2em;
 	}
 	.content__side,
 	.content__main {
 		float: left;
-		width: 33.33%;
+		width: 30%;
 	}
 
 	.content__main {
-		width: 66.66%;
+		width: 70%;
 	}
 }

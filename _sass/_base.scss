@@ -58,6 +58,17 @@ body{
 h1,h2,h3,h4,h5,h6 {
 	line-height: 1;
 	margin-bottom: .25em;
+	margin-top: 1.5em;
+}
+
+h1 {
+	margin-bottom: .33em;
+	margin-top: 0;
+}
+
+h3 {
+	color: $color-footer;
+	margin-top: 2.5em;
 }
 
 code,
@@ -66,6 +77,10 @@ pre,
 samp {
   font-size: 1em;
   font-family: monospace, monospace;
+}
+
+code {
+	color: darken(saturate($color-secondary, 20%), 10%);
 }
 
 pre {
@@ -82,11 +97,17 @@ pre {
 }
 
 table {
-	margin: 1em 0;
+	margin: 1rem 0;
+	font-size: .9em;
+	width: 100%;
 }
 
 td {
 	padding: .25em;
 	border: 1px solid #eee;
+
+	em {
+		color: $color-header;
+	}
 }
 

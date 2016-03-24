@@ -9,8 +9,19 @@ Can be filtered by stat or game.
 ## Parameters
 
 Parameter   | Type    | Description
-----      | ----    | ----
+---- | ---- | ---- 
 stat      | String  | Filter by stat name.
 game      | Integer   | Filter by game edition.
 
-Example: `https://api.evscalculator.com/v1/vitamins.json`
+
+### Example request
+
+`GET https://api.evscalculator.com/v1/vitamins`
+
+### Example response
+
+```json
+{
+
+}
+```
