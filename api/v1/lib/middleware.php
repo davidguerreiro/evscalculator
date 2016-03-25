@@ -59,6 +59,37 @@ class EvsMiddleware {
 	    return $res;
 	}
 
+	// Sorts data for given field
+	private function sortData($data) {
+		// If it's just one there's nothing to sort
+		if(sizeof($data)==1) return $data;
+		
+		$ret = $data;
+
+		$sortBy = ($this->req->getQueryParams()['sort'] && is_string($this->req->getQueryParams()['sort'])) ? $this->req->getQueryParams()['sort'] : false;
+		$fields = explode(',', $sortBy);
+		
+		foreach($fields as $field) {
+			// Reverse detected
+			$reverse = false;
+			if (substr($field,0,1)=="-") $reverse = true;
+			$field = ltrim($field, '-');
+
+			// Ignore fields not found on object
+			if(!isset($data[0]->$field)) continue;
+			
+			// Sort by field
+			usort($ret, function($a, $b) use ($field) {
+				 return ($a->$field > $b->$field);
+			});
+				  
+			// Reverse when necessary 
+			if($reverse) $ret = array_reverse($ret);
+		}
+		
+		return $ret;
+	}
+
 	// Builds the response in the standarised format (with stat, data, etc)
 	private function build($data) {
 		$ret = array();
@@ -80,7 +111,7 @@ class EvsMiddleware {
 	    	$ret['errors'] = $data;
 	    } else {
 	    	// If all good, send data
-	    	$ret['data'] = $data;
+	    	$ret['data'] = $this->sortData($data);
 	    }
 
 		return $ret;

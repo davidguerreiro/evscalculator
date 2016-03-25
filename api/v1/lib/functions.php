@@ -45,6 +45,9 @@ function getHordes($vars) {
         });
     }
 
+    /*
+    // Sorting is now done through middleware
+
     // Order (name by default)
     if(!isset($vars['sort'])) $vars['sort'] = 'stat_value';
 
@@ -56,6 +59,7 @@ function getHordes($vars) {
     });
 
     if($vars['reverse']) $ret = array_reverse($ret, true);
+    */
 
     // Remove original indexes
     return array_values($ret);
