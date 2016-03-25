@@ -121,3 +121,13 @@ td {
 	}
 }
 
+th {
+	text-transform: uppercase;
+    font-size: .9em;
+    font-family: $font-secondary;
+    background: #4da7c9;
+    color: #fff;
+    padding: .75rem;
+    line-height: 1;
+}
+
