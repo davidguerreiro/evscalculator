@@ -88,6 +88,10 @@
 	display: block;
 }
 
+.content a {
+	color: $color-header;
+} 
+
 @media all and (min-width: 40em) {
 	.content {
 		overflow: hidden;

@@ -1,27 +1,24 @@
 ---
-title: GET hordes
+title: Using JSONP
 ---
 
-Contains all information about hordes.
-Can be filtered by stat or game.
+The API supports JSONP for old browser support on every valid endpoint. To get the JSONP response you must:
 
-## Parameters
+* Specify a **callback** parameter, which must be a string.
+* Use JSON format or no format at all (fallbacks to JSON).
 
-Parameter   | Type    | Description
-----      | ----    | ----
-stat      | String  | Filter by stat name.
-game      | Integer   | Filter by game edition.
+Example: `https://api.evscalculator.com/v1/hordes?callback=foo`
 
+This will return a `application/javascript` MIME type.
 
 ### Example request
 
-`GET https://api.evscalculator.com/v1/hordes`
+`GET https://api.evscalculator.com/v1/hordes?callback=foo`
 
 ### Example response
 
-
 ```json
-{  
+foo({  
    "stat":"ok",
    "count":55,
    "data":[  
@@ -411,5 +408,5 @@ game      | Integer   | Filter by game edition.
          "game":0
       }
    ]
-}
+})
 ```
