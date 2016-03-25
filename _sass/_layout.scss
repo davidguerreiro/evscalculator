@@ -98,8 +98,16 @@
 	background: $color-header;
 }
 
-.content__main a {
-	color: $color-header;
+.content__main {
+	a {
+		color: $color-header;
+	}
+
+	ul {
+		padding: 0 0 0 1em;
+		margin-top: 0;
+		list-style: square;
+	}
 } 
 
 
@@ -107,7 +115,7 @@
 	body {
 		background: linear-gradient(-90deg, #f9f9f9 0%, #f9f9f9 70%, $color-header 70%, $color-header 100%);
 	}
-		
+
 	.wrapper {
 		display: flex;
 	}

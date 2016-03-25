@@ -2,9 +2,9 @@
 title: POST trainings/:id/records
 ---
 
-Receives a training ID and the data for a new record.  
-Returns a single object with a status code of `201`.  
-It provides the data of the created record.
+- Receives a training ID and the data for a new record.
+- Returns a single object with a status code of `201`.
+- It provides the data of the created record.
 
 ## Parameters
 

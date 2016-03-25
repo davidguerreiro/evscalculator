@@ -2,9 +2,9 @@
 title: GET trainings/:id/records
 ---
 
-Receives a training ID.  
-Returns an object array with a status code of `200`.
-It provides the history record for a training.
+- Receives a training ID.  
+- Returns an object array with a status code of `200`.
+- It provides the history record for a training.
 
 ## Parameters
 

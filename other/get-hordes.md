@@ -2,8 +2,8 @@
 title: GET hordes
 ---
 
-Returns an object array.  
-It provides all the information about hordes.
+- Returns an object array.  
+- It provides all the information about hordes.
 
 ## Parameters
 

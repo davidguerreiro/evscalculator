@@ -2,9 +2,9 @@
 title: DELETE trainings/:id
 ---
 
-Receives a training ID.  
-Returns an empty response with status code of `204`.  
-It deletes a specific training.
+- Receives a training ID.  
+- Returns an empty response with status code of `204`.  
+- It deletes a specific training.
 
 ## Parameters
 

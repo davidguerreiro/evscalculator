@@ -2,8 +2,8 @@
 title: POST trainings
 ---
 
-Receives the data necessary for a new training, returns the new training if successful.
-If a user is logged in, it will link with the account.
+- Receives the data necessary for a new training, returns the new training if successful.
+- If a user is logged in, it will link with the account.
 
 ## Parameters
 
