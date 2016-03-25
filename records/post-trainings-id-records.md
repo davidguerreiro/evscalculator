@@ -2,8 +2,9 @@
 title: POST trainings/:id/records
 ---
 
-Receives the data for an action that changes the EVs count on a specific stat.
-Returns success/fail status.
+Receives a training ID and the data for a new record.  
+Returns a single object with a status code of `201`.  
+It provides the data of the created record.
 
 ## Parameters
 

@@ -2,9 +2,8 @@
 title: GET vitamins
 ---
 
-
-Contains all information about vitamins. This simply returns the file `vitamins.json`.
-Can be filtered by stat or game.
+Returns an object array.  
+It provides all the information about vitamins.
 
 ## Parameters
 

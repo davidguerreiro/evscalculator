@@ -1,3 +1,0 @@
----
-title: PUT trainings/:id
----

@@ -2,7 +2,9 @@
 title: GET trainings/:id
 ---
 
-Returns a specific training.
+Receives a training ID.  
+Returns a single object with the training data and a status code of `200`.
+It provides the information about a specific training.
 
 ## Parameters
 

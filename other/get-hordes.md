@@ -2,8 +2,8 @@
 title: GET hordes
 ---
 
-Contains all information about hordes.
-Can be filtered by stat or game.
+Returns an object array.  
+It provides all the information about hordes.
 
 ## Parameters
 

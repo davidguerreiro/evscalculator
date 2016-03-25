@@ -2,8 +2,7 @@
 title: POST trainings
 ---
 
-
-Receives the data necessary for a new training, returns information and IDs about it if successful.
+Receives the data necessary for a new training, returns the new training if successful.
 If a user is logged in, it will link with the account.
 
 ## Parameters
@@ -25,8 +24,4 @@ POST https://api.evscalculator.com/v1/trainings
 
 ### Example response
 
-```json
-{
-	
-}
-```
+The response should be the same as [GET trainings/:id](/trainings/get-trainings-id/), returning the created training.
