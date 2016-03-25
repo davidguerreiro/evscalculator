@@ -12,7 +12,9 @@ id _required_ | Integer, positive   | Unique ID for user
 
 ### Example request
 
-`GET https://api.evscalculator.com/v1/users/12.json`
+```
+GET https://api.evscalculator.com/v1/users/12.json
+```
 
 ### Example response
 

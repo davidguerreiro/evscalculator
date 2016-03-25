@@ -64,11 +64,15 @@ h1,h2,h3,h4,h5,h6 {
 h1 {
 	margin-bottom: .33em;
 	margin-top: 0;
+	font-family: $font-secondary;
+	letter-spacing: -0.025em;
+	word-spacing: .1em;
 }
 
 h3 {
 	color: $color-footer;
 	margin-top: 2.5em;
+	font-family: $font-secondary;
 }
 
 code,

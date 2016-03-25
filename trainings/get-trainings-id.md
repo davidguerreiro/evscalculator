@@ -13,7 +13,9 @@ id _required_   | String			   	| Refers to the training ID
 
 ### Example request 
 
-`GET https://api.evscalculator.com/v1/trainings/bglRdqG4no`
+```
+GET https://api.evscalculator.com/v1/trainings/bglRdqG4no
+```
 
 ### Example response
 

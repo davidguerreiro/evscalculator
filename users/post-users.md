@@ -15,7 +15,9 @@ timestamp       | Integer, positive   | False by default.
 
 ### Example request
 
-`GET https://api.evscalculator.com/v1/users`
+```
+GET https://api.evscalculator.com/v1/users
+```
 
 ### Example response
 

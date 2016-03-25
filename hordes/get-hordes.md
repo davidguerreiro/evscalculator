@@ -15,7 +15,9 @@ game      | Integer   | Filter by game edition.
 
 ### Example request
 
-`GET https://api.evscalculator.com/v1/hordes`
+```
+GET https://api.evscalculator.com/v1/hordes
+```
 
 ### Example response
 
