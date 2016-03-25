@@ -102,16 +102,22 @@
 	color: $color-header;
 } 
 
+.wrapper {
+	display: flex;
+}
+
 @media all and (min-width: 40em) {
 	body {
 		background: linear-gradient(-90deg, #f9f9f9 0%, #f9f9f9 70%, $color-header 70%, $color-header 100%);
+	}
+	.content__side {
 	}
 	.content__side,
 	.content__main {
 		float: left;
 		width: 27%;
 		padding-top: 2em;
-		padding-bottom: 3em;
+		padding-bottom: 2em;
 	}
 
 	.content__main {
