@@ -1,0 +1,3 @@
+---
+title: PUT users/:id
+---
