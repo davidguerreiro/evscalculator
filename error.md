@@ -47,9 +47,8 @@ If some of the data is **invalid** (validation).
 - `errors` will be available with the validation tips.
 - `count` will be the number of elements in `errors`.
 
-
-
 This way you can assume almost every request will have a `stat` and `count` you can base your program on.
 The `count` will help you abstract the length of the array. 
 
-Both `data` and `errors` will return always an object array or a single object (if `count` equals `1`).
+Bear in mind that `data` will return always an object array or a single object (if `count` equals `1`).
+On the other hand, `errors` will always return an array of strings, no matter the amount.
