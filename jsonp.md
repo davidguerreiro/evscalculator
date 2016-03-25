@@ -1,5 +1,5 @@
 ---
-title: Using JSONP
+title: JSONP
 ---
 
 The API supports JSONP for old browser support on every valid endpoint. To get the JSONP response you must:
@@ -7,9 +7,7 @@ The API supports JSONP for old browser support on every valid endpoint. To get t
 * Specify a **callback** parameter, which must be a string.
 * Use JSON format or no format at all (fallbacks to JSON).
 
-Example: `https://api.evscalculator.com/v1/hordes?callback=foo`
-
-This will return a `application/javascript` MIME type.
+The response will then have a `application/javascript` MIME type.
 
 ### Example request
 
