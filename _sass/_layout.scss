@@ -2,7 +2,8 @@
 .wrapper {
 	max-width: 55em;
 	margin: 0 auto;
-	padding: 1em;
+	padding: 0 1em;
+	overflow: hidden;
 }
 
 .header {
@@ -102,8 +103,8 @@
 } 
 
 @media all and (min-width: 40em) {
-	.content {
-		overflow: hidden;
+	body {
+		background: linear-gradient(-90deg, #f9f9f9 0%, #f9f9f9 50%, $color-header 50%, $color-header 100%);
 	}
 	.content__side,
 	.content__main {
@@ -112,14 +113,10 @@
 		padding-top: 2em;
 	}
 
-	.content__side {
-		box-shadow: -13em 0 0 13em $color-header, -13em 20em 0 13em $color-header;
-		min-height: 100vh;
-		min-height: calc(100vh - 1em);
-	}
-
 	.content__main {
 		width: 73%;
 		padding-left: 3em;
+		background: #f9f9f9;
+		min-height: 100vh;
 	}
 }
