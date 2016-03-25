@@ -73,12 +73,13 @@ class EvsMiddleware {
 
 	    // Build the returned object
 	    $ret['stat'] = $stat;
+	    // Add count no matter what
+		$ret['count'] = count($data);
 	    if($stat !== "ok") {
 	    	// If not ok, send errors
 	    	$ret['errors'] = $data;
 	    } else {
 	    	// If all good, send data
-	    	$ret['count'] = count($data);
 	    	$ret['data'] = $data;
 	    }
 
