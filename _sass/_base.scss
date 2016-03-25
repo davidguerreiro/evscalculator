@@ -87,6 +87,11 @@ code {
 	color: darken(saturate($color-secondary, 20%), 10%);
 }
 
+b, strong {
+	font-weight: 600;
+	color: #111;
+}
+
 pre {
   white-space: pre-wrap;       /* css-3 */
   white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */

@@ -3,7 +3,7 @@ title: POST users
 ---
 
 - Receives the data to create a new user.  
-- Returns a single object with a status code of `201`.  
+- Returns a single object with a status code of `201` and `Location` header to the new resource.
 - It creates an user and responds with the data for that new user.
 
 ## Parameters

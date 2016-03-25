@@ -2,7 +2,8 @@
 title: POST trainings
 ---
 
-- Receives the data necessary for a new training, returns the new training if successful.
+- Receives the data necessary for a new training.
+- Returns a single object with status code of `201` and `Location` header to the new resource.
 - If a user is logged in, it will link with the account.
 
 ## Parameters

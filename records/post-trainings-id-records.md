@@ -3,7 +3,7 @@ title: POST trainings/:id/records
 ---
 
 - Receives a training ID and the data for a new record.
-- Returns a single object with a status code of `201`.
+- Returns a single object with a status code of `201` and `Location` header for the new item.
 - It provides the data of the created record.
 
 ## Parameters
