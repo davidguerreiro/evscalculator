@@ -1,6 +1,21 @@
 ---
-title: JSONP
+title: The request
 ---
+
+There are some common properties to every request in the API you should know about.
+
+## Sorting
+
+You can sort by a property on any request that returns an object array using the `sort` parameter. 
+If you want to reverse the result, you can add a `-` to the beggining of that property. For example: 
+
+```
+GET https://api.evscalculator.com/v1/hordes?sort=-id
+```
+
+In this case the response would be sorted by ID in descendant order. In the future, `sort` will support sorting by multiple fields as a list of comma-separated field list.
+
+## JSONP
 
 The API supports JSONP for old browser support on every valid endpoint. To get the JSONP response you must:
 
