@@ -142,6 +142,10 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
     if(!count($insert)) {
         $errors[] = "Requires at least one stat to be positive";
         // TODO: Return with validation error code
+
+        return $res
+            ->write(parse($errors))
+            ->withStatus(400);
     }
 
     // Go through optional
