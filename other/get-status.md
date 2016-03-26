@@ -9,7 +9,7 @@ title: GET status
 ### Example request
 
 ```
-GET https://api.evscalculator.com/v1/status
+GET {{ site.api_url }}/v1/status
 ```
 
 ### Example response

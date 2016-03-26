@@ -20,7 +20,7 @@ timestamp     |  Integer, positive    | False by default.
 ### Example request 
 
 ```
-POST https://api.evscalculator.com/v1/trainings
+POST {{ site.api_url }}/v1/trainings
 ```
 
 ### Example response

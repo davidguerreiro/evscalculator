@@ -10,7 +10,7 @@ You can sort by a property on any request that returns an object array using the
 If you want to reverse the result, you can add a `-` to the beggining of that property. For example: 
 
 ```
-GET https://api.evscalculator.com/v1/hordes?sort=-id
+GET {{ site.api_url }}/v1/hordes?sort=-id
 ```
 
 In this case the response would be sorted by ID in descendant order. In the future, `sort` will support sorting by multiple fields as a list of comma-separated field list.
@@ -26,7 +26,7 @@ The response will then have a `application/javascript` MIME type.
 
 ### Example request
 
-`GET https://api.evscalculator.com/v1/hordes?callback=foo`
+`GET {{ site.api_url }}/v1/hordes?callback=foo`
 
 ### Example response
 

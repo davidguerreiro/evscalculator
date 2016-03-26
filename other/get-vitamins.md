@@ -16,7 +16,7 @@ game      | Integer   | Filter by game edition.
 ### Example request
 
 ```
-GET https://api.evscalculator.com/v1/vitamins
+GET {{ site.api_url }}/v1/vitamins
 ```
 
 ### Example response

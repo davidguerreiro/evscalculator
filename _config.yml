@@ -7,6 +7,8 @@ url: "https://docs.evscalculator.com"
 enforce_ssl: "http://docs.evscalculator.com"
 username: "evscalculator"
 
+api_url: https://api.evscalculator.com
+
 
 collections: 
  - projects

@@ -17,7 +17,7 @@ name _required_   | String          | Refers to the stat name
 ### Example request 
 
 ```
-GET https://api.evscalculator.com/v1/trainings/bglRdqG4no/attack
+GET {{ site.api_url }}/v1/trainings/bglRdqG4no/attack
 ```
 
 ### Example response

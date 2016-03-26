@@ -2,7 +2,7 @@
 title: EVs Calculator API
 ---
 
-Available at `api.evscalculator.com`, this API is open to public use, so CORS is enabled but limited on some endpoints.
+Available at `{{ site.api_url }}`, this API is open to public use, so CORS is enabled but limited on some endpoints.
 Bear in mind this is an **experimental** API at this stage.
 
 If you are working on a project that could use the API, please [open an issue on GitHub](https://github.com/davidguerreiro/evscalculator/issues/new), we would love to hear about it.
