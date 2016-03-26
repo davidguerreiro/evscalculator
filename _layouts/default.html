@@ -9,40 +9,43 @@
     <div class="content">
       <div class="wrapper">
 
-      <aside class="content__side">
-        <nav class="nav">
-          <ul>
-              <li>
-                <span class="nav__title">Manual</span>
-                {% include nav.html context="/" %}
-              </li>
-              <li>
-                <span class="nav__title">Trainings</span>
-                {% include nav.html context="/trainings/" %}
-              </li>
-              <li>
-                <span class="nav__title">Records</span>
-                {% include nav.html context="/records/" %}
-              </li>
-              <li>
-                <span class="nav__title">Users</span>
-                {% include nav.html context="/users/" %}
-              </li>
-              <li>
-                <span class="nav__title">Others</span>
-                {% include nav.html context="/other/" %}
-              </li>
-          </ul>
-        </nav>
-      </aside>
-      <main class="content__main">
-        {% include header.html %}
+        <aside class="content__side">
+          <nav class="nav">
+            <ul>
+                <li>
+                  <span class="nav__title">Manual</span>
+                  {% include nav.html context="/" %}
+                </li>
+                <li>
+                  <span class="nav__title">Trainings</span>
+                  {% include nav.html context="/trainings/" %}
+                </li>
+                <li>
+                  <span class="nav__title">Records</span>
+                  {% include nav.html context="/records/" %}
+                </li>
+                <li>
+                  <span class="nav__title">Users</span>
+                  {% include nav.html context="/users/" %}
+                </li>
+                <li>
+                  <span class="nav__title">Others</span>
+                  {% include nav.html context="/other/" %}
+                </li>
+            </ul>
+          </nav>
+        </aside>
+        <div class="content__main">
+          {% include header.html %}
+    
+          <main>
+            <h1>{{ page.title }}</h1>
+            {{ content }}
+          </main>
 
-        <h1>{{ page.title }}</h1>
-        {{ content }}
+          {% include footer.html %}
+        </div>
 
-        {% include footer.html %}
-      </main>
       </div>
     </div>
 
