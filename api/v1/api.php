@@ -52,7 +52,6 @@ $app->get('/v1/berries[.{format}]', function($req, $res){
 
     $data = getBerries($req->getQueryParams());
     
-
    return $res->write(parse($data));
 });
 
@@ -62,9 +61,13 @@ $app->group('/v1/trainings', function() {
 
     // GET trainings
     $this->get('[.{format}]', function($req, $res) {
-        include_once('lib/key.php');
+        /*
+        require('lib/key.php');
 
         $data = $db->select('training', '*');
+
+        */
+        $data = getTrainings();
 
         return $res
             ->write(parse($data));
@@ -75,11 +78,14 @@ $app->group('/v1/trainings', function() {
         
         // GET trainings/:id
         $this->get('[.{format}]', function($req, $res) {
+            
             include_once('lib/key.php');
 
             $data = $db->get('training', '*', [
                 'id_url' => $req->getAttribute('id')
             ]);
+            
+           // $data = getTrainingsById($req->getAttribute('id'));
 
             return $res
                 ->write(parse($data));
