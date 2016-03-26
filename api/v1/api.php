@@ -51,8 +51,9 @@ $app->get('/v1/hordes[.{format}]', function($req, $res) {
 $app->get('/v1/berries[.{format}]', function($req, $res){
 
     $data = getBerries($req->getQueryParams());
-    var_dump($data);
-    die();
+    
+
+   return $res->write(parse($data));
 });
 
 

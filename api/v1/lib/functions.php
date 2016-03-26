@@ -54,13 +54,15 @@ function getBerries($params){
     // Grab JSON and make it an array of objects
     $ret = json_decode(file_get_contents('./v1/data/berries.json'));
 
+    
     // Filter by stat
     if(isStat($params['stat'])) {
         $ret = array_filter($ret, function($a) use($params) {
             return $a->stat_name == $params['stat'];
         });
     }
-
+    
+    return array_values($ret);
 }
 
 function parse($data) {
