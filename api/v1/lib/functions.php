@@ -150,24 +150,76 @@ function getTrainings(){
 
     }
 
-    //casting
-    $object_data = (object) $parse_data;
-
     return $parse_data;
 
 }
 
 function getTrainingsById($id){
 
+    //variables
+    global $db, $hashids;
+    $parse_data = array();
+
     //getting the trainings
-    $data = $db->get('training', '*', [
+    $data = $db->select('training', '*', [
         'id_url' => $id
     ]);
 
     //building the object
 
+    foreach($data as $element){
 
-    return $data;
+        //getting the id related url
+        $hash_url = $hashids->encode($element['id']);
+
+        //building the object
+        $parse_data['id'] = $hash_url;
+        $parse_data['game'] = intval($element['game']);
+        $parse_data['pokerus'] = (intval($$element['pokerus']) == 0) ? false : true;
+        $parse_data['sturdy_object'] = (intval($element['sturdy_object']) == 0) ? false : true;
+        $parse_data['timestamp'] = $element['timestamp'];
+
+        //target
+        $parse_data['target'] = array(
+            'hp' => intval($element['hp']),
+            'attack' => intval($element['attack']),
+            'defense' => intval($element['defense']),
+            'spattack' => intval($element['spattack']),
+            'spdefense' => intval($element['spdefense']),
+            'speed' => intval($element['speed'])
+        );
+
+        //getting all progress values
+
+        //hp
+            $progress_hp = (intval($element['hp']) > 0) ? getProgress('hp', intval($element['id'])) : 0;
+        //attack
+            $progress_attack = (intval($element['attack']) > 0) ? getProgress('attack', intval($element['id'])) : 0;
+        //defense
+            $progress_defense = (intval($element['defense']) > 0) ? getProgress('defense', intval($element['id'])) : 0;
+        //spattack
+            $progress_spattack = (intval($element['spattack']) > 0) ? getProgress('spattack', intval($element['id'])) : 0;
+        //spdefense
+            $progress_spdefense = (intval($element['spdefense']) > 0) ? getProgress('spdefense', intval($element['id'])) : 0;
+        //speed
+            $progress_speed = (intval($element['speed']) > 0) ? getProgress('speed', intval($element['id'])) : 0;
+
+        //progress
+        $parse_data['progress'] = array(
+            'hp' => $progress_hp,
+            'attack' => $progress_attack,
+            'defense' => $progress_defense,
+            'spattack' => $progress_spattack,
+            'spdefense' => $progress_spdefense,
+            'speed' => $progress_speed
+        );
+
+    }
+
+    //casting and checking if empty
+    $object_data = (empty($parse_data)) ? $parse_data : (object) $parse_data;
+
+    return $object_data;
 }
 
 function parse($data) {

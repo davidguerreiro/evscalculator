@@ -61,16 +61,20 @@ $app->group('/v1/trainings', function() {
 
     // GET trainings
     $this->get('[.{format}]', function($req, $res) {
-        /*
-        require('lib/key.php');
-
-        $data = $db->select('training', '*');
-
-        */
+        
         $data = getTrainings();
 
-        return $res
-            ->write(parse($data));
+        if(empty($data)){
+
+            return $res
+                ->write(parse(["Endpoint not found/available."]))
+                ->withStatus(404);
+        
+        }
+        else{
+            return $res
+                ->write(parse($data));
+        }
     });
 
     // Group: trainings/:id
@@ -79,16 +83,17 @@ $app->group('/v1/trainings', function() {
         // GET trainings/:id
         $this->get('[.{format}]', function($req, $res) {
             
-            include_once('lib/key.php');
+            $data = getTrainingsById($req->getAttribute('id'));
 
-            $data = $db->get('training', '*', [
-                'id_url' => $req->getAttribute('id')
-            ]);
-            
-           // $data = getTrainingsById($req->getAttribute('id'));
-
-            return $res
-                ->write(parse($data));
+            if(empty($data)){
+                return $res
+                    ->write(parse(["Endpoint not found/available."]))
+                    ->withStatus(404);
+            }
+            else{
+                return $res
+                    ->write(parse($data));
+            }
         });
 
         // GET trainings/:id/records
@@ -101,6 +106,7 @@ $app->group('/v1/trainings', function() {
 
             return $res
                 ->write(parse($data));
+        
         });
 
     });
