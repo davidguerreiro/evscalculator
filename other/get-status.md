@@ -33,7 +33,7 @@ GET https://api.evscalculator.com/v1/status
 			"private": 50
 		},
 		"records": {
-			"total": 130,
+			"total": 1487,
 			"most_used": "hordes"
 		},
 		"games": {
