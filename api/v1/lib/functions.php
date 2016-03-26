@@ -23,57 +23,41 @@ function isGame($game) {
         1
     );
 
-    return in_array($game, $game_list);
+    return is_numeric($game) && in_array($game, $game_list);
 }
 
 
-function getHordes($vars) {
+function getHordes($params) {
     // Grab JSON and make it an array of objects
     $ret = json_decode(file_get_contents('./v1/data/hordes.json'));
 
     // Filter by stat
-    if(isStat($vars['stat'])) {
-        $ret = array_filter($ret, function($a) use($vars) {
-            return $a->stat_name == $vars['stat'];
+    if(isStat($params['stat'])) {
+        $ret = array_filter($ret, function($a) use($params) {
+            return $a->stat_name == $params['stat'];
         });
     }
 
     // Filter by game
-    if(is_numeric($vars['game']) && isGame($vars['game'])) {
-        $ret = array_filter($ret, function($a) use($vars) {
-            return $a->game == $vars['game'];
+    if(isGame($params['game'])) {
+        $ret = array_filter($ret, function($a) use($params) {
+            return $a->game == $params['game'];
         });
     }
-
-    /*
-    // Sorting is now done through middleware
-
-    // Order (name by default)
-    if(!isset($vars['sort'])) $vars['sort'] = 'stat_value';
-
-    usort($ret, function($a, $b) use($vars) {
-        if(is_numeric($a->{$vars['sort']}) && is_numeric($b->{$vars['sort']})) {
-            return $b->{$vars['sort']} - $a->{$vars['sort']};
-        }
-        return strcmp($a->{$vars['sort']}, $b->{$vars['sort']});
-    });
-
-    if($vars['reverse']) $ret = array_reverse($ret, true);
-    */
 
     // Remove original indexes
     return array_values($ret);
 }
 
-function getBerries($vars){
+function getBerries($params){
 
     // Grab JSON and make it an array of objects
     $ret = json_decode(file_get_contents('./v1/data/berries.json'));
 
     // Filter by stat
-    if(isStat($vars['stat'])) {
-        $ret = array_filter($ret, function($a) use($vars) {
-            return $a->stat_name == $vars['stat'];
+    if(isStat($params['stat'])) {
+        $ret = array_filter($ret, function($a) use($params) {
+            return $a->stat_name == $params['stat'];
         });
     }
 
