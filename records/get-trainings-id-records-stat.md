@@ -1,3 +1,3 @@
 ---
-title: GET trainings/:id/records/stat
+title: GET trainings/:id/records/:stat
 ---
