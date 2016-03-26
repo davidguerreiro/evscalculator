@@ -39,7 +39,7 @@ GET https://api.evscalculator.com/v1/status
 		"games": {
 			"available": 2,
 			"most_used": 0
-		}	
+		},	
 		"hordes": {
 			"total": 55,
 			"most_used": 10
