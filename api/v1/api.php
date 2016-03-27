@@ -47,6 +47,15 @@ $app->get('/v1/hordes[.{format}]', function($req, $res) {
     return $res->write(parse($data));
  });
 
+
+// GET berries
+$app->get('/v1/vitamins[.{format}]', function($req, $res){
+
+    $data = getVitamins($req->getQueryParams());
+    
+   return $res->write(parse($data));
+});
+
 // GET berries
 $app->get('/v1/berries[.{format}]', function($req, $res){
 

@@ -55,9 +55,14 @@ function getProgress($stat, $training_id){
 
 
 //getting hordes
-function getHordes($params) {
+function getHordes($params = null, $id = null) {
     // Grab JSON and make it an array of objects
     $ret = json_decode(file_get_contents('./v1/data/hordes.json'));
+
+    // Just one horde
+    if($id && isset($ret[$id])) {
+        return $ret[$id];
+    }
 
     // Filter by stat
     if(isStat($params['stat'])) {
@@ -78,11 +83,36 @@ function getHordes($params) {
 }
 
 
-function getBerries($params){
+function getBerries($params = null, $id = null){
 
     // Grab JSON and make it an array of objects
     $ret = json_decode(file_get_contents('./v1/data/berries.json'));
 
+    // Just one berry
+    if($id && isset($ret[$id])) {
+        return $ret[$id];
+    }
+    
+    // Filter by stat
+    if(isStat($params['stat'])) {
+        $ret = array_filter($ret, function($a) use($params) {
+            return $a->stat_name == $params['stat'];
+        });
+    }
+
+    return array_values($ret);
+}
+
+
+function getVitamins($params = null, $id = null){
+
+    // Grab JSON and make it an array of objects
+    $ret = json_decode(file_get_contents('./v1/data/vitamins.json'));
+
+    // Just one vitamin
+    if($id && isset($ret[$id])) {
+        return $ret[$id];
+    }
     
     // Filter by stat
     if(isStat($params['stat'])) {

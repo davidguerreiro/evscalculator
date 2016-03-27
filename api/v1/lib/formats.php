@@ -30,12 +30,30 @@ function formatRecord($element) {
     $ret = array();
 
     $ret['id'] = $hashids->encode($element['id']);
-    $ret['horde'] = $element['horde_id'] ? intval($element['horde_id']) : false;
-    $ret['vitamin'] = $element['vitamin_id'] ? intval($element['vitamin_id']) : false;
-
     $ret['value'] = $element['stat_value'];
-
+    $ret['pokerus'] = ($element['pokerus']==1);
     $ret['timestamp'] = $element['timestamp'];
+
+    if($element['id_horde']) {
+        $ret['from'] = [
+            "type" => "hordes",
+            "origin" => getHordes($id);
+        ];
+    }
+
+    if($element['id_vitamin']) {
+        $ret['from'] = [
+            "type" => "vitamins",
+            "origin" => getVitamins($id);
+        ];
+    }
+
+    if($element['id_berry']) {
+        $ret['from'] = [
+            "type" => "berries",
+            "origin" => getBerries($id);
+        ];
+    }
 
     return (empty($ret)) ? $ret : (object) $ret;
 }
