@@ -7,7 +7,7 @@ require('key.php');
 require('hash.php');
 
 // Sets the response data format
-require('format.php');
+require('formats.php');
 
 $STATS = [
     'hp', 
@@ -115,7 +115,7 @@ function getTrainings($req, $res){
     // 404 IF NO TRAININGS
     if(!sizeof($trainings)) {
         return $res
-            ->write(parse(["Endpoint not found/available."]))
+            ->write(parse(["No training found."]))
             ->withStatus(404);
     }
 

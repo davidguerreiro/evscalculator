@@ -1,6 +1,8 @@
 <?php
 
+// Response format for a training
 function formatTraining($element) {
+	global $hashids, $STATS;
 	$ret = array();
 
 	// Single fields
@@ -19,5 +21,5 @@ function formatTraining($element) {
         $ret['progress'][$stat] = (intval($element[$stat]) > 0) ? getProgress($stat, intval($element['id'])) : 0;
     }
 
-    return (empty($parse_data)) ? $parse_data : (object) $parse_data;
+    return (empty($ret)) ? $ret : (object) $ret;
 }
