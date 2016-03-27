@@ -33,7 +33,6 @@ function formatRecord($element) {
     $ret['horde'] = $element['horde_id'] ? intval($element['horde_id']) : false;
     $ret['vitamin'] = $element['vitamin_id'] ? intval($element['vitamin_id']) : false;
 
-    $ret['stat'] = $element['stat_name'];
     $ret['value'] = $element['stat_value'];
 
     $ret['timestamp'] = $element['timestamp'];
