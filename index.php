@@ -18,7 +18,9 @@ $container['view'] = function ($container) {
     ));
     $twig = $view->getEnvironment();
     $twig->addGlobal('site', [
-    	'title' => "EVs Calculator"
+    	'title' => "EVs Calculator",
+    	'base_url' => "https://evscalculator.com",
+    	'description' => "Professional pokemon training tool"
     ]);
 
     return $view;
