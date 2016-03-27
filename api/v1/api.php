@@ -60,17 +60,13 @@ $app->get('/v1/berries[.{format}]', function($req, $res){
 $app->group('/v1/trainings', function() {
 
     // GET trainings
-    $this->get('[.{format}]', function($req, $res) {
-        return getTrainings();
-    });
+    $this->get('[.{format}]', getTrainings);
 
     // Group: trainings/:id
     $this->group('/{id}', function() {
         
         // GET trainings/:id
-        $this->get('[.{format}]', function($req, $res) {
-            return getTrainingsById($req->getAttribute('id'));
-        });
+        $this->get('[.{format}]', getTrainings);
 
         // GET trainings/:id/records
         $this->get('/records[.{format}]', function($req, $res) {

@@ -85,8 +85,8 @@ function getBerries($params){
     return array_values($ret);
 }
 
-function getTrainings($id = null){   
-    global $db, $hashids;
+function getTrainings($req, $res){   
+    global $db, $hashids, $STATS;
 
     // WHERE parameters
     $where = array();
@@ -95,9 +95,10 @@ function getTrainings($id = null){
     // Returned data
     $data = array();
 
-    if($id !== null) {
+    // If it's /:id then filter by it
+    if($req->getAttribute('id')) {
         $where = [
-            'id_url' => $id
+            'id' => $hashids->decode($req->getAttribute('id'))
         ];
     }
 
@@ -105,7 +106,7 @@ function getTrainings($id = null){
     $trainings = $db->select('training', '*', $where);
 
     // 404 IF NO TRAININGS
-    if(sizeof($trainings)==0) {
+    if(!$trainings) {
         return $res
             ->write(parse(["Endpoint not found/available."]))
             ->withStatus(404);
@@ -130,11 +131,11 @@ function getTrainings($id = null){
             $parse_data['progress'][$stat] = (intval($element[$stat]) > 0) ? getProgress($stat, intval($element['id'])) : 0;
         }
 
-        // Add from temporary array to final data
+        // Add from temporary array to FINAL data
         $data[] = (empty($parse_data)) ? $parse_data : (object) $parse_data;
     }
 
-    // If there's only one result, return that first element of the array
+    // If there's only one result, return that first object of the array
     $data = sizeof($data) > 1 ? $data : $data[0];
 
     return $res
