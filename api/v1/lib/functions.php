@@ -60,8 +60,12 @@ function getHordes($params = null, $id = null) {
     $ret = json_decode(file_get_contents('./v1/data/hordes.json'));
 
     // Just one horde
-    if($id && isset($ret[$id])) {
-        return $ret[$id];
+    if($id) {
+        $find_value = array_values(array_filter($ret, function($a) use($id) {
+            return $a->id == $id;
+        }));
+
+        return $find_value[0];
     }
 
     // Filter by stat
@@ -89,8 +93,12 @@ function getBerries($params = null, $id = null){
     $ret = json_decode(file_get_contents('./v1/data/berries.json'));
 
     // Just one berry
-    if($id && isset($ret[$id])) {
-        return $ret[$id];
+    if($id) {
+        $find_value = array_values(array_filter($ret, function($a) use($id) {
+            return $a->id == $id;
+        }));
+
+        return $find_value[0];
     }
     
     // Filter by stat
@@ -110,8 +118,12 @@ function getVitamins($params = null, $id = null){
     $ret = json_decode(file_get_contents('./v1/data/vitamins.json'));
 
     // Just one vitamin
-    if($id && isset($ret[$id])) {
-        return $ret[$id];
+    if($id) {
+        $find_value = array_values(array_filter($ret, function($a) use($id) {
+            return $a->id == $id;
+        }));
+
+        return $find_value[0];
     }
     
     // Filter by stat
@@ -157,13 +169,14 @@ function getRecords($training_id, $stat = null) {
     global $db, $hashids, $STATS;
     $data = array();
     $where = [
-        'id' => $hashids->decode($training_id),
-        'ORDER' => 'timestamp DESC'
+        'AND' => [
+            'id_training' => $hashids->decode($training_id)[0]
+        ]
     ];
 
     // If we only want records for one stat
     if($stat !== null) {
-        $where['stat_name'] = $stat;
+        $where['AND']['stat_name'] = $stat;
         $recordList = $db->select('records', '*', $where);
 
         if($recordList) {
@@ -174,12 +187,12 @@ function getRecords($training_id, $stat = null) {
     } else {
         // We need one array per stat with target
         foreach($STATS as $stat) {
-            $where['stat_name'] = $stat;
+            $where['AND']['stat_name'] = $stat;
             $recordList = $db->select('records', '*', $where);
 
             // If there are records for that stat
             if($recordList) {
-                // Create property in data
+                // Create stat property in data
                 $data[$stat] = array();
                 foreach($recordList as $record) {
                     // Add record to stat in data
@@ -187,10 +200,8 @@ function getRecords($training_id, $stat = null) {
                 }
             }
         }
+        $data = (empty($data)) ? $data : (object) $data;
     }
-
-    // If there's only one result, return that first object of the array
-    $data = sizeof($data) > 1 ? $data : $data[0];
 
     return $data;
 }

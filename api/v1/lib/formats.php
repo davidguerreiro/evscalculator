@@ -37,23 +37,23 @@ function formatRecord($element) {
     if($element['id_horde']) {
         $ret['from'] = [
             "type" => "hordes",
-            "origin" => getHordes($id)
+            "origin" => getHordes(null, $element['id_horde'])
         ];
     }
 
     if($element['id_vitamin']) {
         $ret['from'] = [
             "type" => "vitamins",
-            "origin" => getVitamins($id)
+            "origin" => getVitamins(null, $element['id_vitamin'])
         ];
     }
 
-    if($element['id_berry']) {
+    /*if($element['id_berry']) {
         $ret['from'] = [
             "type" => "berries",
-            "origin" => getBerries($id)
+            "origin" => getBerries(null, $element['id_berry'])
         ];
-    }
+    }*/
 
     return (empty($ret)) ? $ret : (object) $ret;
 }
