@@ -138,22 +138,14 @@ $app->group('/v1/trainings', function() {
 
 // POST trainings
 $app->post('/v1/trainings[.{format}]', function($req, $res) {
+    global $hashids, $db, $STATS;
+
     // Data received
     $vars = $req->getParsedBody();
     // Data to be inserted
     $insert = array();
     // Errors
     $errors = array();
-
-   // Requires one of  this to be positive
-    $required = array(
-        'hp', 
-        'attack', 
-        'defense', 
-        'spattack', 
-        'spdefense', 
-        'speed'
-    );
 
     // Optional parameters
     $optional = array(
@@ -166,10 +158,10 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
     );
 
     // Go through required
-    foreach($required as $i) {
+    foreach($STATS as $stat) {
         // Required must be positive
-        if($vars[$i] > 0 && $vars[$i] < 252) {
-            $insert[$i] = $vars[$i];
+        if($vars[$stat] > 0 && $vars[$stat] < 252) {
+            $insert[$stat] = $vars[$stat];
         }
     }
 
@@ -188,9 +180,6 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
         if(!empty($vars[$i])) $insert[$i] = $vars[$i];
     }
 
-    include_once('lib/key.php');
-    include_once('lib/hash.php');
-
     // Create training
     $training_id = $db->insert('training', $insert);
 
@@ -202,7 +191,7 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
     return $res
         ->write(parse($data))
         ->withStatus(201)
-        ->withHeader('Location', '/v1/trainings/'.$hashids->encode($training_id);
+        ->withHeader('Location', '/v1/trainings/'.$hashids->encode($training_id));
 });
 
 
