@@ -11,7 +11,9 @@ $container = $app->getContainer();
 $container['view'] = function ($container) {
     $view = new \Slim\Views\Twig('templates', [
         //'cache' => 'cache'
+        'debug' => true
     ]);
+    $view->addExtension(new Twig_Extension_Debug());
     $view->addExtension(new \Slim\Views\TwigExtension(
         $container['router'],
         $container['request']->getUri()
