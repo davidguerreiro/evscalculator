@@ -208,10 +208,12 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
 $app->delete('/v1/trainings/{id}[.{format}]', function($req, $res) {
     global $db, $hashids;
     $data = array();
+    $training_id = $hashids->encode($req->getAttribute('id'));
+    $training_id = $training_id[0];
 
     $deleted_items = $db->delete("training", [
         "AND" => [
-            "id" => $hashids->encode($req->getAttribute('id'))
+            "id" => $training_id
         ]
     ]);
 

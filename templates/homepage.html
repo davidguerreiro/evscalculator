@@ -10,19 +10,32 @@
 
 	<form method="POST" action="/">
 
-		{% for stat,name in stats %}
-			<label>
-				<span>{{ name }}</span>
-				<input type="number" name="{{ stat }}" step="1" min="0" max="252" />
-			</label>
-		{% endfor %}
+		<fieldset>
+			<legend>Set the targets for your training:</legend>
+			{% for stat,name in stats %}
+				<label>
+					<span>{{ name }}</span>
+					<input type="number" name="{{ stat }}" step="1" min="0" max="252" />
+				</label>
+			{% endfor %}
+		</fieldset>
 
-		{% for game,name in games %}
-			<label>
-				<span>{{ name }}</span>
-				<input type="radio" name="game" value="{{ game }}">
-			</label>
-		{% endfor %}
+		<fieldset>
+			<legend>Game:</legend>
+			{% for game,name in games %}
+				<label>
+					<span>{{ name }}</span>
+					<input type="radio" name="game" value="{{ game }}">
+				</label>
+			{% endfor %}
+		</fieldset>
+
+		<label>
+			<input type="checkbox" name="pokerus" value="1">
+			<span>Pokerus</span>
+		</label>
+
+		<input type="submit" value="Start training">
 		
 	</form>
 </body>
