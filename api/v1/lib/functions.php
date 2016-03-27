@@ -46,7 +46,7 @@ function getProgress($stat, $training_id){
 
     //getting values stats
     $progress = $db->sum('records', 'stat_value', [
-        'id_training' => $training_id,
+        'id' => $training_id,
         'stat_name' => $stat
     ]);
 
@@ -127,7 +127,7 @@ function getRecords($training_id, $stat = null) {
     global $db, $hashids, $STATS;
     $data = array();
     $where = [
-        'id_training' => $training_id,
+        'id' => $hashids->decode($training_id),
         'ORDER' => 'timestamp DESC'
     ];
 
@@ -159,7 +159,8 @@ function getRecords($training_id, $stat = null) {
         }
     }
 
-    $data = $db->select('records', '*', $where);
+    // If there's only one result, return that first object of the array
+    $data = sizeof($data) > 1 ? $data : $data[0];
 
     return $data;
 }

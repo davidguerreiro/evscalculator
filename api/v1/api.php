@@ -196,35 +196,24 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
 
     // TODO: If failed, add error and return with "server" error code
 
-    $hash_url = $hashids->encode($training_id);
-
-    // Update with URL hash
-    $db->update('training', [
-        'id_url' => $hash_url
-    ], [
-        'id' => $training_id
-    ]);
-
     // Get full result to return
-    $data = $db->get('training', '*', [
-        'id' => $training_id
-    ]);
+    $data = getTrainings($hashids->encode($training_id));
 
     return $res
         ->write(parse($data))
         ->withStatus(201)
-        ->withHeader('Location', '/v1/trainings/'.$hash_url);
+        ->withHeader('Location', '/v1/trainings/'.$hashids->encode($training_id);
 });
 
 
 // DELETE /trainings/:id
 $app->delete('/v1/trainings/{id}[.{format}]', function($req, $res) {
+    global $db, $hashids;
     $data = array();
 
-    include_once('lib/key.php');
     $deleted_items = $db->delete("training", [
         "AND" => [
-            "id_url" => $req->getAttribute('id')
+            "id" => $hashids->encode($req->getAttribute('id'))
         ]
     ]);
 
