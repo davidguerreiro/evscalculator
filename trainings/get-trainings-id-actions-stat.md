@@ -24,18 +24,18 @@ GET {{ site.api_url }}/v1/trainings/bglRdqG4no/actions/attack
 
 ```json
 {
-  "stat": "ok",
-  "count": 1,
-  "data": {
-    "hordes": [
-		[...]
-	],
-	"vitamins": [
-		[...]
-	],
-	"berries": [
-		[...]
-	]
-  }
+	"stat": "ok",
+	"count": 1,
+	"data": {
+		"hordes": [
+			[...]
+		],
+		"vitamins": [
+			[...]
+		],
+		"berries": [
+			[...]
+		]
+	}
 }
 ```
