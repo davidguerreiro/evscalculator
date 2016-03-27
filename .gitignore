@@ -1,6 +1,7 @@
 # Project ignores
 _site
 .sass-cache
+vendor
 
 # Files to ignore on this project
 database.php
