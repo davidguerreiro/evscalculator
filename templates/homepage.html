@@ -15,7 +15,7 @@
 			{% for stat,name in stats %}
 				<label>
 					<span>{{ name }}</span>
-					<input type="number" name="{{ stat }}" step="1" min="0" max="252" />
+					<input class="js-stat" type="number" name="{{ stat }}" step="1" min="0" max="252" />
 				</label>
 			{% endfor %}
 		</fieldset>
@@ -38,5 +38,48 @@
 		<input type="submit" value="Start training">
 		
 	</form>
+
+
+<script>
+function statTotal() {
+	var statList = document.querySelectorAll('.js-stat');
+	var total = 0;
+
+	for(var i=0; i < statList.length; i++) {
+		if(statList[i].value) total += parseInt(statList[i].value, 10);
+	}
+
+	return total;
+}
+
+function statFocus() {
+	if(!this.value) {
+		if((maxEvs - statTotal()) > 252 ) this.value = 252;
+		else this.value = (maxEvs - statTotal());
+	}
+	else console.log(this.value);
+}
+
+function statChange() {
+	console.log('has changed');
+	if(this.value < 0) this.value = 0;
+	else {
+		if(this.value > 252) this.value = 252;
+		else this.value = parseInt(this.value, 10);
+	}
+}
+
+(function(doc) {
+	window.maxEvs = 508;
+	var statList = document.querySelectorAll('.js-stat');
+
+	for(var i=0; i < statList.length; i++) {
+		statList[i].addEventListener('focus', statFocus);
+		statList[i].addEventListener('input', statChange);
+		statList[i].addEventListener('input', statChange);
+	}
+})(document);
+</script>
+
 </body>
 </html>
