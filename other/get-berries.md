@@ -10,7 +10,6 @@ title: GET berries
 Parameter   | Type    | Description
 ----      | ----    | ----
 stat      | String  | Filter by stat name.
-game      | Integer   | Filter by game edition.
 
 
 ### Example request

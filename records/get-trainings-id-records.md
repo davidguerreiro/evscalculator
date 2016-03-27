@@ -28,19 +28,41 @@ GET {{ site.api_url }}/v1/trainings/bglRdqG4no/records
   	"data": {
   		"attack": [
 	  		{
-	  			"id": "bkE98qWtRb",
-	  			"horde": false,
-	  			"vitamin": false,
+	  			"id": "eywTvietR8",
 	  			"value": 10,
 			    "timestamp": "2016-03-22 03:51:07"
 	  		},
 	  		{
-	  			"id": "oiqYFg0Psz",
-	  			"horde": 55,
-	  			"vitamin": false,
-	  			"value": 5,
+	  			"id": "bkE98qWtRb",
+	  			"value": 10,
 			    "timestamp": "2016-03-22 03:51:07"
+	  			"from": {
+					"type": "hordes",
+					"origin": {  
+						"id":11,
+						"name":"Weepinbell",
+						"stat_name":"attack",
+						"stat_value":10,
+						"game":0
+					}
+	  			}
+	  		},
+	  		{
+	  			"id": "oiqYFg0Psz",
+	  			"value": 10,
+			    "timestamp": "2016-03-22 03:51:10"
+	  			"from": {
+					"type": "berries",
+					"origin": {
+						"name": "Kelpsy Berry",
+						"stat_name": "attack",
+						"stat_value": 10
+					}
+	  			}
 	  		}
+  		],
+  		"defense": [
+  			[...]
   		]
   	}
 }
