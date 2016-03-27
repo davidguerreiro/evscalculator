@@ -3,7 +3,7 @@
 This contains all the details about EVs Calculator, including its behaviour and elements to account for.
 
 - [Contributing and tools](tools.md): What we use and how we do it.
-- [Using the API](api.md): How to make requests and what fields are available on the API.
+- [Using the API](http://docs.evscalculator.com): How to make requests and what fields are available on the API.
 - [Database Structure](database.md): The database tables, fields, descriptions and relationships.
 - [User journey](journey.md): The technical behaviour specification.
 - [Adding EVs](adding-evs.md): All about hordes, vitamins and manual inputs.
