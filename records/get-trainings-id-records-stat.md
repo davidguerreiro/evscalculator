@@ -1,5 +1,5 @@
 ---
-title: GET trainings/:id/records:stat
+title: GET trainings/:id/records/:stat
 ---
 
 - Receives a training ID.  
