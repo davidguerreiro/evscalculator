@@ -1,5 +1,6 @@
 <?php
 require 'vendor/autoload.php';
+require 'lib/EVsApi.php';
 
 // Create app
 $app = new \Slim\App();
