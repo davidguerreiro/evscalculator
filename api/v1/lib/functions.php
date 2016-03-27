@@ -6,6 +6,9 @@ require('key.php');
 //encrypting the id
 require('hash.php');
 
+// Sets the response data format
+require('format.php');
+
 $STATS = [
     'hp', 
     'attack', 
@@ -21,6 +24,9 @@ $GAMES = [
 ];
 
 
+function parse($data) {
+    return json_encode($data, JSON_NUMERIC_CHECK);
+}
 
 //checking if it is a stat
 function isStat($stat) {
@@ -46,6 +52,7 @@ function getProgress($stat, $training_id){
     return intval($progress);
 }
 
+
 //getting hordes
 function getHordes($params) {
     // Grab JSON and make it an array of objects
@@ -69,6 +76,7 @@ function getHordes($params) {
     return array_values($ret);
 }
 
+
 function getBerries($params){
 
     // Grab JSON and make it an array of objects
@@ -85,13 +93,12 @@ function getBerries($params){
     return array_values($ret);
 }
 
+
 function getTrainings($req, $res){   
     global $db, $hashids, $STATS;
 
     // WHERE parameters
     $where = array();
-    // Temporary array
-    $parse_data = array();
     // Returned data
     $data = array();
 
@@ -106,7 +113,7 @@ function getTrainings($req, $res){
     $trainings = $db->select('training', '*', $where);
 
     // 404 IF NO TRAININGS
-    if(!$trainings) {
+    if(!sizeof($trainings)) {
         return $res
             ->write(parse(["Endpoint not found/available."]))
             ->withStatus(404);
@@ -114,25 +121,7 @@ function getTrainings($req, $res){
 
     // Building the object
     foreach($trainings as $element){
-
-        // Single fields
-        $parse_data['id'] = $hashids->encode($element['id']);
-        $parse_data['game'] = intval($element['game']);
-        $parse_data['pokerus'] = (intval($$element['pokerus']) == 0) ? false : true;
-        $parse_data['sturdy_object'] = (intval($element['sturdy_object']) == 0) ? false : true;
-        $parse_data['timestamp'] = $element['timestamp'];
-
-        // Target / progress objects
-        $parse_data['target'] = array();
-        $parse_data['progress'] = array();
-
-        foreach($STATS as $stat) {
-            $parse_data['target'][$stat] = intval($element[$stat]);
-            $parse_data['progress'][$stat] = (intval($element[$stat]) > 0) ? getProgress($stat, intval($element['id'])) : 0;
-        }
-
-        // Add from temporary array to FINAL data
-        $data[] = (empty($parse_data)) ? $parse_data : (object) $parse_data;
+        $data[] = formatTraining($element);
     }
 
     // If there's only one result, return that first object of the array
@@ -144,6 +133,3 @@ function getTrainings($req, $res){
 
 
 
-function parse($data) {
-    return json_encode($data, JSON_NUMERIC_CHECK);
-}
