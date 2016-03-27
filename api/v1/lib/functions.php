@@ -46,8 +46,10 @@ function getProgress($stat, $training_id){
 
     //getting values stats
     $progress = $db->sum('records', 'stat_value', [
-        'id' => $training_id,
-        'stat_name' => $stat
+        'AND' => [
+            'id_training' => $training_id,
+            'stat_name' => $stat
+        ]
     ]);
 
     return intval($progress);
