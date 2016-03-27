@@ -40,13 +40,12 @@ function isGame($game) {
 
 //getting progress value
 function getProgress($stat, $training_id){
-
     global $db;
-    $progress = 0;
 
     //getting values stats
-    $data = $db->sum('records', 'stat_value', [
-        'id_training' => $training_id
+    $progress = $db->sum('records', 'stat_value', [
+        'id_training' => $training_id,
+        'stat_name' => $stat
     ]);
 
     return intval($progress);
