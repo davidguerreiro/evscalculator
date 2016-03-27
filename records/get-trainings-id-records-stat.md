@@ -35,7 +35,7 @@ GET {{ site.api_url }}/v1/trainings/bglRdqG4no/records/attack
       {
         "id": "bkE98qWtRb",
         "value": 10,
-        "timestamp": "2016-03-22 03:51:07"
+        "timestamp": "2016-03-22 03:51:07",
         "from": {
           "type": "hordes",
           "origin": {  
@@ -50,7 +50,7 @@ GET {{ site.api_url }}/v1/trainings/bglRdqG4no/records/attack
       {
         "id": "oiqYFg0Psz",
         "value": 10,
-        "timestamp": "2016-03-22 03:51:10"
+        "timestamp": "2016-03-22 03:51:10",
         "from": {
           "type": "berries",
           "origin": {
