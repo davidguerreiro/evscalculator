@@ -103,9 +103,7 @@ function getTrainings($id = null){
 
     // If it's /:id then filter by it
     if($id !== null) {
-        $where = [
-            'id' => $hashids->decode($id)
-        ];
+        $where['id'] = $hashids->decode($id);
     }
 
     // Getting trainings from the db
@@ -118,6 +116,46 @@ function getTrainings($id = null){
 
     // If there's only one result, return that first object of the array
     $data = sizeof($data) > 1 ? $data : $data[0];
+
+    return $data;
+}
+
+
+function getRecords($training_id, $stat = null) {
+    global $db, $hashids, $STATS;
+    $data = array();
+    $where = [
+        'id_training' => $training_id,
+        'ORDER' => 'timestamp DESC'
+    ];
+
+    // If we only want records for one stat
+    if($stat !== null) {
+        $where['stat_name'] = $stat;
+        $recordList = $db->select('records', '*', $where);
+
+        foreach($recordList as $record) {
+            $data[] = formatRecord($record);
+        }
+    } else {
+        // We need one array per stat with target
+        foreach($STATS as $stat) {
+            $where['stat_name'] = $stat;
+            $recordList = $db->select('records', '*', $where);
+
+            // If there are records for that stat
+            if($recordList) {
+                // Create property in data
+                $data[$stat] = array();
+                foreach($recordList as $record) {
+                    // Add record to stat in data
+                    $data[$stat][] = formatRecord($record);
+                }
+            }
+        }
+    }
+
+    $data = $db->select('records', '*', $where);
 
     return $data;
 }

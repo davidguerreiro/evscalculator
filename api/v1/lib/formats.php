@@ -23,3 +23,20 @@ function formatTraining($element) {
 
     return (empty($ret)) ? $ret : (object) $ret;
 }
+
+// Response format for a record
+function formatRecord($element) {
+    global $hashids, $STATS;
+    $ret = array();
+
+    $ret['id'] = $hashids->encode($element['id']);
+    $ret['horde'] = $element['horde_id'] ? intval($element['horde_id']) : false;
+    $ret['vitamin'] = $element['vitamin_id'] ? intval($element['vitamin_id']) : false;
+
+    $ret['stat'] = $element['stat_name'];
+    $ret['value'] = $element['stat_value'];
+
+    $ret['timestamp'] = $element['timestamp'];
+
+    return (empty($ret)) ? $ret : (object) $ret;
+}

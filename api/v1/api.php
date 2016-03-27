@@ -74,6 +74,7 @@ $app->group('/v1/trainings', function() {
                 ->write(parse($data));
     });
 
+
     // Group: trainings/:id
     $this->group('/{id}', function() {
         
@@ -91,17 +92,43 @@ $app->group('/v1/trainings', function() {
                 ->write(parse($data));
         });
 
-        // GET trainings/:id/records
-        $this->get('/records[.{format}]', function($req, $res) {
-            global $db;
+        // Group: trainings/:id/records
+        $this->group('/records', function() {
+            
+            // GET trainings/:id/records
+            $this->get('[.{format}]', function($req, $res) {
+                global $db;
 
-            $data = $db->select('records', '*', [
-                'id_training' => $req->getAttribute('id')
-            ]);
+                $data = getRecords($req->getAttribute('id'));
 
-            return $res
-                ->write(parse($data));
-        
+                if(!$data) {
+                    return $res
+                        ->write(parse(["No records for this training."]))
+                        ->withStatus(404);
+                }
+
+                return $res
+                    ->write(parse($data));
+            });
+
+
+            // GET trainings/:id/records/:stat
+            $this->get('/{stat}[.{format}]', function($req, $res) {
+                global $db;
+
+                $data = getRecords($req->getAttribute('id'), $req->getAttribute('stat'));
+
+                if(!$data) {
+                    return $res
+                        ->write(parse(["No training for that training in the ". $req->getAttribute('stat') ." stat."]))
+                        ->withStatus(404);
+                }
+
+                return $res
+                    ->write(parse($data));
+            });
+
+            
         });
 
     });
