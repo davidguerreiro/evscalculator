@@ -61,20 +61,7 @@ $app->group('/v1/trainings', function() {
 
     // GET trainings
     $this->get('[.{format}]', function($req, $res) {
-        
-        $data = getTrainings();
-
-        if(empty($data)){
-
-            return $res
-                ->write(parse(["Endpoint not found/available."]))
-                ->withStatus(404);
-        
-        }
-        else{
-            return $res
-                ->write(parse($data));
-        }
+        return getTrainings();
     });
 
     // Group: trainings/:id
@@ -82,18 +69,7 @@ $app->group('/v1/trainings', function() {
         
         // GET trainings/:id
         $this->get('[.{format}]', function($req, $res) {
-            
-            $data = getTrainingsById($req->getAttribute('id'));
-
-            if(empty($data)){
-                return $res
-                    ->write(parse(["Endpoint not found/available."]))
-                    ->withStatus(404);
-            }
-            else{
-                return $res
-                    ->write(parse($data));
-            }
+            return getTrainingsById($req->getAttribute('id'));
         });
 
         // GET trainings/:id/records
