@@ -30,11 +30,13 @@ function parse($data) {
 
 //checking if it is a stat
 function isStat($stat) {
+    global $STATS;
     return (!!$stat) && in_array($stat, $STATS);
 }
 
 //checking  if is a game
 function isGame($game) {
+    global $GAMES;
     return is_numeric($game) && in_array($game, $GAMES);
 }
 
@@ -134,8 +136,10 @@ function getRecords($training_id, $stat = null) {
         $where['stat_name'] = $stat;
         $recordList = $db->select('records', '*', $where);
 
-        foreach($recordList as $record) {
-            $data[] = formatRecord($record);
+        if($recordList) {
+            foreach($recordList as $record) {
+                $data[] = formatRecord($record);
+            }
         }
     } else {
         // We need one array per stat with target
