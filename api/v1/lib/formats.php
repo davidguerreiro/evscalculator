@@ -37,21 +37,21 @@ function formatRecord($element) {
     if($element['id_horde']) {
         $ret['from'] = [
             "type" => "hordes",
-            "origin" => getHordes($id);
+            "origin" => getHordes($id)
         ];
     }
 
     if($element['id_vitamin']) {
         $ret['from'] = [
             "type" => "vitamins",
-            "origin" => getVitamins($id);
+            "origin" => getVitamins($id)
         ];
     }
 
     if($element['id_berry']) {
         $ret['from'] = [
             "type" => "berries",
-            "origin" => getBerries($id);
+            "origin" => getBerries($id)
         ];
     }
 
