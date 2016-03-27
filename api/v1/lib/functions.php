@@ -94,7 +94,7 @@ function getBerries($params){
 }
 
 
-function getTrainings($req, $res){   
+function getTrainings($id = null){   
     global $db, $hashids, $STATS;
 
     // WHERE parameters
@@ -103,21 +103,14 @@ function getTrainings($req, $res){
     $data = array();
 
     // If it's /:id then filter by it
-    if($req->getAttribute('id')) {
+    if($id !== null) {
         $where = [
-            'id' => $hashids->decode($req->getAttribute('id'))
+            'id' => $hashids->decode($id)
         ];
     }
 
     // Getting trainings from the db
     $trainings = $db->select('training', '*', $where);
-
-    // 404 IF NO TRAININGS
-    if(!sizeof($trainings)) {
-        return $res
-            ->write(parse(["No training found."]))
-            ->withStatus(404);
-    }
 
     // Building the object
     foreach($trainings as $element){
@@ -127,8 +120,7 @@ function getTrainings($req, $res){
     // If there's only one result, return that first object of the array
     $data = sizeof($data) > 1 ? $data : $data[0];
 
-    return $res
-        ->write(parse($data));
+    return $data;
 }
 
 

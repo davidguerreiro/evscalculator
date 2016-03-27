@@ -60,17 +60,40 @@ $app->get('/v1/berries[.{format}]', function($req, $res){
 $app->group('/v1/trainings', function() {
 
     // GET trainings
-    $this->get('[.{format}]', 'getTrainings');
+    $this->get('[.{format}]', function($req, $res) {
+        $data = getTrainings();
+
+        // 404 IF NO TRAININGS
+        if(!sizeof($data)) {
+            return $res
+                ->write(parse(["No training found."]))
+                ->withStatus(404);
+        }
+
+        return $res
+                ->write(parse($data));
+    });
 
     // Group: trainings/:id
     $this->group('/{id}', function() {
         
         // GET trainings/:id
-        $this->get('[.{format}]', 'getTrainings');
+        $this->get('[.{format}]', function($req, $res) {
+            $data = getTrainings($req->getAttribute('id'));
+
+            if(!sizeof($data)) {
+                return $res
+                    ->write(parse(["No training found."]))
+                    ->withStatus(404);
+            }
+
+            return $res
+                ->write(parse($data));
+        });
 
         // GET trainings/:id/records
         $this->get('/records[.{format}]', function($req, $res) {
-            include_once('lib/key.php');
+            global $db;
 
             $data = $db->select('records', '*', [
                 'id_training' => $req->getAttribute('id')
