@@ -3,7 +3,6 @@
 Field | Type | Description
 ---- | ---- | ----
 **id** | INT(11) NOT_NULL AUTO_INCREMENT | Identification number
-**id_url** | VARCHAR(255) DEFAULT NULL | Url which allows users to load an unfinished training.
 **id_user** | INT(11) NOT_NULL DEFAULT 0 | User number. This value will be always 0 because the first version doesn't support user creation
 **hp** | INT(3) NOT_NULL DEFAULT 0 | Hp stat value
 **attack** | INT(3) NOT_NULL DEFAULT 0 | Attack stat value
