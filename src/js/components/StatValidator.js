@@ -15,6 +15,10 @@ var StatValidator = (function(doc) {
 			if((this.wrap.maxEvs - this.wrap.statTotal()) > 252 ) this.el.value = 252;
 			else this.el.value = (this.wrap.maxEvs - this.wrap.statTotal());
 		}
+		if(window.graphdata) {
+			window.graphdata[this.el.name] = parseInt(this.el.value, 10);
+			RadarChart.draw(".js-graph--stats", window.graphdata);
+		}
 		else console.log(this.el.value);
 	};
 
