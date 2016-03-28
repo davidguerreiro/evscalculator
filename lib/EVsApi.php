@@ -138,6 +138,9 @@ class EVs {
 		$data = curl_exec($curl);
 
 		$error = curl_error($curl);
+
+		var_dump($error);
+		die();
 		
 		curl_close($curl);
 
