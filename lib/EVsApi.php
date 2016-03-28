@@ -21,17 +21,17 @@ class EVs {
 	public function getHordes($stat = '', $game = false){
 
 		//building the url
-		$petition_url = API_URL.'hordes';
+		$petition_url = self::API_URL.'hordes';
 
 		if(!empty($stat) && $game !== false)
 			$petition_url .= '?stat='.$stat.'&game='.$game;
 		else{
 
 			if(!empty($stat))
-				$petition_url .= '?stat='$stat;
+				$petition_url .= '?stat='.$stat;
 
 			if($game !== false)
-				$petition_url .= '?game='$game;
+				$petition_url .= '?game='.$game;
 		}
 
 		//curl init
@@ -118,22 +118,27 @@ class EVs {
 	public function getTrainings($id = '', $stat = ''){
 
 		//building the url
-		$petition_url = API_URL.'trainings';
+		$petition_url = self::API_URL.'trainings';
 
 		if(!empty($id)){
-			$petition_url .= '/'.$id;
+			$petition_url .= '/'.$id.'/';
 
 			if(!empty($stat))
 				$petition_url .= '/'.$stat;
 		}
 
+
 		//curl init
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, $petition_url);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
 		//exc
 		$data = curl_exec($curl);
+
+		$error = curl_error($curl);
+		
 		curl_close($curl);
 
 		return $data;

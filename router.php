@@ -39,7 +39,7 @@ $app->post('/', function ($req, $res, $args) {
 
 $app->get('/training/{id}/{stat}', function ($req, $res, $args) {
 	// Request to GET trainings/:id
-    $training = ''; // Results here
+    $training = EVs::getTrainings($args['id']); // Results here
 
     // Request to GET trainings/:id/records/:stat
     // Request to GET trainings/:id/actions/:stat
