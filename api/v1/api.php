@@ -210,7 +210,7 @@ $app->post('/v1/trainings/{id}/records[.{format}]', function($req, $res){
      global $hashids;
 
     //getting the id
-    $id = intval($hashids->decode($req->getAttribute('id')));
+    $id = $hashids->decode($req->getAttribute('id'))[0];
 
     //validation
     $data = validatePostParams($id, $req->getParsedBody());

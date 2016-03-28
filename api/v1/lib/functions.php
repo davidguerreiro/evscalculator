@@ -212,9 +212,11 @@ function getRecords($training_id, $stat = null) {
 function validatePostParams($id, $params){
 
     //variables
-    global $db, $STATS;
+    global $db, $STATS, $hashids;
 
-    $insert = array();
+    $insert = [
+        'id_training' => $id
+    ];
     $errors = array();
 
     //required
@@ -222,7 +224,7 @@ function validatePostParams($id, $params){
         || !isset($params['stat']) 
         || $params['value'] < -10 
         || $params['value'] > 252
-        || !isStat($stat)){
+        || !isStat($params['stat'])){
         $errors[] = 'Stat/value not valid';
     }
     else{
@@ -261,6 +263,11 @@ function validatePostParams($id, $params){
 
     //insert data
     $record_id = intval($db->insert('records', $insert));
+
+    if(!$record_id){
+        $errors[] = "There was a problem connecting with the DB";
+        return $errors;
+    }
 
     //getting the last insert data
     $last_insert = $db->get('records',
