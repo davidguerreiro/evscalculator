@@ -12,22 +12,11 @@
 		    className: 'graph--target', // optional can be used for styling
 		    axes: [
 		      { axis: "HP", value: 13, yOffset: 10 }, 
-		      { axis: "Attack", value: 6 }, 
-		      { axis: "Defense", value: 5 },  
-		      { axis: "Special attack", value: 9 },  
+		      { axis: "Speed", value: 3 },
 		      { axis: "Special defense", value: 2, xOffset: -20 },
-		      { axis: "Speed", value: 3 }
-		    ]
-		  },
-		  {
-		    className: 'graph--current',
-		    axes: [
-		      { axis: "HP", value: 13, yOffset: 10 }, 
-		      { axis: "Attack", value: 6 }, 
-		      { axis: "Defense", value: 5 },  
 		      { axis: "Special attack", value: 9 },  
-		      { axis: "Special defense", value: 2, xOffset: -20 },
-		      { axis: "Speed", value: 3 }
+		      { axis: "Defense", value: 5 },  
+		      { axis: "Attack", value: 6 }
 		    ]
 		  }
 		];

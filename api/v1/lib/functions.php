@@ -214,98 +214,61 @@ function validatePostParams($id, $params){
     //variables
     global $db, $STATS;
 
-
-
-    //validation
-    if(!isset($params) || !is_array($params)){
-        $validate_data['error'] = 'No data received';
-        return $validate_data;
-    }
-
-    if(!is_int($id) || $id < 0){
-        $validate_data['error'] = 'Invalid Id or ID not properly decoded';
-        return $validate_data;
-    }
+    $insert = array();
+    $errors = array();
 
     //required
-    if(!isset($params['value']) || !isset($params['stat'])){
-        $validate_data['error'] = 'Required data no received';
-        return $validate_data;
+    if(!isset($params['value']) 
+        || !isset($params['stat'] 
+        || $params['value'] < -10 
+        || $params['value'] > 252
+        || !isStat($stat)){
+        $errors[] = 'Stat/value not valid';
     }
     else{
-        $value = intval($params['value']);
-        $stat = $params['stat'];
+        $insert['stat_name'] = $params['stat'];
+        $insert['stat_value'] = intval($params['value']);
     }
-
-    //validating stats
-
-    //check if the stat name is valid
-    if(!in_array($stat, $STATS)){
-        $validate_data['error'] = 'Invalid stat name';
-        return $validate_data;
-    }
-
-    if($value < -10 || $value > 252){
-        $validate_data['error'] = 'Invalida value number';
-        return $validate_data;
-    }
-
+  
     //from
     if(isset($params['from'])){
         $explode = explode(':', $params['from']);
         $from_text = $explode[0];
         $from_value = intval($explode[1]);
 
-        //from validation
-        if($from_text !== 'horde' && $from_text !== 'vitamin' && $from_text !== 'berry'){
-            $validate_data['error'] = 'invalid from text value';
-            return $validate_data;
+        if($from_text == 'horde') {
+            $insert['id_horde'] = $from_value;
         }
-
-        if(!is_numeric($from_value)){
-            $validate_data['error'] = 'invalid from id value';
-            return $validate_data;
+        else if($from_text == 'vitamin') {
+            $insert['id_vitamin'] = $from_value;
         }
-
+        else if($from_text == 'berry') {
+            $insert['id_berry'] = $from_value;
+        }
+        else {
+            $errors[] = "Invalid record origin.";
+        }
+        // TODO: Check GET thing/:from_value exists
     }
-    else
-        $from_value = false;
 
     //non required parameters
-    $game = (isset($params['game'])) ? intval($params['game']) : 0;
-    $pokerus = (isset($params['pokerus'])) ? intval($params['pokerus']) : 0;
+    $insert['game'] = (isset($params['game']) && (is_int($params['game'])) ? intval($params['game']) : 0;
+    $insert['pokerus'] = (isset($params['pokerus'])) ? 1 : 0;
 
-    if(!is_int($game) || !is_int($pokerus) || !is_numeric($game) || !is_numeric($pokerus)){
-        $validate_data['error'] = 'No required data error invalid format';
-        return $validate_data;
-    }
+    // If errors
+    if(sizeof($errors) > 0) return $errors;
 
-    //building the insert array
-    $array_insert = array(
-        'id_training' => $id,
-        'stat_name' => $stat,
-        'stat_value' => $value,
-        'game' => $game,
-        'pokerus' => $pokerus
-    );
 
-    //checking if from value has to be added
-    if($from_value !== false){
-
-        $array_from = array('id_'.$from_text => $from_value);
-
-        $array_insert = array_merge($array_insert, $array_from);
-
-    }
-    
     //insert data
-    $record_id = intval($db->insert('records', $array_insert));
+    $record_id = intval($db->insert('records', $insert));
 
     //getting the last insert data
     $last_insert = $db->get('records',
         '*',['id' => $record_id]
     );
 
-    return (object) $last_insert;
+    $data = formatRecord($last_insert);
+
+    return $data;
 
 }
