@@ -35,7 +35,7 @@ module.exports = function(grunt) {
           sourcemap: 'none'
         },
         files: {
-          'css/critical.min.css': 'src/scss/critical.scss',
+          'templates/includes/critical.min.css': 'src/scss/critical.scss',
           'css/full.css': 'src/scss/full.scss',
           'css/ie.css': 'src/scss/ie.scss',
           'css/nojs.css': 'src/scss/nojs.scss'
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'css/critical.min.css': ['css/critical.min.css'],
+          'templates/includes/critical.min.css': ['templates/includes/critical.min.css'],
           'css/full.css': ['css/full.css'],
           'css/nojs.css': ['css/nojs.css'],
           'css/ie.css': ['css/ie.css']

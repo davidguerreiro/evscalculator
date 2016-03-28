@@ -3,7 +3,13 @@ require 'vendor/autoload.php';
 require 'lib/EVsApi.php';
 
 // Create app
-$app = new \Slim\App();
+$app = new \Slim\App([
+    'settings'  => [
+        'determineRouteBeforeAppMiddleware' => true,
+        'displayErrorDetails' => true,
+    ]
+]);
+
 
 // Get container
 $container = $app->getContainer();
