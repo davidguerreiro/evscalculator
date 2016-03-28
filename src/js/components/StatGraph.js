@@ -8,7 +8,7 @@ var RadarChart = {
     levels: 1,
     levelTick: false,
     TickLength: 10,
-    maxValue: 0,
+    maxValue: 252,
     minValue: 50,
     core: -1,
     radians: 2 * Math.PI,
@@ -92,12 +92,13 @@ var RadarChart = {
             return datum;
         });
 
-        var maxValue = Math.max(cfg.maxValue, d3.max(data, function(d) {
+        var maxValue = cfg.maxValue;
+        /*Math.max(cfg.maxValue, d3.max(data, function(d) {
           return d3.max(d.axes, function(o){ return o.value; });
-        }));
+        }));*/
 
         cfg.minValue = maxValue/3;
-        maxValue += cfg.minValue;
+        maxValue += cfg.minValue + 20;
         
 
         var allAxis = data[0].axes.map(function(i, j){ return {name: i.axis, xOffset: (i.xOffset)?i.xOffset:0, yOffset: (i.yOffset)?i.yOffset:0}; });
