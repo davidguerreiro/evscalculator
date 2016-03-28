@@ -2,6 +2,7 @@
 _site
 .sass-cache
 vendor
+node_modules
 
 # Files to ignore on this project
 database.php

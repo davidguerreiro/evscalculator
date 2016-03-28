@@ -1,0 +1,25 @@
+{
+  "name": "evscalculator",
+  "version": "1.0.0",
+  "description": "Web app for professional pokemon trainers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidguerreiro/evscalculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidguerreiro/evscalculator/issues"
+  },
+  "homepage": "https://evscalculator.com",
+  "devDependencies": {
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-sass": "^0.9.2",
+    "grunt-contrib-uglify": "^0.11.1",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
