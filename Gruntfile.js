@@ -26,6 +26,7 @@ module.exports = function(grunt) {
           ],
           'js/async.min.js': [
             'src/js/vendor/d3.js',
+            'src/js/components/StatGraph.js',
             'src/js/components/StatValidator.js',
             'src/js/async.js'
           ]
