@@ -128,13 +128,14 @@ class EVs {
 
 
 		//curl init
+
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, $petition_url);
 
+		curl_setopt($curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
 		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
 		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
 		curl_setopt($curl, CURLOPT_CAINFO, getcwd() . "/Api.crt");
-
 
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
@@ -143,7 +144,8 @@ class EVs {
 
 		$error = curl_error($curl);
 
-		var_dump($error);
+		//var_dump($error);
+		phpinfo();
 		die();
 		
 		curl_close($curl);
