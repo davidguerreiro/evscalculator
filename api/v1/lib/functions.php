@@ -219,7 +219,7 @@ function validatePostParams($id, $params){
 
     //required
     if(!isset($params['value']) 
-        || !isset($params['stat'] 
+        || !isset($params['stat']) 
         || $params['value'] < -10 
         || $params['value'] > 252
         || !isStat($stat)){
@@ -252,7 +252,7 @@ function validatePostParams($id, $params){
     }
 
     //non required parameters
-    $insert['game'] = (isset($params['game']) && (is_int($params['game'])) ? intval($params['game']) : 0;
+    $insert['game'] = (isset($params['game']) && is_int($params['game'])) ? intval($params['game']) : 0;
     $insert['pokerus'] = (isset($params['pokerus'])) ? 1 : 0;
 
     // If errors
@@ -272,3 +272,4 @@ function validatePostParams($id, $params){
     return $data;
 
 }
+
