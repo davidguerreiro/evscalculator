@@ -16,13 +16,18 @@ module.exports = function(grunt) {
       dist: {
         files: {
           // Fonts
-          'js/async.min.js': [
-            'src/js/components/FontFaceObserver.js', 
-            'src/js/async.js'
+          'js/fonts.min.js': [
+            'src/js/vendor/FontFaceObserver.js', 
+            'src/js/fonts.js'
           ],
           // Critical JS: Enhance.js
-          'js/critical.min.js': [
+          'templates/includes/critical.min.js': [
             'src/js/critical.js'
+          ],
+          'js/async.min.js': [
+            'src/js/vendor/d3.js',
+            'src/js/components/StatValidator.js',
+            'src/js/async.js'
           ]
         }
       },

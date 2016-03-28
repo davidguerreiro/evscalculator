@@ -1,43 +1,38 @@
-;(function( doc ) {
-  // Clear localFont
-  localStorage.clear();
+(function(doc) {
 
-  var font_primary = 'Crimson Text';
-  var font_secondary = 'Montserrat';
-  var font_enhanced = 'Circular';
+	// Stat field validation
+	if(document.querySelector('.js-stat')) {
+		var myStatValidator = new StatValidator('.js-stat');
+	}
 
-  // Primary fonts
-  var CrimsonText = new FontFaceObserver(font_primary);
-  var CrimsonTextBold = new FontFaceObserver(font_primary, {
-    weight: 600
-  });
-  var CrimsonTextItalic = new FontFaceObserver(font_primary, {
-    style: 'italic'
-  });
+	// Start graph
+	if(document.querySelector('.js-graph--stats')) {
+		window.graphdata = [
+		  {
+		    className: 'graph--target', // optional can be used for styling
+		    axes: [
+		      { axis: "HP", value: 13, yOffset: 10 }, 
+		      { axis: "Attack", value: 6 }, 
+		      { axis: "Defense", value: 5 },  
+		      { axis: "Special attack", value: 9 },  
+		      { axis: "Special defense", value: 2, xOffset: -20 },
+		      { axis: "Speed", value: 3 }
+		    ]
+		  },
+		  {
+		    className: 'graph--current',
+		    axes: [
+		      { axis: "HP", value: 13, yOffset: 10 }, 
+		      { axis: "Attack", value: 6 }, 
+		      { axis: "Defense", value: 5 },  
+		      { axis: "Special attack", value: 9 },  
+		      { axis: "Special defense", value: 2, xOffset: -20 },
+		      { axis: "Speed", value: 3 }
+		    ]
+		  }
+		];
 
-  // Enhanced premium fonts (locally if available)
-  var Circular = new FontFaceObserver(font_enhanced);
-  var CircularBold = new FontFaceObserver(font_enhanced,{
-    weight: 600
-  });
+		RadarChart.draw(".js-graph--stats", window.graphdata);
+	}
 
-  // Fallback font
-  var Montserrat = new FontFaceObserver(font_secondary);
-  var MontserratBold = new FontFaceObserver(font_secondary,{
-    weight: 700
-  });
-
-  function fontsHaveLoaded(){
-    sessionStorage.fontsLoaded = true;
-    doc.documentElement.className += " f2";
-  }
-
-  Promise.all([CrimsonText.check(null,0), CrimsonTextBold.check(null,0), CrimsonTextItalic.check(null,0)]).then(function () {
-    doc.documentElement.className += " f1";
- 
-    Promise.all([Circular.check(null,0,true), CircularBold.check(null,0,true)]).then(fontsHaveLoaded, function(e){
-      Promise.all([Montserrat.check(null,0), MontserratBold.check(null,0)]).then(fontsHaveLoaded);  
-    });
-  });
-  
-})( document );
+})(document);
