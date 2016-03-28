@@ -48,12 +48,12 @@ function formatRecord($element) {
         ];
     }
 
-    /*if($element['id_berry']) {
+    if($element['id_berry']) {
         $ret['from'] = [
             "type" => "berries",
             "origin" => getBerries(null, $element['id_berry'])
         ];
-    }*/
+    }
 
     return (empty($ret)) ? $ret : (object) $ret;
 }

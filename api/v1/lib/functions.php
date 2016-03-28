@@ -208,5 +208,105 @@ function getRecords($training_id, $stat = null) {
     return $data;
 }
 
+//validation
+function validatePostParams($id, $params){
+
+    //variables
+    $validate_data['status'] = false;
+    global $db, $STATS;
 
 
+
+    //validation
+    if(!isset($params) || !is_array($params)){
+        $validate_data['error'] = 'No data received';
+        return $validate_data;
+    }
+
+    if(!is_int($id) || $id < 0){
+        $validate_data['error'] = 'Invalid Id or ID not properly decoded';
+        return $validate_data;
+    }
+
+    //required
+    if(!isset($params['value']) || !isset($params['stat'])){
+        $validate_data['error'] = 'Required data no received';
+        return $validate_data;
+    }
+    else{
+        $value = intval($params['value']);
+        $stat = $params['stat'];
+    }
+
+    //validating stats
+
+    //check if the stat name is valid
+    if(!in_array($stat, $STATS)){
+        $validate_data['error'] = 'Invalid stat name';
+        return $validate_data;
+    }
+
+    if($value < -10 || $value > 252){
+        $validate_data['error'] = 'Invalida value number';
+        return $validate_data;
+    }
+
+    //from
+    if(isset($params['from'])){
+        $explode = explode(':', $params['from']);
+        $from_text = $explode[0];
+        $from_value = intval($explode[1]);
+
+        //from validation
+        if($from_text !== 'horde' && $from_text !== 'vitamin' && $from_text !== 'berry'){
+            $validate_data['error'] = 'invalid from text value';
+            return $validate_data;
+        }
+
+        if(!is_numeric($from_value)){
+            $validate_data['error'] = 'invalid from id value';
+            return $validate_data;
+        }
+
+    }
+    else
+        $form_value = false;
+
+    //non required parameters
+    $game = (isset($params['game'])) ? intval($params['game']) : 0;
+    $pokerus = (isset($params['pokerus'])) ? intval($params['pokerus']) : 0;
+
+    if(!is_int($game) || !is_int($pokerus) || !is_numeric($game) || !is_numeric($pokerus)){
+        $validate_data['error'] = 'No required data error invalid format';
+        return $validate_data;
+    }
+
+    //building the insert array
+    $array_insert = array(
+        'id_training' => $id,
+        'stat_name' => $stat,
+        'stat_value' => $value,
+        'game' => $game,
+        'pokerus' => $pokerus
+    );
+
+    //checking if from value has to be added
+    if($form_value !== false){
+
+        $array_from = array('id_'.$from_text => $from_value);
+
+        $array_insert = array_merge($array_insert, $array_from);
+
+    }
+    
+    //insert data
+    $record_id = intval($db->insert('records', $array_insert));
+
+    //getting the last insert data
+    $last_insert = $db->get('records',
+        '*',['id' => $record_id]
+    );
+
+    return (object) $last_insert;
+
+}

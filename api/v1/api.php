@@ -48,7 +48,7 @@ $app->get('/v1/hordes[.{format}]', function($req, $res) {
  });
 
 
-// GET berries
+// GET vitamins
 $app->get('/v1/vitamins[.{format}]', function($req, $res){
 
     $data = getVitamins($req->getQueryParams());
@@ -203,17 +203,45 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
         ->withHeader('Location', '/v1/trainings/'.$hashids->encode($training_id));
 });
 
+//Records
+
+//post records by training id
+$app->post('/v1/trainings/{id}/records[.{format}]', function($req, $res){
+     global $hashids;
+
+    //getting the id
+    $id = intval($hashids->decode($req->getAttribute('id')));
+
+    //validation
+    $data = validatePostParams($id, $req->getParsedBody());
+
+    if(is_array($data)){
+
+        //validation error
+        return $res
+            ->write(parse($data))
+            ->withStatus(400);
+    }
+    else{
+
+        return $res
+            ->write(parse($data))
+            ->withStatus(201);
+    }
+
+
+});
+
+
 
 // DELETE /trainings/:id
 $app->delete('/v1/trainings/{id}[.{format}]', function($req, $res) {
     global $db, $hashids;
     $data = array();
-    $training_id = $hashids->encode($req->getAttribute('id'));
-    $training_id = $training_id[0];
 
     $deleted_items = $db->delete("training", [
         "AND" => [
-            "id" => $training_id
+            "id" => $hashids->encode($req->getAttribute('id'))
         ]
     ]);
 
