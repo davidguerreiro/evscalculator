@@ -212,7 +212,6 @@ function getRecords($training_id, $stat = null) {
 function validatePostParams($id, $params){
 
     //variables
-    $validate_data['status'] = false;
     global $db, $STATS;
 
 
@@ -270,7 +269,7 @@ function validatePostParams($id, $params){
 
     }
     else
-        $form_value = false;
+        $from_value = false;
 
     //non required parameters
     $game = (isset($params['game'])) ? intval($params['game']) : 0;
@@ -291,7 +290,7 @@ function validatePostParams($id, $params){
     );
 
     //checking if from value has to be added
-    if($form_value !== false){
+    if($from_value !== false){
 
         $array_from = array('id_'.$from_text => $from_value);
 
