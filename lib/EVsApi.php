@@ -130,7 +130,6 @@ class EVs {
 		//curl init
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_URL, $petition_url);
-		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
 		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
 		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
