@@ -240,15 +240,15 @@ function postRecord($id, $params){
 
         if($from_text == 'horde') {
             $insert['id_horde'] = $from_id;
-            if(!getHordes(null, $from_id)) $errors[] = "The ID '".$from_id."'  doesn't match any ".$from_text;
+            if(!getHordes(null, $from_id)) $errors[] = "The ID '".$from_id."' doesn't match any ".$from_text;
         }
         else if($from_text == 'vitamin') {
             $insert['id_vitamin'] = $from_id;
-            if(!getVitamins(null, $from_id)) $errors[] = "The ID '".$from_id."'  doesn't match any ".$from_text;
+            if(!getVitamins(null, $from_id)) $errors[] = "The ID '".$from_id."' doesn't match any ".$from_text;
         }
         else if($from_text == 'berry') {
             $insert['id_berry'] = $from_id;
-            if(!getBerries(null, $from_id)) $errors[] = "The ID '".$from_id."'  doesn't match any ".$from_text;
+            if(!getBerries(null, $from_id)) $errors[] = "The ID '".$from_id."' doesn't match any ".$from_text;
         }
         else {
             $errors[] = "Invalid record origin.";
