@@ -28,6 +28,11 @@ var StatValidator = (function(doc) {
 
 	Stat.prototype.statChange = function() {
 		this.el.value.replace(/[^0-9]/, '');
+
+		if(window.graphdata) {
+			window.graphdata[this.el.name] = parseInt(this.el.value, 10);
+			RadarChart.draw(".js-graph--stats", window.graphdata);
+		}
 	};
 	
 

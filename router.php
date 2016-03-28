@@ -1,6 +1,5 @@
 <?php
 
-
 $STATS = [
     'hp' => 'HP', 
     'attack' => 'Attack', 
@@ -37,11 +36,17 @@ $app->post('/', function ($req, $res, $args) {
     ]);
 });
 
+
 $app->get('/training/{id}/{stat}', function ($req, $res, $args) {
 	// Request to GET trainings/:id
+    $training = ''; // Results here
+
+    // Request to GET trainings/:id/records/:stat
+    // Request to GET trainings/:id/actions/:stat
 
     return $this->view->render($res, 'training.html', [
         'id_training' => $args['id'],
-        'current_stat' => $args['stat']
+        'current_stat' => $args['stat'],
+        'training' => $training
     ]);
 })->setName('training_stat');
