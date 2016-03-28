@@ -59,7 +59,7 @@ class EVs {
 	public function getBerries($stat = ''){
 
 		//building the url
-		$petition_url = API_URL.'berries';
+		$petition_url = self::API_URL.'berries';
 
 		if(!empty($stat))
 			$petition_url .= '?stat='.$stat;
@@ -87,7 +87,7 @@ class EVs {
 	public function getVitamins($stat = ''){
 
 		//building the url
-		$petition_url = API_URL.'vitamins';
+		$petition_url = self::API_URL.'vitamins';
 
 		if(!empty($stat))
 			$petition_url .= '?stat='.$stat;
@@ -155,7 +155,7 @@ class EVs {
 	public function postTraining($params){
 
 		//buildin the url
-		$petition_url = API_URL.'trainings';
+		$petition_url = self::API_URL.'trainings';
 
 		//curl init
 		$curl = curl_init();
@@ -183,7 +183,7 @@ class EVs {
 	public function deleteTraining($id){
 
 		//building the url
-		$petition_url = API_URL.'trainings/'.$id;
+		$petition_url = self::API_URL.'trainings/'.$id;
 
 		//curl init
 		$curl = curl_init();
@@ -213,7 +213,7 @@ class EVs {
 	public function getRecords($id, $stat = ''){
 
 		//building the url
-		$petition_url = API_URL.'trainings/'.$id.'/records';
+		$petition_url = self::API_URL.'trainings/'.$id.'/records';
 
 		if(!empty($stat))
 			$petition_url .= '/'.$stat;
@@ -242,7 +242,7 @@ class EVs {
 	public function postRecord($id, $params){
 
 		//building the url
-		$petition_url = API_URL.'trainings/'.$id.'/records';
+		$petition_url = self::API_URL.'trainings/'.$id.'/records';
 
 		//curl init
 		$curl = curl_init();
