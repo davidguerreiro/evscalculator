@@ -213,7 +213,7 @@ $app->post('/v1/trainings/{id}/records[.{format}]', function($req, $res){
     $id = $hashids->decode($req->getAttribute('id'))[0];
 
     //validation
-    $data = validatePostParams($id, $req->getParsedBody());
+    $data = postRecord($id, $req->getParsedBody());
 
     if(is_array($data)){
 

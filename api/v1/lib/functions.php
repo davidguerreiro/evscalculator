@@ -209,7 +209,7 @@ function getRecords($training_id, $stat = null) {
 }
 
 //validation
-function validatePostParams($id, $params){
+function postRecord($id, $params){
 
     //variables
     global $db, $STATS, $hashids;
