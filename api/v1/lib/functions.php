@@ -67,7 +67,7 @@ function getHordes($params = null, $id = null) {
             return $a->id == $id;
         }));
 
-        return $find_value[0];
+        return count($find_value) ? $find_value[0] : null;
     }
 
     // Filter by stat
@@ -100,7 +100,7 @@ function getBerries($params = null, $id = null){
             return $a->id == $id;
         }));
 
-        return $find_value[0];
+        return count($find_value) ? $find_value[0] : null;
     }
     
     // Filter by stat
@@ -125,7 +125,7 @@ function getVitamins($params = null, $id = null){
             return $a->id == $id;
         }));
 
-        return $find_value[0];
+        return count($find_value) ? $find_value[0] : null;
     }
     
     // Filter by stat
@@ -236,21 +236,23 @@ function validatePostParams($id, $params){
     if(isset($params['from'])){
         $explode = explode(':', $params['from']);
         $from_text = $explode[0];
-        $from_value = intval($explode[1]);
+        $from_id = intval($explode[1]);
 
         if($from_text == 'horde') {
-            $insert['id_horde'] = $from_value;
+            $insert['id_horde'] = $from_id;
+            if(!getHordes(null, $from_id)) $errors[] = "The ID '".$from_id."'  doesn't match any ".$from_text;
         }
         else if($from_text == 'vitamin') {
-            $insert['id_vitamin'] = $from_value;
+            $insert['id_vitamin'] = $from_id;
+            if(!getVitamins(null, $from_id)) $errors[] = "The ID '".$from_id."'  doesn't match any ".$from_text;
         }
         else if($from_text == 'berry') {
-            $insert['id_berry'] = $from_value;
+            $insert['id_berry'] = $from_id;
+            if(!getBerries(null, $from_id)) $errors[] = "The ID '".$from_id."'  doesn't match any ".$from_text;
         }
         else {
             $errors[] = "Invalid record origin.";
         }
-        // TODO: Check GET thing/:from_value exists
     }
 
     //non required parameters
@@ -259,7 +261,6 @@ function validatePostParams($id, $params){
 
     // If errors
     if(sizeof($errors) > 0) return $errors;
-
 
     //insert data
     $record_id = intval($db->insert('records', $insert));
