@@ -21,7 +21,7 @@ class EVs {
 	public function getHordes($stat = '', $game = false){
 
 		//building the url
-		$petition_url = API_URL.'hordes'
+		$petition_url = API_URL.'hordes';
 
 		if(!empty($stat) && $game !== false)
 			$petition_url .= '?stat='.$stat.'&game='.$game;
