@@ -1,34 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
 
-	<style>{% include 'includes/critical.min.css' %}</style>
-
-    <link href='https://fonts.gstatic.com' rel='preconnect' crossorigin>
-    <meta name="fonts"  content="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CCrimson+Text:400,400italic,600">
-    <meta name="fontjs"  content="/js/fonts.min.js">
-
-    <script>{% include 'includes/critical.min.js' %}</script>
-    <noscript>
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CCrimson+Text:400,400italic,600">
-        <link rel="stylesheet" type="text/css" href="/css/nojs.css">
-    </noscript>
+{% block content %}
 
 
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="/css/ie.css">
-    <![endif]-->
-    <!--[if IE]>
-     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-</head>
-<body>
 	<h1>{{ site.title }}</h1>
 
-	{% if training_data.stat == "ok" %}
+	{% if training_data.stat == "error" %}
+		<div>{{ training_data.errors }}</div>
+	{% else %}
+	{{ dump(training_data.stat) }}
 		{% set training = training_data.data %}
 		{% set progress = ((
 			attribute(training.progress, current_stat) /
@@ -37,11 +17,13 @@
 
 		<ul>
 			{% for stat in stats|keys %}
+			{% if attribute(training.target, stat) %}
 				<li><a href="{{ path_for('training_stat', { 'id': id_training, 'stat': stat }) }}">
 					{{ stats[stat] }}:
 					{{ attribute(training.progress, stat) }} / 
 					{{ attribute(training.target, stat) }}
 				</a></li>
+			{% endif %}
 			{% endfor %}
 		</ul>
 		
@@ -67,8 +49,13 @@
 				{% endfor %}
 			</ul>
 
+		{% else %}
+			<h2>Records</h2>
+			<div>{{ records_data.errors }}</div>
 		{% endif %}
 
 	{% endif %}
-</body>
-</html>
+
+
+
+{% endblock %}

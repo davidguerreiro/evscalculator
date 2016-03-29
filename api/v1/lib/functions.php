@@ -149,7 +149,7 @@ function getTrainings($id = null){
 
     // If it's /:id then filter by it
     if($id !== null) {
-        $where['id'] = $hashids->decode($id);
+        $where['id'] = $id;
     }
 
     // Getting trainings from the db

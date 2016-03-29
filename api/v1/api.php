@@ -89,7 +89,14 @@ $app->group('/v1/trainings', function() {
         
         // GET trainings/:id
         $this->get('[.{format}]', function($req, $res) {
-            $data = getTrainings($req->getAttribute('id'));
+            $realid = $hashids->decode($req->getAttribute('id'));
+
+            if(!$realid) {
+                return $res
+                    ->write(parse(["Wrong training ID"]))
+                    ->withStatus(400);
+            }
+            $data = getTrainings($realid[0]);
 
             if(!sizeof($data)) {
                 return $res
