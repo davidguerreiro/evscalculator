@@ -5,6 +5,22 @@
 	<title>Document</title>
 </head>
 <body>
-	{{ dump(training) }}
+	{% if training_data.stat == "ok" %}
+		{% set training = training_data %}
+		
+		<h1>Training #{{ training.id }}</h1>
+
+		<ul>
+		{% for stat in training.target|keys %}
+			<li>
+				{{ stat|title }}:
+				{{ training.progress[stat] }} / 
+				{{ training.target[stat] }}
+			</li>
+		{% endfor %}
+		</ul>
+
+
+	{% endif %}
 </body>
 </html>

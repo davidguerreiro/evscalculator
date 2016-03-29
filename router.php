@@ -47,6 +47,6 @@ $app->get('/training/{id}/{stat}', function ($req, $res, $args) {
     return $this->view->render($res, 'training.html', [
         'id_training' => $args['id'],
         'current_stat' => $args['stat'],
-        'training' => $training
+        'training_data' => $training
     ]);
 })->setName('training_stat');

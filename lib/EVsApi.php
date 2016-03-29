@@ -141,7 +141,7 @@ class EVs {
 		
 		curl_close($curl);
 
-		return $data;
+		return json_decode($data);
 	}
 
 	/**
