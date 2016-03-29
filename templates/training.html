@@ -6,9 +6,13 @@
 	<h1>{{ site.title }}</h1>
 
 	{% if training_data.stat == "error" %}
-		<div>{{ training_data.errors }}</div>
+		{% set errors = training_data.errors %}
+		<ul>
+			{% for error in errors %}
+				<li>{{ error }}</li>
+			{% endfor %}
+		</ul>
 	{% else %}
-	{{ dump(training_data.stat) }}
 		{% set training = training_data.data %}
 		{% set progress = ((
 			attribute(training.progress, current_stat) /

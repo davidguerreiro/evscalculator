@@ -89,6 +89,8 @@ $app->group('/v1/trainings', function() {
         
         // GET trainings/:id
         $this->get('[.{format}]', function($req, $res) {
+            global $hashids;
+            
             $realid = $hashids->decode($req->getAttribute('id'));
 
             if(!$realid) {
