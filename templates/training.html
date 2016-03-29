@@ -1,25 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style>{% include 'includes/critical.min.css' %}</style>
+
+    <link href='https://fonts.gstatic.com' rel='preconnect' crossorigin>
+    <meta name="fonts"  content="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CCrimson+Text:400,400italic,600">
+    <meta name="fontjs"  content="/js/fonts.min.js">
+
+    <script>{% include 'includes/critical.min.js' %}</script>
+    <noscript>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CCrimson+Text:400,400italic,600">
+        <link rel="stylesheet" type="text/css" href="/css/nojs.css">
+    </noscript>
+
+
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="/css/ie.css">
+    <![endif]-->
+    <!--[if IE]>
+     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
 <body>
+	<h1>{{ site.title }}</h1>
+
 	{% if training_data.stat == "ok" %}
-		{% set training = training_data %}
-		
-		<h1>Training #{{ training.id }}</h1>
+		{% set training = training_data.data %}
+		{% set progress = ((
+			attribute(training.progress, current_stat) /
+			attribute(training.target, current_stat)) *
+			100)|number_format %}
 
 		<ul>
-		{% for stat in training.target|keys %}
-			<li>
-				{{ stat|title }}:
-				{{ training.progress[stat] }} / 
-				{{ training.target[stat] }}
-			</li>
-		{% endfor %}
+			{% for stat in stats|keys %}
+				<li><a href="{{ path_for('training_stat', { 'id': id_training, 'stat': stat }) }}">
+					{{ stats[stat] }}:
+					{{ attribute(training.progress, stat) }} / 
+					{{ attribute(training.target, stat) }}
+				</a></li>
+			{% endfor %}
 		</ul>
+		
+		<h2>Training #{{ training.id }} - {{ stats[current_stat] }}</h2>
+		<div class="progress progress--main" style="background: #fff">
+			<div class="progress__bar" style="background: green; height: 1em; width: {{ progress }}%;"></div>
+		</div>
+		
 
+		{# Records #}
+		{% if records_data.stat == "ok" > 0 %}
+			{% set records = records_data.data  %}
+
+			<h2>Records</h2>
+			<ul>
+				{% for record in records %}
+					<li>
+						{{ record.value }}
+						{% if record.from is defined %}
+
+						{% endif %}
+					</li>
+				{% endfor %}
+			</ul>
+
+		{% endif %}
 
 	{% endif %}
 </body>

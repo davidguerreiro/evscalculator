@@ -22,7 +22,7 @@ $app->get('/', function ($req, $res, $args) {
         'stats' => $STATS,
         'games' => $GAMES
     ]);
-})->setName('profile');
+})->setName('homepage');
 
 
 $app->post('/', function ($req, $res, $args) {
@@ -38,8 +38,11 @@ $app->post('/', function ($req, $res, $args) {
 
 
 $app->get('/training/{id}/{stat}', function ($req, $res, $args) {
-	// Request to GET trainings/:id
-    $training = EVs::getTrainings($args['id']); // Results here
+	global $STATS;
+    
+    // Request to GET trainings/:id
+    $training = EVs::getTrainings($args['id']); 
+    $records = EVs::getRecords($args['id'], $args['stat']);
 
     // Request to GET trainings/:id/records/:stat
     // Request to GET trainings/:id/actions/:stat
@@ -47,6 +50,8 @@ $app->get('/training/{id}/{stat}', function ($req, $res, $args) {
     return $this->view->render($res, 'training.html', [
         'id_training' => $args['id'],
         'current_stat' => $args['stat'],
-        'training_data' => $training
+        'training_data' => $training,
+        'records_data' => $records,
+        'stats' => $STATS
     ]);
 })->setName('training_stat');
