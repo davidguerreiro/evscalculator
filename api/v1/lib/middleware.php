@@ -191,11 +191,11 @@ class EvsMiddleware {
 
 
     	// Before processing the request
-    	if(!$this->isSecure()) {
+    	/*if(!$this->isSecure()) {
     		$this->res->write(json_encode(["Please use HTTPS protocol"]));
     		$this->res = $this->res->withStatus(403);
     		return $this->parse();
-    	}
+    	}*/
 
  
  		// Make the request
