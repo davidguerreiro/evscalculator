@@ -120,7 +120,7 @@ class EVs {
 		$petition_url = self::API_URL.'trainings';
 
 		if(!empty($id)){
-			$petition_url .= '/'.$id.'/';
+			$petition_url .= '/'.$id;
 
 			if(!empty($stat))
 				$petition_url .= '/'.$stat;
