@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" class="{% block class %}{% endblock %}">
+<head>
+    {% block head %}
+	{% include '../includes/head.twig' %}
+    {% endblock %}
+</head>
+
+<body>
+{% block content %}
+{% endblock %}
+</body>
+
+
+{% block footer %}
+    <script src="/js/async.min.js"></script>
+{% endblock %}
+</body>
+</html>

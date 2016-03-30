@@ -1,13 +1,10 @@
-{% extends "base.twig" %}
+{% extends "base/big.twig" %}
 
-{% block bodyclass %}
-t-big t-home
+{% block class %}
+t-home
 {% endblock %}
 
 {% block content %}
-
-<div class="l-wrap">
-	{% include 'includes/header_big.twig' %}
 
 	<div class="js-graph--stats"></div>
 
@@ -57,7 +54,6 @@ t-big t-home
 		<input type="submit" value="Start training">
 		
 	</form>
-</div>
 
 <style>
 .js-graph--stats {

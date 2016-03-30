@@ -1,23 +1,17 @@
-{% extends "base.twig" %}
+{% extends "base/big.twig" %}
 
 {% block bodyclass %}
-t-big t-error
+t-error
 {% endblock %}
 
 {% block content %}
-
-
-<div class="l-wrap">
-	{% include 'includes/header_big.twig' %}
-
+		
 	<h1>Error</h1>
-	
+
 	<ul>
 		{% for error in errors %}
 			<li>{{ error }}</li>
 		{% endfor %}
 	</ul>
-</div>
-
 
 {% endblock %}

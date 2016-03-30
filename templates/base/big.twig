@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" class="{% block class %}{% endblock %}">
+<head>
+    {% block head %}
+	{% include '../includes/head.twig' %}
+    {% endblock %}
+</head>
+
+<body>
+	<div class="l-wrap">
+		{% include 'includes/header_big.twig' %}
+
+		{% block content %}
+		{% endblock %}
+	</div>
+</body>
+
+
+{% block footer %}
+    <script src="/js/async.min.js"></script>
+{% endblock %}
+</body>
+</html>
