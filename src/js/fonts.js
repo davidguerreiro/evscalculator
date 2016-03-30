@@ -25,7 +25,7 @@
     doc.documentElement.className += " f2";
   }
 
-  Promise.all([CrimsonText.check(null,0), CrimsonTextBold.check(null,0), CrimsonTextItalic.check(null,0)]).then(function () {
+  Promise.all([Cabin.check(null,0), CabinBold.check(null,0), CabinItalic.check(null,0)]).then(function () {
     doc.documentElement.className += " f1";
  
       Promise.all([Montserrat.check(null,0), MontserratBold.check(null,0)]).then(fontsHaveLoaded);  
