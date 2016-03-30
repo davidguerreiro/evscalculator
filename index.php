@@ -10,12 +10,27 @@ $app = new \Slim\App([
     ]
 ]);
 
+$STATS = [
+    'hp' => 'HP', 
+    'attack' => 'Attack', 
+    'defense' => 'Defense', 
+    'spattack' =>  'Special attack', 
+    'spdefense' => 'Special defense', 
+    'speed' => 'Speed'
+];
+
+$GAMES = [
+    0 => 'X/Y',
+    1 => 'ORAS'
+];
+
 
 // Get container
 $container = $app->getContainer();
 
 // Register component on container
 $container['view'] = function ($container) {
+    global $STATS, $GAMES;
     $view = new \Slim\Views\Twig('templates', [
         //'cache' => 'cache'
         'debug' => true
@@ -31,6 +46,8 @@ $container['view'] = function ($container) {
     	'base_url' => "https://evscalculator.com",
     	'description' => "Professional pokemon training tool"
     ]);
+    $twig->addGlobal('stats', $STATS);
+    $twig->addGlobal('games', $games);
     $twig->addFilter( new Twig_SimpleFilter('cast_to_array', function ($stdClassObject) {
         $response = array();
         foreach ($stdClassObject as $key => $value) {

@@ -75,7 +75,7 @@ $app->group('/v1/trainings', function() {
         // 404 IF NO TRAININGS
         if(!sizeof($data)) {
             return $res
-                ->write(parse(["No training found."]))
+                ->write(parse(["No trainings found."]))
                 ->withStatus(404);
         }
 
@@ -95,7 +95,7 @@ $app->group('/v1/trainings', function() {
 
             if(!$realid) {
                 return $res
-                    ->write(parse(["Wrong training ID"]))
+                    ->write(parse(["This training isn't valid or doesn't exist anymore."]))
                     ->withStatus(400);
             }
             $data = getTrainings($realid[0]);

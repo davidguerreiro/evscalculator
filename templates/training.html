@@ -2,61 +2,58 @@
 
 {% block content %}
 
+	<header role="banner" class="l-header l-header--side">
+		<h1>{{ site.title }}</h1>
+		{% include 'includes/nav_training.html' %}		
+	</header>
 
-	<h1>{{ site.title }}</h1>
-
-	{% if training_data.stat == "error" %}
+	{# Training stat info #}
+	{% if training_data.stat == "invalid" %}
 		{% set errors = training_data.errors %}
 		<ul>
 			{% for error in errors %}
 				<li>{{ error }}</li>
 			{% endfor %}
 		</ul>
-	{% else %}
-		{% set training = training_data.data %}
-		{% set progress = ((
-			attribute(training.progress, current_stat) /
-			attribute(training.target, current_stat)) *
-			100)|number_format %}
+	{% endif %}
 
-		<ul>
-			{% for stat in stats|keys %}
-			{% if attribute(training.target, stat) %}
-				<li><a href="{{ path_for('training_stat', { 'id': id_training, 'stat': stat }) }}">
-					{{ stats[stat] }}:
-					{{ attribute(training.progress, stat) }} / 
-					{{ attribute(training.target, stat) }}
-				</a></li>
-			{% endif %}
-			{% endfor %}
-		</ul>
-		
-		<h2>Training #{{ training.id }} - {{ stats[current_stat] }}</h2>
-		<div class="progress progress--main" style="background: #fff">
-			<div class="progress__bar" style="background: green; height: 1em; width: {{ progress }}%;"></div>
-		</div>
-		
+	
+	<h2>Training #{{ training.id }} - {{ stats[current_stat] }}</h2>
+	<div class="c-progress c-progress--main" style="background: #fff">
+		<div class="c-progress__bar" style="background: green; height: 1em; width: {{ progress }}%;"></div>
+	</div>
+	
 
-		{# Records #}
-		{% if records_data.stat == "ok" > 0 %}
-			{% set records = records_data.data  %}
+	{# Records #}
+	<h2>Records</h2>
 
-			<h2>Records</h2>
+	{% if records_data.stat != "ok" %}
+		{% set errors = records_data.errors %}
+
+		{% if errors|length > 1 %}
 			<ul>
-				{% for record in records %}
-					<li>
-						{{ record.value }}
-						{% if record.from is defined %}
-
-						{% endif %}
-					</li>
+				{% for error in errors %}
+					<li>{{ records_data.errors }}</li>
 				{% endfor %}
 			</ul>
-
 		{% else %}
-			<h2>Records</h2>
-			<div>{{ records_data.errors }}</div>
+			<div>{{ records_data.errors[0] }}</div>
 		{% endif %}
+
+	{% elseif records_data.stat != "error" %}
+		{% set records = records_data.data  %}
+
+		<h2>Records</h2>
+		<ul>
+			{% for record in records %}
+				<li>
+					{{ record.value }}
+					{% if record.from is defined %}
+
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
 
 	{% endif %}
 
