@@ -10,12 +10,12 @@ t-home
 
 
 	<form method="POST" action="/">
-		<fieldset>
+		<fieldset class="l-statform">
 			<legend>Set the targets for your training:</legend>
 			{% for stat,name in stats %}
-				<label>
-					<span>{{ name }}</span>
-					<input class="js-stat" type="number" name="{{ stat }}" step="4" min="0" max="252" />
+				<label class="c-statfield c-statefield--{{ stat }}">
+					<span class="c-statfield__label">{{ name }}</span>
+					<input class="c-statfield__field js-stat" type="number" name="{{ stat }}" step="4" min="0" max="252" />
 				</label>
 			{% endfor %}
 		</fieldset>
@@ -57,7 +57,7 @@ t-home
 
 <style>
 .js-graph--stats {
-	max-width: 400px;
+	max-width: 600px;
 	font-size: .6em;
 	font-weight: bold;
 	text-transform: uppercase;

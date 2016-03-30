@@ -33,7 +33,7 @@ var RadarChart = {
   },
 
 
-    chart: function() {
+  chart: function() {
       // default config
       var cfg = Object.create(RadarChart.defaultConfig);
 
@@ -402,45 +402,10 @@ var RadarChart = {
     options.w = parseInt(d3.select(id).style("width"));
     options.h = parseInt((options.w*3)/4);
 
-    d3.select(window).on('resize', 'this.draw(id, d, options)'); 
-
-    var predata = d;
-
-    function noticeMargin(val) {
-      if(val>0) return val + 20;
-      return val;
-    }
-
-    d = [
-      {
-        className: 'graph--target',
-        axes: [
-          { axis: "HP", value: noticeMargin(predata.hp), xOffset: -5 }, 
-          { axis: "Sp. Atk", value: noticeMargin(predata.spattack), xOffset: -15, yOffset: -10 },  
-          { axis: "Sp. Def", value: noticeMargin(predata.spdefense), xOffset: -15, yOffset: 10 },
-          { axis: "Speed", value: noticeMargin(predata.speed), xOffset: -15 },
-          { axis: "Defense", value: noticeMargin(predata.defense), xOffset: -20, yOffset: 10 },
-          { axis: "Attack", value: noticeMargin(predata.attack), xOffset: -20, yOffset: -10 }
-        ]
-      },
-      {
-        className: 'graph--start',
-        axes: [
-          { axis: "HP", value: -1 }, 
-          { axis: "Sp. Atk", value: -1 },  
-          { axis: "Sp. Def", value: -1  },
-          { axis: "Speed", value: -1 },
-          { axis: "Defense", value: -1 },
-          { axis: "Attack", value: -1 }
-        ]
-      }
-    ];
-
     d3.select(window).on('resize', resize); 
     
     var chart = RadarChart.chart().config(options);
     var cfg = chart.config();
-
 
     function resize() {
         // update width  
@@ -466,5 +431,42 @@ var RadarChart = {
       .attr("height", cfg.h)
       .datum(d)
       .call(chart);
+
+    return chart;
   }
 };
+
+
+
+function createStatData(predata) {
+
+  function noticeMargin(val) {
+    if(val>0) return val + 20;
+    return val;
+  }
+
+  return [
+    {
+      className: 'graph--target',
+      axes: [
+        { axis: "HP", value: noticeMargin(predata.hp), xOffset: -5 }, 
+        { axis: "Sp. Atk", value: noticeMargin(predata.spattack), xOffset: -15, yOffset: -10 },  
+        { axis: "Sp. Def", value: noticeMargin(predata.spdefense), xOffset: -15, yOffset: 10 },
+        { axis: "Speed", value: noticeMargin(predata.speed), xOffset: -15 },
+        { axis: "Defense", value: noticeMargin(predata.defense), xOffset: -20, yOffset: 10 },
+        { axis: "Attack", value: noticeMargin(predata.attack), xOffset: -20, yOffset: -10 }
+      ]
+    },
+    {
+      className: 'graph--start',
+      axes: [
+        { axis: "HP", value: -1 }, 
+        { axis: "Sp. Atk", value: -1 },  
+        { axis: "Sp. Def", value: -1  },
+        { axis: "Speed", value: -1 },
+        { axis: "Defense", value: -1 },
+        { axis: "Attack", value: -1 }
+      ]
+    }
+  ];
+}

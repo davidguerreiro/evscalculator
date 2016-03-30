@@ -17,7 +17,7 @@ var StatValidator = (function(doc) {
 		}
 		if(window.graphdata) {
 			window.graphdata[this.el.name] = parseInt(this.el.value, 10);
-			RadarChart.draw(".js-graph--stats", window.graphdata);
+			updateGraph();
 		}
 		else console.log(this.el.value);
 	};
@@ -35,7 +35,7 @@ var StatValidator = (function(doc) {
 
 		if(window.graphdata) {
 			window.graphdata[this.el.name] = parseInt(this.el.value, 10);
-			RadarChart.draw(".js-graph--stats", window.graphdata);
+			updateGraph();
 		}
 	};
 	

@@ -9,6 +9,7 @@ $color-tertiary-dark: #b1ad9c;
 $color-text: #444;
 $color-bg: #fff;
 
+
 $color-success: #b6d39b;
 $color-error: red;
 
@@ -16,7 +17,27 @@ $color-error: red;
 $color-footer: #6e6d6b;
 $color-border: #333333;
 
-
+// Stat colors
+$vary-map: (
+  hp: (
+    'color-primary': #90EE90
+  ),
+  attack: (
+    'color-primary': #d6543f
+  ),
+  defense: (
+  	'color-primary': #66CDAA
+  ),
+  spattack: (
+  	'color-primary': #e9dce4
+  ),
+  spdefense: (
+  	'color-primary': #91d4d1
+  ),
+  speed: (
+  	'color-primary': #B0C4DE
+  )
+);
 
 // FONTS
 
