@@ -61,7 +61,7 @@ GET {{ site.api_url }}/v1/trainings/bglRdqG4no/actions/attack
 					]
 				}
 			]
-		],
+		},
 		"hordes": [
 			[...]
 		],
