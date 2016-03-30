@@ -23,8 +23,8 @@
     	options.h = parseInt((options.w*3)/4);
 		var cfg = chart.config(options);
 		var svg = d3.select(id).append('svg')
-		  .attr('width', cfg.w)
-		  .attr('height', cfg.h);
+		  .attr('width', options.w)
+		  .attr('height', options.h);
 
 		function resize() {
 	        // update width  
@@ -35,11 +35,14 @@
 	        cfg = chart.config();
 
 	        d3.select(id).select('svg').remove();
-	        d3.select(id).append('svg')
-			  .attr('width', cfg.w)
-			  .attr('height', cfg.h);
+	        svg = d3.select(id).append('svg')
+			  .attr('width', options.w)
+			  .attr('height', options.h);
+
 			w.updateGraph();
 	    }
+
+	    d3.select(window).on('resize', resize); 
 
 		w.updateGraph = function render() {
 		  var spread = svg.selectAll('g.spread').data(
