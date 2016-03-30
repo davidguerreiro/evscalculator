@@ -44,10 +44,12 @@ $container['view'] = function ($container) {
     $twig->addGlobal('site', [
     	'title' => "EVs Calculator",
     	'base_url' => "https://evscalculator.com",
-    	'description' => "Professional pokemon training tool"
+    	'description' => "Professional pokemon training tool",
+        "email" => "social@evscalculator.com",
+        "twitter" => "evscalculator"
     ]);
     $twig->addGlobal('stats', $STATS);
-    $twig->addGlobal('games', $games);
+    $twig->addGlobal('games', $GAMES);
     $twig->addFilter( new Twig_SimpleFilter('cast_to_array', function ($stdClassObject) {
         $response = array();
         foreach ($stdClassObject as $key => $value) {

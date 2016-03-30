@@ -1,0 +1,13 @@
+<header role="banner" class="l-header l-header--side">
+	<h1>{{ site.title }}</h1><nav role="nav" class="l-nav l-nav--stats">
+
+	<nav role="nav nav--side">
+		{% for stat in stats|keys %}
+			<a class="" href="{{ path_for('training_stat', { 'id': id_training, 'stat': stat }) }}">
+				{{ stats[stat] }}:
+				{{ attribute(training.progress, stat) }} / 
+				{{ attribute(training.target, stat) }}
+			</a>
+		{% endfor %}
+	</nav>
+</nav>

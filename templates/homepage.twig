@@ -1,15 +1,17 @@
-{% extends "base.html" %}
+{% extends "base.twig" %}
+
+{% block bodyclass %}
+t-big t-homepage
+{% endblock %}
 
 {% block content %}
-	
-	<h1>{{ site.title }}</h1>
-	<p>{{ site.description }}</p>
+
+	{% include 'includes/header_big.twig' %}
 
 	<div class="js-graph--stats"></div>
 
 
 	<form method="POST" action="/">
-
 		<fieldset>
 			<legend>Set the targets for your training:</legend>
 			{% for stat,name in stats %}
@@ -24,16 +26,32 @@
 			<legend>Game:</legend>
 			{% for game,name in games %}
 				<label>
-					<span>{{ name }}</span>
 					<input type="radio" name="game" value="{{ game }}" {% if game == 0 %} checked {% endif %} >
+					<span>{{ name }}</span>
 				</label>
 			{% endfor %}
 		</fieldset>
 
 		<label>
 			<input type="checkbox" name="pokerus" value="1">
-			<span>Pokerus</span>
+			<span>Pokerus?</span>
 		</label>
+
+		<fieldset>
+			<legend>Power items</legend>
+			<label>
+				<input type="radio" name="item" value="macho">
+				<span>Macho Braze</span>
+			</label>
+			<label>
+				<input type="radio" name="item" value="other">
+				<span>Other</span>
+			</label>
+			<label>
+				<input type="radio" name="item" value="none" checked>
+				<span>None</span>
+			</label>
+		</fieldset>
 
 		<input type="submit" value="Start training">
 		

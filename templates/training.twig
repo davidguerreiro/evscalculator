@@ -1,11 +1,10 @@
-{% extends "base.html" %}
+{% extends "base.twig" %}
 
 {% block content %}
+	{% set training = training_data.data %}
 
-	<header role="banner" class="l-header l-header--side">
-		<h1>{{ site.title }}</h1>
-		{% include 'includes/nav_training.html' %}		
-	</header>
+	{% include 'includes/header_training.twig' %}		
+
 
 	{# Training stat info #}
 	{% if training_data.stat == "invalid" %}
@@ -20,7 +19,7 @@
 	
 	<h2>Training #{{ training.id }} - {{ stats[current_stat] }}</h2>
 	<div class="c-progress c-progress--main" style="background: #fff">
-		<div class="c-progress__bar" style="background: green; height: 1em; width: {{ progress }}%;"></div>
+		<div class="c-progress__bar" style="background: green; height: 1em; width: {{ attribute(training.completed, current_stat) }}%;"></div>
 	</div>
 	
 
