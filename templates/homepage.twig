@@ -4,6 +4,10 @@
 t-home
 {% endblock %}
 
+{% block side %}
+<div class="js-graph--stats"></div>
+{% endblock %}
+ 
 {% block content %}
 
 	<div class="js-graph--stats"></div>
@@ -13,10 +17,10 @@ t-home
 		<fieldset class="l-statform">
 			<legend>Set the targets for your training:</legend>
 			{% for stat,name in stats %}
-				<label class="c-statfield c-statefield--{{ stat }}">
-					<span class="c-statfield__label">{{ name }}</span>
-					<input class="c-statfield__field js-stat" type="number" name="{{ stat }}" step="4" min="0" max="252" />
-				</label>
+				<div class="c-statfield c-statefield--{{ stat }}">
+					<input class="c-statfield__field js-stat" type="number" name="{{ stat }}" step="4" min="0" max="252" id="{{ stat }}_stat" />
+					<label class="c-statfield__label" for="{{ stat }}_stat">{{ name }}</label>
+				</div>
 			{% endfor %}
 		</fieldset>
 

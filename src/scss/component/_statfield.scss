@@ -1,0 +1,47 @@
+
+.c-statfield {
+  position: relative;
+  overflow: hidden;
+  background: #069;
+  color: #fff;
+  padding: 1em 0;
+}
+
+.c-statfield__label {
+  display: block;
+  text-align: center;
+  
+}
+
+.c-statfield__field {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto 0;
+  
+  border-radius: 0;
+  display: block;
+  width: 100%;
+  border: 0;
+  font: inherit;
+  color: #000;
+  padding: .5em 1em;
+  margin: 0;
+  
+  opacity: 0;
+  transition: .5s all;
+}
+
+.c-statfield__field:focus,
+.c-statfield--active .c-statfield__field {  
+  opacity: 1;
+  width: 60%;
+  outline: none;
+  
+  & + label {
+    text-align: left;
+    padding-left: 1em;
+  }
+ 
+}
