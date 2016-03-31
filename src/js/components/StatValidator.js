@@ -15,7 +15,7 @@ var StatValidator = (function(doc) {
 			if((this.wrap.maxEvs - this.wrap.statTotal()) > 252 ) this.el.value = 252;
 			else this.el.value = (this.wrap.maxEvs - this.wrap.statTotal());
 			// Active class
-			if(!this.el.classList.contains('is-active')) this.el.classList.add('is-active');
+			if(!this.el.parentNode.classList.contains('is-active')) this.el.parentNode.classList.add('is-active');
 		}
 		if(window.graphdata) {
 			window.graphdata[this.el.name] = parseInt(this.el.value, 10);
@@ -27,7 +27,7 @@ var StatValidator = (function(doc) {
 	Stat.prototype.statBlur = function() {
 		if(this.el.value == 0) {
 			this.el.value = '';
-			if(this.el.classList.contains('is-active')) this.el.classList.remove('is-active');
+			if(this.el.parentNode.classList.contains('is-active')) this.el.parentNode.classList.remove('is-active');
 		}
 		else {
 			if(parseInt(this.el.value, 10) > this.el.max) this.el.value = this.el.max;

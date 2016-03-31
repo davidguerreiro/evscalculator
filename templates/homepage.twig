@@ -17,7 +17,7 @@ t-home
 		<fieldset class="l-statform">
 			<legend>Set the targets for your training:</legend>
 			{% for stat,name in stats %}
-				<div class="c-statfield c-statefield--{{ stat }}">
+				<div class="c-statfield c-statfield--{{ stat }}">
 					<input class="c-statfield__field js-stat" type="number" name="{{ stat }}" step="4" min="0" max="252" id="{{ stat }}_stat" />
 					<label class="c-statfield__label" for="{{ stat }}_stat">{{ name }}</label>
 				</div>
