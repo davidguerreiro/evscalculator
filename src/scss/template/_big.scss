@@ -1,3 +1,22 @@
 .t-big {
 	background: $color-primary;
 }
+
+
+
+@include mq($from: tablet) {
+	.t-big .l-wrap {
+		overflow: hidden;
+		display: flex;
+	}
+	.t-big__side,
+	.t-big__content {
+		float: left;
+		width: 30%;
+	}
+
+	.t-big__content {
+		width: 70%;
+	}
+
+}

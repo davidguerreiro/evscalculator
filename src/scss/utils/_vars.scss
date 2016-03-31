@@ -17,6 +17,16 @@ $color-error: red;
 $color-footer: #6e6d6b;
 $color-border: #333333;
 
+
+// BREAKPOINTS
+$mq-breakpoints: (
+    mobile:  20em,
+    tablet-small: 40em,
+    tablet:  740px,
+    desktop: 980px,
+    wide:    1300px
+);
+
 // Stat colors
 $vary-map: (
   hp: (
