@@ -28,7 +28,7 @@ t-home
 			<legend>Game:</legend>
 			{% for game,name in games %}
 				<label>
-					<input type="radio" name="game" value="{{ game }}" {% if game == 0 %} checked {% endif %} >
+					<input type="radio" name="game" value="{{ game }}" required>
 					<span>{{ name }}</span>
 				</label>
 			{% endfor %}
@@ -42,15 +42,15 @@ t-home
 		<fieldset>
 			<legend>Power items</legend>
 			<label>
-				<input type="radio" name="item" value="macho">
+				<input type="radio" name="item" value="macho" required>
 				<span>Macho Braze</span>
 			</label>
 			<label>
-				<input type="radio" name="item" value="other">
+				<input type="radio" name="item" value="other" required>
 				<span>Other</span>
 			</label>
 			<label>
-				<input type="radio" name="item" value="none" checked>
+				<input type="radio" name="item" value="none" required>
 				<span>None</span>
 			</label>
 		</fieldset>
