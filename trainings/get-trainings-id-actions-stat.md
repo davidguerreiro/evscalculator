@@ -29,8 +29,7 @@ GET {{ site.api_url }}/v1/trainings/bglRdqG4no/actions/attack
 	"data": {
 		"recommended": {
 			"pokerus": true,
-			"porwer_item": true,
-			"macho_braze": true,
+			"porwer_item": 0,
 			"training": [
 				{
 					"type": "vitamins",
