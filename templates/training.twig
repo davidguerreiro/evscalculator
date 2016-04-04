@@ -6,9 +6,14 @@
 	{% include 'includes/header_training.twig' %}		
 
 
-	{# Training stat info #}
+	{# Training stat errors #}
 	{% if training_data.stat == "invalid" %}
 		{% set errors = training_data.errors %}
+	{% elseif (action_data is defined) and (action_data.stat != 'ok') %}
+		{% set errors = action_data.errors %}
+	{% endif %}
+
+	{% if errors is defined %}
 		<ul>
 			{% for error in errors %}
 				<li>{{ error }}</li>
@@ -42,14 +47,27 @@
 	{% elseif records_data.stat != "error" %}
 		{% set records = records_data.data  %}
 
-		<h2>Records</h2>
 		<ul>
 			{% for record in records %}
-				<li>
-					{{ record.value }}
-					{% if record.from is defined %}
+				{% set class = '' %}
 
-					{% endif %}
+				{# If not manual action #}
+				{% if record.from is defined %}
+					{% set class = class ~ " c-record__" ~ record.from.type %}
+				{% endif %}
+
+				{# If negative #}
+				{% if record.value < 0 %}
+					{% set class = class ~ " c-record__negative" %}
+				{% endif %}
+
+				<li class="c-record{{ class }}">
+					<span class="c-record__value">{{ record.value }}</span>
+					<span class="c-record__from">
+						{% if record.from is defined %}
+							from {{ record.from.origin.name }}
+						{% endif %}
+					</span>
 				</li>
 			{% endfor %}
 		</ul>
