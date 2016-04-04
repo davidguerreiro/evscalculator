@@ -12,8 +12,7 @@ Field | Type | Description
 **speed** | INT(3) NOT_NULL DEFAULT 0 | Speed stat value
 **game** | INT(2) NOT_NULL DEFAULT 0 | Pokemon 6th gen game version (0 -- XY Pokemon games, 1 -- Ruby Omega Alpha Sapphire Pokemon Games)
 **pokerus** | TINYINT(1) NOT_NULL DEFAULT 0 | Pokerus (0 -- disabled, 1 -- enabled)
-**power_brace** | TINYINT(1) NOT_NULL DEFAULT 0 | Power brace (0 -- unequipped, 1 -- equipped)
-**sturdy_object** | TINYINT(1) NOT_NULL DEFAULT 0 | Sturdy object (0 -- unequipped, 1 -- equipped)
+**power_item** | TINYINT(1) NOT_NULL DEFAULT 0 | Power brace (0 -- unequipped, 1 -- equipped)
 **timestamp** | TIMESTAMP |
 
 
@@ -26,8 +25,9 @@ Field | Type | Description
 **id_training** | INT(11) NOT_NULL DEFAULT 0 | This id related the record with a single training session
 **stat_name** | VARCHAR(50) | Name of the stat what we are adding or decreasing the value
 **stat_value** | INT(3) NOT_NULL DEFAULT 0 | Amont of evs that we are adding or subtracting
-**id_horde** | INT(11) NOT_NULL DEFAULT 0 | The ID of the horde when a horde has been used during the training session
-**id_vitamin** | INT(11) NOT_NULL DEFAULT 0 | The ID of the vitamin when a vitamin has been used during the training session
+**id_horde** | INT(11) NOT_NULL DEFAULT 0 | The ID of the horde when used
+**id_vitamin** | INT(11) NOT_NULL DEFAULT 0 | The ID of the vitamin when used
+**id_berry** | INT(11) NOT_NULL DEFAULT 0 | The ID of the berry when used
 **game** | INT(3) NOT_NULL DEFAULT 0 | Pokemon 6th gen game version (0 -- XY Pokemon games, 0 -- Ruby Omega Alpha Sapphire Pokemon Games)
 **pokerus** | TINYINT(1) NOT_NULL DEFAULT 0 | Pokerus (0 -- disabled, 1 -- enabled)
 **timestamp** | TIMESTAMP |
