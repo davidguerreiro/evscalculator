@@ -11,7 +11,7 @@ title: GET trainings/:id/actions/:stat
 Parameter       | Type          		| Description
 ---- | ---- | ---- 
 id _required_   | String          | Refers to the training ID
-name _required_   | String          | Refers to the stat name
+stat _required_   | String          | Refers to the stat name
 
 
 ### Example request 
