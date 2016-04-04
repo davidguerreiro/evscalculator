@@ -27,11 +27,9 @@ $app->get('/', function ($req, $res, $args) {
 // HOMEPAGE FORM SENT
 $app->post('/', function ($req, $res, $args) {
 	// POST trainings
+    //var_dump($req->getParsedBody());
+    die();
 
-	return $this->view->render($res, 'training.twig', [
-        'id_training' => $args['id'],
-        'current_stat' => $args['stat']
-    ]);
 });
 
 

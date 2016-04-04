@@ -23,6 +23,50 @@ $GAMES = [
     1
 ];
 
+$ITEMS = [
+    0 => [
+        "name" => "Macho Brace",
+        "op" => "by",
+        "value" => 2
+    ],
+    1 => [
+        "name" => "Power Anklet",
+        "stat" => "speed",
+        "op" => "add",
+        "value" => 4
+    ],
+    2 => [
+        "name" => "Power Band",
+        "stat" => "spdefense",
+        "op" => "add",
+        "value" => 4
+    ],
+    3 => [
+        "name" => "Power Belt",
+        "stat" => "defense",
+        "op" => "add",
+        "value" => 4
+    ],
+    4 => [
+        "name" => "Power Bracer",
+        "stat" => "attack",
+        "op" => "add",
+        "value" => 4
+    ],
+    5 => [
+        "name" => "Power Lens",
+        "stat" => "spattack",
+        "op" => "add",
+        "value" => 4
+    ],
+    6 => [
+        "name" => "Power Weight",
+        "stat" => "hp",
+        "op" => "add",
+        "value" => 4
+    ]
+];
+
 
 function parse($data) {
     return json_encode($data, JSON_NUMERIC_CHECK);
