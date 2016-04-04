@@ -149,6 +149,12 @@ $app->group('/v1/trainings', function() {
             
         });
 
+        //GET trainings/:id/actions/:stat
+        $this->get('/actions/{stat}[.{format}]', function($req, $res){
+
+            global $db;
+        });
+
     });
 
 });
