@@ -19,16 +19,23 @@ $c['notAllowedHandler'] = function ($c) {
     };
 };
 
+
 // HOMEPAGE
 $app->get('/', function ($req, $res, $args) {
     return $this->view->render($res, 'homepage.twig');
 })->setName('homepage');
 
+
 // HOMEPAGE FORM SENT
 $app->post('/', function ($req, $res, $args) {
 	// POST trainings
-    //var_dump($req->getParsedBody());
+    var_dump($req->getParsedBody());
     die();
+
+
+    return $this->view->render($res, 'homepage.twig', [
+
+    ]);
 
 });
 

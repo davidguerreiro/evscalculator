@@ -42,7 +42,7 @@ class EVs {
 		$data = curl_exec($curl);
 		curl_close($curl);
 
-		return $data;
+		return json_decode($data);
 
 	}
 
@@ -72,7 +72,7 @@ class EVs {
 		$data = curl_exec($curl);
 		curl_close($curl);
 
-		return $data;
+		return json_decode($data);
 	}
 
 	/**
@@ -100,7 +100,7 @@ class EVs {
 		$data = curl_exec($curl);
 		curl_close($curl);
 
-		return $data;
+		return json_decode($data);
 	}
 
 	//Training methods
@@ -168,7 +168,7 @@ class EVs {
 		$data = curl_exec($curl);
 		curl_close($curl);
 
-		return $data;
+		return json_decode($data);
 
 	}
 
@@ -195,7 +195,7 @@ class EVs {
 		$data = curl_exec($curl);
 		curl_close($curl);
 
-		return $data;
+		return json_decode($data);
 
 	}
 
@@ -255,7 +255,7 @@ class EVs {
 		$data = curl_exec($curl);
 		curl_close($curl);
 
-		return $data;
+		return json_decode($data);
 	}
 
 };
