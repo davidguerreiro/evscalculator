@@ -1,0 +1,49 @@
+
+.t-training {
+	overflow: hidden;
+}
+
+.t-training__main {
+	overflow: hidden;
+}
+
+.t-training__header {
+	background: $color-tertiary;
+	color: $color-tertiary-dark;
+	padding: 1em;
+	overflow: hidden;
+	border: 1em solid $color-bg;
+}
+
+@include mq($from: tablet) {
+	.t-training__actions,
+	.t-training__records {
+		float: left;
+		width: 33.33%;
+		background: #fff;
+		border: 1em solid $color-bg;
+		padding: 1em;
+		border-top: 0;
+	}
+
+	.t-training__actions {
+		width: 66.66%;
+		border-right: 0;
+	}
+}
+
+@include mq($from: desktop) {
+	.t-training__nav,
+	.t-training__main {
+		float: left;
+		width: 18%;
+	}
+
+	.t-training__main {
+		width: 82%;
+	}
+
+	.t-training__nav {
+		min-height: 100vh;
+	}
+}

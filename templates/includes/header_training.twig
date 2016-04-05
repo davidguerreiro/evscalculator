@@ -1,4 +1,4 @@
-<header role="banner" class="l-header l-header--side">
+<header role="banner" class="l-header l-header--side t-training__nav">
 	<h1 class="c-logo" title="{{ site.title }}">
 		<span class="c-logo__evs">
 			<abbr title="Effort Value">EV</abbr>
@@ -9,7 +9,7 @@
 
 	<nav role="nav nav--side">
 		{% for stat in stats|keys %}
-			<a class="" href="{{ path_for('training_stat', { 'id': id_training, 'stat': stat }) }}">
+			<a class="c-button c-button--full c-button--{{ stat }}" href="{{ path_for('training_stat', { 'id': id_training, 'stat': stat }) }}">
 				{{ stats[stat] }}:
 				{{ attribute(training.progress, stat) }} / 
 				{{ attribute(training.target, stat) }}

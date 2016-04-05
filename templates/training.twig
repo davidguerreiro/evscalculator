@@ -1,79 +1,99 @@
 {% extends "base/base.twig" %}
 
+{% block class %}
+t-training
+{% endblock %}
+
 {% block content %}
 	{% set training = training_data.data %}
 
 	{% include 'includes/header_training.twig' %}		
 
 
-	{# Training stat errors #}
-	{% if training_data.stat == "invalid" %}
-		{% set errors = training_data.errors %}
-	{% elseif (action_data is defined) and (action_data.stat != 'ok') %}
-		{% set errors = action_data.errors %}
-	{% endif %}
-
-	{% if errors is defined %}
-		<ul>
-			{% for error in errors %}
-				<li>{{ error }}</li>
-			{% endfor %}
-		</ul>
-	{% endif %}
-
-	
+<div class="t-training__header">
 	<h2>Training #{{ training.id }} - {{ stats[current_stat] }}</h2>
 	<div class="c-progress c-progress--main" style="background: #fff">
 		<div class="c-progress__bar" style="background: green; height: 1em; width: {{ attribute(training.completed, current_stat) }}%;"></div>
 	</div>
-	
+</div>
 
-	{# Records #}
-	<h2>Records</h2>
+<div class="t-training__main">
 
-	{% if records_data.stat != "ok" %}
-		{% set errors = records_data.errors %}
-
-		{% if errors|length > 1 %}
-			<ul>
-				{% for error in errors %}
-					<li>{{ records_data.errors }}</li>
-				{% endfor %}
-			</ul>
-		{% else %}
-			<div>{{ records_data.errors[0] }}</div>
+	<main class="t-training__actions">
+		{# Training stat errors #}
+		{% if training_data.stat == "invalid" %}
+			{% set errors = training_data.errors %}
+		{% elseif (action_data is defined) and (action_data.stat != 'ok') %}
+			{% set errors = action_data.errors %}
 		{% endif %}
 
-	{% elseif records_data.stat != "error" %}
-		{% set records = records_data.data  %}
+		{% if errors is defined %}
+			<ul>
+				{% for error in errors %}
+					<li>{{ error }}</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
 
-		<ul>
-			{% for record in records %}
-				{% set class = '' %}
+		<h2>Actions</h2>
 
-				{# If not manual action #}
-				{% if record.from is defined %}
-					{% set class = class ~ " c-record__" ~ record.from.type %}
-				{% endif %}
+		<form>
+			<input type="submit" value="Horde">
+		</form>
+	</main>
 
-				{# If negative #}
-				{% if record.value < 0 %}
-					{% set class = class ~ " c-record__negative" %}
-				{% endif %}
+	<aside class="t-training__records">
 
-				<li class="c-record{{ class }}">
-					<span class="c-record__value">{{ record.value }}</span>
-					<span class="c-record__from">
-						{% if record.from is defined %}
-							from {{ record.from.origin.name }}
-						{% endif %}
-					</span>
-				</li>
-			{% endfor %}
-		</ul>
+		{# Records #}
+		<h2>Records</h2>
 
-	{% endif %}
+		{% if records_data.stat != "ok" %}
+			{% set errors = records_data.errors %}
 
+			{% if errors|length > 1 %}
+				<ul>
+					{% for error in errors %}
+						<li>{{ records_data.errors }}</li>
+					{% endfor %}
+				</ul>
+			{% else %}
+				<div>{{ records_data.errors[0] }}</div>
+			{% endif %}
+		{% endif %}
+
+
+		{% if records_data.stat != "error" %}
+			{% set records = records_data.data  %}
+
+			<ul>
+				{% for record in records %}
+					{% set class = '' %}
+
+					{# If not manual action #}
+					{% if record.from is defined %}
+						{% set class = class ~ " c-record__" ~ record.from.type %}
+					{% endif %}
+
+					{# If negative #}
+					{% if record.value < 0 %}
+						{% set class = class ~ " c-record__negative" %}
+					{% endif %}
+
+					<li class="c-record{{ class }}">
+						<span class="c-record__value">{{ record.value }}</span>
+						<span class="c-record__from">
+							{% if record.from is defined %}
+								from {{ record.from.origin.name }}
+							{% endif %}
+						</span>
+					</li>
+				{% endfor %}
+			</ul>
+
+		{% endif %}
+	</aside>
+
+</div>
 
 
 {% endblock %}

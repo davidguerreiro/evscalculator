@@ -5,3 +5,14 @@
 		font-size: 2em;
 	}
 }
+
+.l-header--side {
+	background: $color-primary;
+	padding: 0 1em;
+
+	@include mq($from: tablet) {
+		.c-logo {
+			margin: 1rem 0;
+		}
+	}
+}
