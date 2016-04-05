@@ -1,0 +1,10 @@
+
+.nav--side {
+	@include mq($from: tablet) {
+		
+		.nav--side {
+			display: flex;
+		}
+
+	}
+}

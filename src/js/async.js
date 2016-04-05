@@ -58,4 +58,8 @@
 
 	}
 
+	if(isotip) {
+		isotip.init();
+	}
+
 })(document, window);

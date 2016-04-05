@@ -8,11 +8,11 @@
 
 .l-header--side {
 	background: $color-primary;
-	padding: 0 1em;
+	padding: 1em;
 
 	@include mq($from: tablet) {
 		.c-logo {
-			margin: 1rem 0;
+			padding-bottom: 1rem;
 		}
 	}
 }
