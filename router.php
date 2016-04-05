@@ -31,12 +31,15 @@ $app->post('/', function ($req, $res, $args) {
 	// POST trainings
     $new_training = EVs::postTraining($req->getParsedBody());
 
-    die(var_dump($new_training));
+    if($new_training->stat == "error") {
+        return $this->view->render($res, 'homepage.twig', [
+            "errors" => $new_training->errors
+        ]);
+    }
 
-    return $this->view->render($res, 'homepage.twig', [
+    $training = $new_training->data;
 
-    ]);
-
+    return $res->withHeader('Location', '/training/'.$training->id.'/attack');
 });
 
 

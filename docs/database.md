@@ -13,6 +13,7 @@ Field | Type | Description
 **game** | INT(2) NOT_NULL DEFAULT 0 | Pokemon 6th gen game version (0 -- XY Pokemon games, 1 -- Ruby Omega Alpha Sapphire Pokemon Games)
 **pokerus** | TINYINT(1) NOT_NULL DEFAULT 0 | Pokerus (0 -- disabled, 1 -- enabled)
 **power_item** | TINYINT(1) NOT_NULL DEFAULT 0 | Power brace (0 -- unequipped, 1 -- equipped)
+**has_power_item** | TINYINT(1) NOT_NULL DEFAULT 0 | Indicates which power items the trainer has (0 -- none, 1 -- macho brace, 2 -- all)
 **timestamp** | TIMESTAMP |
 
 

@@ -201,10 +201,8 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
             ->withStatus(400);
     }
 
-    // Go through optional
-    foreach($optional as $i) {
-        if(!empty($vars[$i])) $insert[$i] = $vars[$i];
-    }
+    $insert['pokerus'] = isset($vars['pokerus']) ? intval($vars['pokerus']) : 0;
+    $insert['has_power_item'] = isset($vars['has_power_item']) ? intval($vars['has_power_item']) : 0;
 
     // Create training
     $training_id = $db->insert('training', $insert);
