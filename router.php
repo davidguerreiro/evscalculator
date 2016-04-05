@@ -85,49 +85,16 @@ $app->get('/training/{id}/{stat}', function ($req, $res, $args) {
 
 $app->post('/training/{id}/{stat}', function ($req, $res, $args) { 
     global $STATS; 
-    // GET trainings/:id
-    $training = EVs::getTrainings($args['id']); 
-
+    
     // POST vars
     $vars = $req->getParsedBody();
-    
-
-    // Training not found
-    if($training->stat == 'error') {
-        return $this->view->render($res, 'error.twig', [
-            'errors' => $training->errors
-        ])->withStatus(404);
-    }
-
-    // Stat is not a target
-    if(!isset($training->data->target->$args['stat'])) {
-        return $this->view->render($res, 'error.twig', [
-            'errors' => ["The stat ".$args['stat']." isn't valid"]
-        ])->withStatus(404);
-    }
-
-    // Build completed target percentage object
-    $training->data->completed = new stdClass();
-    foreach(array_keys($STATS) as $stat) {
-        $training->data->completed->$stat = number_format(($training->data->progress->$stat / $training->data->target->$stat) * 100);
-    }
 
     // HERE COMES THE ACTION
     if(isset($vars['action']) && $vars['action']=='add') {
         $new_record = EVs::postRecord($vars['id'], $vars);
     }
 
-    // GET trainings/:id/records/:stat
-    $records = EVs::getRecords($args['id'], $args['stat']);
-    // GET trainings/:id/actions/:stat
-    $actions = '';
-
-    return $this->view->render($res, 'training.twig', [
-        'id_training' => $args['id'],
-        'current_stat' => $args['stat'],
-        'training_data' => $training,
-        'records_data' => $records
-    ]);
+    return $res->withHeader('Location', '/training/'.$args['id'].'/'.$args['stat']);
 });
 
 
