@@ -218,6 +218,7 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
         ->withHeader('Location', '/v1/trainings/'.$hashids->encode($training_id));
 });
 
+
 //Records
 
 //post records by training id

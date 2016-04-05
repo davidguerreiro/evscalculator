@@ -32,7 +32,10 @@ legend {
 	padding: 0 1em;
 }
 
-input {
+input,
+button,
+select,
+textarea {
 	font: inherit;
 	border: 0;
 	line-height: 1;
