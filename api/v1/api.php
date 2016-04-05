@@ -182,10 +182,12 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
     );
 
     // Go through required
+    $total = 0;
     foreach($STATS as $stat) {
         // Required must be positive
-        if($vars[$stat] > 0 && $vars[$stat] < 252) {
+        if($vars[$stat] > 0 && $vars[$stat] <= 252) {
             $insert[$stat] = $vars[$stat];
+            $total += $vars[$stat];
         }
     }
 

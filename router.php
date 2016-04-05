@@ -29,9 +29,9 @@ $app->get('/', function ($req, $res, $args) {
 // HOMEPAGE FORM SENT
 $app->post('/', function ($req, $res, $args) {
 	// POST trainings
-    var_dump($req->getParsedBody());
-    die();
+    $new_training = EVs::postTraining($req->getParsedBody());
 
+    die(var_dump($new_training));
 
     return $this->view->render($res, 'homepage.twig', [
 

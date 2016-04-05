@@ -24,42 +24,42 @@ $GAMES = [
 ];
 
 $ITEMS = [
-    0 => [
+    1 => [
         "name" => "Macho Brace",
         "op" => "by",
         "value" => 2
     ],
-    1 => [
+    2 => [
         "name" => "Power Anklet",
         "stat" => "speed",
         "op" => "add",
         "value" => 4
     ],
-    2 => [
+    3 => [
         "name" => "Power Band",
         "stat" => "spdefense",
         "op" => "add",
         "value" => 4
     ],
-    3 => [
+    4 => [
         "name" => "Power Belt",
         "stat" => "defense",
         "op" => "add",
         "value" => 4
     ],
-    4 => [
+    5 => [
         "name" => "Power Bracer",
         "stat" => "attack",
         "op" => "add",
         "value" => 4
     ],
-    5 => [
+    6 => [
         "name" => "Power Lens",
         "stat" => "spattack",
         "op" => "add",
         "value" => 4
     ],
-    6 => [
+    7 => [
         "name" => "Power Weight",
         "stat" => "hp",
         "op" => "add",
