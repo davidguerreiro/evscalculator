@@ -117,7 +117,7 @@ $app->group('/v1/trainings', function() {
             $this->get('[.{format}]', function($req, $res) {
                 global $db;
 
-                $data = getRecords($req->getAttribute('id'));
+                $data = getRecords($hashids->decode($req->getAttribute('id'))[0]);
 
                 if(!$data) {
                     return $res
@@ -134,7 +134,7 @@ $app->group('/v1/trainings', function() {
             $this->get('/{stat}[.{format}]', function($req, $res) {
                 global $db;
 
-                $data = getRecords($req->getAttribute('id'), $req->getAttribute('stat'));
+                $data = getRecords($hashids->decode($req->getAttribute('id'))[0], $req->getAttribute('stat'));
 
                 if(!$data) {
                     return $res
@@ -212,7 +212,7 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
     // TODO: If failed, add error and return with "server" error code
 
     // Get full result to return
-    $data = getTrainings($hashids->encode($training_id));
+    $data = getTrainings($training_id);
 
     return $res
         ->write(parse($data))

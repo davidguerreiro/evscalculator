@@ -216,7 +216,7 @@ function getRecords($training_id, $stat = null) {
     $data = array();
     $where = [
         'AND' => [
-            'id_training' => $hashids->decode($training_id)[0]
+            'id_training' => $training_id
         ]
     ];
 
