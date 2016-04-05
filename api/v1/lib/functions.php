@@ -217,7 +217,8 @@ function getRecords($training_id, $stat = null) {
     $where = [
         'AND' => [
             'id_training' => $training_id
-        ]
+        ],
+        'ORDER' => 'timestamp DESC'
     ];
 
     // If we only want records for one stat
