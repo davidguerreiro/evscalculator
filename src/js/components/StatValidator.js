@@ -43,6 +43,8 @@ var StatValidator = (function(doc) {
 			window.graphdata[this.el.name] = parseInt(this.el.value, 10);
 			updateGraph();
 		}
+
+		this.wrap.updateLeft();
 	};
 	
 
