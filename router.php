@@ -112,10 +112,9 @@ $app->post('/training/{id}/{stat}', function ($req, $res, $args) {
         $training->data->completed->$stat = number_format(($training->data->progress->$stat / $training->data->target->$stat) * 100);
     }
 
-
     // HERE COMES THE ACTION
     if(isset($vars['action']) && $vars['action']=='add') {
-        $new_record = EVs::postRecords($vars);
+        $new_record = EVs::postRecord($vars);
     }
 
     // GET trainings/:id/records/:stat
