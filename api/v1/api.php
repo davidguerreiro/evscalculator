@@ -115,7 +115,7 @@ $app->group('/v1/trainings', function() {
             
             // GET trainings/:id/records
             $this->get('[.{format}]', function($req, $res) {
-                global $db;
+                global $db, $hashids;
 
                 $data = getRecords($hashids->decode($req->getAttribute('id'))[0]);
 
@@ -132,7 +132,7 @@ $app->group('/v1/trainings', function() {
 
             // GET trainings/:id/records/:stat
             $this->get('/{stat}[.{format}]', function($req, $res) {
-                global $db;
+                global $db, $hashids;
 
                 $data = getRecords($hashids->decode($req->getAttribute('id'))[0], $req->getAttribute('stat'));
 

@@ -66,6 +66,7 @@ t-training
 	
 	</main>
 
+
 	<aside class="t-training__records">
 
 		{# Records #}
@@ -87,7 +88,7 @@ t-training
 
 
 		{% if records_data.stat != "error" %}
-			{% set records = records_data.data  %}
+			{% set records = records_data.data %}
 
 			<ul>
 				{% for record in records %}
