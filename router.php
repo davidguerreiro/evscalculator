@@ -115,7 +115,7 @@ $app->post('/training/{id}/{stat}', function ($req, $res, $args) {
 
     // HERE COMES THE ACTION
     if(isset($vars['action']) && $vars['action']=='add') {
-        $new_record = postRecord($vars);
+        $new_record = EVs::postRecords($vars);
     }
 
     // GET trainings/:id/records/:stat
