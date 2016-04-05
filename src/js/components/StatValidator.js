@@ -21,7 +21,7 @@ var StatValidator = (function(doc) {
 			window.graphdata[this.el.name] = parseInt(this.el.value, 10);
 			updateGraph();
 		}
-		else console.log(this.el.value);
+		this.wrap.updateLeft();
 	};
 
 	Stat.prototype.statBlur = function() {
@@ -33,6 +33,7 @@ var StatValidator = (function(doc) {
 			if(parseInt(this.el.value, 10) > this.el.max) this.el.value = this.el.max;
 			this.el.value = Math.ceil(parseInt(this.el.value)/4.0) * 4;
 		}
+		this.wrap.updateLeft();
 	};
 
 	Stat.prototype.statChange = function() {
@@ -49,6 +50,7 @@ var StatValidator = (function(doc) {
 	var StatWrap = function(selector) {
 		this.maxEvs = 508;
 		this.statNodes = document.querySelectorAll(selector);
+		this.evsLeft = document.querySelector('.js-evs-left').childNodes[0];
 		this.statObjects = [];
 		this.graphData = [
 		  {
@@ -88,9 +90,14 @@ var StatValidator = (function(doc) {
 				total += parseInt(this.statNodes[i].value, 10);
 			}
 		}
-		console.log(total);
 
 		return total;
+	}
+
+	StatWrap.prototype.updateLeft = function() {
+		this.evsLeft.nodeValue = (this.maxEvs - this.statTotal());
+
+		return;
 	}
 
 	return StatWrap;

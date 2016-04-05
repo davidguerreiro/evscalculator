@@ -14,8 +14,9 @@ t-home
 
 
 	<form method="POST" action="/">
+		<p>EVs Calculator will help you keep track the training for one PoKémon.</p>
 		<fieldset class="c-statfield-list">
-			<legend>Set the targets for your training:</legend>
+			<legend>Set the targets for your training - <span class="js-evs-left">508</span> EVs left</legend>
 			{% for stat,name in stats %}
 				<div class="c-statfield c-statfield--{{ stat }}">
 					<input class="c-statfield__field js-stat" type="number" name="{{ stat }}" id="{{ stat }}_stat" step="4" min="0" max="252" pattern="[0-9]*" />
