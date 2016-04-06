@@ -7,14 +7,21 @@ t-training
 {% block content %}
 	{% set training = training_data.data %}
 
+	{% set left = attribute(training.left, current_stat) %}
+	{% set gained = attribute(training.progress, current_stat) %}
+	{% set target = attribute(training.target, current_stat) %}
+	{% set percentage = attribute(training.completed, current_stat) %}
+
 	{% include 'includes/header_training.twig' %}		
 
 
 <div class="t-training__header">
 	<h2>Training #{{ training.id }} - {{ stats[current_stat] }}</h2>
 	<div class="c-progress c-progress--main" style="background: #fff">
-		<div class="c-progress__bar" style="background: green; height: 1em; width: {{ attribute(training.completed, current_stat) }}%;"></div>
+		<div class="c-progress__bar" style="background: green; height: 1em; width: {{ percentage }}%;"></div>
 	</div>
+
+	<p>Left {{ left }} - Gained {{ gained }} - Target {{ target }} - Percentage {{ percentage }}%</p>
 </div>
 
 <div class="t-training__main">
@@ -50,6 +57,8 @@ t-training
 			<button class="c-button c-button--action" type="submit">Horde</button>
 		</form>
 
+		<br><br>
+
 		<h3>Manual</h3>
 
 		<form method="POST">
@@ -60,7 +69,7 @@ t-training
 			
 			<div class="c-inlineform">
 				<input class="c-inlineform__field" type="number" name="value" min="0" max="252">
-				<button class="c-button c-inlineform__button" type="submit">Send</button>
+				<button class="c-button c-inlineform__button" type="submit">Add</button>
 			</div>
 		</form>
 	

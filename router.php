@@ -69,8 +69,10 @@ $app->get('/training/{id}/{stat}', function ($req, $res, $args) {
 
     // Build completed target percentage object
     $training->data->completed = new stdClass();
+    $training->data->left = new stdClass();
     foreach(array_keys($STATS) as $stat) {
         $training->data->completed->$stat = number_format(($training->data->progress->$stat / $training->data->target->$stat) * 100);
+        $training->data->left->$stat = ($training->data->target->$stat - $training->data->progress->$stat);
     }
 
 
@@ -92,6 +94,11 @@ $app->post('/training/{id}/{stat}', function ($req, $res, $args) {
     // HERE COMES THE ACTION
     if(isset($vars['action']) && $vars['action']=='add') {
         $new_record = EVs::postRecord($vars['id'], $vars);
+
+        if($new_record->stat == "error") {
+            var_dump($new_record->errors);
+            die();
+        }
     }
 
     return $res->withHeader('Location', '/training/'.$args['id'].'/'.$args['stat']);

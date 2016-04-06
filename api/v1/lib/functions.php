@@ -104,7 +104,7 @@ function getTarget($stat, $training_id) {
 
     $target = $db->get('training', $stat, [
         'AND' => [
-            'id_training' => $training_id
+            'id' => $training_id
         ]
     ]);
 
