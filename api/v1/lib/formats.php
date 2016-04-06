@@ -3,7 +3,7 @@
 // Response format for a training
 function formatTraining($element) {
 	global $hashids, $STATS;
-	$ret = array();
+	$ret = [];
 
 	// Single fields
     $ret['id'] = $hashids->encode($element['id']);
@@ -13,8 +13,8 @@ function formatTraining($element) {
     $ret['timestamp'] = $element['timestamp'];
 
     // Target / progress objects
-    $ret['target'] = array();
-    $ret['progress'] = array();
+    $ret['target'] = [];
+    $ret['progress'] = [];
 
     foreach($STATS as $stat) {
         $ret['target'][$stat] = intval($element[$stat]);
@@ -27,7 +27,7 @@ function formatTraining($element) {
 // Response format for a record
 function formatRecord($element) {
     global $hashids, $STATS;
-    $ret = array();
+    $ret = [];
 
     $ret['id'] = $hashids->encode($element['id']);
     $ret['value'] = $element['stat_value'];

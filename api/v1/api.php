@@ -167,19 +167,19 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
     // Data received
     $vars = $req->getParsedBody();
     // Data to be inserted
-    $insert = array();
+    $insert = [];
     // Errors
-    $errors = array();
+    $errors = [];
 
     // Optional parameters
-    $optional = array(
+    $optional = [
         'id_user', 
         'game', 
         'pokerus', 
         'power_brace', 
         'sturdy_object', 
         'timestamp'
-    );
+    ];
 
     // Go through required
     $total = 0;
@@ -253,7 +253,7 @@ $app->post('/v1/trainings/{id}/records[.{format}]', function($req, $res){
 // DELETE /trainings/:id
 $app->delete('/v1/trainings/{id}[.{format}]', function($req, $res) {
     global $db, $hashids;
-    $data = array();
+    $data = [];
 
     $deleted_items = $db->delete("training", [
         "AND" => [

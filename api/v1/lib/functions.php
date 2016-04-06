@@ -99,6 +99,22 @@ function getProgress($stat, $training_id){
     return intval($progress);
 }
 
+function getTarget($stat, $training_id) {
+    global $db;
+
+    $target = $db->get('training', $stat, [
+        'AND' => [
+            'id_training' => $training_id
+        ]
+    ]);
+
+    return intval($target);
+}
+
+function getLeft($stat, $training_id) {
+    return (getTarget($stat, $training_id) - getProgress($stat, $training_id));
+}
+
 
 //getting hordes
 function getHordes($params = null, $id = null) {
@@ -187,13 +203,15 @@ function getTrainings($id = null){
     global $db, $hashids, $STATS;
 
     // WHERE parameters
-    $where = array();
+    $where = [
+        'AND' => []
+    ];
     // Returned data
-    $data = array();
+    $data = [];
 
     // If it's /:id then filter by it
     if($id !== null) {
-        $where['id'] = $id;
+        $where['AND']['id'] = $id;
     }
 
     // Getting trainings from the db
@@ -213,7 +231,7 @@ function getTrainings($id = null){
 
 function getRecords($training_id, $stat = null) {
     global $db, $hashids, $STATS;
-    $data = array();
+    $data = [];
     $where = [
         'AND' => [
             'id_training' => $training_id
@@ -240,7 +258,7 @@ function getRecords($training_id, $stat = null) {
             // If there are records for that stat
             if($recordList) {
                 // Create stat property in data
-                $data[$stat] = array();
+                $data[$stat] = [];
                 foreach($recordList as $record) {
                     // Add record to stat in data
                     $data[$stat][] = formatRecord($record);
@@ -262,7 +280,7 @@ function postRecord($id, $params){
     $insert = [
         'id_training' => $id
     ];
-    $errors = array();
+    $errors = [];
 
     //required
     if(!isset($params['value']) 
@@ -303,6 +321,14 @@ function postRecord($id, $params){
     //non required parameters
     $insert['game'] = (isset($params['game']) && is_int($params['game'])) ? intval($params['game']) : 0;
     $insert['pokerus'] = (isset($params['pokerus'])) ? 1 : 0;
+
+    // Check if value is too much for the target
+    $left = getLeft($params['stat'], $id);
+
+    if($left < intval($params['value'])) {
+        $errors[] = "That's more EVs that you need.";
+    }
+
 
     // If errors
     if(sizeof($errors) > 0) return $errors;
