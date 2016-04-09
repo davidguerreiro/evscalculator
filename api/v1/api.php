@@ -149,7 +149,7 @@ $app->group('/v1/trainings', function() {
 
             if(!$data){
                 return $res
-                    ->write(parse(["No data available on the ". $req->getAttribute('stat')." stat."]));
+                    ->write(parse(["No data available on the ". $req->getAttribute('stat')." stat."]))
                     ->withStatus(404);
             }
 
