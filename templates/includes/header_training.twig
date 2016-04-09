@@ -9,6 +9,7 @@
 
 	<nav role="nav nav--side">
 		{% for stat in stats|keys %}
+			{% if attribute(training.target, stat) is defined %}
 			<a class="c-button c-button--full c-button--{{ stat }}" href="{{ path_for('training_stat', { 'id': id_training, 'stat': stat }) }}">
 				{{ stats[stat] }}:
 				{{ attribute(training.progress, stat) }} / 

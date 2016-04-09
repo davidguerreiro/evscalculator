@@ -18,8 +18,10 @@ function formatTraining($element) {
     $ret['progress'] = [];
 
     foreach($STATS as $stat) {
-        $ret['target'][$stat] = intval($element[$stat]);
-        $ret['progress'][$stat] = (intval($element[$stat]) > 0) ? getProgress($stat, intval($element['id'])) : 0;
+        if(intval($element[$stat])) {
+            $ret['target'][$stat] = intval($element[$stat]);
+            $ret['progress'][$stat] = (intval($element[$stat]) > 0) ? getProgress($stat, intval($element['id'])) : 0;
+        }
     }
 
     return (empty($ret)) ? $ret : (object) $ret;
