@@ -354,11 +354,24 @@ function postRecord($id, $params){
 function getActionsByStat($id, $stat_name){
 
      //variables
-    global $db, $STATS, $hashids;
+    global $db;
+    $data = array();
+
+    //validation
+    if(!isStat($stat_name) || empty(getTrainings($id)))
+        return false;
+    
+
 
     //getting target, progress and left
-    $target = getTarget($id, $stat_name);
-    $progress = getProgress($id, )
+    $target = getTarget($stat_name, $id);
+    $progress = getProgress($stat_name, $id);
+    $left = getLeft($stat_name, $id);
+
+    //building the first part of the array
+    
+
+    //getting the hordes filter by stat
 
     
 }
