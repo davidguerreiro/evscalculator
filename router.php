@@ -51,7 +51,7 @@ $app->get('/training/{id}/{stat}', function ($req, $res, $args) {
     // GET trainings/:id/records/:stat
     $records = EVs::getRecords($args['id'], $args['stat']);
     // GET trainings/:id/actions/:stat
-    $actions = '';
+    $actions = EVs::getActions($args['id'], $args['stat']);
 
     // Training not found
     if($training->stat == 'error') {
@@ -75,12 +75,12 @@ $app->get('/training/{id}/{stat}', function ($req, $res, $args) {
         $training->data->left->$stat = ($training->data->target->$stat - $training->data->progress->$stat);
     }
 
-
     return $this->view->render($res, 'training.twig', [
         'id_training' => $args['id'],
         'current_stat' => $args['stat'],
         'training_data' => $training,
-        'records_data' => $records
+        'records_data' => $records,
+        'actions_data' => $actions
     ]);
 })->setName('training_stat');
 

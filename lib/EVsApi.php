@@ -232,6 +232,32 @@ class EVs {
 
 	/**
 	*
+	* Get all the actions for a single training and stat
+	*
+	* @param $id String (required) Training encoded id
+	* @param $stat String (required) Stat name
+	* @return $data json object with all the records related with that training
+	*
+	*/
+	public function getActions($id, $stat){
+
+		//building the url
+		$petition_url = self::API_URL.'trainings/'.$id.'/actions/'.$stat;
+
+		//curl init
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $petition_url);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+		//exc
+		$data = curl_exec($curl);
+		curl_close($curl);
+
+		return json_decode($data);
+	}
+
+	/**
+	*
 	* Create a new training record
 	*
 	* @param $id String (required) Training encoded id
