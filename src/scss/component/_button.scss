@@ -31,4 +31,9 @@
 
 .c-button--action {
 	background: $color-action;
+
+	&:hover {
+		cursor: pointer;
+		cursor: copy;
+	}
 }

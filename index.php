@@ -14,8 +14,8 @@ $STATS = [
     'hp' => 'HP', 
     'attack' => 'Attack', 
     'defense' => 'Defense', 
-    'spattack' =>  'Special attack', 
-    'spdefense' => 'Special defense', 
+    'spattack' =>  'Sp. attack', 
+    'spdefense' => 'Sp. defense', 
     'speed' => 'Speed'
 ];
 
