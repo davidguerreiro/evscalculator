@@ -380,16 +380,30 @@ function getActionsByStat($id, $stat_name){
     $progress = getProgress($stat_name, $id);
     $left = getLeft($stat_name, $id);
 
+
     //building the first part of the array
     $data['recomended'] = array();
     $data['hordes'] = array();
     $data['vitamins'] = array();
     $data['berries'] = array();
+    $pokerus = $current_training->pokerus;
+    $power_item = getPowerItem($current_training->power_item);
+    $game = $current_training->game;
     
 
     //getting the hordes filter by stat
+    $hordes = getHordes(array('stat' => $stat_name, 'game' => $game));
 
-    return $current_training;
+    //looping hordes
+    
+    foreach($hordes as $horde){
+
+        //calculating the whole value of the horde
+        
+    
+    }
+    
+    return $hordes;
     
 }
 
