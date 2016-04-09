@@ -154,7 +154,7 @@ $app->group('/v1/trainings', function() {
             }
 
             return $res
-                ->write(parse($data))
+                ->write(parse($data));
         });
 
     });
