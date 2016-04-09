@@ -9,7 +9,7 @@ function formatTraining($element) {
     $ret['id'] = $hashids->encode($element['id']);
     $ret['game'] = intval($element['game']);
     $ret['pokerus'] = (intval($element['pokerus']) == 0) ? false : true;
-    $ret['power_item'] = intval($element['power_item']) ? intval($element['power_item']) : 0;
+    $ret['power_item'] = getPowerItem($element['power_item']);
     $ret['has_power_item'] = intval($element['has_power_item']) ? intval($element['has_power_item']) : 0;
     $ret['timestamp'] = $element['timestamp'];
 
