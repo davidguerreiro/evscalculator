@@ -338,7 +338,6 @@ function postRecord($id, $params){
     }
 
     //non required parameters
-    $insert['game'] = (isset($params['game']) && is_int($params['game'])) ? intval($params['game']) : 0;
     $insert['pokerus'] = (isset($params['pokerus'])) ? 1 : 0;
 
     // Check if value is too much for the target
@@ -433,7 +432,7 @@ function getActionsByStat($id, $stat_name){
         $horde->stat_value = $total_value;
 
         //adding this horde to the valid horde data
-        $horde->invalid = ($left < $total_value) ? false : true;
+        $horde->invalid = ($left < $total_value) ? true : false;
 
         
     }
