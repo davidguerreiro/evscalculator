@@ -84,6 +84,15 @@ function isGame($game) {
     return is_numeric($game) && in_array($game, $GAMES);
 }
 
+function getPowerItem($id) {
+    global $ITEMS;
+
+    // If it doesn't exist / doesn't have item equipped
+    if(!array_key_exists($id, $ITEMS)) return false;
+
+    return $ITEMS[$id];
+}
+
 //getting progress value
 function getProgress($stat, $training_id){
     global $db;
