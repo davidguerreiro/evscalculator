@@ -365,23 +365,30 @@ function getActionsByStat($id, $stat_name){
      //variables
     global $db;
     $data = array();
+    $errors = array();
+
+    //getting the training current status
+    $current_training = getTrainings($id);
 
     //validation
-    if(!isStat($stat_name) || empty(getTrainings($id)))
+    if(!isStat($stat_name) || empty($current_training))
         return false;
     
-
-
     //getting target, progress and left
     $target = getTarget($stat_name, $id);
     $progress = getProgress($stat_name, $id);
     $left = getLeft($stat_name, $id);
 
     //building the first part of the array
+    $data['recomended'] = array();
+    $data['hordes'] = array();
+    $data['vitamins'] = array();
+    $data['berries'] = array();
     
 
     //getting the hordes filter by stat
 
+    return $current_training;
     
 }
 
