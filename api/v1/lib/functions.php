@@ -437,8 +437,16 @@ function getActionsByStat($id, $stat_name){
         
     }
 
+    //adding hordes tp data
     $data['hordes'] = $hordes;
 
+    //getting berries by stat
+    if($progress > 0)
+        $data['berries'] = getBerries(array('stat' => $stat_name));
+
+    //getting vitamins by stat
+    if($progress < 100)
+        $data['vitamins'] = getVitamins(array('stat' => $stat_name));
 
     return $data;
 }
