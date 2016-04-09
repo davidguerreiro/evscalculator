@@ -148,9 +148,6 @@ $app->group('/v1/trainings', function() {
 
             $data = getActionsByStat($hashids->decode($req->getAttribute('id'))[0], $req->getAttribute('stat'));
 
-            var_dump($data);
-            die();
-
             if(!$data){
                 return $res
                     ->write(parse(["No data available on the ". $req->getAttribute('stat')." stat."]))
