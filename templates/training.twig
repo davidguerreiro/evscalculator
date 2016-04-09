@@ -56,7 +56,7 @@ t-training
 			<input type="hidden" name="stat" value="{{ current_stat }}">
 			<input type="hidden" name="value" value="{{ horde.stat_value }}">
 			<input type="hidden" name="pokerus" value="{{ (training.pokerus ? 1 : 0) }}">
-			<button class="c-button c-button--action" type="submit">{{ horde.name }}</button>
+			<button class="c-button c-button--action" type="submit">{{ horde.name }} ({{ horde.stat_value }})</button>
 		</form>
 		{% endfor %}
 
