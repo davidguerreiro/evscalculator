@@ -193,12 +193,15 @@ function getActionsByStat($id, $stat_name){
     $data['berries'] = array();
 
     $pokerus = $current_training->pokerus;
-    $power_item = getPowerItem($current_training->power_item);
+    $power_item = $current_training->power_item;
     $game = $current_training->game;
     
 
     //getting the hordes filter by stat
     $hordes = getHordes(array('stat' => $stat_name, 'game' => $game));
+
+    if(empty($hordes))
+        return false;
 
     //looping hordes
     $valid_hordes = array();
@@ -241,6 +244,8 @@ function getActionsByStat($id, $stat_name){
     //getting vitamins by stat
     if($progress < 100)
         $data['vitamins'] = getVitamins(array('stat' => $stat_name));
+
+
 
     return $data;
 }
