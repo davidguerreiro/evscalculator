@@ -203,9 +203,7 @@ function getTrainings($id = null){
     global $db, $hashids, $STATS;
 
     // WHERE parameters
-    $where = [
-        'AND' => []
-    ];
+    $where = [];
     // Returned data
     $data = [];
 

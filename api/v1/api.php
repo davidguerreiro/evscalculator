@@ -89,7 +89,8 @@ $app->group('/v1/trainings', function() {
         
         // GET trainings/:id
         $this->get('[.{format}]', function($req, $res) {
-            $data = getTrainings($req->getAttribute('id'));
+            global $hashids;
+            $data = getTrainings($hashids->decode($req->getAttribute('id'))[0]);
 
             if(!sizeof($data)) {
                 return $res
@@ -106,7 +107,7 @@ $app->group('/v1/trainings', function() {
             
             // GET trainings/:id/records
             $this->get('[.{format}]', function($req, $res) {
-                global $db, $hashids;
+                global $hashids;
 
                 $data = getRecords($hashids->decode($req->getAttribute('id'))[0]);
 
