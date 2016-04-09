@@ -468,13 +468,31 @@ function getActionsByStat($id, $stat_name){
         $data['vitamins'] = getVitamins(array('stat' => $stat_name));
 
     //building recomended array
+
+    //pokerus
     if($pokerus)
         $data['recomended']['pokerus'] = true;
     else{
 
         //getting the total left
-        //$total_left = getTotalLeft($current_training);
+        $total_left = $current_training->total;
+
+        //getting the max value
+        $horde_max_value = 0;
+
+        foreach($data['hordes'] as $horde){
+
+            if($horde->stat_value >= $horde_max_value)
+                $horde_max_value = $horde->stat_value;
+
+        }
+
+        //checking if the horde max value is higer than the total left
+        $data['recomended']['pokerus'] = ($total_left >= $horde_max_value) ? true : false;
+
     }
+
+    //power item
 
     return $data;
 }
