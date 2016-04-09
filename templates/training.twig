@@ -50,13 +50,18 @@ t-training
 		<h3>Recommended</h3>
 
 		{% for horde in actions.hordes %}
+			{% set invalid = '' %}
+			{% if horde.invalid == true %}
+				{% set invalid = 'disabled'%}
+			{% endif %}
+
 		<form method="POST">
 			<input type="hidden" name="action" value="add">
 			<input type="hidden" name="id" value="{{ id_training }}">
 			<input type="hidden" name="stat" value="{{ current_stat }}">
 			<input type="hidden" name="value" value="{{ horde.stat_value }}">
 			<input type="hidden" name="pokerus" value="{{ (training.pokerus ? 1 : 0) }}">
-			<button class="c-button c-button--action" type="submit">{{ horde.name }} ({{ horde.stat_value }})</button>
+			<button class="c-button c-button--action" {{ invalid }} type="submit">{{ horde.name }} ({{ horde.stat_value }})</button>
 		</form>
 		{% endfor %}
 

@@ -12,6 +12,10 @@
 	}
 }
 
+.c-button:disabled {
+	background: #CCC !important;
+}
+
 .c-button--full {
 	display: block;
 }
