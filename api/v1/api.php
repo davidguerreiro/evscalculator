@@ -75,7 +75,7 @@ $app->group('/v1/trainings', function() {
         // 404 IF NO TRAININGS
         if(!sizeof($data)) {
             return $res
-                ->write(parse(["No trainings found."]))
+                ->write(parse(["No training found."]))
                 ->withStatus(404);
         }
 
@@ -89,16 +89,7 @@ $app->group('/v1/trainings', function() {
         
         // GET trainings/:id
         $this->get('[.{format}]', function($req, $res) {
-            global $hashids;
-            
-            $realid = $hashids->decode($req->getAttribute('id'));
-
-            if(!$realid) {
-                return $res
-                    ->write(parse(["This training isn't valid or doesn't exist anymore."]))
-                    ->withStatus(400);
-            }
-            $data = getTrainings($realid[0]);
+            $data = getTrainings($req->getAttribute('id'));
 
             if(!sizeof($data)) {
                 return $res
@@ -153,6 +144,17 @@ $app->group('/v1/trainings', function() {
         $this->get('/actions/{stat}[.{format}]', function($req, $res){
 
             global $db;
+
+            $data = getActionsByStat($req->getAttribute('id'), $req->getAttribute('stat'));
+
+            if(!$data){
+                return $res
+                    ->write(parse(["No data available on the ". $req->getAttribute('stat')." stat."]));
+                    ->withStatus(404);
+            }
+
+            return $res
+                ->write(parse($data))
         });
 
     });

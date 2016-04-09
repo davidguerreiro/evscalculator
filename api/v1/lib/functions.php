@@ -352,3 +352,12 @@ function postRecord($id, $params){
 
 }
 
+//getting actions from 
+function getActionsByStat($id, $stat_name){
+
+     //variables
+    global $db, $STATS, $hashids;
+
+    
+}
+
