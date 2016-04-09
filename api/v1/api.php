@@ -143,9 +143,9 @@ $app->group('/v1/trainings', function() {
         //GET trainings/:id/actions/:stat
         $this->get('/actions/{stat}[.{format}]', function($req, $res){
 
-            global $db;
+            global $db, $hashids;
 
-            $data = getActionsByStat($req->getAttribute('id'), $req->getAttribute('stat'));
+            $data = getActionsByStat($hashids->decode($req->getAttribute('id'))[0], $req->getAttribute('stat'));
 
             if(!$data){
                 return $res
