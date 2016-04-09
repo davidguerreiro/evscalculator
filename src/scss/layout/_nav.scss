@@ -1,6 +1,6 @@
 
 .nav--side {
-	@include mq($from: tablet) {
+	@include mq($from: tablet, $until: desktop) {
 		
 		.nav--side {
 			display: flex;

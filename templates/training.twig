@@ -17,15 +17,20 @@ t-training
 
 
 <div class="t-training__header">
-	<h2 class="training__title">Training #{{ training.id }} - {{ stats[current_stat] }}</h2>
+	<h2 class="c-training__title">Training #{{ training.id }} - {{ stats[current_stat] }}</h2>
 	<div class="c-progress c-progress--main">
 		<div class="c-progress__bar" style="width: {{ percentage }}%;"></div>
 	</div>
 
 	<p>Left {{ left }} - Gained {{ gained }} - Target {{ target }} - Percentage {{ percentage }}%</p>
 
-	<div class="training__info">
-		
+	<div class="l-option-list">
+		<div class="l-option">
+			Pokerus: {{ training.pokerus }}
+		</div>
+		<div class="l-option">
+			Power item: {{ training.power_item }}
+		</div>
 	</div>
 </div>
 

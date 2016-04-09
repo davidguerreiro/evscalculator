@@ -7,7 +7,7 @@
 		<span class="c-logo__calculator">calculator</span>
 	</h1>
 
-	<nav role="nav nav--side">
+	<nav class="nav nav--side" role="nav">
 		{% for stat in stats|keys %}
 			{% if attribute(training.target, stat) is defined %}
 			<a class="c-button c-button--full c-button--{{ stat }}" href="{{ path_for('training_stat', { 'id': id_training, 'stat': stat }) }}">
