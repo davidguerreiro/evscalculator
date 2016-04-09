@@ -398,7 +398,7 @@ function getActionsByStat($id, $stat_name){
     $data['hordes'] = array();
     $data['vitamins'] = array();
     $data['berries'] = array();
-<<<<<<< HEAD
+
     $pokerus = $current_training->pokerus;
     $power_item = getPowerItem($current_training->power_item);
     $game = $current_training->game;
@@ -408,23 +408,40 @@ function getActionsByStat($id, $stat_name){
     $hordes = getHordes(array('stat' => $stat_name, 'game' => $game));
 
     //looping hordes
-    
+    $valid_hordes = array();
+
     foreach($hordes as $horde){
 
+        //horde_value
+        $total_value = $horde->stat_value;
+
         //calculating the whole value of the horde
+        if(is_array($power_item)){
+
+                if($power_item['op'] == 'by')
+                    $total_value = $total_value * $power_item['value'];       
+                else
+                    $total_value = $total_value + $power_item['value'];
+                
+        }
+
+        //calculating pokerus
+        if($pokerus)
+            $total_value = $total_value * 2;
+
+        //updating horde value
+        $horde->stat_value = $total_value;
+
+        //adding this horde to the valid horde data
+        $horde->invalid = ($left < $total_value) ? false : true;
+
         
-    
     }
-    
-    return $hordes;
-=======
+
+    $data['hordes'] = $hordes;
 
 
-    
-
-    //getting the hordes filter by stat
-    return $current_training;
->>>>>>> origin/master
+    return $data;
     
 }
 
