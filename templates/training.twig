@@ -54,16 +54,17 @@ t-training
 			{% if horde.invalid == true %}
 				{% set invalid = 'disabled'%}
 			{% endif %}
-
-		<form method="POST">
-			<input type="hidden" name="action" value="add">
-			<input type="hidden" name="id" value="{{ id_training }}">
-			<input type="hidden" name="stat" value="{{ current_stat }}">
-			<input type="hidden" name="value" value="{{ horde.stat_value }}">
-			<input type="hidden" name="pokerus" value="{{ (training.pokerus ? 1 : 0) }}">
-			<input type="hidden" name="from" value="horde:{{ horde.id }}">
-			<button class="c-button c-button--action" {{ invalid }} type="submit">{{ horde.name }} ({{ horde.stat_value }})</button>
-		</form>
+			<div class="c-action">
+				<form method="POST">
+					<input type="hidden" name="action" value="add">
+					<input type="hidden" name="id" value="{{ id_training }}">
+					<input type="hidden" name="stat" value="{{ current_stat }}">
+					<input type="hidden" name="value" value="{{ horde.stat_value }}">
+					<input type="hidden" name="pokerus" value="{{ (training.pokerus ? 1 : 0) }}">
+					<input type="hidden" name="from" value="horde:{{ horde.id }}">
+					<button class="c-button c-button--action" {{ invalid }} type="submit">{{ horde.name }} ({{ horde.stat_value }})</button>
+				</form>
+			</div>
 		{% endfor %}
 
 		<br><br>
