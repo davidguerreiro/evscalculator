@@ -1,0 +1,15 @@
+.c-progress {
+
+}
+
+.c-progress--main {
+	background: #fff;
+	border-radius: .2em;
+
+	.c-progress__bar {
+		background: #346433; 
+		height: 1em; 
+		border-radius: .1em;
+	}
+}
+
