@@ -442,6 +442,5 @@ function getActionsByStat($id, $stat_name){
 
 
     return $data;
-    
 }
 
