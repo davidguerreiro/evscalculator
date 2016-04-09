@@ -356,6 +356,10 @@ function getActionsByStat($id, $stat_name){
      //variables
     global $db, $STATS, $hashids;
 
+    //getting target, progress and left
+    $target = getTarget($id, $stat_name);
+    $progress = getProgress($id, )
+
     
 }
 
