@@ -164,6 +164,11 @@ function postRecord($id, $params){
 
 }
 
+//usort function to sort hordes by values
+function sort_relationals_array($a, $b){
+    return strcmp($a->stat_value, $b->stat_value);
+}
+
 //getting actions from 
 function getActionsByStat($id, $stat_name){
 
@@ -233,6 +238,10 @@ function getActionsByStat($id, $stat_name){
 
         
     }
+
+    //sorting hordes by value
+    usort($hordes, "sort_relationals_array");
+
 
     //adding hordes tp data
     $data['hordes'] = $hordes;
