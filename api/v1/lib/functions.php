@@ -33,37 +33,37 @@ $ITEMS = [
         "name" => "Power Anklet",
         "stat" => "speed",
         "op" => "add",
-        "value" => 4
+        "value" => 20
     ],
     3 => [
         "name" => "Power Band",
         "stat" => "spdefense",
         "op" => "add",
-        "value" => 4
+        "value" => 20
     ],
     4 => [
         "name" => "Power Belt",
         "stat" => "defense",
         "op" => "add",
-        "value" => 4
+        "value" => 20
     ],
     5 => [
         "name" => "Power Bracer",
         "stat" => "attack",
         "op" => "add",
-        "value" => 4
+        "value" => 20
     ],
     6 => [
         "name" => "Power Lens",
         "stat" => "spattack",
         "op" => "add",
-        "value" => 4
+        "value" => 20
     ],
     7 => [
         "name" => "Power Weight",
         "stat" => "hp",
         "op" => "add",
-        "value" => 4
+        "value" => 20
     ]
 ];
 
@@ -84,13 +84,25 @@ function isGame($game) {
     return is_numeric($game) && in_array($game, $GAMES);
 }
 
-function getPowerItem($id) {
+function getPowerItem($id = null, $stat = null) {
     global $ITEMS;
 
-    // If it doesn't exist / doesn't have item equipped
-    if(!array_key_exists($id, $ITEMS)) return false;
+    // If we want by ID and it exists
+    if($id !== null && array_key_exists($id, $ITEMS)) {
+        return $ITEMS[$id];
+    }
 
-    return $ITEMS[$id];
+    // Recommended power item by stat
+    if($id === null && $stat !== null) {
+        // Find items that fit that stat
+        $find_value = array_values(array_filter($ITEMS, function($a) use($id) {
+            return isset($a->stat) ? $a->stat == $stat : false;
+        }));
+
+        return count($find_value) ? $find_value[0] : null;
+    }
+
+    return false;
 }
 
 //getting progress value
@@ -386,6 +398,7 @@ function getActionsByStat($id, $stat_name){
     $data['hordes'] = array();
     $data['vitamins'] = array();
     $data['berries'] = array();
+<<<<<<< HEAD
     $pokerus = $current_training->pokerus;
     $power_item = getPowerItem($current_training->power_item);
     $game = $current_training->game;
@@ -404,6 +417,14 @@ function getActionsByStat($id, $stat_name){
     }
     
     return $hordes;
+=======
+
+
+    
+
+    //getting the hordes filter by stat
+    return $current_training;
+>>>>>>> origin/master
     
 }
 
