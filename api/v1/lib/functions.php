@@ -471,7 +471,7 @@ function getActionsByStat($id, $stat_name){
 
     //pokerus
     if($pokerus)
-        $data['recomended']['pokerus'] = true;
+        $data['recommended']['pokerus'] = true;
     else{
 
         //getting the total left
@@ -488,7 +488,7 @@ function getActionsByStat($id, $stat_name){
         }
 
         //checking if the horde max value is higer than the total left
-        $data['recomended']['pokerus'] = ($total_left >= $horde_max_value) ? true : false;
+        $data['recommended']['pokerus'] = ($total_left >= $horde_max_value) ? true : false;
 
     }
 
