@@ -16,11 +16,13 @@ function formatTraining($element) {
     // Target / progress objects
     $ret['target'] = [];
     $ret['progress'] = [];
+    $ret['total'] = 0;
 
     foreach($STATS as $stat) {
         if(intval($element[$stat])) {
             $ret['target'][$stat] = intval($element[$stat]);
             $ret['progress'][$stat] = (intval($element[$stat]) > 0) ? getProgress($stat, intval($element['id'])) : 0;
+            $ret['total'] += $ret['target'][$stat] - $ret['progress'][$stat];
         }
     }
 
