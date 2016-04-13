@@ -372,10 +372,6 @@ function postRecord($id, $params){
 
 }
 
-//usort function to sort hordes by values
-function sort_relationals_array($a, $b){
-    return strcmp($a->stat_value, $b->stat_value);
-}
 
 //getting actions from 
 function getActionsByStat($id, $stat_name){
@@ -383,8 +379,8 @@ function getActionsByStat($id, $stat_name){
     //testing id : kZgRZP8q91
      //variables
     global $db;
-    $data = array();
-    $errors = array();
+    $data = [];
+    $errors = [];
 
     //getting the training current status
     $current_training = getTrainings($id);
@@ -400,10 +396,10 @@ function getActionsByStat($id, $stat_name){
 
 
     //building the first part of the array
-    $data['recomended'] = array();
-    $data['hordes'] = array();
-    $data['vitamins'] = array();
-    $data['berries'] = array();
+    $data['recomended'] = [];
+    $data['hordes'] = [];
+    $data['vitamins'] = [];
+    $data['berries'] = [];
 
     $pokerus = $current_training->pokerus;
     $power_item = $current_training->power_item;
@@ -411,13 +407,13 @@ function getActionsByStat($id, $stat_name){
     
 
     //getting the hordes filter by stat
-    $hordes = getHordes(array('stat' => $stat_name, 'game' => $game));
+    $hordes = getHordes(['stat' => $stat_name, 'game' => $game]);
 
     if(empty($hordes))
         return false;
 
     //looping hordes
-    $valid_hordes = array();
+    $valid_hordes = [];
 
     foreach($hordes as $horde){
 
@@ -448,7 +444,9 @@ function getActionsByStat($id, $stat_name){
     }
 
     //sorting hordes by value
-    usort($hordes, "sort_relationals_array");
+    usort($hordes, function($a, $b) {
+        return $a->stat_value < $b->stat_value;
+    });
 
 
     //adding hordes tp data
@@ -456,11 +454,11 @@ function getActionsByStat($id, $stat_name){
 
     //getting berries by stat
     if($progress > 0)
-        $data['berries'] = getBerries(array('stat' => $stat_name));
+        $data['berries'] = getBerries(['stat' => $stat_name]);
 
     //getting vitamins by stat
     if($progress < 100)
-        $data['vitamins'] = getVitamins(array('stat' => $stat_name));
+        $data['vitamins'] = getVitamins(['stat' => $stat_name]);
 
     //building recomended array
 
