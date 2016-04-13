@@ -169,6 +169,7 @@ function getHordes($params = null, $id = null) {
     if(isGame($params['game'])) {
         $ret = array_filter($ret, function($a) use($params) {
             return $a->game == $params['game'];
+            return in_array($params['game'], $a->game);
         });
     }
 
