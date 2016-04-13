@@ -137,11 +137,6 @@ function getLeft($stat, $training_id) {
     return (getTarget($stat, $training_id) - getProgress($stat, $training_id));
 }
 
-//getting total left
-function getTotalLeft($training_id){
-
-    
-}
 
 
 //getting hordes
@@ -168,7 +163,6 @@ function getHordes($params = null, $id = null) {
     // Filter by game
     if(isGame($params['game'])) {
         $ret = array_filter($ret, function($a) use($params) {
-            return $a->game == $params['game'];
             return in_array($params['game'], $a->game);
         });
     }
