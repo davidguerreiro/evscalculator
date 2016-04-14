@@ -1,0 +1,1517 @@
+[33mcommit ad79ccb5f9b06cd7d8b92ab977a509a122e42213[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Apr 13 17:01:06 2016 +0100
+
+    Fix hordes game filtering
+
+[33mcommit ee2bf18b00825b1a963ba7483322f4e31a047dd6[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Apr 13 16:58:30 2016 +0100
+
+    Update hordes to merge game
+
+[33mcommit c7b0a1e36c1dd85903b26a757a8eb34923613e23[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Wed Apr 13 16:53:59 2016 +0100
+
+    id and game changed on hordes
+
+[33mcommit 78ad6b3ab13d915fe6db0fe1165ef8e28a1cf785[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Apr 13 15:54:46 2016 +0100
+
+    Upload Pokémon icons
+
+[33mcommit d3ddba21c018f41245f78ec80bb623068b21dc86[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 19:56:32 2016 +0100
+
+    Fix typos and add transition to progress bar
+
+[33mcommit 6ea805b9c9ab0fce7a5a5e7e02850c08e146484c[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 19:35:42 2016 +0100
+
+    Stat colours and long names
+
+[33mcommit 70c83ec400aa3f289d4dfd3cf8b58a867290b83e[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Apr 9 19:31:42 2016 +0100
+
+    pokerus added on recommended
+
+[33mcommit e2aed046dac99c889fc5f612a81765370cdb0d2d[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Apr 9 19:21:17 2016 +0100
+
+    total added to get training
+
+[33mcommit 9eef1db31e7f89deffc7db1da9bef5a582b7862b[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Apr 9 18:26:10 2016 +0100
+
+    hordes sorted by value
+
+[33mcommit c93df4fe986a7a1927a77e030e2ea47494f23e62[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Apr 9 17:37:21 2016 +0100
+
+    getPowerItem removed from funcitons.php
+
+[33mcommit e4b542211395ef960ab3063ea958484bf9cd205e[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 17:59:54 2016 +0100
+
+    Fix trainings template
+
+[33mcommit 411249d6520c209192ab6ae77ba37c10b7cd852f[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 17:58:19 2016 +0100
+
+    Typo
+
+[33mcommit 1094fb23c88c376de76b254a12bf402e10f30c1b[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 17:57:46 2016 +0100
+
+    Move items to JSON file
+
+[33mcommit 5e9964300812ceabdade890884ede1603be19d52[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 17:37:32 2016 +0100
+
+    Return power item on training
+
+[33mcommit c2eee12f8a137e3c45d90330dcae51bd66e75e3c[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 17:31:20 2016 +0100
+
+    Improve styling training
+
+[33mcommit 1aced5fdeecf3d4b222549033a7e9b85113d6626[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 17:06:22 2016 +0100
+
+    Add color to action buttons
+
+[33mcommit 242217c50b4caebc1849b88f566ae8e05dc6bcc9[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 16:59:27 2016 +0100
+
+    Nicer progress bar
+
+[33mcommit fd3934011ff7d73c7d8a28d0892987c1fd9ffc7b[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Apr 9 16:18:06 2016 +0100
+
+    berries and vitamins added on get actions by stat
+
+[33mcommit 1c5fe62755addf3395444eb24575e636f96c7e1b[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 16:05:15 2016 +0100
+
+    Add missing closing if
+
+[33mcommit 5af4050dd168cd3982063f197c0389f8993f1ee9[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 16:04:16 2016 +0100
+
+    Show only stats with target
+
+[33mcommit 9a5d9026cba74687b87c1dfc8fd77ebedf8da6b7[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 15:32:35 2016 +0100
+
+    Add cursor interaction to buttons
+
+[33mcommit 00dd9ea368ff7461a405f505f8287849e12bdca5[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 15:29:41 2016 +0100
+
+    Make actions inline but better
+
+[33mcommit 6479d5733808640a832f051b014d4582f413d170[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 15:29:28 2016 +0100
+
+    Make actions inline
+
+[33mcommit 902ddb58368d3d4b1a6ce1fc9fcd8cc4993c81b1[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 15:28:52 2016 +0100
+
+    Style actions
+
+[33mcommit a9c0f5a80d2b1ab0b6c118e9b74cd55430960adf[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 15:25:00 2016 +0100
+
+    Make hordes POST record work
+
+[33mcommit ab8161bd3d8d33ec80a4ee5bd24c3bc55bb55b30[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 15:15:35 2016 +0100
+
+    Add disabled styling
+
+[33mcommit 2b9fbed0fc20fc21fdd8182fc30116de67b09f32[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 15:09:00 2016 +0100
+
+    Fix CSS problems
+
+[33mcommit 37cbf5bc53ce3943d7aa9f15d5e582067268d5dc[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 15:06:17 2016 +0100
+
+    Add value to buttons
+
+[33mcommit 6d6f3817ed7b20046d1e698c0462b5c4a3c115a0[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 15:03:43 2016 +0100
+
+    Fix trainings format
+
+[33mcommit ac812a4564feeb69534406167bc36a49bb3566a8[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Apr 9 14:58:00 2016 +0100
+
+    hordes returned
+
+[33mcommit 424cd0006eaf062fd91678bf95badcddfda8855b[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 14:45:53 2016 +0100
+
+    Add actions to router and API wrapper
+
+[33mcommit bdd437f80903bf5ff70b7b420a9facba3d68f42c[m
+Merge: bd92d9a 49761b5
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Apr 9 14:32:18 2016 +0100
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #	api/v1/lib/functions.php
+
+[33mcommit bd92d9a2b2d059151f8ed31f53411ed35027350d[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Apr 9 14:31:56 2016 +0100
+
+    get power items
+
+[33mcommit 49761b5b2b9333ae325f82eea95048256e088159[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 14:31:21 2016 +0100
+
+    getPowerItem by stat and update power items
+
+[33mcommit a78ed21a44119b0bca64a8b6b3db0a150449e191[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Apr 9 14:00:21 2016 +0100
+
+    var_dump removed and training tested
+
+[33mcommit 41b5a2fb3fbefce6f11ccce92ee486435ca169f0[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Apr 9 13:56:21 2016 +0100
+
+    testing get actions
+
+[33mcommit 94d7569d568c998a730a0175441295685c998dc9[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 13:55:44 2016 +0100
+
+    getPowerItems by ID
+
+[33mcommit 0141b3c0f7aef13a272a6242696b9a4ce967e877[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Apr 9 13:43:47 2016 +0100
+
+    building first part of the actions array
+
+[33mcommit fb0cfd17191670266e4a57daf1f2128aad7c4e31[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Apr 9 13:22:00 2016 +0100
+
+    working on get actions by stat
+
+[33mcommit 77b794c10ce1fac9757b73db336248fb09c18b76[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 13:40:09 2016 +0100
+
+    Add IDs to vitamins and berries
+
+[33mcommit dcbc1cc0aef2b164e2f50340c2574929d72a3ba5[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 12:18:11 2016 +0100
+
+    Unify decoding IDs
+
+[33mcommit ea83c482ce3b506508f17b4dcb66ae9d61740f3f[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 11:20:46 2016 +0100
+
+    Hand over decoded ID on GET actions
+
+[33mcommit 8514506d860e802e50300d9587bc2c812b4e4b27[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 11:14:36 2016 +0100
+
+    Fix comma
+
+[33mcommit 040379ae81486004022b2331df6bb7a2ca5752f2[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Apr 9 11:13:03 2016 +0100
+
+    Fix error
+
+[33mcommit b84bd998e03f2a914842bbc962c1c9b260ac8cb8[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Apr 9 11:02:45 2016 +0100
+
+    last week commit
+
+[33mcommit 7970b8143977abec5e76d25bea88118b7c3b707e[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Apr 6 11:57:05 2016 +0100
+
+    Max/min control for manual mode
+
+[33mcommit 90d8c30095e20f5016537f25a6db49f0f850ad73[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Apr 6 11:45:45 2016 +0100
+
+    Add some EVs info to training
+
+[33mcommit 226e8560c48241754a8d62e175f67b2e0718781b[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Apr 6 11:28:38 2016 +0100
+
+    Unify array syntax and limit POST record to left
+
+[33mcommit 4eea1cfa7c05720877a2f27b9d999cf0eaad9dea[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Apr 5 21:08:47 2016 +0100
+
+    Fix progress bar
+
+[33mcommit 0c5b57783979f8dc66a847e58115b10dd41cbd2f[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Apr 5 20:59:38 2016 +0100
+
+    Sort records by timestamp desc
+
+[33mcommit 5eeb2e08c561b2b672f54a1934127ec684e88cc5[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Apr 5 20:47:30 2016 +0100
+
+    Manual record POST working
+
+[33mcommit f387b8a566611b628e00bb03465a6cdf16901f73[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Apr 5 20:18:21 2016 +0100
+
+    Typo
+
+[33mcommit e9f72add1f0a1e19396186b14380f0204806677d[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Apr 5 20:14:54 2016 +0100
+
+    Fix postRecords typo
+
+[33mcommit 3d4479b6074f015f656d4765a5290b28ac92ba19[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Apr 5 20:10:32 2016 +0100
+
+    First try to manual record
+
+[33mcommit 84c1c4c4200daf4df9ee8c3a1cf1b726dbda27d2[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Apr 5 19:04:02 2016 +0100
+
+    Add tooltips
+
+[33mcommit 10ebb746d493802a54b79ab6f3e83111a2bcfbde[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Apr 5 14:26:25 2016 +0100
+
+    Update to know if it has power items
+
+[33mcommit 1fb982013612d043083347e40e87940955d304f0[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Apr 5 14:07:13 2016 +0100
+
+    Fix ID encoding inconsistency
+
+[33mcommit b020480d0c89f897172b5e37a9666935e588a839[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Apr 5 14:02:43 2016 +0100
+
+    POST trainings on web side
+
+[33mcommit a0d2bbb678c96bd818dd1eef792109a756984cb7[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Apr 5 12:53:48 2016 +0100
+
+    Fix JSON response API wrapper
+
+[33mcommit a4106f19367fb265e0174923af7114b52088724c[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Apr 5 12:37:30 2016 +0100
+
+    Change EVs count on change
+
+[33mcommit 7c71c9a76aede1c247f2f8c15d41ace0de40ea9a[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Apr 5 12:36:15 2016 +0100
+
+    Add left EVs count
+
+[33mcommit 63f3db74d9b4ed0331d5108f7cc7dba10399951f[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Apr 5 10:07:34 2016 +0100
+
+    Add initial grid styles
+
+[33mcommit e3508614a0b77cae6189e770e6147d45db2c5056[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Apr 4 22:13:48 2016 +0100
+
+    Add more information to records on training template
+
+[33mcommit 78ce45c444a4d6087854eb2ca0e5936b4be3f7ad[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Apr 4 21:49:56 2016 +0100
+
+    Change training start questions
+
+[33mcommit 8569fb51494386a09f052c941def5d3a365a8c79[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Apr 4 21:28:37 2016 +0100
+
+    Update DB docs
+
+[33mcommit 0fac3aef38efea2323d6fa99657eaa79796f1afd[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Mon Apr 4 20:27:48 2016 +0100
+
+    `method development
+
+[33mcommit 960959a59baa3990dbc82203017116520e853bfe[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Apr 4 20:20:43 2016 +0100
+
+    Add ITEMS list
+
+[33mcommit 1559cdab0dbcaf796e1f9dca50d65d49159a37e2[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Thu Mar 31 08:49:55 2016 +0100
+
+    Change homepage form behaviour
+
+[33mcommit 38a8c3aa61ad48e250c4846489a45b27f793e8b2[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Thu Mar 31 08:43:27 2016 +0100
+
+    Add HTML5 input number enhancementes
+
+[33mcommit 3ac54d5e32b27732eb3058e064f173de5d09baec[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Thu Mar 31 08:40:13 2016 +0100
+
+    Nicer stat fields
+
+[33mcommit cea7c17faba20ccb1067b7b9a36529e6fefb037e[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Thu Mar 31 08:22:28 2016 +0100
+
+    Fix parent accessor
+
+[33mcommit cd8ff73adcdfb3a41718cf259b082c6bb2dc6b14[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Thu Mar 31 08:18:16 2016 +0100
+
+    Add classes to stat fields
+
+[33mcommit 641494374239b62660be9ffa317a12c91de4247a[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Thu Mar 31 08:11:17 2016 +0100
+
+    Stat fields CSS
+
+[33mcommit b9ee908be39b1ceffb97f2e43fb7d0111cb5e60e[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Thu Mar 31 07:58:16 2016 +0100
+
+    Update big template
+
+[33mcommit deae24fea8edc784bb91131a100c6952e3f01b49[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Mar 30 17:30:27 2016 +0100
+
+    Change graph width
+
+[33mcommit 9460b4f22d8db503719a3110e4eafecc6bdc6ba5[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Mar 30 16:32:31 2016 +0100
+
+    Add font loading logic
+
+[33mcommit b6324ef45a0feef2f2a04c0352415807c9327ab3[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Mar 30 16:30:40 2016 +0100
+
+    Add FontFaceObserver
+
+[33mcommit 9e6f0efcdcc2051ce1ea930217af062ddaf72b89[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Mar 30 16:25:57 2016 +0100
+
+    Graph is now responsive
+
+[33mcommit 28487fbd95cf66ff1d8fd43c4b901cc823d0a826[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Mar 30 16:17:31 2016 +0100
+
+    Animate stats graph
+
+[33mcommit 1d4382d2b1cd9eb41debe68188678795c887f770[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Mar 30 08:08:17 2016 +0100
+
+    Improve template structure with extends
+
+[33mcommit 69fadd1bbd1c2cd0e0c00520dcbf43f32ab92334[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Mar 30 07:57:20 2016 +0100
+
+    Fix wrapper
+
+[33mcommit ed3d32e7c163fdaee99f07e0f3692bd2940eb8e7[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Mar 30 07:52:32 2016 +0100
+
+    Add Sass structure
+
+[33mcommit 783af13db1a57095446c9470610708bde5d63860[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Mar 30 07:22:42 2016 +0100
+
+    Separate templates and rename to twig
+
+[33mcommit 942b8222fa10419d8d5ba16aefcce8bccfe58bf3[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Wed Mar 30 06:27:15 2016 +0100
+
+    Add error validation to trainings
+
+[33mcommit 879ee7c20f9ff242af64c344369bb65347c2c20c[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Mar 29 09:31:15 2016 +0100
+
+    Fix GET trainings/id
+
+[33mcommit f42e746a9dc5721be703b924735491ac24527504[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Mar 29 09:28:05 2016 +0100
+
+    Fix id on GET trainings/:id
+
+[33mcommit f28a88d8b330621b99a090f2d4113d5e9ea3a335[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Mar 29 09:07:33 2016 +0100
+
+    Training page is getting started
+
+[33mcommit b091aadbc07188bc6c039c6f20850129eb7c4783[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Mar 29 08:15:07 2016 +0100
+
+    Try exposing training data
+
+[33mcommit fbf37d4afea80e530dabe7d304df71d16e578bce[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Mar 29 06:01:49 2016 +0100
+
+    Extra slash on getTrainings
+
+[33mcommit 9ba891308c93da26687660e504300dcd2ca0f3f4[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Mar 29 05:58:42 2016 +0100
+
+    Remove HTTPS from API temporarily
+
+[33mcommit 730c06102665e905b6f4d28393be736ebf73feb7[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Mar 29 00:16:20 2016 +0100
+
+    Fix maxValue graph
+
+[33mcommit 89ef9c9a235bccaf2805b096f2b26270939b686c[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 23:32:07 2016 +0100
+
+    Testing graph
+
+[33mcommit 5058566c929ae5366f4a414474ca615b1cfc96d5[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 22:51:39 2016 +0100
+
+    Testing phpinfo()
+
+[33mcommit 46e565e85429d261ff66e53166746a5f53a0f379[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Mon Mar 28 21:20:57 2016 +0100
+
+    first ssl false deleted
+
+[33mcommit 8c2ee8bfde8136bfe8a2d96676d88ef260d811bc[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 21:20:57 2016 +0100
+
+    Try different path
+
+[33mcommit 85e6432fddf415f829e046f787acc9f134c00e9f[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 21:18:43 2016 +0100
+
+    Try cURL with cert
+
+[33mcommit d8637e28a0232d1c2e1c9398de5d499422c99685[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Mon Mar 28 21:16:15 2016 +0100
+
+    error
+
+[33mcommit 3885487645f6d5f851b39b1774aa4c427f8fa8c4[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Mon Mar 28 21:15:37 2016 +0100
+
+    class variable error fixed
+
+[33mcommit 3d7ef36bf4f903529206e7f5e128b473269a17fc[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Mon Mar 28 21:09:27 2016 +0100
+
+    wrapper test
+
+[33mcommit 3ab283abcfa9f1759014504e443e092fe81fb35e[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 20:31:42 2016 +0100
+
+    Add GET training test
+
+[33mcommit 5f65132b786f82b8b3439c91bd719f3dee06220d[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Mon Mar 28 20:29:05 2016 +0100
+
+    error removed
+
+[33mcommit 2587487fd3f9479a7893abc09794ac159cb9e5cd[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Mon Mar 28 20:27:23 2016 +0100
+
+    php wrapper methods added
+
+[33mcommit 3ff7c2be7889f09e619d38c1de94b4190e130757[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 18:26:50 2016 +0100
+
+    Typo
+
+[33mcommit 1f08be60f29319b3c0165c98d8fe1a6bced75ba6[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 18:23:36 2016 +0100
+
+    Change function name to postRecords
+
+[33mcommit ff413c003c7813fb19d980660e0b16322adb3c51[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 18:22:32 2016 +0100
+
+    Add validation origin to POST records
+
+[33mcommit 6642f402066ed05fdd2d7f65a97cd56ac680e4d5[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 18:10:54 2016 +0100
+
+    Fix POST records
+
+[33mcommit 5146038f4fe5c9718630f4d87d15c2d836498dc1[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 18:02:14 2016 +0100
+
+    Fix errors on POST records
+
+[33mcommit 225e0d2659cb2c8d3269a6665cc2a8313f2156c5[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 17:59:46 2016 +0100
+
+    Change syntax on POST records
+
+[33mcommit 4da69e611428721880b94a3e77ab4007c385a1c7[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Mon Mar 28 17:38:49 2016 +0100
+
+    check commit
+
+[33mcommit ffa7d53287f2fc9aab1e05a8ba66a70dc2bfe433[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Mon Mar 28 15:25:57 2016 +0100
+
+    post record by id finished and tested
+
+[33mcommit 91751ff74dc6b04676ff86b722e299393e0e365b[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 15:00:24 2016 +0100
+
+    First attempt radar graph
+
+[33mcommit cea69fe4d620aeb5b2224ea100849b350a68f414[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 14:09:48 2016 +0100
+
+    Add custom graph
+
+[33mcommit f2c8ce5877945fd1cb598932a61c00b860910436[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 14:09:15 2016 +0100
+
+    Try graph
+
+[33mcommit b152c9f6b7ae52d302a1a66a420dd27fd703f92f[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 12:58:04 2016 +0100
+
+    Fix critical CSS include
+
+[33mcommit 0b7babcd88cd726923b3bc779db323c740c7c4a7[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Mon Mar 28 12:49:40 2016 +0100
+
+    Task runner setup
+
+[33mcommit e2a5ccb28871f09ca004e5107fda072ca33a0de4[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 21:53:19 2016 +0100
+
+    Initial values on focus done
+
+[33mcommit dbd55166145fa354ea89b268fbd92b2ed63ad52a[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 20:42:03 2016 +0100
+
+    Starting point EVsCalculatorApi wrapper
+
+[33mcommit 63b70f03f4c651475e912c7ccef232b3421fb590[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 18:41:43 2016 +0100
+
+    Fix DELETE trainings/:id
+
+[33mcommit 92b139586d1b51b6eee25b5cd71e7c95aeefc69c[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 18:30:36 2016 +0100
+
+    Twig working for front-end
+
+[33mcommit 4cd824d5e7f6e5287f62bbf1761b74346cd32536[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 17:34:03 2016 +0100
+
+    Add other globals
+
+[33mcommit 26f646e85b7f185cd3db3a7283953cb8ff1b5952[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 12:24:43 2016 +0100
+
+    Start front-end with MVC approach
+
+[33mcommit 4a09c6a8e52d72db22109d8a48cf9cf3b57f8b28[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 11:35:52 2016 +0100
+
+    Fix getProgress sum and wheres
+
+[33mcommit 7196ba61d3cec56536baf3dfe3de7f4851098356[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 11:30:36 2016 +0100
+
+    Fix GET records origin
+
+[33mcommit 804795df417ca2fc560492d14fb95ae3f28b6779[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 10:36:41 2016 +0100
+
+    Typo
+
+[33mcommit 103fe0e89c9f82b4f8707589ee95cbade12f7ed8[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 10:35:43 2016 +0100
+
+    GET vitamins and changes to GET records format
+
+[33mcommit 4cbbc6013e56aefe91f4f79b09f145ad919946b7[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 09:42:49 2016 +0100
+
+    Fix typos
+
+[33mcommit 8f0f60b81d72c4c908cfc55b1ec479a3bab8f50f[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 09:28:49 2016 +0100
+
+    Remove id_url from db docs
+
+[33mcommit 941f014865c55d0d99c2bf4b653e3fe93ca971db[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 09:28:05 2016 +0100
+
+    Remove id_training database field
+
+[33mcommit 7f2290a998e80cadcc2abbc021718d7432be7940[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 08:29:06 2016 +0100
+
+    No need for stat name in record format
+
+[33mcommit bd7b9afb6a30f410d156a6ef1ebceecf404f886b[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 08:20:24 2016 +0100
+
+    Fix GET trainings/:id/records/:stat
+
+[33mcommit e17e24cb0479220ac63d3d0c4ed7cbfb4407c614[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 08:13:54 2016 +0100
+
+    Add GET records endpoints
+
+[33mcommit 1381207e3ee525d8c393b08268907379055a7af2[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 07:44:44 2016 +0100
+
+    Fix getProgress
+
+[33mcommit 004c1636b0bb81e439ab3fd9ce576da5907d5af8[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 07:26:20 2016 +0100
+
+    Change functions back
+
+[33mcommit a1a851b5a92a23331eb4d5dee67136906478100d[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 05:29:10 2016 +0100
+
+    Update docs
+
+[33mcommit bc6750639f6fc56362cbc1dcc3c189268b18aad6[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 05:22:46 2016 +0100
+
+    Fix Slim app error
+
+[33mcommit 1e7fb493e14b3db9860064e7740888a852a6b513[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 05:10:44 2016 +0100
+
+    Abstract formats
+
+[33mcommit 893612b8136e12b3590f6f76750b407ac6f1506f[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 04:58:05 2016 +0100
+
+    Fix globals
+
+[33mcommit 8d1bb9e5e6410775f4bde4c0668b3fc030a7c180[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 27 04:47:40 2016 +0100
+
+    Code review
+
+[33mcommit 8f32d55bf6a6f8e5e4e0ac09dc972378bc17ba4c[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Mar 26 21:38:45 2016 +0000
+
+    error codes added
+
+[33mcommit c267bb0891fb062aa6beba23ffb2c157e393932e[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Mar 26 20:48:37 2016 +0000
+
+    GET trainings finished and tested
+
+[33mcommit 8e5d8c6cb254c6c42b943cc058e476636d949426[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Mar 26 19:03:48 2016 +0000
+
+    GET Berries added and tested
+
+[33mcommit 6bf3bbcba3ad880c34ced33631b8737e1ba21821[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Mar 26 18:16:11 2016 +0000
+
+    More consistent function
+
+[33mcommit d348578535ad71d52ec6a57f8747cc0063cef416[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Mar 26 18:08:28 2016 +0000
+
+    Add validation to POST trainings
+
+[33mcommit 6565de38563b6791d80a5c1f1aea11321bb1e7fd[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Fri Mar 25 09:51:43 2016 +0000
+
+    Sorting abstracted to middleware
+
+[33mcommit 5d8fe9a398e4bc76d54b197f80afa54b4a1b46fb[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Fri Mar 25 06:10:40 2016 +0000
+
+    Add count to error scenario
+
+[33mcommit 0f344b580bcd97dc50611d60182a731b0caf35b8[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Thu Mar 24 21:25:01 2016 +0000
+
+    Add gh-pages ignores
+
+[33mcommit 7f4649ea6a60744fa51ac25c171c5f55b1c9f0a3[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Mar 22 06:30:22 2016 +0000
+
+    Fix CORS preflight
+
+[33mcommit 6767ca05d89f1f80e51c37c6fa1c171e035e053a[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Mar 22 05:40:14 2016 +0000
+
+    DELETE trainings/:id and notAllowedHandler
+
+[33mcommit 4c7f2a1b04f595dbccd4384ef554a3331d1097c1[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Mar 22 03:52:59 2016 +0000
+
+    Add default behaviour for json_encode, support CORS methods and error handling
+
+[33mcommit 9d584ef5802d8b95bc07eb8a4ef15c89fe413af5[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Tue Mar 22 03:33:14 2016 +0000
+
+    Add endpoint not found handler
+
+[33mcommit 8d96c8329e9e12b80ae39127fc6b454a0522e9d8[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 20 16:29:18 2016 +0000
+
+    Remove parse from POST trainings
+
+[33mcommit e3e220184ec5c38b999cc6e8b4992dd809692422[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Mar 20 16:24:49 2016 +0000
+
+    Remove response write
+
+[33mcommit 7ab00b2c54c1d9966614e0f925b1c3422179da6b[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Thu Feb 4 16:47:27 2016 +0000
+
+    Add errors for unsupported format
+
+[33mcommit 8da7d3f3d2ef0d5cf38fa3fc2f1154b2f0cea07c[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Thu Feb 4 16:38:49 2016 +0000
+
+    Centralise error handling with stat codes and body
+
+[33mcommit 8d30209e0dd837d43e2150415e2cfef2a5d790be[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Thu Feb 4 15:38:31 2016 +0000
+
+    Fix errors for EvsMiddleware
+
+[33mcommit 7cc649346f0ee5168ab3c8374478360e3cfc450b[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Thu Feb 4 12:06:58 2016 +0000
+
+    Moving parser to middleware
+
+[33mcommit 237ba453541fb817c29932a88fd5a42b14707b0d[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Tue Feb 2 16:43:38 2016 +0000
+
+    Add TODOS for middleware
+
+[33mcommit f65d27bb3e630711245fb95f79529b0fd817e4d8[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Tue Feb 2 16:25:50 2016 +0000
+
+    Add HTTP code for HTTPS required
+
+[33mcommit ca91369f8eda08687d96f278a91aeb84461d8687[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Tue Feb 2 16:18:21 2016 +0000
+
+    Using middleware to detect HTTPS usage
+
+[33mcommit efa0af80f2118642e2f72d6411c2038371acbc44[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Tue Feb 2 12:50:44 2016 +0000
+
+    ger berries testing stuff
+
+[33mcommit 2db9dafb12e13824ae09eceef83dd4a9f887e675[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Mon Feb 1 17:20:39 2016 +0000
+
+    api test
+
+[33mcommit f2f5253af8f3b33f4ac94de83c74d233abcc707c[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Mon Feb 1 17:19:00 2016 +0000
+
+    api test
+
+[33mcommit 984876346f9955fdcb1f34d1c03b3e4b31000154[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Mon Feb 1 17:10:24 2016 +0000
+
+    api testing ( I have to pay more attention )
+
+[33mcommit 049e442a32cf2564231863b55d4f71e9490463c6[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Mon Feb 1 17:07:19 2016 +0000
+
+    api test
+
+[33mcommit dea39ba530e6ca72c0bfd17121a07092233bf67d[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Mon Feb 1 17:03:10 2016 +0000
+
+    api testing
+
+[33mcommit 99c6c8a03a0c4b4c64914d8dc400a89ae040782e[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Mon Feb 1 17:01:18 2016 +0000
+
+    get berries testing
+
+[33mcommit 4790b3133f93662d338f7f436228e1756f16cce6[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Fri Jan 22 16:35:54 2016 +0000
+
+    Fix changes to GET hordes
+
+[33mcommit 2065b5fc0cfee355836a6c7d7733780dc4f69128[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Fri Jan 22 16:32:37 2016 +0000
+
+    Add JSONP to documentation
+
+[33mcommit a2edd79f3fd5a0d0cf39386a84fae283645303f2[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Fri Jan 22 16:15:19 2016 +0000
+
+    Simplify CORS
+
+[33mcommit cf8d8254131fd18ed2859400c565a3da5a165d48[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Fri Jan 22 15:36:29 2016 +0000
+
+    Revert "$req and $res should be instances of PSR7 objects"
+    
+    This reverts commit 4188a9fea1329985b3ff2ab7156091338b8bec3b.
+
+[33mcommit 4188a9fea1329985b3ff2ab7156091338b8bec3b[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Fri Jan 22 15:21:45 2016 +0000
+
+    $req and $res should be instances of PSR7 objects
+
+[33mcommit 605b277a06c6b12f015bc45c6efbdb0504444503[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Fri Jan 22 11:41:58 2016 +0000
+
+    Add proper header for JSONP
+
+[33mcommit 36c07c518f6570e99788eeda6d60c9a6ec777d18[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Fri Jan 22 11:28:26 2016 +0000
+
+    Add JSONP support
+
+[33mcommit 9a725b1e8c04b1d91aa24e5efec55ab3d3d7ed7a[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Jan 17 21:44:41 2016 +0000
+
+    Add TODOS
+
+[33mcommit c6279f88fab115794a741c046a83fe241fa2a790[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Jan 17 21:43:35 2016 +0000
+
+    Group trainings stuff and improve POST HTTP codes
+
+[33mcommit c9dee7f1f1dda424862ebaa98dd0bbd89aaadda8[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Jan 17 20:09:00 2016 +0000
+
+    Add ids and sorting to hordes
+
+[33mcommit 3a1ee7734d5e0b73c1984b4f82fd5dc01261d945[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Jan 17 15:12:04 2016 +0000
+
+    Check numeric for game version
+
+[33mcommit e6046ebb155d490d665278da2a7bc35fe0f3c055[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Jan 17 15:06:23 2016 +0000
+
+    Auto encode numbers on JSON
+
+[33mcommit 5e76edf7088b0c609eb5a37c6dc0f83c298c459d[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Jan 17 15:03:45 2016 +0000
+
+    Format parser added and JSON files format fixed
+
+[33mcommit 68c513aea908842f1461cc940102ea3ed0b0c5f7[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Jan 16 22:07:06 2016 +0000
+
+    POST trainings kicks off
+
+[33mcommit 59a8ba85018eab5e46b95582dd30aac5340bd8f5[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Jan 16 21:28:43 2016 +0000
+
+    Add Medoo and GET trainings
+
+[33mcommit f5d2564856cfa697754ca4f8d21de85294012e9c[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Jan 16 21:11:13 2016 +0000
+
+    vitamins and berries json files added
+
+[33mcommit 9633110d2852536c1bae537e6afb5fff32e383cd[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Jan 16 18:42:11 2016 +0000
+
+    Remove testing stuff
+
+[33mcommit abf4b057338985c4d3b77092c5cdef99727d2cfe[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Jan 16 18:37:39 2016 +0000
+
+    CORS tested
+
+[33mcommit f0700a6c87f957defb78a1fc6f27adcc1bdce1e5[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Jan 16 17:16:14 2016 +0000
+
+    Hordes GET done
+
+[33mcommit 915c87372016f82b4dd3b3ccca6fad14dab9dab5[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Jan 16 16:07:16 2016 +0000
+
+    Use Slim as PHP framework
+
+[33mcommit 9f04ce5db81bbf21202bf2144158b097ea22c922[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Dec 13 11:59:13 2015 +0000
+
+    Better API handling
+
+[33mcommit 28dde88e3599266659c9f43a778675a7dc0a5400[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Dec 13 11:50:44 2015 +0000
+
+    Process format too
+
+[33mcommit 986b89c513aee2aa8823876b525875b290d51dd6[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Dec 13 11:29:25 2015 +0000
+
+    Basic API there
+
+[33mcommit 06b674f3da6d9ab7d16adfa5993fe57ddaed6ac7[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Dec 13 11:12:01 2015 +0000
+
+    Improve URL redirecting
+
+[33mcommit e69e38e7ed49391b3704e35ea76461524905e520[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Dec 13 11:02:45 2015 +0000
+
+    Trying API code
+
+[33mcommit a6311bf6d26e8502b45ca69fc1b1fcab5a4761c4[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Dec 13 02:07:13 2015 +0000
+
+    GET training records method on API
+
+[33mcommit 0fbd2d4a135c50e61f39623edae4d95e68bb05cc[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Dec 13 02:00:01 2015 +0000
+
+    Better API URLs and examples
+
+[33mcommit 236f61eaf113accfd05027eed6773e503816d10a[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Dec 13 01:48:28 2015 +0000
+
+    Better URLs
+
+[33mcommit c95524b6eb393d97975cf5a07b063c1ce2f071c0[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Dec 13 01:47:53 2015 +0000
+
+    Expand API
+
+[33mcommit cac15e30449c030fd3cd843492c199aa4eb211f4[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Fri Dec 11 14:06:04 2015 +0000
+
+    Enable CORS as we are making the API RESTful
+
+[33mcommit 6d1b5aee6fd3a1599fc85687c6664fc32360fee2[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Thu Dec 10 14:00:34 2015 +0000
+
+    Improve examples
+
+[33mcommit 6df7e70354f31683ef66c642052a2b28cc1a6f6b[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Thu Dec 10 13:58:12 2015 +0000
+
+    Add examples to API
+
+[33mcommit 3be2ebfb5b6fd5f78826f1538c93107ad1b7137b[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Thu Dec 10 13:53:28 2015 +0000
+
+    More official API syntax
+
+[33mcommit c358b90dd9b7ad97d7fcda349a6982fa111d3bb3[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Thu Dec 10 13:22:47 2015 +0000
+
+    Separate API docs into separate file
+
+[33mcommit d197394b3aeb52a9f95dec72db7c53cab79a4133[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Thu Dec 10 13:18:23 2015 +0000
+
+    Typo
+
+[33mcommit 3f7497a58c02ccc3780ecad174af421e3cd45da7[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Thu Dec 10 13:18:02 2015 +0000
+
+    Add records doc for API
+
+[33mcommit 8ab0a8c0814e1c5694843d095e0e9ae1b4e936b6[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Thu Dec 10 12:26:45 2015 +0000
+
+    Back to one line on tables
+
+[33mcommit 2292aa0de0b2530191cde27cc60b137f70dd845f[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Thu Dec 10 12:18:51 2015 +0000
+
+    Trying new table markdown
+
+[33mcommit 8480dac869a477dbb5695f518821942072be9fd1[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Thu Dec 10 12:13:09 2015 +0000
+
+    Correct hyphens
+
+[33mcommit 6d2075264c04ba890cb2228a91884237d81f0f91[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Thu Dec 10 12:08:46 2015 +0000
+
+    Merge #2 and start API docs
+
+[33mcommit d77057f495c91df008c23969ad21733b6ae933f8[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Wed Dec 9 13:23:24 2015 +0000
+
+    README typos
+
+[33mcommit 5d39549c7f01826559077e0d38866d55d82f4b19[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Wed Dec 9 13:19:46 2015 +0000
+
+    Update README with proper license
+
+[33mcommit 81efaf02313e293b66e732973e14af56d0d85382[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Tue Dec 8 17:55:06 2015 +0000
+
+    Improve gitignore
+
+[33mcommit f609b99ce6ba138a8e24116f2d22ebecea4a12c1[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Tue Dec 8 17:49:39 2015 +0000
+
+    README updates
+
+[33mcommit 58b68880bb8e1d894acaa1eaad2bdb883c96c276[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Tue Dec 8 17:47:56 2015 +0000
+
+    README update
+
+[33mcommit 89e58423a5efd471697afb0b9ff93c405dbf4923[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Tue Dec 8 17:42:29 2015 +0000
+
+    Redirect domain to GitHub for now
+
+[33mcommit a84ab19330b691bd8be327fe0b10dee825650823[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Tue Dec 8 17:38:52 2015 +0000
+
+    Merge #8 into docs
+
+[33mcommit 9689c1b8f2bc10cf70d0a22e2f988851044dc57a[m
+Author: Jaime Caballero <me@jaicab.com>
+Date:   Tue Dec 8 17:31:20 2015 +0000
+
+    Enable CORS on API for desired domains #12
+
+[33mcommit bf3df82483f59e9bfa287b3c9f08d6bbbf0bacc2[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Dec 6 21:12:13 2015 +0000
+
+    Add array wrapper on JSON
+
+[33mcommit 2743420945ef2b2893403e79950c2cce6f64d1e6[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Dec 6 21:07:27 2015 +0000
+
+    Images subdomain folder and htaccess
+
+[33mcommit 839810ddd1fffb42eeab69dd6d87055c59d726a3[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Dec 6 21:03:00 2015 +0000
+
+    Training page - docs
+
+[33mcommit 00f67e7ba2845a3d7322c30805fd83e35b5e8200[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Dec 5 15:25:24 2015 +0000
+
+    Aron horde EVs error fixed and hordes.json file finished
+
+[33mcommit cccb6f259fb2f5b0ab6bea1e1fea5b6937857df7[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Dec 5 14:32:58 2015 +0000
+
+    database and functions php files added
+
+[33mcommit 7ba53ef3666a16dcddc3f641fc340d364fd0a1e5[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Tue Dec 1 21:19:57 2015 +0000
+
+    game field name changed
+
+[33mcommit cfb1f3192f244b0af387a83e7ed6633501f96020[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Tue Dec 1 20:53:17 2015 +0000
+
+    version field type fixed
+
+[33mcommit 850de656246d9a91204eef78d1e91e76738fdc4e[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sun Nov 29 19:05:59 2015 +0000
+
+    some markdown style changed
+
+[33mcommit 091fc41c5ff18a0954720926ff7509620d880891[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Nov 29 18:56:59 2015 +0000
+
+    User journey kickoff
+
+[33mcommit e9e6436f1a5158a19379d30fceb226dd9f8d4008[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sun Nov 29 18:48:37 2015 +0000
+
+    image error fixed
+
+[33mcommit bcb6ad5f6675a6127e37032428d2c22437754a3c[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sun Nov 29 18:48:03 2015 +0000
+
+    255 EVs error fixed
+
+[33mcommit d5b00f7fbd803161616e370b19868218f659c9f1[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sun Nov 29 18:46:01 2015 +0000
+
+    some sync errors fixed
+
+[33mcommit d825f842b4b8fc4d03a7edc9ced6d61ab1fb75e0[m
+Merge: d776516 d1ef408
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sun Nov 29 18:44:27 2015 +0000
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #	docs/readme.md
+
+[33mcommit d776516ccd52da9f57e0ec712f182dc1990e7e20[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sun Nov 29 18:42:46 2015 +0000
+
+    Stats and berries section added
+
+[33mcommit d1ef408d0a319c1745a71193287b0641f472b232[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sun Nov 29 18:29:11 2015 +0000
+
+    Add more behavior in docs and start with user journey
+
+[33mcommit 0e73f4cd2aba28088a42ecd77a079666f039eec2[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sun Nov 29 17:40:41 2015 +0000
+
+    adding evs final markdown error fixed, hopefully !
+
+[33mcommit a51292ea9c67dae5fdb8682839ccb1ed3221cf0c[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sun Nov 29 17:34:34 2015 +0000
+
+    adding evs markdown error fixed
+
+[33mcommit 3530da81ed6e29ddab2f8b4723741984b030e739[m
+Merge: be7df37 5e53fbe
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sun Nov 29 17:32:42 2015 +0000
+
+    add evs sync
+    
+    # Conflicts:
+    #	docs/adding-evs.md
+
+[33mcommit be7df371b88c7cfa9e12f5b687eb628ce1eed4ec[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sun Nov 29 17:30:21 2015 +0000
+
+    some markdown error fixed
+
+[33mcommit 5e53fbe2d0f89aff8aa8e4c07878e8cad9f5ac07[m
+Author: David Guerreiro <guerrebasket@hotmail.es>
+Date:   Sun Nov 29 17:26:46 2015 +0000
+
+    removing bullshit
+
+[33mcommit 0fc4fe92ba7e7d030b94a80b46f5839880807db2[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sun Nov 29 17:25:19 2015 +0000
+
+    some h1 changes
+
+[33mcommit 64036c7276da0dacf7a24b7f2147c2d9be5a965e[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sun Nov 29 17:21:17 2015 +0000
+
+    adding-evs and readme updated content
+
+[33mcommit 733f2db505b41a20f4f28c950546b149a08c13b3[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Nov 28 21:01:06 2015 +0000
+
+    updating json files
+
+[33mcommit 1ed45daa9d6e337bd13b6e45d5870a0213c00a97[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Nov 28 20:38:47 2015 +0000
+
+    Add JSON file example
+
+[33mcommit 7e7d4e7fee3ede37877a4a032bbc86f8da7bd9de[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Nov 28 18:47:34 2015 +0000
+
+    lib and api folders added
+
+[33mcommit 3d892d98b093e6fc0998133f33d1beb3ee029d10[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Nov 28 18:39:58 2015 +0000
+
+    Remove bullshit
+
+[33mcommit f44085533d4930548d9b14f9d1026e058d7d8dd2[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Nov 28 18:36:44 2015 +0000
+
+    Merge #10 with project
+
+[33mcommit ed20fa2c9ea6a124b5502622263d10fd89f70bc4[m
+Author: Jaime Caballero <lamatesoft@gmail.com>
+Date:   Sat Nov 28 18:30:24 2015 +0000
+
+    First spec
+
+[33mcommit 9dc212f2a701a6147fc0c431f5cd3702ff1dce42[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Nov 28 18:11:52 2015 +0000
+
+    functions
+
+[33mcommit 9a0c8d10ec89cec76b2991b0fb94cf448cdd2024[m
+Merge: 47a01c4 c562a43
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Nov 28 18:11:15 2015 +0000
+
+    Merge remote-tracking branch 'origin/master'
+    
+    Conflicts:
+    	functions.php
+
+[33mcommit 47a01c4e3c2753c712db4aba9c4ad37b0984440d[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Sat Nov 28 18:09:11 2015 +0000
+
+    version 1.0
+
+[33mcommit c562a43da7e01ba10eff358077fa19b136a17dcb[m
+Author: David Guerreiro <guerrebasket@hotmail.es>
+Date:   Wed Nov 4 23:37:20 2015 +0000
+
+    Removing some test files
+
+[33mcommit 111b16fbaba5441529be9e88e1bf2568ac2cdf8b[m
+Author: David Guerreiro <guerrebasket@hotmail.es>
+Date:   Wed Nov 4 00:43:57 2015 +0000
+
+    Removing some testing die()
+
+[33mcommit 9408079d969654ba347a482d60f95938d3e8a066[m
+Author: David Guerreiro <guerrebasket@hotmail.es>
+Date:   Tue Nov 3 20:39:53 2015 +0000
+
+    Create README.md
+
+[33mcommit 546906899c1a1fc39e91145acd159130f65b8b36[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Tue Nov 3 20:20:42 2015 +0000
+
+    Initial commit
+
+[33mcommit 0c63c3767f56a2ef39e6a116c503001949d55d88[m
+Author: davidguerreiro <guerrebasket@hotmail.es>
+Date:   Tue Nov 3 20:15:59 2015 +0000
+
+    :confetti_ball: Added .gitattributes & .gitignore files
