@@ -156,11 +156,19 @@ $app->group('/v1/trainings', function() {
 
             global $db, $hashids;
 
-            $data = getActionsByStat($hashids->decode($req->getAttribute('id'))[0], $req->getAttribute('stat'));
+            $training_id = $hashids->decode($req->getAttribute('id'))[0];
+            $stat = $req->getAttribute('stat');
+
+            if(!isStat($stat) || empty(getTrainings($trainings_id)))
+                return $res
+                    ->write(parse(["Hey! No data available on the ". $req->getAttribute('stat')." stat."]))
+                    ->withStatus(404);
+
+            $data = getActionsByStat($training_id, $stat);
 
             if(!$data){
                 return $res
-                    ->write(parse(["No data available on the ". $req->getAttribute('stat')." stat."]))
+                    ->write(parse(["Something's wrong."]))
                     ->withStatus(404);
             }
             

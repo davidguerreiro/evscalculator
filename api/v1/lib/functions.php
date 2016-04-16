@@ -176,16 +176,11 @@ function getActionsByStat($id, $stat_name){
 
     //getting the training current status
     $current_training = getTrainings($id);
-
-    //validation
-    if(!isStat($stat_name) || empty($current_training))
-        return $errors;
     
     //getting target, progress and left
     $target = getTarget($stat_name, $id);
     $progress = getProgress($stat_name, $id);
     $left = getLeft($stat_name, $id);
-
 
     //building the first part of the array
     $data['recomended'] = [];
@@ -197,7 +192,6 @@ function getActionsByStat($id, $stat_name){
     $power_item = $current_training->power_item;
     $game = $current_training->game;
     
-
     //getting the hordes filter by stat
     $hordes = getHordes(['stat' => $stat_name, 'game' => $game]);
 
@@ -214,17 +208,15 @@ function getActionsByStat($id, $stat_name){
 
         //calculating the whole value of the horde
         if(is_array($power_item)){
-
-                if($power_item['op'] == 'by')
-                    $total_value = $total_value * $power_item['value'];       
-                else
-                    $total_value = $total_value + $power_item['value'];
-                
+            if($power_item['op'] == 'by')
+                $total_value *= $power_item['value'];       
+            else
+                $total_value += $power_item['value'];
         }
 
         //calculating pokerus
         if($pokerus)
-            $total_value = $total_value * 2;
+            $total_value *= 2;
 
         //updating horde value
         $horde->stat_value = $total_value;
@@ -276,7 +268,6 @@ function getActionsByStat($id, $stat_name){
         $data['recommended']['pokerus'] = ($total_left >= $horde_max_value) ? true : false;
 
     }
-
     //power item
 
     return $data;
