@@ -14,36 +14,30 @@
 
 .c-record__value {
 	@extend %font-secondary;
+	
+	float: right;
+
 	font-size: 2.75em;
-    float: left;
     font-weight: 600;
     letter-spacing: -.075em;
-    width: 1.9em;
     color: #999;
     line-height: .75;
-
-
-	&:before {
-		content: '+';
-	}
+    padding-right: .05em;
 }
 
-.c-record--negative {
-	.c-record__value:before {
-		content: '';
-	}
-}
 
 
 .c-record__item {
-	float: right;
+	float: left;
+
 	display: inline-block;
 	width: 2em;
 	height: 2em;
 	background-position: center center;
+	background-repeat: no-repeat;
 	background-size: auto 130%;
 	line-height: 1;
-	margin: 0;
+	margin: 0 .6em 0 0;
 }
 
 .c-record__data {

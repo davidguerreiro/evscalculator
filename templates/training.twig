@@ -126,29 +126,46 @@ t-training
 			<ul>
 				{% for record in records %}
 					{% set class = '' %}
-					{% set from = 'Manual' %}
+					{% set image = '' %}
 
 					{# If not manual action #}
 					{% if record.from is defined %}
 						{% set class = class ~ " c-record--from c-record--" ~ record.from.type %}
-						{% set from = record.from.origin.name %}
+						{% set image = 'https://img.evscalculator.com/pkmn/icon/' ~ record.from.origin.id ~ '.png' %}
+					{% else %}
+						{% 
+							set record = record|merge({
+								"from": {
+									"type": "manual", 
+									"origin": {
+										"name": "Manual",
+										"stat_value": 0
+									}
+								}
+							})
+						%}
 					{% endif %}
+
 
 					{# If negative #}
 					{% if record.value < 0 %}
 						{% set class = class ~ " c-record--negative" %}
+						{% set value = record.value %}
+					{% else %}
+						{% set value = '+' ~ record.value %}
 					{% endif %}
 
 					<li class="c-record{{ class }}">
-						<span class="c-record__value">{{ record.value }}</span>
-						{% if record.from is defined %}
-							<span class="c-record__item" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/pkmn/icon/{{ record.from.origin.id }}.png');"></span> 
-						{% endif %}
+						<span class="c-record__value">{{ value }}</span>
+						<span class="c-record__item" aria-hidden="true" style="background-image: url({{ image }});"></span> 
 
 						<div class="c-record__data">	
-							<span class="c-record__from">{{ from }}</span>
-							{% if record.pokerus == 1 %}
-								<span class="c-pokerus">POKéRUS</span>
+							<span class="c-record__from">{{ record.from.origin.name }}</span>
+							{% if record.from.type != 'manual' %}
+								<span class="c-record__from__value">{{ record.from.origin.stat_value }}</span>
+								{% if record.pokerus == 1 %}
+									<span class="c-pokerus">POKéRUS</span>
+								{% endif %}
 							{% endif %}
 						</div>
 
