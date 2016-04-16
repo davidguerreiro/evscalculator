@@ -21,17 +21,8 @@ t-training
 			<div class="c-progress__bar" style="width: {{ percentage }}%;">{{ percentage }}%</div>
 		</div>
 
-		<p>Left {{ left }} - Gained {{ gained }} - Target {{ target }}</p>
+		<p>Left {{ left }} - Gained {{ gained }} - Target {{ target }} - Power item: {{ training.power_item.name }}</p>
 
-		<div class="l-option-list">
-			{% if training.pokerus == 1 %}
-			<div class="l-option">
-			</div>
-			{% endif %}
-			<div class="l-option">
-				Power item: {{ training.power_item.name }}
-			</div>
-		</div>
 	</div>
 
 
@@ -211,7 +202,7 @@ t-training
 
 						<div class="c-record__data">	
 							<span class="c-record__from">{{ source.origin.name }}</span>
-							{% if source.type != 'manual' %}
+							{% if source.type == 'hordes' %}
 								<span class="c-record__from__value">{{ source.origin.stat_value }}</span>
 								{% if record.pokerus == 1 %}
 									<span class="c-pokerus">POKéRUS</span>

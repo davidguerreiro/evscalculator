@@ -32,7 +32,7 @@
 	<script>
 	window.graphdata = {
 		{% for stat in stats_again %}
-			{{ stat }}: {{ attribute(training.progress, stat) }},
+			{{ stat }}: {{ attribute(training.progress, stat) ? attribute(training.progress, stat) : 0 }},
 		{% endfor %}
 	};
 	</script>
