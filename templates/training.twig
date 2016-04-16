@@ -12,6 +12,7 @@ t-training
 	{% set gained = attribute(training.progress, current_stat) %}
 	{% set target = attribute(training.target, current_stat) %}
 	{% set percentage = attribute(training.completed, current_stat) %}
+	{% set current_url = path_for('training_stat', { 'id': id_training, 'stat': current_stat }) %}
 
 	{% include 'includes/header_training.twig' %}		
 
@@ -64,7 +65,7 @@ t-training
 				{% set invalid = 'disabled'%}
 			{% endif %}
 			<div class="c-action">
-				<form method="POST" action="/">
+				<form method="POST" action="{{ current_url }}">
 					<input type="hidden" name="action" value="add">
 					<input type="hidden" name="id" value="{{ id_training }}">
 					<input type="hidden" name="stat" value="{{ current_stat }}">
@@ -82,7 +83,7 @@ t-training
 
 		<h3>Manual</h3>
 
-		<form method="POST" action="/">
+		<form method="POST" action="{{ current_url }}">
 			<input type="hidden" name="action" value="add">
 			<input type="hidden" name="id" value="{{ id_training }}">
 			<input type="hidden" name="stat" value="{{ current_stat }}">
