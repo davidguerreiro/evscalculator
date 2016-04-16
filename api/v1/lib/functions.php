@@ -6,11 +6,12 @@ require('key.php');
 //encrypting the id
 require('hash.php');
 
+// Helper functions
+require('helpers.php');
+
 // Sets the response data format
 require('formats.php');
 
-// Helper functions
-require('helpers.php');
 
 
 function getTrainings($id = null){   
