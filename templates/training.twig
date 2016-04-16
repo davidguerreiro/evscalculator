@@ -4,6 +4,10 @@
 t-training
 {% endblock %}
 
+{% block title %}
+{{ stats[current_stat] }} - Training #{{ training.id }} | EVs Calculator
+{% endblock %}
+
 {% block content %}
 	{% set current_url = path_for('training_stat', { 'id': id_training, 'stat': current_stat }) %}
 
@@ -16,7 +20,7 @@ t-training
 		{% if training.pokerus == 1 %}
 			<span class="c-pokerus" style="float:right;">POKéRUS</span>
 		{% endif %}
-		<h2 class="c-training__title">Training #{{ training.id }} - {{ stats[current_stat] }}</h2>
+		<h2 class="c-training__title">{{ stats[current_stat] }} - Training #{{ training.id }}</h2>
 		<div class="c-progress c-progress--main">
 			<div class="c-progress__bar" style="width: {{ percentage }}%;">{{ percentage }}%</div>
 		</div>
