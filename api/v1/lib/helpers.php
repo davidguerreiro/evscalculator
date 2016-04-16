@@ -154,7 +154,7 @@ function getPowerItem($id = null, $stat = null) {
             return $a->id == $id;
         }));
 
-        return count($find_value) ? $find_value[0] : null;
+        return count($find_value) ? $find_value[0] : false;
     }
 
     // Filter by stat
