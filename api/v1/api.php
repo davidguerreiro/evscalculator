@@ -269,3 +269,15 @@ $app->delete('/v1/trainings/{id}[.{format}]', function($req, $res) {
         ->withStatus(204);
 });
 
+//PATCH trainings/:id
+$app->patch('/v1/trainings/{id}[.{format}]', function($req, $res){
+
+    //variables
+    global $hashids;
+
+    $id = $hashids->decode($req->getAttribute('id'))[0];
+    var_dump($req->getParsedBody());
+    die();
+
+});
+
