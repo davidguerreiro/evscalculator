@@ -47,17 +47,6 @@ $app->get('/v1/hordes[.{format}]', function($req, $res) {
     return $res->write(parse($data));
  });
 
-
-//GET items
-$app->get('/v1/items[.{format}]', function($req, $res){
-
-    $data = getPowerItem($req->getQueryParams()['id'], $req->getQueryParams()['stat']);
-
-    return $res->write(parse($data));
-
-});
-
-
 // GET vitamins
 $app->get('/v1/vitamins[.{format}]', function($req, $res){
 
@@ -72,6 +61,15 @@ $app->get('/v1/berries[.{format}]', function($req, $res){
     $data = getBerries($req->getQueryParams());
     
    return $res->write(parse($data));
+});
+
+//GET items
+$app->get('/v1/items[.{format}]', function($req, $res){
+
+    $data = getPowerItem($req->getQueryParams()['id'], $req->getQueryParams()['stat']);
+
+    return $res->write(parse($data));
+
 });
 
 
@@ -242,7 +240,7 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
 
 //Records
 
-//post records by training id
+// POST records by training id
 $app->post('/v1/trainings/{id}/records[.{format}]', function($req, $res){
      global $hashids;
 
@@ -287,6 +285,7 @@ $app->delete('/v1/trainings/{id}[.{format}]', function($req, $res) {
         ->withStatus(204);
 });
 
+
 //PATCH trainings/:id
 $app->patch('/v1/trainings/{id}[.{format}]', function($req, $res){
 
@@ -294,7 +293,7 @@ $app->patch('/v1/trainings/{id}[.{format}]', function($req, $res){
     global $hashids;
 
     //executing
-    $status = updateValue($hashids->decode($req->getAttribute('id'))[0], $req->getQueryParams());
+    $status = updateTrainingValue($hashids->decode($req->getAttribute('id'))[0], $req->getQueryParams());
 
     if(is_array($status)){
 

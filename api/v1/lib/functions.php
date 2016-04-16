@@ -274,7 +274,7 @@ function getActionsByStat($id, $stat_name){
 }
 
 //update a single field trougth patch
-function updateValue($id, $data){
+function updateTrainingValue($id, $data){
 
     //variables
     global $db;
