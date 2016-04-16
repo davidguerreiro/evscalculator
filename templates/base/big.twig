@@ -2,7 +2,8 @@
 <html lang="en" class="t-big {% block class %}{% endblock %}">
 <head>
     {% block head %}
-	{% include 'includes/head.twig' %}
+    	<style>{% include 'includes/critical.min.css' %}</style>
+		{% include 'includes/head.twig' %}
     {% endblock %}
     <title>EVs Calc</title>
 </head>
