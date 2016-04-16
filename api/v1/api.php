@@ -51,7 +51,7 @@ $app->get('/v1/hordes[.{format}]', function($req, $res) {
 //GET items
 $app->get('/v1/items[.{format}]', function($req, $res){
 
-    $data = getItems($req->getQueryParams());
+    $data = getPowerItem($req->getQueryParams()['id'], $req->getQueryParams()['stat']);
 
     return $res->write(parse($data));
 

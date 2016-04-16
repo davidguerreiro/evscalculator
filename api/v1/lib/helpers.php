@@ -164,5 +164,5 @@ function getPowerItem($id = null, $stat = null) {
         });
     }
 
-    return false;
+    return array_values($ret);
 }
