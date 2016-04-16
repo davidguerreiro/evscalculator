@@ -1,4 +1,52 @@
 
 .c-record {
-	
+	overflow: hidden;
+	padding: .5em 0;
+
+	& + & {
+		border-top: .1em solid #CCC;
+	}
+
+	.c-pokerus {
+		float: right;
+		margin-right: .7em;
+		font-size: .6em;
+	}
+}
+
+.c-record__value {
+	@extend %font-secondary;
+	font-size: 2em;
+	float: left;
+	font-weight: 600;
+    letter-spacing: -.075em;
+    width: 1.5em;
+    color: #999;
+
+
+	&:before {
+		content: '+';
+	}
+}
+
+.c-record--negative {
+	.c-record__value:before {
+		content: '';
+	}
+}
+
+.c-record__from {
+	margin: .5em 1em 0;
+    display: inline-block;
+}
+
+.c-record__item {
+	float: right;
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	background-position: center center;
+	background-size: auto 130%;
+	line-height: 1;
+	margin: 0;
 }

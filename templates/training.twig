@@ -26,9 +26,11 @@ t-training
 	<p>Left {{ left }} - Gained {{ gained }} - Target {{ target }} - Percentage {{ percentage }}%</p>
 
 	<div class="l-option-list">
+		{% if training.pokerus == 1 %}
 		<div class="l-option">
-			Pokerus: {{ training.pokerus }}
+			<span class="c-pokerus">POKéRUS</span>
 		</div>
+		{% endif %}
 		<div class="l-option">
 			Power item: {{ training.power_item.name }}
 		</div>
@@ -90,7 +92,7 @@ t-training
 			<input type="hidden" name="pokerus" value="{{ (training.pokerus ? 1 : 0) }}">
 			
 			<div class="c-inlineform">
-				<input class="c-inlineform__field" type="number" name="value" min="{{ - gained }}" max="{{ left }}">
+				<input class="c-inlineform__field" type="number" name="value" min="-10" max="{{ left }}">
 				<button class="c-button c-inlineform__button" type="submit">Add</button>
 			</div>
 		</form>
@@ -124,25 +126,30 @@ t-training
 			<ul>
 				{% for record in records %}
 					{% set class = '' %}
+					{% set from = 'Manual' %}
 
 					{# If not manual action #}
 					{% if record.from is defined %}
-						{% set class = class ~ " c-record__" ~ record.from.type %}
+						{% set class = class ~ " c-record--from c-record--" ~ record.from.type %}
+						{% set from = record.from.origin.name %}
 					{% endif %}
 
 					{# If negative #}
 					{% if record.value < 0 %}
-						{% set class = class ~ " c-record__negative" %}
+						{% set class = class ~ " c-record--negative" %}
 					{% endif %}
 
 					<li class="c-record{{ class }}">
 						<span class="c-record__value">{{ record.value }}</span>
-						<span class="c-record__from">
-							{% if record.from is defined %}
-								from {{ record.from.origin.name }}
-								<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/pkmn/icon/{{ horde.id }}.png');"></span> 
-							{% endif %}
-						</span>
+						{% if record.from is defined %}
+							<span class="c-record__item" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/pkmn/icon/{{ record.from.origin.id }}.png');"></span> 
+						{% endif %}
+
+						{% if record.pokerus == 1 %}
+							<span class="c-pokerus">POKéRUS</span>
+						{% endif %}
+						
+						<span class="c-record__from">{{ from }}</span>
 					</li>
 				{% endfor %}
 			</ul>
