@@ -278,17 +278,17 @@ $app->patch('/v1/trainings/{id}[.{format}]', function($req, $res){
     //executing
     $status = updateValue($hashids->decode($req->getAttribute('id'))[0], $req->getQueryParams());
 
-    if(is_array($data)){
+    if(is_array($status)){
 
         //validation error
         return $res
-            ->write(parse($data))
+            ->write(parse($status))
             ->withStatus(400);
     }
     else{
 
         return $res
-            ->write(parse($data))
+            ->write(parse($status))
             ->withStatus(201);
     }
     

@@ -520,9 +520,9 @@ function updateValue($id, $data){
         }
 
         //value   --   no required when operation = remove
-        if($key === 'value' && ($data['op'] === 'test' || $data['op'] == 'replace')){
+        if($key === 'value' && ($data['op'] === 'test' || $data['op'] === 'replace')){
 
-            if(empty($value) || is_null($value))
+            if($value === '' || is_null($value))
                 return $errors;
 
         }
@@ -534,20 +534,20 @@ function updateValue($id, $data){
 
     //updating field based on operation
     if($data['op'] === 'test'){
-                //die('1');
+    
         //test checks if the value stored on the db matches with the current value
         $db_value = intval($db->get('training', $field,['id' => $id]));
     
-        return ($db_value === $data['value']) ? getTrainings($id) : $errors;
+        return ($db_value === intval($data['value'])) ? getTrainings($id) : $errors;
 
     }
     else{
-        //die('2');
+        
         //value is 0 if we reset the data
-        $data['value'] = ($data['op'] === 'remove') ? 0 : $data['value'];
+        $data['value'] = ($data['op'] === 'remove') ? 0 : intval($data['value']);
 
         //updating value
-        $updated = $db->update('trainings',[$data['field'] => $data['value']], ['id' => $id]);
+        $updated = $db->update('training',[$data['field'] => $data['value']], ['id' => $id]);
 
         return (is_numeric($updated) && is_int($updated)) ? getTrainings($id) : $errors;
     }
