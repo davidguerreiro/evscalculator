@@ -149,7 +149,7 @@ function getPowerItem($id = null, $stat = null) {
     // Grab JSON and make it an array of objects
     $ret = json_decode(file_get_contents('./v1/data/items.json'));
 
-    if($id) {
+    if($id !== null) {
         $find_value = array_values(array_filter($ret, function($a) use($id) {
             return $a->id == $id;
         }));
