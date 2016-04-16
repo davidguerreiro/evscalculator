@@ -48,6 +48,16 @@ $app->get('/v1/hordes[.{format}]', function($req, $res) {
  });
 
 
+//GET items
+$app->get('/v1/items[.{format}]', function($req, $res){
+
+    $data = getItems($req->getQueryParams());
+
+    return $res->write(parse($data));
+
+});
+
+
 // GET vitamins
 $app->get('/v1/vitamins[.{format}]', function($req, $res){
 

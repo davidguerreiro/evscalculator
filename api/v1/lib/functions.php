@@ -221,6 +221,31 @@ function getVitamins($params = null, $id = null){
     return array_values($ret);
 }
 
+//getting items
+function getItems($params = null, $id = null){
+
+    // Grab JSON and make it an array of objects
+    $ret = json_decode(file_get_contents('./v1/data/items.json'));
+
+    //Just one item
+    if($id) {
+        $find_value = array_values(array_filter($ret, function($a) use($id) {
+            return $a->id == $id;
+        }));
+
+        return count($find_value) ? $find_value[0] : null;
+    }
+
+    // Filter by stat
+    if(isStat($params['stat'])) {
+        $ret = array_filter($ret, function($a) use($params) {
+            return $a->stat_name == $params['stat'];
+        });
+    }
+
+    return array_values($ret);
+}
+
 
 function getTrainings($id = null){   
     global $db, $hashids, $STATS;
