@@ -75,12 +75,21 @@ $app->get('/training/{id}/{stat}', function ($req, $res, $args) {
         $training->data->left->$stat = ($training->data->target->$stat - $training->data->progress->$stat);
     }
 
+
     return $this->view->render($res, 'training.twig', [
         'id_training' => $args['id'],
         'current_stat' => $args['stat'],
         'training_data' => $training,
         'records_data' => $records,
-        'actions_data' => $actions
+        'actions_data' => $actions,
+
+        'training' => $training->data,
+        'records' => $records->data,
+        'actions' => $actions->data,
+        'left' => $training->data->left->$args['stat'],
+        'gained' => $training->data->progress->$args['stat'],
+        'target' => $training->data->target->$args['stat'],
+        'percentage' => $training->data->completed->$args['stat']
     ]);
 })->setName('training_stat');
 

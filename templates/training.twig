@@ -5,13 +5,6 @@ t-training
 {% endblock %}
 
 {% block content %}
-	{% set training = training_data.data %}
-	{% set actions = actions_data.data %}
-
-	{% set left = attribute(training.left, current_stat) %}
-	{% set gained = attribute(training.progress, current_stat) %}
-	{% set target = attribute(training.target, current_stat) %}
-	{% set percentage = attribute(training.completed, current_stat) %}
 	{% set current_url = path_for('training_stat', { 'id': id_training, 'stat': current_stat }) %}
 
 	{% include 'includes/header_training.twig' %}		
