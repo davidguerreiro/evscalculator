@@ -145,11 +145,13 @@ t-training
 							<span class="c-record__item" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/pkmn/icon/{{ record.from.origin.id }}.png');"></span> 
 						{% endif %}
 
-						{% if record.pokerus == 1 %}
-							<span class="c-pokerus">POKéRUS</span>
-						{% endif %}
-						
-						<span class="c-record__from">{{ from }}</span>
+						<div class="c-record__data">	
+							<span class="c-record__from">{{ from }}</span>
+							{% if record.pokerus == 1 %}
+								<span class="c-pokerus">POKéRUS</span>
+							{% endif %}
+						</div>
+
 					</li>
 				{% endfor %}
 			</ul>
