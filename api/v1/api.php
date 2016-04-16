@@ -275,9 +275,22 @@ $app->patch('/v1/trainings/{id}[.{format}]', function($req, $res){
     //variables
     global $hashids;
 
-    $id = $hashids->decode($req->getAttribute('id'))[0];
-    var_dump($req->getParsedBody());
-    die();
+    //executing
+    $status = updateValue($hashids->decode($req->getAttribute('id'))[0], $req->getQueryParams());
 
+    if(is_array($data)){
+
+        //validation error
+        return $res
+            ->write(parse($data))
+            ->withStatus(400);
+    }
+    else{
+
+        return $res
+            ->write(parse($data))
+            ->withStatus(201);
+    }
+    
 });
 

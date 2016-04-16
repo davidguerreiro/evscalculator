@@ -387,7 +387,7 @@ function getActionsByStat($id, $stat_name){
 
     //validation
     if(!isStat($stat_name) || empty($current_training))
-        return false;
+        return $errors;
     
     //getting target, progress and left
     $target = getTarget($stat_name, $id);
@@ -410,7 +410,7 @@ function getActionsByStat($id, $stat_name){
     $hordes = getHordes(['stat' => $stat_name, 'game' => $game]);
 
     if(empty($hordes))
-        return false;
+        return $errors;
 
     //looping hordes
     $valid_hordes = [];
@@ -490,3 +490,65 @@ function getActionsByStat($id, $stat_name){
     return $data;
 }
 
+//update a single field trougth patch
+function updateValue($id, $data){
+
+    //variables
+    global $db;
+    $errors = [];
+    $v_data = [];
+
+    //validation
+    if(!isset($id) || !isset($data) || !is_int($id) || !is_array($data))
+        return $errors;
+
+    foreach($data as $key => $value){
+
+        //operation
+        if($key === 'op'){
+
+            if($value !== 'test' && $value !== 'replace' && $value !== 'remove')
+                return $errors;
+
+        }
+
+        //field
+        if($key === 'field'){
+
+            if($value !== 'pokerus' && $value !== 'power_item')
+                return $errors;
+        }
+
+        //value   --   no required when operation = remove
+        if($key === 'value' && ($data['op'] === 'test' || $data['op'] == 'replace'){
+
+            if(empty($value) || is_null($value))
+                return $errors;
+
+        }
+
+    }
+
+    //getting field
+    $field = ($data['field'] === 'pokerus') ? 'pokerus' : 'power_item';
+
+    //updating field based on operation
+    if($data['op'] === 'test'){
+
+        //test checks if the value stored on the db matches with the current value
+        $db_value = $db->select('trainings', [$field]);
+
+        return ($db_value === $data['value']) ? getTrainings($id) : $errors;
+    }
+    else{
+
+        //value is 0 if we reset the data
+        $data['value'] = ($data['op'] === 'remove') ? 0 : $data['value']
+
+        //updating value
+        $updated = $db->update('trainings',[$data['field'] => $data['value']], ['id' => $id]);
+
+        return (is_numeric($updated) && is_int($updated)) ? getTrainings($id) : $errors;
+    }
+
+}
