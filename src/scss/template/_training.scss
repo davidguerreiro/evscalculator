@@ -1,5 +1,8 @@
 
 .t-training {
+	h1,h2,h3,h4,h5,h6 {
+		margin-bottom: .5em;
+	}
 }
 
 .t-training__main {
@@ -32,17 +35,14 @@
 }
 
 @include mq($from: desktop) {
-	.t-training__nav,
-	.t-training__main {
-		float: left;
-		width: 18%;
-	}
 
 	.t-training__main {
-		width: 82%;
+		padding-left: 14.5rem;
 	}
 
 	.t-training__nav {
-		min-height: 100vh;
+		position: fixed;
+		top: 0; bottom: 0; left: 0;
+		width: 14.5rem;
 	}
 }

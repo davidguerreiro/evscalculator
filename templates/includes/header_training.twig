@@ -10,12 +10,30 @@
 	<nav class="nav nav--side" role="nav">
 		{% for stat in stats|keys %}
 			{% if attribute(training.target, stat) is defined %}
-			<a class="c-button c-button--full c-button--{{ stat }}" href="{{ path_for('training_stat', { 'id': id_training, 'stat': stat }) }}">
-				{{ stats[stat] }}:
-				{{ attribute(training.progress, stat) }} / 
-				{{ attribute(training.target, stat) }}
-			</a>
+				<a class="c-button c-button--full c-button--progress c-button--{{ stat }}" href="{{ path_for('training_stat', { 'id': id_training, 'stat': stat }) }}">
+					<span class="c-button--progress__bar" style="width: {{ attribute(training.completed, stat) }}%"></span>
+					{{ stats[stat] }}
+					<span class="c-button__numbers">
+						{% if attribute(training.progress, stat) == attribute(training.target, stat) %}
+							Done!
+						{% else %}
+							{{ attribute(training.progress, stat) }} / 
+							{{ attribute(training.target, stat) }}
+						{% endif %}
+					</span>
+				</a>
 			{% endif %}
 		{% endfor %}
 	</nav>
+
+
+	<div class="js-graph--stats"></div>
+	{% set stats_again = stats|keys %}
+	<script>
+	window.graphdata = {
+		{% for stat in stats_again %}
+			{{ stat }}: {{ attribute(training.progress, stat) }},
+		{% endfor %}
+	};
+	</script>
 </header>

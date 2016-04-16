@@ -1,0 +1,34 @@
+.js-graph--stats {
+	max-width: 250px;
+	font-size: .6em;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #fff;
+	text-align: center;
+}
+
+.js-graph--stats svg {
+}
+
+.js-graph--stats .axis line,
+.js-graph--stats .level-group {
+	stroke: #f9f9f9;
+}
+
+.js-graph--stats .graph--target {
+	fill: #fff;
+}
+
+.js-graph--stats .graph--start {
+	fill: #4da7c9;
+	z-index: 100;
+	position: relative;
+	fill-opacity: 1;
+}
+.js-graph--stats .legend {
+	fill: #fff;
+}
+
+.radar-chart .area {
+  fill-opacity: 0.9;
+}

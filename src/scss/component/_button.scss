@@ -29,6 +29,22 @@
 	display: block;
 }
 
+.c-button--progress {
+	position: relative;
+	padding-top: 1em;
+
+	.c-button__numbers {
+		float: right;
+	}
+}
+
+.c-button--progress__bar {
+	position: absolute;
+	top: 0; left: 0;
+	height: .2em;
+	background: rgba(#fff, .5);
+}
+
 .c-button--action {
 	background: $color-action;
 

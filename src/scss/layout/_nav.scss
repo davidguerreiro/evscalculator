@@ -1,10 +1,14 @@
 
 .nav--side {
-	@include mq($from: tablet, $until: desktop) {
-		
-		.nav--side {
-			display: flex;
-		}
+	@include mq($from: tablet, $until: desktop) {		
+		display: flex;
+	}
 
+	@include mq($from: desktop) {
+		margin-bottom: 1em;
+
+		a {
+			margin-bottom: .5em;
+		}
 	}
 }

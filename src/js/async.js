@@ -7,14 +7,16 @@
 
 	// Start graph
 	if(document.querySelector('.js-graph--stats')) {
-		w.graphdata = {
-			"hp": 0,
-			"spattack": 0,
-			"spdefense": 0,
-			"speed": 0,
-			"defense": 0,
-			'attack': 0
-		};
+		if (typeof w.graphdata === 'undefined') {
+			w.graphdata = {
+				"hp": 0,
+				"spattack": 0,
+				"spdefense": 0,
+				"speed": 0,
+				"defense": 0,
+				'attack': 0
+			};
+		}
 
 		var id = '.js-graph--stats';
 		var chart = RadarChart.chart();

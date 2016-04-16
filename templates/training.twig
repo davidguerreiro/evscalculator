@@ -9,28 +9,31 @@ t-training
 
 	{% include 'includes/header_training.twig' %}		
 
-
-<div class="t-training__header">
-	<h2 class="c-training__title">Training #{{ training.id }} - {{ stats[current_stat] }}</h2>
-	<div class="c-progress c-progress--main">
-		<div class="c-progress__bar" style="width: {{ percentage }}%;"></div>
-	</div>
-
-	<p>Left {{ left }} - Gained {{ gained }} - Target {{ target }} - Percentage {{ percentage }}%</p>
-
-	<div class="l-option-list">
-		{% if training.pokerus == 1 %}
-		<div class="l-option">
-			<span class="c-pokerus">POKéRUS</span>
-		</div>
-		{% endif %}
-		<div class="l-option">
-			Power item: {{ training.power_item.name }}
-		</div>
-	</div>
-</div>
-
 <div class="t-training__main">
+
+
+	<div class="t-training__header">
+		{% if training.pokerus == 1 %}
+			<span class="c-pokerus" style="float:right;">POKéRUS</span>
+		{% endif %}
+		<h2 class="c-training__title">Training #{{ training.id }} - {{ stats[current_stat] }}</h2>
+		<div class="c-progress c-progress--main">
+			<div class="c-progress__bar" style="width: {{ percentage }}%;">{{ percentage }}%</div>
+		</div>
+
+		<p>Left {{ left }} - Gained {{ gained }} - Target {{ target }}</p>
+
+		<div class="l-option-list">
+			{% if training.pokerus == 1 %}
+			<div class="l-option">
+			</div>
+			{% endif %}
+			<div class="l-option">
+				Power item: {{ training.power_item.name }}
+			</div>
+		</div>
+	</div>
+
 
 	<main class="t-training__actions">
 		{# Training stat errors #}
@@ -50,9 +53,9 @@ t-training
 
 		<h2>Actions</h2>
 
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+		<p>These actions change the number of EVs for the {{ current_stat }} stat of your PoKémon. Choose the one that suits you best or simply imput the number of gained EVs on the manual entry.</p>
 
-		<h3>Recommended</h3>
+		<h3>Hordes</h3>
 
 		{% for horde in actions.hordes %}
 			{% set invalid = '' %}
@@ -76,7 +79,65 @@ t-training
 
 		<br><br>
 
-		<h3>Manual</h3>
+
+		<h3>Vitamins</h3>
+
+		{% for vitamin in actions.vitamins %}
+			{% set invalid = '' %}
+			{% if vitamin.invalid == true %}
+				{% set invalid = 'disabled'%}
+			{% endif %}
+			<div class="c-action">
+				<form method="POST" action="{{ current_url }}">
+					<input type="hidden" name="action" value="add">
+					<input type="hidden" name="id" value="{{ id_training }}">
+					<input type="hidden" name="stat" value="{{ current_stat }}">
+					<input type="hidden" name="value" value="{{ vitamin.stat_value }}">
+					<input type="hidden" name="pokerus" value="{{ (training.pokerus ? 1 : 0) }}">
+					<input type="hidden" name="from" value="vitamin:{{ vitamin.id }}">
+					<button class="c-button c-button--action" {{ invalid }} type="submit" title="Use {{ vitamin.name }} horde">
+						<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/vitamin/icon/{{ vitamin.id }}.png');"></span> 
+						{{ vitamin.name }} 
+						+{{ vitamin.stat_value }}</button>
+				</form>
+			</div>
+		{% endfor %}
+
+		<br><br>
+
+		<h3>Berries</h3>
+
+		{% for berry in actions.berries %}
+			{% set invalid = '' %}
+			{% if berry.invalid == true %}
+				{% set invalid = 'disabled'%}
+			{% endif %}
+			<div class="c-action">
+				<form method="POST" action="{{ current_url }}">
+					<input type="hidden" name="action" value="add">
+					<input type="hidden" name="id" value="{{ id_training }}">
+					<input type="hidden" name="stat" value="{{ current_stat }}">
+					<input type="hidden" name="value" value="{{ berry.stat_value }}">
+					<input type="hidden" name="pokerus" value="{{ (training.pokerus ? 1 : 0) }}">
+					<input type="hidden" name="from" value="vitamin:{{ berry.id }}">
+					<button class="c-button c-button--action" {{ invalid }} type="submit" title="Use {{ berry.name }}">
+						<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/berry/icon/{{ berry.id }}.png');"></span> 
+						{{ berry.name }}
+						-{{ berry.stat_value }}</button>
+				</form>
+			</div>
+		{% endfor %}
+
+		<br><br>
+
+		
+	
+	</main>
+
+
+	<aside class="t-training__records">
+
+		<h2>Manual entry</h2>
 
 		<form method="POST" action="{{ current_url }}">
 			<input type="hidden" name="action" value="add">
@@ -85,17 +146,13 @@ t-training
 			<input type="hidden" name="pokerus" value="{{ (training.pokerus ? 1 : 0) }}">
 			
 			<div class="c-inlineform">
-				<input class="c-inlineform__field" type="number" name="value" min="-10" max="{{ left }}">
+				<input class="c-inlineform__field" type="number" name="value" min="-10" max="{{ left }}" placeholder="EVs gained">
 				<button class="c-button c-inlineform__button" type="submit">Add</button>
 			</div>
 		</form>
-	
-	</main>
 
+		<br>
 
-	<aside class="t-training__records">
-
-		{# Records #}
 		<h2>Records</h2>
 
 		{% if records_data.stat != "ok" %}
@@ -119,23 +176,23 @@ t-training
 			<ul>
 				{% for record in records %}
 					{% set class = '' %}
-					{% set image = '' %}
 
-					{# If not manual action #}
+					{# Define origin for manual actions #}
 					{% if record.from is defined %}
-						{% set class = class ~ " c-record--from c-record--" ~ record.from.type %}
+						{% set class = class ~ " c-record--source c-record--" ~ record.from.type %}
 						{% set image = 'https://img.evscalculator.com/pkmn/icon/' ~ record.from.origin.id ~ '.png' %}
+						{% set source = record.from %}
 					{% else %}
+						{% set class = class ~ " c-record--manual" %}
+						{% set image = '' %}
 						{% 
-							set record = record|merge({
-								"from": {
-									"type": "manual", 
-									"origin": {
-										"name": "Manual",
-										"stat_value": 0
-									}
+							set source = {
+								"type": "manual", 
+								"origin": {
+									"name": "Manual",
+									"stat_value": 0
 								}
-							})
+							}
 						%}
 					{% endif %}
 
@@ -153,9 +210,9 @@ t-training
 						<span class="c-record__item" aria-hidden="true" style="background-image: url({{ image }});"></span> 
 
 						<div class="c-record__data">	
-							<span class="c-record__from">{{ record.from.origin.name }}</span>
-							{% if record.from.type != 'manual' %}
-								<span class="c-record__from__value">{{ record.from.origin.stat_value }}</span>
+							<span class="c-record__from">{{ source.origin.name }}</span>
+							{% if source.type != 'manual' %}
+								<span class="c-record__from__value">{{ source.origin.stat_value }}</span>
 								{% if record.pokerus == 1 %}
 									<span class="c-pokerus">POKéRUS</span>
 								{% endif %}

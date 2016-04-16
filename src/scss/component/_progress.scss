@@ -4,14 +4,21 @@
 
 .c-progress--main {
 	background: #fff;
-	border-radius: .2em;
+	border-radius: .5em;
 	padding: .5em;
 
 	.c-progress__bar {
+		@extend %font-secondary;
 		background: #a6e764; 
-		height: 1em; 
-		border-radius: .1em;
+		color: #6A943F;
+		padding: .25em;
+		border-radius: .2em;
+		font-weight: 700;
 		transition: .25s width ease-in-out;
+		letter-spacing: -0.03em;
+		text-align: right;
+		background: linear-gradient(90deg, #D3FFA6 0%, #a6e764 100%);
+		min-width: 2em;
 	}
 }
 
