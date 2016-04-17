@@ -37,6 +37,7 @@ function formatRecord($element) {
     $ret['id'] = $hashids->encode($element['id']);
     $ret['value'] = $element['stat_value'];
     $ret['pokerus'] = ($element['pokerus']==1);
+    $ret['power_item'] = $element['power_item'] ? getPowerItem($element['power_item']) : false;
     $ret['timestamp'] = $element['timestamp'];
 
     if($element['id_horde']) {
