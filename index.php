@@ -32,7 +32,7 @@ $container = $app->getContainer();
 $container['view'] = function ($container) {
     global $STATS, $GAMES;
     $view = new \Slim\Views\Twig('templates', [
-        //'cache' => 'cache'
+        'cache' => 'cache',
         'debug' => true
     ]);
     $view->addExtension(new Twig_Extension_Debug());

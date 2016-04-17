@@ -112,7 +112,7 @@ t-training
 					<input type="hidden" name="action" value="add">
 					<input type="hidden" name="id" value="{{ id_training }}">
 					<input type="hidden" name="stat" value="{{ current_stat }}">
-					<input type="hidden" name="value" value="{{ berry.stat_value }}">
+					<input type="hidden" name="value" value="-{{ berry.stat_value }}">
 					<input type="hidden" name="pokerus" value="{{ (training.pokerus ? 1 : 0) }}">
 					<input type="hidden" name="from" value="vitamin:{{ berry.id }}">
 					<button class="c-button c-button--action" {{ invalid }} type="submit" title="Use {{ berry.name }}">
