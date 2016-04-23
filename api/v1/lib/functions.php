@@ -164,8 +164,6 @@ function postRecord($id, $params){
     $record_id = intval($db->insert('records', $insert));
 
     if(!$record_id){
-        var_dump($record_id);
-        die();
         $errors[] = "There was a problem connecting with the DB";
         return $errors;
     }
@@ -347,8 +345,7 @@ function updateTrainingValue($id, $data){
     
         return ($db_value === intval($data['value'])) ? getTrainings($id) : $errors;
     }
-    else{
-        
+    else{        
         //value is 0 if we reset the data
         $data['value'] = ($data['op'] === 'remove') ? 0 : intval($data['value']);
 
