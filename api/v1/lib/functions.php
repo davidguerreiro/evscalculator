@@ -60,7 +60,7 @@ function getRecords($training_id, $stat = null) {
         "records.id_vitamin",
         "records.id_berry",
         "records.timestamp"
-    ]
+    ];
 
     // If we only want records for one stat
     if($stat !== null) {
