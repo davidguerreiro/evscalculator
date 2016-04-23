@@ -7,6 +7,43 @@ class EVs {
 	*/
 	const API_URL = "http://api.evscalculator.com/v1/";
 
+	/**
+	*
+	* Get data from the API
+	*
+	* @param String $url (required) Dinamic part of the URL
+	* @param Array $params Post params array.
+	* @param String $custom_request HTTP custom method 
+	* @return Object json decoded object
+	*/
+	private function getData($url, $params = null, $custom_request = null){
+
+		if(!is_string($url) || !isset($url))
+			return false;
+
+		//building url
+		$f_url = self::API_URL . $url;
+
+		//curl init
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $petition_url);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+		//adding custom method if required
+		if(!is_null($custom_request) && is_string($custom_request) && $custom_request !== '')
+			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $custom_request);
+
+		//adding params if required
+		if(!is_null($params) && !empty($params) && is_array($params))
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
+
+		//exc
+		$data = curl_exec($curl);
+		curl_close($curl);
+
+		return json_decode($data);
+	}
+
 	//Others methods
 
 	/**
@@ -21,7 +58,7 @@ class EVs {
 	public function getHordes($stat = '', $game = false){
 
 		//building the url
-		$petition_url = self::API_URL.'hordes';
+		$petition_url = 'hordes';
 
 		if(!empty($stat) && $game !== false)
 			$petition_url .= '?stat='.$stat.'&game='.$game;
@@ -33,17 +70,8 @@ class EVs {
 				$petition_url .= '?game='.$game;
 		}
 
-		//curl init
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $petition_url);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-		//exc
-		$data = curl_exec($curl);
-		curl_close($curl);
-
-		return json_decode($data);
-
+		//getting data
+		self::getData($petition_url);
 	}
 
 
@@ -58,21 +86,13 @@ class EVs {
 	public function getBerries($stat = ''){
 
 		//building the url
-		$petition_url = self::API_URL.'berries';
+		$petition_url = 'berries';
 
 		if(!empty($stat))
 			$petition_url .= '?stat='.$stat;
 
-		//curl init
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $petition_url);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-		//exc
-		$data = curl_exec($curl);
-		curl_close($curl);
-
-		return json_decode($data);
+		//getting data
+		self::getData($petition_url);
 	}
 
 	/**
@@ -86,21 +106,13 @@ class EVs {
 	public function getVitamins($stat = ''){
 
 		//building the url
-		$petition_url = self::API_URL.'vitamins';
+		$petition_url = 'vitamins';
 
 		if(!empty($stat))
 			$petition_url .= '?stat='.$stat;
 
-		//curl init
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $petition_url);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-		//exc
-		$data = curl_exec($curl);
-		curl_close($curl);
-
-		return json_decode($data);
+		//getting data
+		self::getData($petition_url);
 	}
 
 	//Training methods
@@ -117,7 +129,7 @@ class EVs {
 	public function getTrainings($id = '', $stat = ''){
 
 		//building the url
-		$petition_url = self::API_URL.'trainings';
+		$petition_url = 'trainings';
 
 		if(!empty($id)){
 			$petition_url .= '/'.$id;
@@ -127,21 +139,8 @@ class EVs {
 		}
 
 
-		//curl init
-
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $petition_url);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-		//exc
-		$data = curl_exec($curl);
-
-		$error = curl_error($curl);
-
-		
-		curl_close($curl);
-
-		return json_decode($data);
+		//getting data
+		self::getData($petition_url);
 	}
 
 	/**
@@ -155,21 +154,10 @@ class EVs {
 	public function postTraining($params){
 
 		//buildin the url
-		$petition_url = self::API_URL.'trainings';
+		$petition_url = 'trainings';
 
-		//curl init
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $petition_url);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'POST');
-		curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
-
-		//exc
-		$data = curl_exec($curl);
-		curl_close($curl);
-
-		return json_decode($data);
-
+		//getting data
+		self::getData($petition_url, $params, 'POST');
 	}
 
 	/**
@@ -183,19 +171,10 @@ class EVs {
 	public function deleteTraining($id){
 
 		//building the url
-		$petition_url = self::API_URL.'trainings/'.$id;
+		$petition_url = 'trainings/'.$id;
 
-		//curl init
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $petition_url);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'DELETE');
-
-		//exc
-		$data = curl_exec($curl);
-		curl_close($curl);
-
-		return json_decode($data);
+		//getting data
+		self::getData($petition_url, null, 'DELETE');
 
 	}
 
@@ -213,21 +192,13 @@ class EVs {
 	public function getRecords($id, $stat = ''){
 
 		//building the url
-		$petition_url = self::API_URL.'trainings/'.$id.'/records';
+		$petition_url = 'trainings/'.$id.'/records';
 
 		if(!empty($stat))
 			$petition_url .= '/'.$stat;
 
-		//curl init
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $petition_url);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-		//exc
-		$data = curl_exec($curl);
-		curl_close($curl);
-
-		return json_decode($data);
+		//getting data
+		self::getData($petition_url);
 	}
 
 	/**
@@ -242,18 +213,10 @@ class EVs {
 	public function getActions($id, $stat){
 
 		//building the url
-		$petition_url = self::API_URL.'trainings/'.$id.'/actions/'.$stat;
+		$petition_url = 'trainings/'.$id.'/actions/'.$stat;
 
-		//curl init
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $petition_url);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-		//exc
-		$data = curl_exec($curl);
-		curl_close($curl);
-
-		return json_decode($data);
+		//getting data
+		self::getData($petition_url);
 	}
 
 	/**
@@ -268,20 +231,10 @@ class EVs {
 	public function postRecord($id, $params){
 
 		//building the url
-		$petition_url = self::API_URL.'trainings/'.$id.'/records';
+		$petition_url = 'trainings/'.$id.'/records';
 
-		//curl init
-		$curl = curl_init();
-		curl_setopt($curl, CURLOPT_URL, $petition_url);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'POST');
-		curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
-
-		//exc
-		$data = curl_exec($curl);
-		curl_close($curl);
-
-		return json_decode($data);
+		//getting data
+		self::getData($petition_url, $params, );
 	}
 
 };
