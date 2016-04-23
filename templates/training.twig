@@ -32,7 +32,7 @@ t-training
 			<input type="hidden" name="id" value="{{ id_training }}">
 			<div class="c-inlineform">
 				<select>
-					{% for item in items %}
+					{% for item in items_data.data %}
 						<option value="{{ item.id }}">{{ item.name }}</option>
 					{% endfor %}
 				</select>
