@@ -17,7 +17,7 @@ t-training
 
 
 	<div class="t-training__header">
-		{% if training.pokerus == 1 %}
+		{% if training.pokerus != 0 %}
 			<span class="c-pokerus" style="float:right;">POKéRUS</span>
 		{% endif %}
 		<h2 class="c-training__title">{{ stats[current_stat] }} - Training #{{ training.id }}</h2>
@@ -63,7 +63,7 @@ t-training
 					<input type="hidden" name="id" value="{{ id_training }}">
 					<input type="hidden" name="stat" value="{{ current_stat }}">
 					<input type="hidden" name="value" value="{{ horde.stat_value }}">
-					<input type="hidden" name="pokerus" value="{{ (training.pokerus ? 1 : 0) }}">
+					<input type="hidden" name="power_item" value="{{ (training.power_item) ? training.power_item : 0) }}">
 					<input type="hidden" name="from" value="horde:{{ horde.id }}">
 					<button class="c-button c-button--action" {{ invalid }} type="submit" title="Kill {{ horde.name }} horde">
 						<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/pkmn/icon/{{ horde.id }}.png');"></span> 
@@ -88,9 +88,8 @@ t-training
 					<input type="hidden" name="id" value="{{ id_training }}">
 					<input type="hidden" name="stat" value="{{ current_stat }}">
 					<input type="hidden" name="value" value="{{ vitamin.stat_value }}">
-					<input type="hidden" name="pokerus" value="{{ (training.pokerus ? 1 : 0) }}">
 					<input type="hidden" name="from" value="vitamin:{{ vitamin.id }}">
-					<button class="c-button c-button--action" {{ invalid }} type="submit" title="Use {{ vitamin.name }} horde">
+					<button class="c-button c-button--action" {{ invalid }} type="submit" title="Use {{ vitamin.name }}">
 						<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/vitamin/icon/{{ vitamin.id }}.png');"></span> 
 						+{{ vitamin.stat_value }}</button>
 				</form>
@@ -112,7 +111,6 @@ t-training
 					<input type="hidden" name="id" value="{{ id_training }}">
 					<input type="hidden" name="stat" value="{{ current_stat }}">
 					<input type="hidden" name="value" value="-{{ berry.stat_value }}">
-					<input type="hidden" name="pokerus" value="{{ (training.pokerus ? 1 : 0) }}">
 					<input type="hidden" name="from" value="berry:{{ berry.id }}">
 					<button class="c-button c-button--action" {{ invalid }} type="submit" title="Use {{ berry.name }}">
 						<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/berry/icon/{{ berry.id }}.png');"></span> 
@@ -207,7 +205,7 @@ t-training
 							<span class="c-record__from">{{ source.origin.name }}</span>
 							{% if source.type == 'hordes' %}
 								<span class="c-record__from__value">{{ source.origin.stat_value }}</span>
-								{% if record.pokerus == 1 %}
+								{% if record.pokerus != 0 %}
 									<span class="c-pokerus">POKéRUS</span>
 								{% endif %}
 							{% endif %}
