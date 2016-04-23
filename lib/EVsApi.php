@@ -274,4 +274,69 @@ class EVs {
 
 	}
 
+	/**
+	*
+	* Get a summary of a training
+	*
+	* @param $id String (required) Training encoded id
+	* @return $data Object json object which contains the summary of a traning (actions used, times used and items used during the training)
+	*/
+	public function getTrainingSummary($id){
+
+		//buildind ghe url
+		$petition_url = 'trainings/' . $id . '/summary';
+
+		//getting data
+		return self::getData($petition_url);
+
+	}
+
+	/**
+	*
+	* This function enables pokerus
+	*
+	* @param $id String (requried) Training encoded id
+	* @return $data Object json object which contains the updated training data
+	*/
+	public function enablePokerus($id){
+
+		//building the id
+		$petition_url = 'trainings/'.$id;
+
+		$params = [
+			'op' => 'replace',
+			'field' => 'pokerus',
+			'value' => time()
+		];
+
+		//getting data
+		return self::getData($petition_url, $params, 'PATCH');
+	}
+
+	/**
+	*
+	* Equip a power item during a training
+	*
+	* @param $id String (required) Training encoded id
+	* @param $item_id int Power Item id
+	* @return $data Object json object which contains the updated traning data
+	*/
+	public function setPowerItem($id, $item = ''){
+
+		//building the url
+		$petition_url = 'trainings/'.$id;
+
+		$params = ['field' => 'power_item'];
+
+		//setting operation and value if required
+		if($item === '')
+			$params['op'] = 'remove'
+		else{
+			$params['op'] = 'replace';
+			$params['value'] = $item;
+		}
+
+		return self::getData($petition_url, $params, 'PATCH')
+	}
+
 };
