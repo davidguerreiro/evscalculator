@@ -304,7 +304,7 @@ function updateTrainingValue($id, $data){
 
     //validation
     if(!isset($id) || !isset($data) || !is_int($id) || !is_array($data))
-        return $errors;
+        return $errors['error'] = 'Invalid data format';
 
     foreach($data as $key => $value){
 
@@ -312,7 +312,7 @@ function updateTrainingValue($id, $data){
         if($key === 'op'){
 
             if($value !== 'test' && $value !== 'replace' && $value !== 'remove')
-                return $errors;
+                return $errors['error'] = 'Invalid operation value';
 
         }
 
@@ -320,14 +320,14 @@ function updateTrainingValue($id, $data){
         if($key === 'field'){
 
             if($value !== 'pokerus' && $value !== 'power_item')
-                return $errors;
+                return $errors['error'] = 'Invalid field value';
         }
 
         //value   --   no required when operation = remove
         if($key === 'value' && ($data['op'] === 'test' || $data['op'] === 'replace')){
 
             if($value === '' || is_null($value))
-                return $errors;
+                return $errors['error'] = "Invalid 'value' value";
 
         }
 
@@ -342,7 +342,7 @@ function updateTrainingValue($id, $data){
         //test checks if the value stored on the db matches with the current value
         $db_value = intval($db->get('training', $field,['id' => $id]));
     
-        return ($db_value === intval($data['value'])) ? getTrainings($id) : $errors;
+        return ($db_value === intval($data['value'])) ? getTrainings($id) : $errors['error'] = 'Test does not match';
 
     }
     else{
@@ -353,7 +353,7 @@ function updateTrainingValue($id, $data){
         //updating value
         $updated = $db->update('training',[$data['field'] => $data['value']], ['id' => $id]);
 
-        return (is_numeric($updated) && is_int($updated)) ? getTrainings($id) : $errors;
+        return (is_numeric($updated) && is_int($updated)) ? getTrainings($id) : $errors['error'] = 'Value not properly updated';
     }
 
 }

@@ -341,11 +341,11 @@ $app->patch('/v1/trainings/{id}[.{format}]', function($req, $res){
     //executing
     $status = updateTrainingValue($hashids->decode($req->getAttribute('id'))[0], $req->getQueryParams());
 
-    if(is_array($status)){
+    if(isset($status['error'])){
 
         //validation error
         return $res
-            ->write(parse($status))
+            ->write(parse($status['error']))
             ->withStatus(400);
     }
     else{

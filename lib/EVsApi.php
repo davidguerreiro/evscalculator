@@ -138,7 +138,7 @@ class EVs {
 	public function getVitamins($stat = ''){
 
 		//variables
-		$query_params[];
+		$query_params = [];
 
 		//building the url
 		$petition_url = 'vitamins';
@@ -166,7 +166,7 @@ class EVs {
 	public function getPowerItems($stat = ''){
 
 		//variables
-		$query_params[];
+		$query_params = [];
 
 		//building the url
 		$petition_url = 'items';
@@ -386,7 +386,7 @@ class EVs {
 			$params['value'] = $item;
 		}
 
-		return self::getData($petition_url, $params, 'PATCH')
+		return self::getData($petition_url, $params, 'PATCH');
 	}
 
 };
