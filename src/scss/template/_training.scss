@@ -23,10 +23,13 @@
 	color: $color-tertiary-dark;
 	padding: 1em;
 	overflow: hidden;
-	border: 1em solid $color-bg;
 }
 
 @include mq($from: tablet) {
+	.t-training__header {
+		border: 1em solid $color-bg;
+	}
+	
 	.t-training__actions,
 	.t-training__records {
 		float: left;

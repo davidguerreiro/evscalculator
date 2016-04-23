@@ -30,6 +30,7 @@
 
 		function resize() {
 	        // update width  
+		    if(document.documentElement.clientWidth<1000) return;
 	        options.w = parseInt(d3.select(id).style("width"));
 	        options.h = parseInt((options.w*3)/4);
 

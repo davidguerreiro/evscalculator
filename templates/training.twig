@@ -35,7 +35,7 @@ t-training
 		<form method="POST" action="{{ current_url }}">
 			<input type="hidden" name="action" value="change_item">
 			<div class="c-inlineform">
-				<select name="power_item">
+				<select name="power_item" class="c-inlineform__field">
 					{% for item in items_data.data %}
 						<option value="{{ item.id }}">{{ item.name }}</option>
 					{% endfor %}
