@@ -39,6 +39,22 @@ GET {{ site.api_url }}/v1/trainings/bglRdqG4no/summary
       "vitamins": 3,
       "berries": 2
     },
+    "items_used": [
+      {
+        "id": 2,
+        "name": "Power Anklet",
+        "stat": "speed",
+        "op": "add",
+        "value": 20
+      },
+      {
+        "id": 2,
+        "name": "Power Anklet",
+        "stat": "speed",
+        "op": "add",
+        "value": 20
+      }
+    ]
   }
 }
 ```
