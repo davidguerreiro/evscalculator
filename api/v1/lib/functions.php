@@ -391,7 +391,7 @@ function deleteTraining($id){
 
     $deleted_items = $db->delete("training", [
         "AND" => [
-            "id" => $id)
+            "id" => $id
         ]
     ]);
 
@@ -406,7 +406,7 @@ function deleteRecord($id){
 
      $deleted_items = $db->delete("records", [
         "AND" => [
-            "id_training" => $id)
+            "id_training" => $id
         ]
     ]);
 
