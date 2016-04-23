@@ -380,7 +380,7 @@ class EVs {
 
 		//setting operation and value if required
 		if($item === '')
-			$params['op'] = 'remove'
+			$params['op'] = 'remove';
 		else{
 			$params['op'] = 'replace';
 			$params['value'] = $item;
