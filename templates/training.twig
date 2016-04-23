@@ -63,7 +63,7 @@ t-training
 					<input type="hidden" name="id" value="{{ id_training }}">
 					<input type="hidden" name="stat" value="{{ current_stat }}">
 					<input type="hidden" name="value" value="{{ horde.stat_value }}">
-					<input type="hidden" name="power_item" value="{{ (training.power_item) ? training.power_item : 0) }}">
+					<input type="hidden" name="power_item" value="{{ (training.power_item ? training.power_item : 0) }}">
 					<input type="hidden" name="from" value="horde:{{ horde.id }}">
 					<button class="c-button c-button--action" {{ invalid }} type="submit" title="Kill {{ horde.name }} horde">
 						<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/pkmn/icon/{{ horde.id }}.png');"></span> 
