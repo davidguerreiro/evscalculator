@@ -18,7 +18,12 @@ t-training
 
 	<div class="t-training__header">
 		{% if training.pokerus != 0 %}
-			<span class="c-pokerus" style="float:right;">POKéRUS</span>
+			<span class="c-pokerus" style="float:right">POKéRUS</span>
+		{% else %}
+			<form method="POST" style="float: right" action="{{ current_url }}">
+				<input type="hidden" name="action" value="activate_pokerus">
+				<button class="c-button" type="submit">Enable POKéRUS</button>
+			</form>
 		{% endif %}
 		<h2 class="c-training__title">{{ stats[current_stat] }} - Training #{{ training.id }}</h2>
 		<div class="c-progress c-progress--main">
@@ -29,9 +34,8 @@ t-training
 
 		<form method="POST" action="{{ current_url }}">
 			<input type="hidden" name="action" value="change_item">
-			<input type="hidden" name="id" value="{{ id_training }}">
 			<div class="c-inlineform">
-				<select>
+				<select name="power_item">
 					{% for item in items_data.data %}
 						<option value="{{ item.id }}">{{ item.name }}</option>
 					{% endfor %}

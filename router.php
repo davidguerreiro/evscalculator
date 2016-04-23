@@ -29,25 +29,17 @@ $app->get('/', function ($req, $res, $args) {
 // HOMEPAGE FORM SENT
 $app->post('/', function ($req, $res, $args) {
 	// POST trainings
-    switch($req->getParsedBody()['action']) {
-        case 'add':
-            $new_training = EVs::postTraining($req->getParsedBody());
+    $new_training = EVs::postTraining($req->getParsedBody());
 
-            if($new_training->stat == "error") {
-                return $this->view->render($res, 'homepage.twig', [
-                    "errors" => $new_training->errors
-                ]);
-            }
-            $training = $new_training->data;
-
-            return $res->withHeader('Location', '/training/'.$training->id.'/attack');
-            break;
-        case 'change_item':
-            
-
-            break;
-        default:
+    if($new_training->stat == "error") {
+        return $this->view->render($res, 'homepage.twig', [
+            "errors" => $new_training->errors
+        ]);
     }
+    $training = $new_training->data;
+
+    return $res->withHeader('Location', '/training/'.$training->id.'/attack');
+    
 });
 
 
@@ -85,6 +77,8 @@ $app->get('/training/{id}/{stat}', function ($req, $res, $args) {
         $training->data->left->$stat = ($training->data->target->$stat - $training->data->progress->$stat);
     }
 
+    // Add current item to 
+
 
     return $this->view->render($res, 'training.twig', [
         'id_training' => $args['id'],
@@ -112,14 +106,24 @@ $app->post('/training/{id}/{stat}', function ($req, $res, $args) {
     // POST vars
     $vars = $req->getParsedBody();
 
-    // HERE COMES THE ACTION
-    if(isset($vars['action']) && $vars['action']=='add') {
-        $new_record = EVs::postRecord($vars['id'], $vars);
+     switch($vars['action']) {
+        case 'add':
+            $new_record = EVs::postRecord($vars['id'], $vars);
 
-        if($new_record->stat == "error") {
-            var_dump($new_record->errors);
-            die();
-        }
+            if($new_record->stat == "error") {
+                var_dump($new_record->errors);
+                die();
+            }
+            break;
+        case 'change_item':
+            $training_with_new_item = EVs::setPowerItem($args['id'], $vars['power_item']);
+            break;
+
+        case 'activate_pokerus':
+            $training_with_pokerus = EVs::enablePokerus($args['id']);
+            break;
+
+        default:
     }
 
     return $res->withHeader('Location', '/training/'.$args['id'].'/'.$args['stat']);
