@@ -36,7 +36,11 @@ function formatRecord($element) {
 
     $ret['id'] = $hashids->encode($element['id']);
     $ret['value'] = $element['stat_value'];
-    $ret['pokerus'] = ($element['pokerus']!==0);
+    $ret['pokerus'] = false;
+    // If pokerus activated before this training was created 
+    if(intval($element['pokerus'])!=0 && intval($element['pokerus'])<$element['timestamp']){
+        $ret['pokerus']= $element['pokerus'];
+    }
     $ret['power_item'] = $element['power_item'] ? getPowerItem($element['power_item']) : false;
     $ret['timestamp'] = $element['timestamp'];
 
