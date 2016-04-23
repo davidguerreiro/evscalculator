@@ -350,17 +350,26 @@ class EVs {
 	*/
 	public function enablePokerus($id){
 
+		//variables
+		$query_params = [];
+
 		//building the id
 		$petition_url = 'trainings/'.$id;
 
-		$params = [
+		$query_params = [
 			'op' => 'replace',
 			'field' => 'pokerus',
 			'value' => time()
 		];
 
+		//adding url params
+		$url_pararms = self::getQueryParams($query_params);
+
+		if($url_pararms !== '')
+			$petition_url .= '?' . $url_pararms;
+
 		//getting data
-		return self::getData($petition_url, $params, 'PATCH');
+		return self::getData($petition_url, null, 'PATCH');
 	}
 
 	/**
@@ -373,20 +382,29 @@ class EVs {
 	*/
 	public function setPowerItem($id, $item = ''){
 
+		//variables
+		$query_params = [];
+
 		//building the url
 		$petition_url = 'trainings/'.$id;
 
-		$params = ['field' => 'power_item'];
+		$query_params = ['field' => 'power_item'];
 
 		//setting operation and value if required
 		if($item === '')
-			$params['op'] = 'remove';
+			$query_params['op'] = 'remove';
 		else{
-			$params['op'] = 'replace';
-			$params['value'] = $item;
+			$query_params['op'] = 'replace';
+			$query_params['value'] = $item;
 		}
 
-		return self::getData($petition_url, $params, 'PATCH');
+		//adding url params
+		$url_pararms = self::getQueryParams($query_params);
+
+		if($url_pararms !== '')
+			$petition_url .= '?' . $url_pararms;
+
+		return self::getData($petition_url, null, 'PATCH');
 	}
 
 };
