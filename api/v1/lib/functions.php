@@ -151,9 +151,18 @@ function postRecord($id, $params){
 
     // Check if value is too much for the target
     $left = getLeft($params['stat'], $id);
+    $gained = getProgress($params['stat'], $id);
 
-    if($left < intval($params['value'])) {
-        $errors[] = "That's more EVs that you need.";
+
+    // Overflow control
+    if(intval($params['value']) > 0){
+        if($left < intval($params['value'])) {
+            $errors[] = "That's more EVs that you need.";
+        }
+    }
+    else{
+        if(($gained + intval($params['value'])) < 0)
+            $insert['stat_value'] = -$gained;
     }
 
 
@@ -259,12 +268,26 @@ function getActionsByStat($id, $stat_name){
     $data['hordes'] = $hordes;
 
     //getting berries by stat
-    if($progress > 0)
-        $data['berries'] = getBerries(['stat' => $stat_name]);
+    $berries = getBerries(['stat' => $stat_name]);
+
+    //looping berries
+    foreach($berries as $berry){
+        $berry->invalid = ($progress > 0) ? false : true;
+    }
+
+    //adding berries to final data
+    $data['berries'] = $berries;
 
     //getting vitamins by stat
-    if($progress < 100)
-        $data['vitamins'] = getVitamins(['stat' => $stat_name]);
+    $vitamins = getVitamins(['stat' => $stat_name]);
+
+    //looping vitamins
+    foreach($vitamins as $vitamin){
+        $vitamin->invalid = ($progress < 100) ? false : true;
+    }
+
+    //adding vitamins to final data
+    $data['vitamins'] = $vitamins;
 
     //building recomended array
 
