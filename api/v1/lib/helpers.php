@@ -159,8 +159,8 @@ function getPowerItem($id = null, $stat = null) {
 
     // Filter by stat
     if($stat !== null && isStat($stat)) {
-        $ret = array_filter($ret, function($a) use($params) {
-            return $a->stat_name == $params['stat'];
+        $ret = array_filter($ret, function($a) use($stat) {
+            return (!isset($a->stat) || $a->stat == $stat);
         });
     }
 
