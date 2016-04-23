@@ -72,14 +72,30 @@
 		&:active {
 			color: $color-text;
 		}
+
+		&:after {
+			content: 'dev';
+			display: inline-block;
+		    line-height: 1;
+		    background: #86B2C3;
+		    margin-left: 1em;
+		    font-size: .3em;
+		    padding: .25em .4em;
+		    border-radius: .1em;
+		    color: #FFF;
+		    position: relative;
+		    bottom: .2em;
+		}
 	}
 
 	.active a {
 		color: #fff;
 	}
 
-	:not(.done) a {
-		text-decoration: line-through;
+	.notdone a {
+		&:after {
+			display: none;
+		}
 	}
 
 	ul {

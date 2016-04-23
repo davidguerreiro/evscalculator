@@ -1,5 +1,6 @@
 ---
 title: The response
+implemented: true
 ---
 
 Depending on the request and the conditions, the API would return a number of different errors.

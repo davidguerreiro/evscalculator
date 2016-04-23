@@ -1,5 +1,6 @@
 ---
 title: The request
+implemented: true
 ---
 
 There are some common properties to every request in the API you should know about.

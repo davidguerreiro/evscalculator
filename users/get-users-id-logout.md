@@ -1,6 +1,6 @@
 ---
 title: GET users/:id/logout
-implemented: true
+implemented: false
 ---
 
 - Receives a user ID.  
