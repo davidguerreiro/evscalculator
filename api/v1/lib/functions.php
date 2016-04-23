@@ -357,3 +357,34 @@ function updateTrainingValue($id, $data){
     }
 
 }
+
+//Delete training by id
+function deleteTraining($id){
+
+    //variables
+    global $db;
+
+    $deleted_items = $db->delete("training", [
+        "AND" => [
+            "id" => $id)
+        ]
+    ]);
+
+    return (is_numeric($deleted_items) && is_int($deleted_items)) ? true : false;
+}
+
+//Delete record by id
+function deleteRecord($id){
+
+    //variables
+    global $db;
+
+     $deleted_items = $db->delete("records", [
+        "AND" => [
+            "id_training" => $id)
+        ]
+    ]);
+
+    return (is_numeric($deleted_items) && is_int($deleted_items)) ? true : false;
+    
+}

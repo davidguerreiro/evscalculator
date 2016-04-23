@@ -273,18 +273,40 @@ $app->post('/v1/trainings/{id}/records[.{format}]', function($req, $res){
 
 // DELETE /trainings/:id
 $app->delete('/v1/trainings/{id}[.{format}]', function($req, $res) {
-    global $db, $hashids;
-    $data = [];
+    global $hashids;
 
-    $deleted_items = $db->delete("training", [
-        "AND" => [
-            "id" => $hashids->encode($req->getAttribute('id'))
-        ]
-    ]);
+    $data = deleteTraining($hashids->decode($req->getAttribute('id')));
 
-    return $res
-        ->write(parse($data))
-        ->withStatus(204);
+    if($data){
+        return $res
+            ->write(parse($data))
+            ->withStatus(204);
+    }
+    else{
+
+        return $res
+            ->withStatus(400);
+    }
+});
+
+//DELETE /records/:id
+$app->delete('/v1/records/{id}[.{format}]', function($req, $res){
+    global $hashids;
+
+    $data = deleteRecord($hashids->decode($req->getAttribute('id')));
+
+    if($data){
+
+        return $res
+            ->write(parse($data))
+            ->withStatus(204);
+    }
+    else{
+
+        return $res
+            ->withStatus(400);
+    }
+
 });
 
 
