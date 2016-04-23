@@ -1,5 +1,6 @@
 ---
 title: DELETE users/:id
+implemented: false
 ---
 
 - Receives a user ID.  

@@ -1,5 +1,6 @@
 ---
 title: GET trainings/:id/:stat
+implemented: false
 ---
 
 - Receives a training ID and a stat name. 

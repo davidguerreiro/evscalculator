@@ -1,5 +1,6 @@
 ---
 title: PATCH trainings/:id
+implemented: true
 ---
 
 - Receives a training ID, an operation, a field and an origin or value.  

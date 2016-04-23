@@ -1,5 +1,6 @@
 ---
 title: DELETE records/:id
+implemented: false
 ---
 
 - Receives a record ID.

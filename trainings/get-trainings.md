@@ -1,5 +1,6 @@
 ---
 title: GET trainings
+implemented: true
 ---
 
 - Returns an object array with a status code of `200`.

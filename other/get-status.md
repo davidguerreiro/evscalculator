@@ -1,5 +1,6 @@
 ---
 title: GET status
+implemented: false
 ---
 
 - Returns an object array.  

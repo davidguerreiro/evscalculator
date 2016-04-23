@@ -1,5 +1,6 @@
 ---
 title: GET users/:id/trainings
+implemented: false
 ---
 
 - Receives a user ID.  

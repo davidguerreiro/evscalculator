@@ -1,5 +1,6 @@
 ---
 title: GET berries
+implemented : true
 ---
 
 - Returns an object array.  

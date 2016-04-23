@@ -1,5 +1,6 @@
 ---
 title: POST trainings/:id/records
+implemented: true
 ---
 
 - Receives a training ID and the data for a new record.

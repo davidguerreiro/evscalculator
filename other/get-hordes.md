@@ -1,5 +1,6 @@
 ---
 title: GET hordes
+implemented : true
 ---
 
 - Returns an object array.  

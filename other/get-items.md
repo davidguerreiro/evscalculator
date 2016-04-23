@@ -1,5 +1,6 @@
 ---
 title: GET items
+implemented : true
 ---
 
 - Returns an object array.  

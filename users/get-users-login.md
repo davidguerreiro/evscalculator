@@ -1,5 +1,6 @@
 ---
 title: GET users/login
+implemented: false
 ---
 
 - Receives a user email and password.  

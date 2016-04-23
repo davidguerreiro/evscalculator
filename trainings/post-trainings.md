@@ -1,5 +1,6 @@
 ---
 title: POST trainings
+implemented: true
 ---
 
 - Receives the data necessary for a new training.

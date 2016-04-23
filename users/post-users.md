@@ -1,5 +1,6 @@
 ---
 title: POST users
+implemented: false
 ---
 
 - Receives the data to create a new user.  

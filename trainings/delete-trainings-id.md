@@ -1,5 +1,6 @@
 ---
 title: DELETE trainings/:id
+implemented: true
 ---
 
 - Receives a training ID.  

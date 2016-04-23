@@ -1,5 +1,6 @@
 ---
 title: GET users/:id
+implemented: false
 ---
 
 - Receives a user ID.

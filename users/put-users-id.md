@@ -1,5 +1,6 @@
 ---
 title: PUT users/:id
+implemented: false
 ---
 
 - Receives all the data for a user with some updated values.  
