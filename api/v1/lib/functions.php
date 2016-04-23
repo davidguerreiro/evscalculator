@@ -365,22 +365,68 @@ function getTrainingSummary($id){
     //variables
     global $db;
     $erros = [];
+    $id_items = [];
 
     //evs got during the training
-    $evs = array(
+    $evs = [
         'manual' => 0,
         'hordes' => 0,
         'vitamins' => 0,
         'berries' => 0
-    );
+    ];
 
-    /*
-    //data array
-    $data = array(
-        'evs' => a
-    );
-    */
+    //count of actions made during the training
+    $times_used = [
+        'manual' => 0,
+        'hordes' => 0,
+        'vitamins' => 0,
+        'berries' => 0
+    ];
 
+    //power items used during the training
+    $items_used = [];
+
+    //getting records
+    $records = getRecords($id);
+
+    if(empty($records))
+        return $errors[] = 'No data received from the API';
+    
+    //looping the stats
+    foreach($records as $stat){
+
+        //looping the actions made
+        foreach($stat as $action){
+
+            //check if manual
+            $key = (!isset($action->from)) ? 'manual' : $action->from['type'];
+            
+            //adding value and times used
+            $evs[$key] += $action->value;
+            $times_used[$key]++;
+
+            //adding item
+            if($action->power_item !== false){
+
+                //items are added only one time
+                if(!in_array($power_item->id, $id_items)){
+                    $id_items[] = $power_item->id;
+                    $items_used[] = $action->power_item;
+                }
+            }
+
+        }//end action foreach
+
+    }//end records foreach
+
+    //building final data array
+    $data = [
+    'evs' => $evs,
+    'times_used' => $times_used,
+    'items_used' => $items_used
+    ];
+
+    return $data;
 }
 
 //Delete training by id

@@ -182,9 +182,9 @@ $app->group('/v1/trainings', function() {
             $data = getTrainingSummary($hashids->decode($req->getAttribute('id'))[0]);
 
             //if array, the data is an errors array, otherwise is a json decoded object with all the data required
-            if(is_array($data)){
+            if(isset($data['error'])){
                 return $res
-                    ->write(parse(["Error getting summary data"]))
+                    ->write(parse($data['error']))
                     ->withStatus(404);
             }
             else{
@@ -193,6 +193,7 @@ $app->group('/v1/trainings', function() {
                     ->write(parse($data))
                     ->withStatus(200);
             }
+            
         });
 
     });
