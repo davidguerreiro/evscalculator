@@ -154,7 +154,7 @@ t-training
 			<input type="hidden" name="pokerus" value="{{ (training.pokerus ? 1 : 0) }}">
 			
 			<div class="c-inlineform">
-				<input class="c-inlineform__field" type="number" name="value" min="-10" max="{{ left }}" placeholder="EVs gained">
+				<input class="c-inlineform__field" type="number" name="value" min="{{ (gained < 10) ? (-gained) : -10 }}" max="{{ left }}" placeholder="EVs gained">
 				<button class="c-button c-inlineform__button" type="submit">Add</button>
 			</div>
 		</form>

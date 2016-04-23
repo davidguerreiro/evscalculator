@@ -3,6 +3,10 @@
 	h1,h2,h3,h4,h5,h6 {
 		margin-bottom: .5em;
 	}
+
+	.js-graph--stats{
+		display: none;
+	}
 }
 
 .t-training__main {
@@ -15,10 +19,6 @@
 	padding: 1em;
 	overflow: hidden;
 	border: 1em solid $color-bg;
-
-	.js-graph--stats{
-		display: none;
-	}
 }
 
 @include mq($from: tablet) {
@@ -50,7 +50,7 @@
 		width: 14.5rem;
 	}
 
-	.t-training__header .js-graph--stats {
+	.t-training .js-graph--stats {
 		position: absolute;
     	bottom: 3em;
     }
