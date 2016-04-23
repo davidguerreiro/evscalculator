@@ -55,7 +55,12 @@ function getRecords($training_id, $stat = null) {
     // If we only want records for one stat
     if($stat !== null) {
         $where['AND']['stat_name'] = $stat;
-        $recordList = $db->select('records', '*', $where);
+        $recordList = $db->select('records', [
+            "[>]training" => ["id" => "id_training"]
+        ], [
+            "training.pokerus",
+            "records.*"
+        ], $where);
 
         if($recordList) {
             foreach($recordList as $record) {
@@ -66,7 +71,12 @@ function getRecords($training_id, $stat = null) {
         // We need one array per stat with target
         foreach($STATS as $stat) {
             $where['AND']['stat_name'] = $stat;
-            $recordList = $db->select('records', '*', $where);
+            $recordList = $db->select('records', [
+                "[>]training" => ["id" => "id_training"]
+            ], [
+                "training.pokerus",
+                "records.*"
+            ], $where);
 
             // If there are records for that stat
             if($recordList) {
@@ -91,7 +101,8 @@ function postRecord($id, $params){
     global $db, $STATS, $hashids;
 
     $insert = [
-        'id_training' => $id
+        'id_training' => $id,
+        'timestamp' => time()
     ];
     $errors = [];
 
@@ -132,7 +143,7 @@ function postRecord($id, $params){
     }
 
     //non required parameters
-    $insert['pokerus'] = (isset($params['pokerus'])) ? 1 : 0;
+    $insert['power_item'] = (getPowerItem($params['power_item'])) ? $params['power_item'] : 0;
 
     // Check if value is too much for the target
     $left = getLeft($params['stat'], $id);
@@ -199,8 +210,6 @@ function getActionsByStat($id, $stat_name){
         return $errors;
 
     //looping hordes
-    $valid_hordes = [];
-
     foreach($hordes as $horde){
 
         //horde_value
@@ -215,7 +224,7 @@ function getActionsByStat($id, $stat_name){
         }
 
         //calculating pokerus
-        if($pokerus)
+        if($pokerus != 0)
             $total_value *= 2;
 
         //updating horde value
@@ -223,9 +232,8 @@ function getActionsByStat($id, $stat_name){
 
         //adding this horde to the valid horde data
         $horde->invalid = ($left < $total_value) ? true : false;
-
-        
     }
+
 
     //sorting hordes by value
     usort($hordes, function($a, $b) {
@@ -250,7 +258,6 @@ function getActionsByStat($id, $stat_name){
     if($pokerus)
         $data['recommended']['pokerus'] = true;
     else{
-
         //getting the total left
         $total_left = $current_training->total;
 
@@ -258,20 +265,18 @@ function getActionsByStat($id, $stat_name){
         $horde_max_value = 0;
 
         foreach($data['hordes'] as $horde){
-
             if($horde->stat_value >= $horde_max_value)
                 $horde_max_value = $horde->stat_value;
-
         }
 
         //checking if the horde max value is higer than the total left
         $data['recommended']['pokerus'] = ($total_left >= $horde_max_value) ? true : false;
-
     }
     //power item
 
     return $data;
 }
+
 
 //update a single field trougth patch
 function updateTrainingValue($id, $data){

@@ -8,7 +8,7 @@ function formatTraining($element) {
 	// Single fields
     $ret['id'] = $hashids->encode($element['id']);
     $ret['game'] = intval($element['game']);
-    $ret['pokerus'] = (intval($element['pokerus']) == 0) ? false : true;
+    $ret['pokerus'] = (intval($element['pokerus']) == 0) ? false : $element['pokerus'];
     $ret['power_item'] = getPowerItem($element['power_item']);
     $ret['has_power_item'] = intval($element['has_power_item']) ? intval($element['has_power_item']) : 0;
     $ret['timestamp'] = $element['timestamp'];
@@ -36,7 +36,7 @@ function formatRecord($element) {
 
     $ret['id'] = $hashids->encode($element['id']);
     $ret['value'] = $element['stat_value'];
-    $ret['pokerus'] = ($element['pokerus']==1);
+    $ret['pokerus'] = ($element['pokerus']!==0);
     $ret['power_item'] = $element['power_item'] ? getPowerItem($element['power_item']) : false;
     $ret['timestamp'] = $element['timestamp'];
 

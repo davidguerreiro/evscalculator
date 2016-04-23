@@ -186,7 +186,9 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
     // Data received
     $vars = $req->getParsedBody();
     // Data to be inserted
-    $insert = [];
+    $insert = [
+        'timestamp' => time()
+    ];
     // Errors
     $errors = [];
 
