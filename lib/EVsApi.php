@@ -44,6 +44,18 @@ class EVs {
 		return json_decode($data);
 	}
 
+	/**
+	*
+	* This method builds a url parameters query from a array 
+	*
+	* @param Array $params (requried) Array which contains the params used to build the string query
+	* @return String $string_query String ready to be appended to an url
+	*/
+	private function getQueryParams($params){
+
+		return (empty($params)) ? '' : http_build_query($params);
+	}
+
 	//Other methods
 
 	/**
@@ -57,18 +69,29 @@ class EVs {
 	*/
 	public function getHordes($stat = '', $game = false){
 
+		//variables
+		$query_params = [];
+
 		//building the url
 		$petition_url = 'hordes';
 
-		if(!empty($stat) && $game !== false)
-			$petition_url .= '?stat='.$stat.'&game='.$game;
+		if(!empty($stat) && $game !== false){
+			$query_params['stat'] = $stat;
+			$query_params['game'] = $game;
+		}
 		else{
 			if(!empty($stat))
-				$petition_url .= '?stat='.$stat;
+				$query_params['stat'] = $stat;
 
 			if($game !== false)
-				$petition_url .= '?game='.$game;
+				$query_params['game'] = $game;
 		}
+
+		//adding url params
+		$url_pararms = self::getQueryParams($query_params);
+
+		if($url_pararms !== '')
+			$petition_url .= '?' . $url_pararms;
 
 		//getting data
 		return self::getData($petition_url);
@@ -85,11 +108,20 @@ class EVs {
 	*/
 	public function getBerries($stat = ''){
 
+		//variables
+		$query_params = [];
+
 		//building the url
 		$petition_url = 'berries';
 
 		if(!empty($stat))
-			$petition_url .= '?stat='.$stat;
+			$query_params['stat'] = $stat;
+
+		//adding url params
+		$url_pararms = self::getQueryParams($query_params);
+
+		if($url_pararms !== '')
+			$petition_url .= '?' . $url_pararms;
 
 		//getting data
 		return self::getData($petition_url);
@@ -105,11 +137,20 @@ class EVs {
 	*/
 	public function getVitamins($stat = ''){
 
+		//variables
+		$query_params[];
+
 		//building the url
 		$petition_url = 'vitamins';
 
 		if(!empty($stat))
-			$petition_url .= '?stat='.$stat;
+			$query_params['stat'] = $stat;
+
+		//adding url params
+		$url_pararms = self::getQueryParams($query_params);
+
+		if($url_pararms !== '')
+			$petition_url .= '?' . $url_pararms;
 
 		//getting data
 		return self::getData($petition_url);
@@ -124,11 +165,20 @@ class EVs {
 	*/
 	public function getPowerItems($stat = ''){
 
+		//variables
+		$query_params[];
+
 		//building the url
 		$petition_url = 'items';
 
 		if(!empty($stat))
-			$petition_url .= '?stat='.$stat;
+			$query_params['stat'] = $stat;
+
+		//adding url params
+		$url_pararms = self::getQueryParams($query_params);
+
+		if($url_pararms !== '')
+			$petition_url .= '?' . $url_pararms;
 
 		//getting data
 		return self::getData($petition_url);
