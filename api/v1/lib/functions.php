@@ -312,25 +312,27 @@ function updateTrainingValue($id, $data){
         if($key === 'op'){
 
             if($value !== 'test' && $value !== 'replace' && $value !== 'remove')
-                return $errors['error'] = 'Invalid operation value';
+                $errors[] = 'Invalid operation value';
 
         }
 
         //field
         if($key === 'field'){
-
             if($value !== 'pokerus' && $value !== 'power_item')
-                return $errors['error'] = 'Invalid field value';
+                $errors[] = 'Invalid field value';
         }
 
         //value   --   no required when operation = remove
         if($key === 'value' && ($data['op'] === 'test' || $data['op'] === 'replace')){
-
             if($value === '' || is_null($value))
-                return $errors['error'] = "Invalid 'value' value";
+                $errors[] = "Invalid 'value' value";
 
         }
+    }
 
+    // Don't continue if there are any errors
+    if(sizeof($errors)) {
+        return $errors;
     }
 
     //getting field
@@ -338,12 +340,12 @@ function updateTrainingValue($id, $data){
 
     //updating field based on operation
     if($data['op'] === 'test'){
-    
         //test checks if the value stored on the db matches with the current value
         $db_value = intval($db->get('training', $field,['id' => $id]));
-    
-        return ($db_value === intval($data['value'])) ? getTrainings($id) : $errors['error'] = 'Test does not match';
 
+        $errors[] = 'Test does not match';
+    
+        return ($db_value === intval($data['value'])) ? getTrainings($id) : $errors;
     }
     else{
         
@@ -353,7 +355,9 @@ function updateTrainingValue($id, $data){
         //updating value
         $updated = $db->update('training',[$data['field'] => $data['value']], ['id' => $id]);
 
-        return (is_numeric($updated) && is_int($updated)) ? getTrainings($id) : $errors['error'] = 'Value not properly updated';
+        $errors[] = 'Value not properly updated';
+
+        return (is_numeric($updated) && is_int($updated)) ? getTrainings($id) : $errors;
     }
 
 }
@@ -452,6 +456,7 @@ function deleteRecord($id){
 
      $deleted_items = $db->delete("records", [
         "AND" => [
+
             "id_training" => $id
         ]
     ]);

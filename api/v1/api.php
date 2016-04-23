@@ -339,19 +339,17 @@ $app->patch('/v1/trainings/{id}[.{format}]', function($req, $res){
     global $hashids;
 
     //executing
-    $status = updateTrainingValue($hashids->decode($req->getAttribute('id'))[0], $req->getQueryParams());
+    $data = updateTrainingValue($hashids->decode($req->getAttribute('id'))[0], $req->getQueryParams());
 
-    if(isset($status['error'])){
-
+    if(is_array($data)){
         //validation error
         return $res
-            ->write(parse($status['error']))
+            ->write(parse($data))
             ->withStatus(400);
     }
     else{
-
         return $res
-            ->write(parse($status))
+            ->write(parse($data))
             ->withStatus(201);
     }
     
