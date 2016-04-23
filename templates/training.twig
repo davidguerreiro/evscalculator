@@ -27,6 +27,19 @@ t-training
 
 		<p>Left {{ left }} - Gained {{ gained }} - Target {{ target }} - Power item: {{ training.power_item.name }}</p>
 
+		<form method="POST" action="{{ current_url }}">
+			<input type="hidden" name="action" value="change_item">
+			<input type="hidden" name="id" value="{{ id_training }}">
+			<div class="c-inlineform">
+				<select>
+					{% for item in items %}
+						<option value="{{ item.id }}">{{ item.name }}</option>
+					{% endfor %}
+				</select>
+				<button class="c-button c-inlineform__button" type="submit">Change</button>
+			</div>
+		</form>
+
 	</div>
 
 

@@ -29,17 +29,25 @@ $app->get('/', function ($req, $res, $args) {
 // HOMEPAGE FORM SENT
 $app->post('/', function ($req, $res, $args) {
 	// POST trainings
-    $new_training = EVs::postTraining($req->getParsedBody());
+    switch($req->getParsedBody()['action']) {
+        case 'add':
+            $new_training = EVs::postTraining($req->getParsedBody());
 
-    if($new_training->stat == "error") {
-        return $this->view->render($res, 'homepage.twig', [
-            "errors" => $new_training->errors
-        ]);
+            if($new_training->stat == "error") {
+                return $this->view->render($res, 'homepage.twig', [
+                    "errors" => $new_training->errors
+                ]);
+            }
+            $training = $new_training->data;
+
+            return $res->withHeader('Location', '/training/'.$training->id.'/attack');
+            break;
+        case 'change_item':
+            
+
+            break;
+        default:
     }
-
-    $training = $new_training->data;
-
-    return $res->withHeader('Location', '/training/'.$training->id.'/attack');
 });
 
 
@@ -52,6 +60,8 @@ $app->get('/training/{id}/{stat}', function ($req, $res, $args) {
     $records = EVs::getRecords($args['id'], $args['stat']);
     // GET trainings/:id/actions/:stat
     $actions = EVs::getActions($args['id'], $args['stat']);
+    // GET items for this stat
+    $items = EVs::getPowerItems($args['stat']);
 
     // Training not found
     if($training->stat == 'error') {
@@ -82,10 +92,12 @@ $app->get('/training/{id}/{stat}', function ($req, $res, $args) {
         'training_data' => $training,
         'records_data' => $records,
         'actions_data' => $actions,
+        'items_data' => $items,
 
         'training' => $training->data,
         'records' => $records->data,
         'actions' => $actions->data,
+
         'left' => $training->data->left->$args['stat'],
         'gained' => $training->data->progress->$args['stat'],
         'target' => $training->data->target->$args['stat'],
