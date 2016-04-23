@@ -90,7 +90,7 @@ t-training
 					<input type="hidden" name="value" value="{{ vitamin.stat_value }}">
 					<input type="hidden" name="from" value="vitamin:{{ vitamin.id }}">
 					<button class="c-button c-button--action" {{ invalid }} type="submit" title="Use {{ vitamin.name }} horde">
-						<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/vitamin/icon/{{ vitamin.id }}.png');"></span> 
+						<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/vitamins/icon/{{ vitamin.id }}.png');"></span> 
 						+{{ vitamin.stat_value }}</button>
 				</form>
 			</div>
@@ -113,7 +113,7 @@ t-training
 					<input type="hidden" name="value" value="-{{ berry.stat_value }}">
 					<input type="hidden" name="from" value="berry:{{ berry.id }}">
 					<button class="c-button c-button--action" {{ invalid }} type="submit" title="Use {{ berry.name }}">
-						<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/berry/icon/{{ berry.id }}.png');"></span> 
+						<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/berries/icon/{{ berry.id }}.png');"></span> 
 						{{ berry.name }}
 						-{{ berry.stat_value }}</button>
 				</form>
@@ -173,7 +173,7 @@ t-training
 					{% if record.from is defined %}
 						{% set class = class ~ " c-record--source c-record--" ~ record.from.type %}
 						{% set source = record.from %}
-						{% set image_root = record.from.type ~ 's' %}
+						{% set image_root = record.from.type %}
 						{% if image_root == 'hordes' %}
 							{% set image_root = 'pkmn' %}
 						{% endif %}
