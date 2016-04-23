@@ -242,7 +242,7 @@ $app->post('/v1/trainings[.{format}]', function($req, $res) {
 
 //Records
 
-// POST records by training id
+// POST trainings/:id/records
 $app->post('/v1/trainings/{id}/records[.{format}]', function($req, $res){
      global $hashids;
 

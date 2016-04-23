@@ -47,20 +47,27 @@ function getRecords($training_id, $stat = null) {
     $data = [];
     $where = [
         'AND' => [
-            'id_training' => $training_id
+            'records.id_training' => $training_id
         ],
-        'ORDER' => 'timestamp DESC'
+        'ORDER' => 'records.timestamp DESC'
     ];
+    $fields = [
+        "training.pokerus",
+        "records.id",
+        "records.stat_value",
+        "records.power_item",
+        "records.id_horde",
+        "records.id_vitamin",
+        "records.id_berry",
+        "records.timestamp"
+    ]
 
     // If we only want records for one stat
     if($stat !== null) {
-        $where['AND']['stat_name'] = $stat;
+        $where['AND']['records.stat_name'] = $stat;
         $recordList = $db->select('records', [
-            "[>]training" => ["id" => "id_training"]
-        ], [
-            "training.pokerus",
-            "records.*"
-        ], $where);
+            "[>]training" => ["id_training" => "id"]
+        ], $fields, $where);
 
         if($recordList) {
             foreach($recordList as $record) {
@@ -70,13 +77,10 @@ function getRecords($training_id, $stat = null) {
     } else {
         // We need one array per stat with target
         foreach($STATS as $stat) {
-            $where['AND']['stat_name'] = $stat;
+            $where['AND']['records.stat_name'] = $stat;
             $recordList = $db->select('records', [
-                "[>]training" => ["id" => "id_training"]
-            ], [
-                "training.pokerus",
-                "records.*"
-            ], $where);
+                "[>]training" => ["id_training" => "id"]
+            ], $fields, $where);
 
             // If there are records for that stat
             if($recordList) {
@@ -143,7 +147,7 @@ function postRecord($id, $params){
     }
 
     //non required parameters
-    $insert['power_item'] = (getPowerItem($params['power_item'])) ? $params['power_item'] : 0;
+    $insert['power_item'] = (isset($params['power_item']) && getPowerItem($params['power_item'])) ? $params['power_item'] : 0;
 
     // Check if value is too much for the target
     $left = getLeft($params['stat'], $id);
@@ -160,13 +164,25 @@ function postRecord($id, $params){
     $record_id = intval($db->insert('records', $insert));
 
     if(!$record_id){
+        var_dump($record_id);
+        die();
         $errors[] = "There was a problem connecting with the DB";
         return $errors;
     }
 
     //getting the last insert data
-    $last_insert = $db->get('records',
-        '*',['id' => $record_id]
+    $last_insert = $db->get('records', [
+            "[>]training" => ["id_training" => "id"]
+        ],[
+            "training.pokerus",
+            "records.id",
+            "records.stat_value",
+            "records.power_item",
+            "records.id_horde",
+            "records.id_vitamin",
+            "records.id_berry",
+            "records.timestamp"
+        ],['records.id' => $record_id]
     );
 
     $data = formatRecord($last_insert);
