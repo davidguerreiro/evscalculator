@@ -117,10 +117,20 @@ $app->post('/training/{id}/{stat}', function ($req, $res, $args) {
             break;
         case 'change_item':
             $training_with_new_item = EVs::setPowerItem($args['id'], $vars['power_item']);
+
+            if($training_with_new_item->stat == "error") {
+                var_dump($training_with_new_item->errors);
+                die();
+            }
             break;
 
         case 'activate_pokerus':
             $training_with_pokerus = EVs::enablePokerus($args['id']);
+
+            if($training_with_pokerus->stat == "error") {
+                var_dump($training_with_pokerus->errors);
+                die();
+            }
             break;
 
         default:
