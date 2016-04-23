@@ -35,6 +35,7 @@ var RadarChart = {
 
   chart: function() {
       // default config
+      if(document.documentElement.clientWidth<1000) return;
       var cfg = Object.create(RadarChart.defaultConfig);
 
 
@@ -441,6 +442,7 @@ var RadarChart = {
 function createStatData(predata) {
 
   function noticeMargin(val) {
+    if(isNaN(val)) return 0;
     if(val>0) return val + 20;
     return val;
   }

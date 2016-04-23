@@ -13,6 +13,11 @@
 	overflow: hidden;
 }
 
+.t-training__actions {
+	background: #fff;
+	padding: 1em;
+}
+
 .t-training__header {
 	background: $color-tertiary;
 	color: $color-tertiary-dark;
@@ -25,7 +30,7 @@
 	.t-training__actions,
 	.t-training__records {
 		float: left;
-		width: 33.33%;
+		width: 40%;
 		background: #fff;
 		border: 1em solid $color-bg;
 		padding: 1em;
@@ -33,7 +38,7 @@
 	}
 
 	.t-training__actions {
-		width: 66.66%;
+		width: 60%;
 		border-right: 0;
 	}
 }
@@ -49,6 +54,14 @@
 		top: 0; bottom: 0; left: 0;
 		width: 14.5rem;
 	}
+
+	.t-training__actions {
+		width: 66.66%;
+	}
+	.t-training__records {
+		width: 33.33%;
+	}
+
 
 	.t-training .js-graph--stats {
 		display: block;
