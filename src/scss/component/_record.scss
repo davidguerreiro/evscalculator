@@ -10,10 +10,6 @@
 		padding-left: 1em;
 		padding-right: 1em;
 	}
-
-	.c-pokerus {
-		font-size: .5em;
-	}
 }
 
 .c-record__value {
@@ -49,6 +45,23 @@
 }
 
 .c-record__from {
-	margin: 0em 1em 0em 0;
+	margin: .5em 1em 0em 0;
     display: block;
+}
+
+// For horde records 
+.c-record--hordes {
+	.c-record__from {
+		margin-top: 0;
+		margin-bottom: .25em;
+	}
+
+	.c-pokerus {
+		font-size: .5em;
+	}
+
+	.c-record__from__value {
+		@extend %font-secondary;
+	    font-size: .8em;
+	}
 }
