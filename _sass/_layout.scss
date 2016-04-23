@@ -78,6 +78,10 @@
 		color: #fff;
 	}
 
+	:not(.done) a {
+		text-decoration: line-through;
+	}
+
 	ul {
 		list-style: none;
 		padding: 0 0 0 .5em;
