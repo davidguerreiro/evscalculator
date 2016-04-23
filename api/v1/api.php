@@ -152,7 +152,7 @@ $app->group('/v1/trainings', function() {
         //GET trainings/:id/actions/:stat
         $this->get('/actions/{stat}[.{format}]', function($req, $res){
 
-            global $db, $hashids;
+            global $hashids;
 
             $training_id = $hashids->decode($req->getAttribute('id'))[0];
             $stat = $req->getAttribute('stat');
@@ -172,6 +172,27 @@ $app->group('/v1/trainings', function() {
             
             return $res
                 ->write(parse($data));
+        });
+
+        //GET trainings/:id/summary
+        $this->get('/summary[.{format}]', function($req, $res){
+
+            global $hashids;
+
+            $data = getTrainingSummary($hashids->decode($req->getAttribute('id'))[0]);
+
+            //if array, the data is an errors array, otherwise is a json decoded object with all the data required
+            if(is_array($data)){
+                return $res
+                    ->write(parse(["Error getting summary data"]))
+                    ->withStatus(404);
+            }
+            else{
+
+                return $res
+                    ->write(parse($data))
+                    ->withStatus(200);
+            }
         });
 
     });
@@ -275,7 +296,7 @@ $app->post('/v1/trainings/{id}/records[.{format}]', function($req, $res){
 $app->delete('/v1/trainings/{id}[.{format}]', function($req, $res) {
     global $hashids;
 
-    $data = deleteTraining($hashids->decode($req->getAttribute('id')));
+    $data = deleteTraining($hashids->decode($req->getAttribute('id'))[0]);
 
     if($data){
         return $res
@@ -293,7 +314,7 @@ $app->delete('/v1/trainings/{id}[.{format}]', function($req, $res) {
 $app->delete('/v1/records/{id}[.{format}]', function($req, $res){
     global $hashids;
 
-    $data = deleteRecord($hashids->decode($req->getAttribute('id')));
+    $data = deleteRecord($hashids->decode($req->getAttribute('id'))[0]);
 
     if($data){
 

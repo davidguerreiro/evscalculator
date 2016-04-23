@@ -358,6 +358,31 @@ function updateTrainingValue($id, $data){
 
 }
 
+//Get training summary
+function getTrainingSummary($id){
+
+
+    //variables
+    global $db;
+    $erros = [];
+
+    //evs got during the training
+    $evs = array(
+        'manual' => 0,
+        'hordes' => 0,
+        'vitamins' => 0,
+        'berries' => 0
+    );
+
+    /*
+    //data array
+    $data = array(
+        'evs' => a
+    );
+    */
+
+}
+
 //Delete training by id
 function deleteTraining($id){
 
@@ -386,5 +411,5 @@ function deleteRecord($id){
     ]);
 
     return (is_numeric($deleted_items) && is_int($deleted_items)) ? true : false;
-    
+
 }
