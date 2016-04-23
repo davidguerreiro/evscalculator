@@ -22,7 +22,7 @@ class EVs {
 			return false;
 
 		//building url
-		$f_url = self::API_URL . $url;
+		$petition_url = self::API_URL . $url;
 
 		//curl init
 		$curl = curl_init();
@@ -44,7 +44,7 @@ class EVs {
 		return json_decode($data);
 	}
 
-	//Others methods
+	//Other methods
 
 	/**
 	*
@@ -71,7 +71,7 @@ class EVs {
 		}
 
 		//getting data
-		self::getData($petition_url);
+		return self::getData($petition_url);
 	}
 
 
@@ -92,7 +92,7 @@ class EVs {
 			$petition_url .= '?stat='.$stat;
 
 		//getting data
-		self::getData($petition_url);
+		return self::getData($petition_url);
 	}
 
 	/**
@@ -112,7 +112,26 @@ class EVs {
 			$petition_url .= '?stat='.$stat;
 
 		//getting data
-		self::getData($petition_url);
+		return self::getData($petition_url);
+	}
+
+	/**
+	*
+	* Get Power Items
+	*
+	* @param String $stat Filter Power Items by stat
+	* @return Object json object data
+	*/
+	public function getPowerItems($stat = ''){
+
+		//building the url
+		$petition_url = 'items';
+
+		if(!empty($stat))
+			$petition_url .= '?stat='.$stat;
+
+		//getting data
+		return self::getData($petition_url);
 	}
 
 	//Training methods
@@ -140,7 +159,7 @@ class EVs {
 
 
 		//getting data
-		self::getData($petition_url);
+		 return self::getData($petition_url);
 	}
 
 	/**
@@ -157,7 +176,7 @@ class EVs {
 		$petition_url = 'trainings';
 
 		//getting data
-		self::getData($petition_url, $params, 'POST');
+		 return self::getData($petition_url, $params, 'POST');
 	}
 
 	/**
@@ -174,7 +193,7 @@ class EVs {
 		$petition_url = 'trainings/'.$id;
 
 		//getting data
-		self::getData($petition_url, null, 'DELETE');
+		 return self::getData($petition_url, null, 'DELETE');
 
 	}
 
@@ -198,7 +217,7 @@ class EVs {
 			$petition_url .= '/'.$stat;
 
 		//getting data
-		self::getData($petition_url);
+		 return self::getData($petition_url);
 	}
 
 	/**
@@ -216,7 +235,7 @@ class EVs {
 		$petition_url = 'trainings/'.$id.'/actions/'.$stat;
 
 		//getting data
-		self::getData($petition_url);
+		 return self::getData($petition_url);
 	}
 
 	/**
@@ -224,7 +243,7 @@ class EVs {
 	* Create a new training record
 	*
 	* @param $id String (required) Training encoded id
-	* @param $params Array Array which contains all the parameters needed
+	* @param $params (requried) Array Array which contains all the parameters needed
 	* @return $data json object with all the new record created
 	*
 	*/
@@ -234,7 +253,25 @@ class EVs {
 		$petition_url = 'trainings/'.$id.'/records';
 
 		//getting data
-		self::getData($petition_url, $params, );
+		 return self::getData($petition_url, $params, 'POST');
+	}
+
+	/**
+	*
+	* Update a single value on the database
+	*
+	* @param $id String (required) Training encoded id
+	* @param $params Array (requried) Array which contains all the parameters needed
+	* @return $data Object json object which contains the updated training data
+	*/
+	public function patchTraining($id, $params){
+
+		//building the url
+		$petition_url = 'trainings/'.$id;
+
+		//getting data
+		 return self::getData($petition_url, $params, 'PATCH');
+
 	}
 
 };
