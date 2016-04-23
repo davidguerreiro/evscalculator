@@ -283,7 +283,7 @@ function getActionsByStat($id, $stat_name){
 
     //looping vitamins
     foreach($vitamins as $vitamin){
-        $vitamin->invalid = ($progress < 100) ? false : true;
+        $vitamin->invalid = ($progress < 100 && $left >= intval($vitamin->stat_value)) ? false : true;
     }
 
     //adding vitamins to final data
