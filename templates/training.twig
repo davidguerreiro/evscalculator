@@ -172,8 +172,12 @@ t-training
 					{# Define origin for manual actions #}
 					{% if record.from is defined %}
 						{% set class = class ~ " c-record--source c-record--" ~ record.from.type %}
-						{% set image = 'https://img.evscalculator.com/pkmn/icon/' ~ record.from.origin.id ~ '.png' %}
 						{% set source = record.from %}
+						{% set image_root = record.from.type ~ 's' %}
+						{% if image_root == 'hordes' %}
+							{% set image_root = 'pkmn' %}
+						{% endif %}
+						{% set image = 'https://img.evscalculator.com/' ~ image_root ~ '/icon/' ~ record.from.origin.id ~ '.png' %}
 					{% else %}
 						{% set class = class ~ " c-record--manual" %}
 						{% set image = '' %}
