@@ -166,8 +166,8 @@ $t-records-desktop-width: 21rem;
 
 @include mq($from: wide) {
 
-	.t-training__main {
-		padding-right: $t-records-desktop-width;
+	.t-training__actions {
+		margin-right: $t-records-desktop-width;
 	}
 	.t-training__records {
 		width: $t-records-desktop-width;
