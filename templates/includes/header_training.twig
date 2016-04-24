@@ -7,10 +7,13 @@
 		<span class="c-logo__calculator">calculator</span>
 	</h1>
 
-	<a class="c-button c-hamburger" href="#menu">Menu</a>
+	<a class="c-button c-hamburger" href="#panel-menu">Menu</a>
 
-	<div class="c-panel c-panel--menu">
+	<div class="c-panel c-panel--menu" id="panel-menu">
 		<a href="#" class="c-button c-button--back">Back to training</a>
+
+		<a href="#panel-records" class="c-button">Records</a>
+		
 		<nav class="nav nav--side" role="nav">
 			{% for stat in stats|keys %}
 				{% if attribute(training.target, stat) is defined %}
