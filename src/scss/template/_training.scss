@@ -39,6 +39,7 @@ $t-records-desktop-width: 336px;
 	overflow: hidden;
 }
 
+
 .t-training__records {
 	padding: 1em;
 	background: #fff;
@@ -109,6 +110,12 @@ $t-records-desktop-width: 336px;
 	}
 	.t-training__records{
 		border-top: 1em solid $color-bg;
+	}
+
+
+	.t-training__footer {
+		border-top: 1em solid $color-bg;
+		padding: 1em 1em 0 1em;		
 	}
 
 

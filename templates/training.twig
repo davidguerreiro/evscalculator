@@ -16,7 +16,7 @@ t-training
 <div class="t-training__main">
 
 	<main class="t-training__actions">
-		<div class="t-training__header">
+		<header class="t-training__header">
 			{% if training.pokerus != 0 %}
 				<span class="c-pokerus" style="float:right">POKéRUS</span>
 			{% else %}
@@ -67,7 +67,7 @@ t-training
 
 			</div>
 
-		</div>
+		</header>
 		
 		{# Training stat errors #}
 		{% if training_data.stat == "invalid" %}
@@ -173,9 +173,11 @@ t-training
 				</div>
 			</div>
 
-		</main>
+		</div>
 
-
+		<footer class="t-training__footer">
+			<p>Developed by <a href="https://jaicab.com">Jaime Caballero</a> and <a href="http://davidguerreiro.com">David Guerreiro</a>.</p>
+		</footer>
 		
 	
 	</main>
