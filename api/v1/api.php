@@ -72,6 +72,16 @@ $app->get('/v1/items[.{format}]', function($req, $res){
 
 });
 
+//GET Status
+$app->get('/v1/status[.{format}]', function($req, $res){})
+
+    $data = getStatus();
+
+    return $res->write(parse($data));
+
+    
+});
+
 
 // Group: trainings
 $app->group('/v1/trainings', function() {

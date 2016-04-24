@@ -167,3 +167,34 @@ function getPowerItem($id = null, $stat = null) {
 
     return array_values($ret);
 }
+
+//Get Status
+function getStatus(){
+
+    //variables
+    global $db;
+    $data = [];
+
+    //building trainings data
+    $array_trainings = [
+        'created' => 0,
+        'completed' => 0,
+        'private' => 0
+    ];
+
+    //getting all the trainings data
+    $array_trainings['created'] = $db->count("training");
+    //$array_trainings['completed'] = $db->sum("stat_value")
+
+    //building records data
+    $array_records = [
+        'total' => 0,
+        'most_used' =>  'manual'
+    ];
+
+    //getting all the records
+    $records = getRecords();
+
+
+
+}
