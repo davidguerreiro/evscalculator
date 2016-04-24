@@ -195,6 +195,5 @@ function getStatus(){
     //getting all the records
     $records = getRecords();
 
-
-
+    return $data;
 }
