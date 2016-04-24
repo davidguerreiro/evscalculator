@@ -81,6 +81,7 @@
 			transition: none;
 			transform: translate3d(0,0,0);
 			position: static;
+			overflow-y: inherit;
 		}
 	}
 }
@@ -96,6 +97,7 @@
 			transition: none;
 			transform: translate3d(0,0,0);
 			position: static;
+			overflow-y: inherit;
 		}
 
 		.c-panel--menu {
