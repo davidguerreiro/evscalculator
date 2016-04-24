@@ -10,6 +10,14 @@
 	background: $color-primary;
 	padding: 1em;
 
+	.c-logo {
+		float: left;
+	}
+
+	.c-hamburger {
+		float: right;
+	}
+
 	@include mq($from: tablet) {
 		.c-logo {
 			padding-bottom: 1rem;

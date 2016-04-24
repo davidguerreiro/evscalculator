@@ -7,24 +7,29 @@
 		<span class="c-logo__calculator">calculator</span>
 	</h1>
 
-	<nav class="nav nav--side" role="nav">
-		{% for stat in stats|keys %}
-			{% if attribute(training.target, stat) is defined %}
-				<a class="c-button c-button--full c-button--progress c-button--{{ stat }}" href="{{ path_for('training_stat', { 'id': id_training, 'stat': stat }) }}">
-					<span class="c-button--progress__bar" style="width: {{ attribute(training.completed, stat) }}%"></span>
-					{{ stats[stat] }}
-					<span class="c-button__numbers">
-						{% if attribute(training.progress, stat) == attribute(training.target, stat) %}
-							Done!
-						{% else %}
-							{{ attribute(training.progress, stat) }} / 
-							{{ attribute(training.target, stat) }}
-						{% endif %}
-					</span>
-				</a>
-			{% endif %}
-		{% endfor %}
-	</nav>
+	<a class="c-button c-hamburger" href="#menu">Menu</a>
+
+	<div class="c-panel c-panel--menu">
+		<a href="#" class="c-button c-button--back">Back to training</a>
+		<nav class="nav nav--side" role="nav">
+			{% for stat in stats|keys %}
+				{% if attribute(training.target, stat) is defined %}
+					<a class="c-button c-button--full c-button--progress c-button--{{ stat }}" href="{{ path_for('training_stat', { 'id': id_training, 'stat': stat }) }}">
+						<span class="c-button--progress__bar" style="width: {{ attribute(training.completed, stat) }}%"></span>
+						{{ stats[stat] }}
+						<span class="c-button__numbers">
+							{% if attribute(training.progress, stat) == attribute(training.target, stat) %}
+								Done!
+							{% else %}
+								{{ attribute(training.progress, stat) }} / 
+								{{ attribute(training.target, stat) }}
+							{% endif %}
+						</span>
+					</a>
+				{% endif %}
+			{% endfor %}
+		</nav>
+	</div>
 
 
 	<div class="js-graph--stats"></div>

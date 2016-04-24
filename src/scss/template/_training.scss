@@ -75,6 +75,17 @@
 
 @include mq($from: desktop) {
 
+	.t-training {
+		.c-button--back {
+			display: none;
+		}
+			
+		.c-panel {
+			transform: translate3d(0,0,0);
+			position: static;
+		}
+	}
+
 	.t-training__main {
 		padding-left: 14.5rem;
 	}
@@ -95,7 +106,6 @@
 	.t-training__records {
 		width: 33.33%;
 	}
-
 
 	.t-training {
 		.js-graph--stats {
