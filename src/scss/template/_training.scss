@@ -7,6 +7,10 @@
 	.js-graph--stats{
 		display: none;
 	}
+
+	.c-logo {
+		margin: 0;
+	}
 }
 
 .t-training__main {
@@ -83,6 +87,10 @@
 		.c-panel {
 			transform: translate3d(0,0,0);
 			position: static;
+		}
+
+		.c-panel--menu {
+			clear: both;
 		}
 	}
 
