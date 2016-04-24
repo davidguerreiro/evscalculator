@@ -89,7 +89,7 @@
 			}
 		}
 	}
-	
+
 }
 
 @include mq($from: desktop) {
@@ -109,6 +109,7 @@
 
 		.c-panel--menu {
 			clear: both;
+			padding-top: 1em;
 		}
 	}
 
