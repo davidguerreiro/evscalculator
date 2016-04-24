@@ -219,7 +219,7 @@ t-training
 
 					{# Define origin for manual actions #}
 					{% if record.from is defined %}
-						{% set class = class ~ " c-record--source c-record--" ~ record.from.type %}
+						{% set class = class ~ " c-record--" ~ record.from.type %}
 						{% set source = record.from %}
 						{% set image_root = record.from.type %}
 						{% if image_root == 'hordes' %}

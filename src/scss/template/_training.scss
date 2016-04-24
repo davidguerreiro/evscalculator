@@ -26,6 +26,11 @@
 	overflow: hidden;
 }
 
+.t-training__records {
+	padding: 1em;
+	background: #fff;
+}
+
 @include mq($from: tablet) {
 
 	.t-training__grid {

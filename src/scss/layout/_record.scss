@@ -1,4 +1,9 @@
 
+.l-record {
+    margin-left: -1em;
+    margin-right: -1em;  
+}
+
 
 @include mq($from: tablet) {
 	.l-record {
@@ -6,7 +11,5 @@
 	    height: 400px;
 	    height: 70vh;
 	    height: calc(100vh - 12em);
-	    margin-left: -1em;
-	    margin-right: -1em;  
 	}
 }
