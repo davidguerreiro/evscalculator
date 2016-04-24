@@ -6,6 +6,8 @@
 	transform: translate3d(100%,0,0);
 	transform: translate3d(100vw,0,0);
 	transition: .5s all ease-in-out;
+    right: 0;
+    background: #fff;
 }
 
 #panel-menu:target {
