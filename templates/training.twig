@@ -106,7 +106,7 @@ t-training
 					<input type="hidden" name="value" value="{{ horde.stat_value }}">
 					<input type="hidden" name="power_item" value="{{ (training.power_item ? training.power_item.id : 0) }}">
 					<input type="hidden" name="from" value="horde:{{ horde.id }}">
-					<button class="c-button c-button--action" {{ invalid }} type="submit" title="Kill {{ horde.name }} horde">
+					<button class="c-button c-button--action" {{ invalid }} type="submit" title="Defeat {{ horde.name }} horde">
 						<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/pkmn/icon/{{ horde.id }}.png');"></span> 
 						+{{ horde.stat_value }}</button>
 				</form>
@@ -137,7 +137,8 @@ t-training
 							<input type="hidden" name="from" value="vitamin:{{ vitamin.id }}">
 							<button class="c-button c-button--action" {{ invalid }} type="submit" title="Use {{ vitamin.name }} horde">
 								<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/vitamins/icon/{{ vitamin.id }}.png');"></span> 
-								+{{ vitamin.stat_value }}</button>
+								{{ vitamin.name }}
+								(+{{ vitamin.stat_value }})</button>
 						</form>
 					</div>
 				{% endfor %}
@@ -164,7 +165,8 @@ t-training
 							<input type="hidden" name="from" value="berry:{{ berry.id }}">
 							<button class="c-button c-button--action" {{ invalid }} type="submit" title="Use {{ berry.name }}">
 								<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/berries/icon/{{ berry.id }}.png');"></span> 
-								-{{ berry.stat_value }}</button>
+								{{ berry.name }}
+								(-{{ berry.stat_value }})</button>
 						</form>
 					</div>
 				{% endfor %}
