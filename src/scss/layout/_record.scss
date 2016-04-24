@@ -8,16 +8,11 @@
 @include mq($from: tablet) {
 	.l-record {
 		overflow-y: scroll;
-	    height: 400px;
-	    height: 60vh;
-	    height: calc(100vh - 18em);
-	}
-}
-
-@include mq($from: desktop) {
-	.l-record {
-	    height: 400px;
-	    height: 70vh;
-	    height: calc(100vh - 12em);
+	    position: fixed;
+	    left: 0;
+	    right: 0;
+	    margin: 0;
+	    bottom: 0;
+	    top: 9em;
 	}
 }
