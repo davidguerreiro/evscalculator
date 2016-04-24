@@ -37,6 +37,20 @@
 
 @include mq($from: tablet) {
 
+	.t-training {
+		.c-panel--records {
+			transition: none;
+			transform: translateX(0);
+			transform: translate3d(0,0,0);
+			position: static;
+			overflow-y: visible;
+
+			.c-button--back { 
+				display: none; 
+			}
+		}
+	}
+
 	.t-training__grid {
 		overflow: hidden;
 	}
@@ -51,10 +65,12 @@
 		}
 	}
 
+	.t-training__main {
+		position: relative;
+	}
+
 	.t-training__actions,
 	.t-training__records {
-		float: left;
-		width: 40%;
 		background: #fff;
 		border: 1em solid $color-bg;
 		padding: 1em;
@@ -63,8 +79,16 @@
 	}
 
 	.t-training__actions {
-		width: 60%;
 		border-right: 0;
+		margin-right: 20em;
+	}
+
+	.t-training__records {
+		width: 20em;
+		position: fixed;
+		bottom: 0; 
+		right: 0;
+		top: 5.1em;
 	}
 
 	.t-training__header {
@@ -76,19 +100,6 @@
 		border-top: 1em solid $color-bg;
 	}
 
-	.t-training {
-		.c-panel--records {
-			transition: none;
-			transform: translateX(0);
-			transform: translate3d(0,0,0);
-			position: static;
-			overflow-y: inherit;
-
-			.c-button--back { 
-				display: none; 
-			}
-		}
-	}
 
 }
 
@@ -104,7 +115,7 @@
 			transform: translateX(0);
 			transform: translate3d(0,0,0);
 			position: static;
-			overflow-y: inherit;
+			overflow-y: visible;
 		}
 
 		.c-panel--menu {
@@ -127,11 +138,8 @@
 		}
 	}
 
-	.t-training__actions {
-		width: 66.66%;
-	}
 	.t-training__records {
-		width: 33.33%;
+		top: 0;
 	}
 
 	.t-training {
