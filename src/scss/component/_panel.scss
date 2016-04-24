@@ -47,6 +47,7 @@
 
 @include mq($from: desktop) {
 	.c-panel--menu {
+		padding: 0;
 		background: none;
 	}
 }
