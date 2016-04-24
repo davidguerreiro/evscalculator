@@ -4,6 +4,8 @@
 	.l-record {
 		overflow-y: scroll;
 	    height: 400px;
+	    height: 70vh;
+	    height: calc(100vh - 12em);
 	    margin-left: -1em;
 	    margin-right: -1em;  
 	}
