@@ -30,6 +30,8 @@ t-training
 			<div class="c-progress__bar" style="width: {{ percentage }}%;">{{ percentage }}%</div>
 		</div>
 
+
+
 		<p>Left {{ left }} - Gained {{ gained }} - Target {{ target }} - Power item: {{ training.power_item.name }}</p>
 
 		<form method="POST" action="{{ current_url }}">
@@ -37,7 +39,9 @@ t-training
 			<div class="c-inlineform">
 				<select name="power_item" class="c-inlineform__field">
 					{% for item in items_data.data %}
-						<option value="{{ item.id }}">{{ item.name }}</option>
+						<option value="{{ item.id }}" 
+							{% if item.id == training.power_item %}selected{% endif %}
+						>{{ item.name }}</option>
 					{% endfor %}
 				</select>
 				<button class="c-button c-inlineform__button" type="submit">Change</button>
@@ -69,6 +73,7 @@ t-training
 
 		<h3>Hordes</h3>
 
+		<div class="l-action">
 		{% for horde in actions.hordes %}
 			{% set invalid = '' %}
 			{% if horde.invalid == true %}
@@ -88,12 +93,14 @@ t-training
 				</form>
 			</div>
 		{% endfor %}
+		</div>
 
 		<br><br>
 
 
 		<h3>Vitamins</h3>
 
+		<div class="l-action">
 		{% for vitamin in actions.vitamins %}
 			{% set invalid = '' %}
 			{% if vitamin.invalid == true %}
@@ -112,11 +119,13 @@ t-training
 				</form>
 			</div>
 		{% endfor %}
+		</div>
 
 		<br><br>
 
 		<h3>Berries</h3>
 
+		<div class="l-action">
 		{% for berry in actions.berries %}
 			{% set invalid = '' %}
 			{% if berry.invalid == true %}
@@ -135,6 +144,7 @@ t-training
 				</form>
 			</div>
 		{% endfor %}
+		</div>
 
 		<br><br>
 

@@ -57,7 +57,7 @@
 		  spread
 		    .call(chart);
 		}
-		w.updateGraph();
+		if(document.documentElement.clientWidth>=1000) w.updateGraph();
 
 	}
 
