@@ -114,8 +114,10 @@ $t-records-desktop-width: 336px;
 
 
 	.t-training__footer {
-		border-top: 1em solid $color-bg;
-		padding: 1em 1em 0 1em;		
+		border-top: 1em solid #eee;
+	    padding: 1em 1em 0 1em;
+	    margin: 0 -1rem;
+	    border-bottom: 1em solid #eee;	
 	}
 
 
