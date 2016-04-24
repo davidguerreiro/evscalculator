@@ -1,3 +1,6 @@
+$t-nav-width: 14.5rem;
+$t-records-width: 20rem;
+
 
 .t-training {
 	h1,h2,h3,h4,h5,h6 {
@@ -80,11 +83,11 @@
 
 	.t-training__actions {
 		border-right: 0;
-		margin-right: 20em;
+		margin-right: $t-records-width;
 	}
 
 	.t-training__records {
-		width: 20em;
+		width: $t-records-width;
 		position: fixed;
 		bottom: 0; 
 		right: 0;
@@ -125,13 +128,13 @@
 	}
 
 	.t-training__main {
-		padding-left: 14.5rem;
+		padding-left: $t-nav-width;
 	}
 
 	.t-training__nav {
 		position: fixed;
 		top: 0; bottom: 0; left: 0;
-		width: 14.5rem;
+		width: $t-nav-width;
 
 		.c-logo {
 			font-size: 1.5em;
