@@ -1,7 +1,7 @@
 
 .c-panel {
 	position: fixed;
-	top: 0;
+	top: 5em;
 	left: 0;
 	right: 0;
     bottom: 0;
@@ -27,6 +27,7 @@
 
 .c-panel--menu {
 	padding: 1em;
+	background: $color-primary;
 }
 
 @include mq($from: tablet) {
@@ -37,9 +38,9 @@
 			display: none;
 		}
 
-		padding: 0;
-		right: auto;
-		max-width: 20em;
+		padding: 1em;
+	    right: auto;
+	    width: 14em;
 	}
 
 }

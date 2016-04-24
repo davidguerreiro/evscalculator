@@ -1,8 +1,5 @@
 
 .nav--side {
-	@include mq($from: tablet, $until: desktop) {		
-		display: flex;
-	}
 
 	@include mq($from: desktop) {
 		margin-bottom: 1em;
