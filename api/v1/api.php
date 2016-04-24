@@ -73,7 +73,7 @@ $app->get('/v1/items[.{format}]', function($req, $res){
 });
 
 //GET Status
-$app->get('/v1/status[.{format}]', function($req, $res){})
+$app->get('/v1/status[.{format}]', function($req, $res){
 
     $data = getStatus();
 
