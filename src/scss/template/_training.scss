@@ -93,6 +93,7 @@ $t-records-width: 20rem;
 		left: auto;
 		width: $t-records-width;
 		top: 5.1em;
+		z-index: 10;
 	}
 
 	.t-training__header {
@@ -136,6 +137,7 @@ $t-records-width: 20rem;
 		position: fixed;
 		top: 0; bottom: 0; left: 0;
 		width: $t-nav-width;
+		z-index: 10;
 
 		.c-logo {
 			font-size: 1.5em;
