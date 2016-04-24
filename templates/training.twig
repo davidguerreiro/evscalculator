@@ -112,8 +112,6 @@ t-training
 		{% endfor %}
 		</div>
 
-		<br><br>
-
 
 		<div class="t-training__grid">
 
@@ -178,7 +176,7 @@ t-training
 	<aside class="t-training__records c-panel c-panel--records" id="panel-records">
 		<a href="#" class="c-button c-button--full c-button--back">Back to training</a>
 
-		<h2>Manual entry</h2>
+		<h3>Records</h3>
 
 		<form method="POST" action="{{ current_url }}">
 			<input type="hidden" name="action" value="add">
@@ -192,9 +190,6 @@ t-training
 			</div>
 		</form>
 
-		<br>
-
-		<h2>Records</h2>
 
 		{% if records_data.stat != "ok" %}
 			{% set errors = records_data.errors %}
