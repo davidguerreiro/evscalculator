@@ -18,11 +18,13 @@
 #panel-menu:target {	
 	transform: translateX(0);
 	transform: translate3D(0,0,0);
+	z-index: 100;
 }
 
 #panel-records:target {
 	transform: translateX(0);
 	transform: translate3D(0,0,0);
+	z-index: 1000;
 }
 
 .c-panel--menu {
