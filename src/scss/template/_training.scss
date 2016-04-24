@@ -83,8 +83,13 @@
 			transform: translate3d(0,0,0);
 			position: static;
 			overflow-y: inherit;
+
+			.c-button--back { 
+				display: none; 
+			}
 		}
 	}
+	
 }
 
 @include mq($from: desktop) {

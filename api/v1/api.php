@@ -78,8 +78,6 @@ $app->get('/v1/status[.{format}]', function($req, $res){})
     $data = getStatus();
 
     return $res->write(parse($data));
-
-    
 });
 
 

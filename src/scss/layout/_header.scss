@@ -19,9 +19,9 @@
 		float: right;
 	}
 
-	@include mq($from: tablet) {
-		.c-logo {
-			padding-bottom: 1rem;
+	@include mq($from: desktop) {
+		.c-hamburger {
+			display: none;
 		}
 	}
 }

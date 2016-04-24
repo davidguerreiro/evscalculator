@@ -9,6 +9,14 @@
 	.l-record {
 		overflow-y: scroll;
 	    height: 400px;
+	    height: 62vh;
+	    height: calc(100vh - 17em);
+	}
+}
+
+@include mq($from: desktop) {
+	.l-record {
+	    height: 400px;
 	    height: 70vh;
 	    height: calc(100vh - 12em);
 	}
