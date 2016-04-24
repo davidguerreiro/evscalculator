@@ -5,6 +5,9 @@
 	left: 0;
 	right: 0;
     bottom: 0;
+	transform: translateX(30em);
+	transform: translateX(100%);
+	transform: translateX(100vw);
 	transform: translate3d(-100%,0,0);
 	transform: translate3d(-100vw,0,0);
 	transition: .5s all ease-in-out;
@@ -12,11 +15,13 @@
     background: #fff;
 }
 
-#panel-menu:target {
+#panel-menu:target {	
+	transform: translateX(0);
 	transform: translate3D(0,0,0);
 }
 
 #panel-records:target {
+	transform: translateX(0);
 	transform: translate3D(0,0,0);
 }
 

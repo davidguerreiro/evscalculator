@@ -79,6 +79,7 @@
 	.t-training {
 		.c-panel--records {
 			transition: none;
+			transform: translateX(0);
 			transform: translate3d(0,0,0);
 			position: static;
 			overflow-y: inherit;
@@ -95,6 +96,7 @@
 			
 		.c-panel {
 			transition: none;
+			transform: translateX(0);
 			transform: translate3d(0,0,0);
 			position: static;
 			overflow-y: inherit;
