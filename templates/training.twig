@@ -86,9 +86,11 @@ t-training
 
 		<h2>Actions</h2>
 
-		<p>These actions change the number of EVs for the {{ current_stat }} stat of your PoKémon. Choose the one that suits you best or simply imput the number of gained EVs on the manual entry.</p>
+		<p>These actions change your EV count for the <strong>{{ stats[current_stat] }}</strong> stat of your PoKémon. A <strong>manual entry</strong> mode is available on the records list.</p>
 
 		<h3>Hordes</h3>
+
+		<p>The fastest way to gain EVs. We've chosen the most used hordes for <strong>{{ stats[current_stat] }}</strong>.</p>
 
 		<div class="l-action">
 		{% for horde in actions.hordes %}
@@ -118,6 +120,8 @@ t-training
 			<div class="t-training__col">
 				<h3>Vitamins</h3>
 
+				<p>Give your PoKémon this vitamin when you have less than 100 EVs in <strong>{{ stats[current_stat] }}</strong> to increase it by 10 EVs. Vitamins are a quick but expensive way to gain EVs.</p>
+
 				<div class="l-action">
 				{% for vitamin in actions.vitamins %}
 					{% set invalid = '' %}
@@ -142,6 +146,8 @@ t-training
 
 			<div class="t-training__col">
 				<h3>Berries</h3>
+
+				<p>Give your PoKémon this berry when it has more than needed on <strong>{{ stats[current_stat] }}</strong> and it will decrease it by 10 EVs. Berries, together with the Super Training punching bag, are the only way to decrease your EV count.</p>
 
 				<div class="l-action">
 				{% for berry in actions.berries %}
