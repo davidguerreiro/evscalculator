@@ -32,6 +32,11 @@
 @include mq($from: tablet) {
 
 	.c-panel--menu {
+
+		a[href="#panel-records"] {
+			display: none;
+		}
+
 		padding: 0;
 		right: auto;
 		max-width: 20em;
