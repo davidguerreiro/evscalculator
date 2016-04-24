@@ -1,5 +1,6 @@
 $t-nav-width: 14.5rem;
 $t-records-width: 19rem;
+$t-records-desktop-width: 21rem;
 
 
 .t-training {
@@ -161,4 +162,15 @@ $t-records-width: 19rem;
 	    	bottom: 3em;
 	    }
     }
+}
+
+@include mq($from: wide) {
+
+	.t-training__actions {
+		padding-right: $t-records-desktop-width;
+	}
+	.t-training__records {
+		width: $t-records-desktop-width;
+	}
+
 }
