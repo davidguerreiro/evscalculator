@@ -1,0 +1,10 @@
+
+
+@include mq($from: tablet) {
+	.l-record {
+		overflow-y: scroll;
+	    height: 400px;
+	    margin-left: -1em;
+	    margin-right: -1em;  
+	}
+}
