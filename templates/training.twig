@@ -30,9 +30,20 @@ t-training
 			<div class="c-progress__bar" style="width: {{ percentage }}%;">{{ percentage }}%</div>
 		</div>
 
-
-
-		<p>Left {{ left }} - Gained {{ gained }} - Target {{ target }} - Power item: {{ training.power_item.name }}</p>
+		<div class="l-numbers">
+			<div class="c-numbers c-numbers--left">
+				<span class="c-numbers__label">Left</span>
+				<span class="c-numbers__number">{{ left }}</span>
+			</div>
+			<div class="c-numbers c-numbers--gained">
+				<span class="c-numbers__label">Gained</span>
+				<span class="c-numbers__number">{{ gained }}</span>
+			</div>
+			<div class="c-numbers c-numbers--target">
+				<span class="c-numbers__label">Target</span>
+				<span class="c-numbers__number">{{ target }}</span>
+			</div>
+		</div>
 
 		<form method="POST" action="{{ current_url }}">
 			<input type="hidden" name="action" value="change_item">
