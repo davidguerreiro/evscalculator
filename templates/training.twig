@@ -15,62 +15,60 @@ t-training
 
 <div class="t-training__main">
 
+	<main class="t-training__actions">
+		<div class="t-training__header">
+			{% if training.pokerus != 0 %}
+				<span class="c-pokerus" style="float:right">POKéRUS</span>
+			{% else %}
+				<form method="POST" style="float: right" action="{{ current_url }}">
+					<input type="hidden" name="action" value="activate_pokerus">
+					<button class="c-button" type="submit">Enable POKéRUS</button>
+				</form>
+			{% endif %}
+			<h2 class="c-training__title">{{ stats[current_stat] }} - Training #{{ training.id }}</h2>
+			<div class="c-progress c-progress--main">
+				<div class="c-progress__bar" style="width: {{ percentage }}%;">{{ percentage }}%</div>
+			</div>
 
-	<div class="t-training__header">
-		{% if training.pokerus != 0 %}
-			<span class="c-pokerus" style="float:right">POKéRUS</span>
-		{% else %}
-			<form method="POST" style="float: right" action="{{ current_url }}">
-				<input type="hidden" name="action" value="activate_pokerus">
-				<button class="c-button" type="submit">Enable POKéRUS</button>
-			</form>
-		{% endif %}
-		<h2 class="c-training__title">{{ stats[current_stat] }} - Training #{{ training.id }}</h2>
-		<div class="c-progress c-progress--main">
-			<div class="c-progress__bar" style="width: {{ percentage }}%;">{{ percentage }}%</div>
-		</div>
+			<div class="t-training__grid">
 
-		<div class="t-training__grid">
-
-			<div class="t-training__col">
-				<div class="l-numbers">
-					<div class="c-numbers c-numbers--left">
-						<span class="c-numbers__label">Left</span>
-						<span class="c-numbers__number">{{ left }}</span>
-					</div>
-					<div class="c-numbers c-numbers--gained">
-						<span class="c-numbers__label">Gained</span>
-						<span class="c-numbers__number">{{ gained }}</span>
-					</div>
-					<div class="c-numbers c-numbers--target">
-						<span class="c-numbers__label">Target</span>
-						<span class="c-numbers__number">{{ target }}</span>
+				<div class="t-training__col">
+					<div class="l-numbers">
+						<div class="c-numbers c-numbers--left">
+							<span class="c-numbers__label">Left</span>
+							<span class="c-numbers__number">{{ left }}</span>
+						</div>
+						<div class="c-numbers c-numbers--gained">
+							<span class="c-numbers__label">Gained</span>
+							<span class="c-numbers__number">{{ gained }}</span>
+						</div>
+						<div class="c-numbers c-numbers--target">
+							<span class="c-numbers__label">Target</span>
+							<span class="c-numbers__number">{{ target }}</span>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="t-training__col">
-				<form method="POST" action="{{ current_url }}">
-					<input type="hidden" name="action" value="change_item">
-					<div class="c-inlineform">
-						<select name="power_item" class="c-inlineform__field">
-							{% for item in items_data.data %}
-								<option value="{{ item.id }}" 
-									{% if item.id == training.power_item %}selected{% endif %}
-								>{{ item.name }}</option>
-							{% endfor %}
-						</select>
-						<button class="c-button c-inlineform__button" type="submit">Change</button>
-					</div>
-				</form>
+				<div class="t-training__col">
+					<form method="POST" action="{{ current_url }}">
+						<input type="hidden" name="action" value="change_item">
+						<div class="c-inlineform">
+							<select name="power_item" class="c-inlineform__field">
+								{% for item in items_data.data %}
+									<option value="{{ item.id }}" 
+										{% if item.id == training.power_item %}selected{% endif %}
+									>{{ item.name }}</option>
+								{% endfor %}
+							</select>
+							<button class="c-button c-inlineform__button" type="submit">Change</button>
+						</div>
+					</form>
+				</div>
+
 			</div>
 
 		</div>
-
-	</div>
-
-
-	<main class="t-training__actions">
+		
 		{# Training stat errors #}
 		{% if training_data.stat == "invalid" %}
 			{% set errors = training_data.errors %}

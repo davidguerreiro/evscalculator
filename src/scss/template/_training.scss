@@ -22,12 +22,18 @@
 	background: $color-tertiary;
 	color: $color-tertiary-dark;
 	padding: 1em;
+	margin: -1rem -1rem 1rem -1rem;
 	overflow: hidden;
 }
 
 @include mq($from: tablet) {
 	.t-training__header {
 		border: 1em solid $color-bg;
+		border-left: 0;
+    	border-right: 0;
+	}
+	.t-training__records{
+		border-top: 1em solid $color-bg;
 	}
 
 	.t-training__grid {
