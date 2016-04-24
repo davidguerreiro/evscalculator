@@ -115,55 +115,60 @@ t-training
 		<br><br>
 
 
-		<h3>Vitamins</h3>
+		<div class="t-training__grid">
 
-		<div class="l-action">
-		{% for vitamin in actions.vitamins %}
-			{% set invalid = '' %}
-			{% if vitamin.invalid == true %}
-				{% set invalid = 'disabled'%}
-			{% endif %}
-			<div class="c-action">
-				<form method="POST" action="{{ current_url }}">
-					<input type="hidden" name="action" value="add">
-					<input type="hidden" name="id" value="{{ id_training }}">
-					<input type="hidden" name="stat" value="{{ current_stat }}">
-					<input type="hidden" name="value" value="{{ vitamin.stat_value }}">
-					<input type="hidden" name="from" value="vitamin:{{ vitamin.id }}">
-					<button class="c-button c-button--action" {{ invalid }} type="submit" title="Use {{ vitamin.name }} horde">
-						<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/vitamins/icon/{{ vitamin.id }}.png');"></span> 
-						+{{ vitamin.stat_value }}</button>
-				</form>
+			<div class="t-training__col">
+				<h3>Vitamins</h3>
+
+				<div class="l-action">
+				{% for vitamin in actions.vitamins %}
+					{% set invalid = '' %}
+					{% if vitamin.invalid == true %}
+						{% set invalid = 'disabled'%}
+					{% endif %}
+					<div class="c-action">
+						<form method="POST" action="{{ current_url }}">
+							<input type="hidden" name="action" value="add">
+							<input type="hidden" name="id" value="{{ id_training }}">
+							<input type="hidden" name="stat" value="{{ current_stat }}">
+							<input type="hidden" name="value" value="{{ vitamin.stat_value }}">
+							<input type="hidden" name="from" value="vitamin:{{ vitamin.id }}">
+							<button class="c-button c-button--action" {{ invalid }} type="submit" title="Use {{ vitamin.name }} horde">
+								<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/vitamins/icon/{{ vitamin.id }}.png');"></span> 
+								+{{ vitamin.stat_value }}</button>
+						</form>
+					</div>
+				{% endfor %}
+				</div>
 			</div>
-		{% endfor %}
-		</div>
 
-		<br><br>
+			<div class="t-training__col">
+				<h3>Berries</h3>
 
-		<h3>Berries</h3>
-
-		<div class="l-action">
-		{% for berry in actions.berries %}
-			{% set invalid = '' %}
-			{% if berry.invalid == true %}
-				{% set invalid = 'disabled'%}
-			{% endif %}
-			<div class="c-action">
-				<form method="POST" action="{{ current_url }}">
-					<input type="hidden" name="action" value="add">
-					<input type="hidden" name="id" value="{{ id_training }}">
-					<input type="hidden" name="stat" value="{{ current_stat }}">
-					<input type="hidden" name="value" value="-{{ berry.stat_value }}">
-					<input type="hidden" name="from" value="berry:{{ berry.id }}">
-					<button class="c-button c-button--action" {{ invalid }} type="submit" title="Use {{ berry.name }}">
-						<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/berries/icon/{{ berry.id }}.png');"></span> 
-						-{{ berry.stat_value }}</button>
-				</form>
+				<div class="l-action">
+				{% for berry in actions.berries %}
+					{% set invalid = '' %}
+					{% if berry.invalid == true %}
+						{% set invalid = 'disabled'%}
+					{% endif %}
+					<div class="c-action">
+						<form method="POST" action="{{ current_url }}">
+							<input type="hidden" name="action" value="add">
+							<input type="hidden" name="id" value="{{ id_training }}">
+							<input type="hidden" name="stat" value="{{ current_stat }}">
+							<input type="hidden" name="value" value="-{{ berry.stat_value }}">
+							<input type="hidden" name="from" value="berry:{{ berry.id }}">
+							<button class="c-button c-button--action" {{ invalid }} type="submit" title="Use {{ berry.name }}">
+								<span class="c-button--action__img" aria-hidden="true" style="background-image: url('https://img.evscalculator.com/berries/icon/{{ berry.id }}.png');"></span> 
+								-{{ berry.stat_value }}</button>
+						</form>
+					</div>
+				{% endfor %}
+				</div>
 			</div>
-		{% endfor %}
-		</div>
 
-		<br><br>
+		</main>
+
 
 		
 	
@@ -223,7 +228,7 @@ t-training
 						{% set image = 'https://img.evscalculator.com/' ~ image_root ~ '/icon/' ~ record.from.origin.id ~ '.png' %}
 					{% else %}
 						{% set class = class ~ " c-record--manual" %}
-						{% set image = '' %}
+						{% set image = 'https://img.evscalculator.com/others/icon/manual.png' %}
 						{% 
 							set source = {
 								"type": "manual", 
