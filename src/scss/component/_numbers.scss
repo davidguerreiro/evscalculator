@@ -1,9 +1,16 @@
 
 .c-numbers {
+	padding: .5em 0 .5em 0;
+}
 
+.c-numbers__label {
+	text-transform: uppercase;
+    font-size: .7em;
 }
 
 .c-numbers__number {
 	@extend %font-secondary;
 	font-weight: 700;
+	font-size: 2em;
+    display: block;
 }

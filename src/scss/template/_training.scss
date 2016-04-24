@@ -30,6 +30,19 @@
 		border: 1em solid $color-bg;
 	}
 
+	.t-training__grid {
+		overflow: hidden;
+	}
+
+	.t-training__col {
+		float: left;
+		width: 50%;
+
+		&:nth-child(2n) {
+			padding-left: 1em;
+		}
+	}
+
 	.t-training__actions,
 	.t-training__records {
 		float: left;

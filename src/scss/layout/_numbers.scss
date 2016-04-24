@@ -1,0 +1,11 @@
+
+.l-numbers {
+	overflow: hidden;
+	display: flex;
+
+	.c-numbers {
+		float: left;
+		width: 33.33%;
+		flex: 1 0;
+	}
+}
