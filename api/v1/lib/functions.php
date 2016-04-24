@@ -241,7 +241,7 @@ function getActionsByStat($id, $stat_name){
     $left = getLeft($stat_name, $id);
 
     //building the first part of the array
-    $data['recomended'] = [];
+    $data['recommended'] = [];
     $data['hordes'] = [];
     $data['vitamins'] = [];
     $data['berries'] = [];
@@ -250,9 +250,11 @@ function getActionsByStat($id, $stat_name){
     $power_item = $current_training->power_item;
     $game = $current_training->game;
     
+
+    // HORDES
     //getting the hordes filter by stat
     $hordes = getHordes(['stat' => $stat_name, 'game' => $game]);
-
+    
     if(empty($hordes))
         return $errors;
 
@@ -286,34 +288,32 @@ function getActionsByStat($id, $stat_name){
     usort($hordes, function($a, $b) {
         return $a->stat_value < $b->stat_value;
     });
-
-
     //adding hordes tp data
     $data['hordes'] = $hordes;
 
+
+
+    // VITAMINS
     //getting berries by stat
     $berries = getBerries(['stat' => $stat_name]);
-
     //looping berries
     foreach($berries as $berry){
         $berry->invalid = ($progress > 0) ? false : true;
     }
-
     //adding berries to final data
     $data['berries'] = $berries;
-
     //getting vitamins by stat
     $vitamins = getVitamins(['stat' => $stat_name]);
-
     //looping vitamins
     foreach($vitamins as $vitamin){
         $vitamin->invalid = ($progress < 100 && $left >= intval($vitamin->stat_value)) ? false : true;
     }
-
     //adding vitamins to final data
     $data['vitamins'] = $vitamins;
 
-    //building recomended array
+
+
+    // RECOMMENDED
 
     //pokerus
     if($pokerus)
