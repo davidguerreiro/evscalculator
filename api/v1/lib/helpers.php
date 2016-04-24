@@ -192,6 +192,7 @@ function getStatus(){
         'most_used' =>  'manual'
     ];
 
+    
     //getting all the records
     $records = getRecords();
 
