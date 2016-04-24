@@ -38,7 +38,7 @@
 @include mq($from: tablet) {
 
 	.t-training__grid {
-		position: relative;
+		overflow: hidden;
 	}
 
 	.t-training__col {
@@ -53,6 +53,7 @@
 
 	.t-training__actions,
 	.t-training__records {
+		float: left;
 		width: 40%;
 		background: #fff;
 		border: 1em solid $color-bg;
@@ -64,15 +65,6 @@
 	.t-training__actions {
 		width: 60%;
 		border-right: 0;
-		margin-right: 40%;
-	}
-
-	.t-training__records {
-		width: 40%;
-		position: fixed;
-		bottom: 0; 
-		right: 0;
-		top: 5em;
 	}
 
 	.t-training__header {
@@ -135,8 +127,11 @@
 		}
 	}
 
+	.t-training__actions {
+		width: 66.66%;
+	}
 	.t-training__records {
-		top: 0;
+		width: 33.33%;
 	}
 
 	.t-training {
