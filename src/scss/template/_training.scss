@@ -58,7 +58,9 @@
 	}
 
 	.t-training__header {
-		border-bottom: 1em solid $color-bg;
+		border: 1em solid $color-bg;
+		border-left: 0;
+		border-right: 0;
 	}
 	.t-training__records{
 		border-top: 1em solid $color-bg;
