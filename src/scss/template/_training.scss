@@ -87,10 +87,10 @@ $t-records-width: 20rem;
 	}
 
 	.t-training__records {
-		width: $t-records-width;
-		position: fixed;
+		position: fixed !important;
 		bottom: 0; 
 		right: 0;
+		width: $t-records-width;
 		top: 5.1em;
 	}
 
