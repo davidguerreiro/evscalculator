@@ -1,6 +1,6 @@
 ---
 title: GET trainings/:id/summary
-implemented: false
+implemented: true
 ---
 
 - Receives a training ID.  

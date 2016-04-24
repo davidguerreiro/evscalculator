@@ -1,5 +1,6 @@
 ---
 title: GET vitamins
+implemented: true
 ---
 
 - Returns an object array.  
