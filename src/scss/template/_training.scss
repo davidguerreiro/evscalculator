@@ -75,6 +75,14 @@
 	.t-training__records{
 		border-top: 1em solid $color-bg;
 	}
+
+	.t-training {
+		.c-panel--records {
+			transition: none;
+			transform: translate3d(0,0,0);
+			position: static;
+		}
+	}
 }
 
 @include mq($from: desktop) {
@@ -85,6 +93,7 @@
 		}
 			
 		.c-panel {
+			transition: none;
 			transform: translate3d(0,0,0);
 			position: static;
 		}

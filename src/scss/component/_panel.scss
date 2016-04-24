@@ -3,8 +3,8 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	transform: translate3d(100%,0,0);
-	transform: translate3d(100vw,0,0);
+	transform: translate3d(-100%,0,0);
+	transform: translate3d(-100vw,0,0);
 	transition: .5s all ease-in-out;
     right: 0;
     background: #fff;
@@ -16,4 +16,21 @@
 
 #panel-records:target {
 	transform: translate3D(0,0,0);
+}
+
+.c-panel--records {
+	padding: 1em;
+}
+
+@include mq($from: tablet) {
+
+	.c-panel--records {
+		padding: 0;
+	}
+
+	.c-panel--menu {
+		right: auto;
+		max-width: 20em;
+	}
+
 }
