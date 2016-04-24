@@ -18,17 +18,14 @@
 	transform: translate3D(0,0,0);
 }
 
-.c-panel--records {
+.c-panel--menu {
 	padding: 1em;
 }
 
 @include mq($from: tablet) {
 
-	.c-panel--records {
-		padding: 0;
-	}
-
 	.c-panel--menu {
+		padding: 0;
 		right: auto;
 		max-width: 20em;
 	}
