@@ -13,7 +13,7 @@ require('helpers.php');
 require('formats.php');
 
 
-
+//get trainings
 function getTrainings($id = null){   
     global $db, $hashids, $STATS;
 
@@ -39,6 +39,30 @@ function getTrainings($id = null){
     $data = sizeof($data) > 1 ? $data : $data[0];
 
     return $data;
+}
+
+//getting trainings by id and stat
+function getTrainingsByStat($id, $stat){
+
+    //variables
+    global $db, $STATS;
+    $errors = [];
+    $data = [];
+
+    //validation
+    if(!is_int($id) || !in_array($stat, $STATS))
+        return $errors['errors'] = 'Invalid parameters';
+
+    //getting target
+    $data['target'] = getTarget($stat, $id);
+
+    //getting progress
+    $data['progress'] = getProgress($stat, $id);
+
+    if(is_int($data['target']) && is_int($data['progress']))
+        return $data;
+    else
+        return $data['errors'] = 'No data returned for this training';
 }
 
 

@@ -46,6 +46,7 @@ function getProgress($stat, $training_id){
     return intval($progress);
 }
 
+//getting target value
 function getTarget($stat, $training_id) {
     global $db;
 

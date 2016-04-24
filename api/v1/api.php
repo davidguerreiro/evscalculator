@@ -110,6 +110,29 @@ $app->group('/v1/trainings', function() {
                 ->write(parse($data));
         });
 
+        //GET trainings/:id/:stat
+        $this->get('/{stat}[.{format}]', function($req, $res){
+
+            global $hashids;
+
+            $data = getTrainingsByStat($hashids->decode($req->getAttribute('id'))[0], $req->getAttribute('stat'));
+
+            if(isset($data['errors'])){
+
+                return $res
+                    ->write(parse($data['errors']))
+                    ->withStatus(400);
+            }
+            else{
+
+                return $res
+                    ->write(parse($data))
+                    ->withStatus(200);
+            }
+
+        });
+
+
         // Group: trainings/:id/records
         $this->group('/records', function() {
             
